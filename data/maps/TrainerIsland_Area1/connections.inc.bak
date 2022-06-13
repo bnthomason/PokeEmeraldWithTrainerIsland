@@ -1,0 +1,14 @@
+@
+@ DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/TrainerIsland_Area1/map.json
+@
+
+TrainerIsland_Area1_MapConnectionsList:
+	connection down, 2, MAP_TRAINER_ISLAND_AREA2
+	connection left, 0, MAP_TRAINER_ISLAND_AREA3
+	connection up, 6, MAP_TRAINER_ISLAND_AREA4
+	connection right, 0, MAP_TRAINER_ISLAND_HARBOUR
+
+TrainerIsland_Area1_MapConnections:
+	.4byte 4
+	.4byte TrainerIsland_Area1_MapConnectionsList
+

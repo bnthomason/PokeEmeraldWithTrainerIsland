@@ -41,6 +41,7 @@
 #include "constants/moves.h"
 #include "constants/party_menu.h"
 #include "constants/pokemon.h"
+#include "constants/points.h"
 #include "constants/roulette.h"
 #include "constants/script_menu.h"
 #include "constants/secret_bases.h"
@@ -1003,6 +1004,21 @@ Common_EventScript_LegendaryFlewAway::
 	release
 	end
 
+Add1Points::
+	addpoints 1
+
+Add2Points::
+	addpoints 2
+
+Add3Points::
+	addpoints 3
+	
+Add4Points::
+	addpoints 4
+	
+Add5Points::
+	addpoints 5
+
 	.include "data/scripts/pc_transfer.inc"
 	.include "data/scripts/questionnaire.inc"
 	.include "data/scripts/abnormal_weather.inc"
@@ -1058,3 +1074,67 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/TrainerIsland_Entrance/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Forest/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area1/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area2/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area3/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area4/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area5/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area6/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area7/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area8/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area9/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area10/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Entrance_PokemonCenter/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Entrance_Mart/scripts.inc"
+
+	.include "data/maps/TrainerIsland_1F/scripts.inc"
+
+	.include "data/maps/TrainerIsland_2F/scripts.inc"
+
+	.include "data/maps/TrainerIsland_B1F/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Hall/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Sanctum/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area8_RestHouse/scripts.inc"
+
+	.include "data/maps/TrainerIsland_Area9_House/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_Mart/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_Gym/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_RedemptionCenter/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_House1/scripts.inc"
+	
+	.include "data/maps/TrainerIsland_TrainerCity_House2/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_House3/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_House4/scripts.inc"
+
+	.include "data/maps/TrainerIsland_TrainerCity_Office/scripts.inc"

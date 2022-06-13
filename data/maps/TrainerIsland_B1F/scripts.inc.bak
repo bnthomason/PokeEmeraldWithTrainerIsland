@@ -1,0 +1,61 @@
+TrainerIsland_B1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_B1F_OnTransition
+	.byte 0
+	
+TrainerIsland_B1F_OnTransition:
+	cleartrainerflag TRAINER_MASTER_SARAH
+	cleartrainerflag TRAINER_MASTER_MATTHEW
+	cleartrainerflag TRAINER_MASTER_PAUL
+	end
+
+TrainerIsland_B1F_EventScript_Sarah::
+	cleartrainerflag TRAINER_MASTER_SARAH
+	trainerbattle_double TRAINER_MASTER_SARAH, TrainerIsland_B1F_Text_SarahIntro, TrainerIsland_B1F_Text_SarahDefeat, Add1Points
+	msgbox TrainerIsland_B1F_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+TrainerIsland_B1F_EventScript_Matthew::
+	cleartrainerflag TRAINER_MASTER_MATTHEW
+	trainerbattle_double TRAINER_MASTER_MATTHEW, TrainerIsland_B1F_Text_MatthewIntro, TrainerIsland_B1F_Text_MatthewDefeat, Add1Points
+	msgbox TrainerIsland_B1F_Text_MatthewPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_B1F_EventScript_Paul::
+	cleartrainerflag TRAINER_MASTER_PAUL
+	trainerbattle_double TRAINER_MASTER_PAUL, TrainerIsland_B1F_Text_PaulIntro, TrainerIsland_B1F_Text_PaulDefeat, Add1Points
+	msgbox TrainerIsland_B1F_Text_PaulPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+TrainerIsland_B1F_Text_PaulIntro:
+	.string "Go, my pokemon! Rollout!$"
+	
+TrainerIsland_B1F_Text_PaulDefeat:
+	.string "I got flattened!$"
+	
+TrainerIsland_B1F_Text_PaulPostBattle:
+	.string "Until all are one.$"
+	
+	
+TrainerIsland_B1F_Text_SarahIntro:
+	.string "My Pokemon are looking\n"
+	.string "all spiffy! I'm ready\l"
+	.string "for battle!$"
+	
+TrainerIsland_B1F_Text_SarahDefeat:
+	.string "My pokemon's fur got\n"
+	.string "messed up…$"
+	
+TrainerIsland_B1F_Text_SarahPostBattle:
+	.string "I need take my pokemon\n"
+	.string "to the groomer again…$"
+	
+
+TrainerIsland_B1F_Text_MatthewIntro:
+	.string "Ready for a knockout\n"
+	.string "challenge?$"
+
+TrainerIsland_B1F_Text_MatthewDefeat:
+	.string "Eliminated…$"
+
+TrainerIsland_B1F_Text_MatthewPostBattle:
+	.string "Looks like you win.$"

@@ -703,6 +703,17 @@
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text
 		.4byte \pointer3 @ text
+	.elseif \type == TRAINER_BATTLE_DOUBLE_NO_INTRO_TEXT
+		.4byte \pointer1 @ text
+		.4byte \pointer2 @ text
+	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_INTRO_TEXT
+		.4byte \pointer1 @ text
+		.4byte \pointer2 @ text
+		.4byte \pointer3 @ event script
+	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC_NO_INTRO_TEXT
+		.4byte \pointer1 @ text
+		.4byte \pointer2 @ text
+		.4byte \pointer3 @ event script
 	.elseif \type == TRAINER_BATTLE_REMATCH
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text
@@ -775,7 +786,18 @@
 	.macro trainerbattle_no_intro trainer:req, lose_text:req
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, \trainer, 0, \lose_text
 	.endm
-
+	
+	@ Starts a double trainer battle, skipping intro text. Takes a trainer and loss text, and text for when you have too few pokemon
+	@ and an optional event script. When used with an event script you can pass in an optional flag to disable music
+	.macro trainerbattle_double_no_intro trainer:req, lose_text:req, not_enough_pkmn_text:req, event_script=FALSE, music=TRUE
+	.if \event_script == FALSE
+	trainerbattle TRAINER_BATTLE_DOUBLE, \trainer, 0, \intro_text, \not_enough_pkmn_text
+	.elseif \music == TRUE
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
+	.else
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
+	.endif
+	.endm
 
 	@ Starts a trainer battle using the battle information stored in RAM (usually by the scripts in trainer_battle.inc, which
 	@ are run by trainerbattle), and blocks script execution until the battle finishes.
@@ -1735,6 +1757,48 @@
 	.2byte \quantity
 	.endm
 
+	@ Gets the number of points the player has and stores it in the variable 'out'.
+	.macro checkpoints out:req
+	.byte 0xe3
+	.2byte \out
+	.endm
+
+	@ Gives 'count' points to the player, up to a total of MAX_points. 
+	@ If the player already has MAX_points then VAR_RESULT is set to TRUE, otherwise it is set to FALSE.
+	.macro addpoints count:req
+	.byte 0xe4
+	.2byte \count
+	.endm
+
+	@ Takes 'count' points from the player.
+	@ If the player has fewer than 'count' points then no points are taken and VAR_RESULT is set to TRUE.
+	@ Otherwise VAR_RESULT is set to FALSE.
+	.macro removepoints count:req
+	.byte 0xe5
+	.2byte \count
+	.endm
+
+	@ Create a window showing how many Coins the player has.
+	.macro showpointsbox x:req, y:req
+	.byte 0xe6
+	.byte \x
+	.byte \y
+	.endm
+
+	@ Destroys the window created by showcoins. It consumes its arguments but doesn't use them.
+	.macro hidepointsbox x:req, y:req
+	.byte 0xe7
+	.byte \x
+	.byte \y
+	.endm
+
+	@ Updates the window created by showcoins. It consumes its arguments but doesn't use them.
+	.macro updatepointsbox x:req, y:req
+	.byte 0xe8
+	.byte \x
+	.byte \y
+	.endm
+
 
 @ Supplementary
 
@@ -2006,3 +2070,5 @@
 	.macro totemboost_evas2 battler:req
 	settotemboost \battler, 0, 0, 0, 0, 0, 0, 2
 	.endm
+	
+

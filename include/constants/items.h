@@ -928,7 +928,11 @@
 #define ITEM_RUBY 756
 #define ITEM_SAPPHIRE 757
 
-#define ITEMS_COUNT 758
+// Misc. Key Items2
+#define ITEM_POINT_TRACKER 758
+#define ITEM_BATTLE_READER 759
+
+#define ITEMS_COUNT 760
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

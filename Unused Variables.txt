@@ -1,0 +1,11 @@
+VAR_UNUSED_0x404E - HarbourState
+VAR_UNUSED_0x4083 - GymState
+VAR_UNUSED_0x408B - Winstrate House State
+VAR_UNUSED_0x40F7 - TateAndLiza
+VAR_UNUSED_0x40F8 - Roxanne
+VAR_UNUSED_0x40F9 - Norman
+VAR_UNUSED_0x40FA - Brawly
+VAR_UNUSED_0x40FB - Juan
+VAR_UNUSED_0x40FC - Wattson
+VAR_UNUSED_0x40FD - Flannery
+VAR_UNUSED_0x40FE - Winona

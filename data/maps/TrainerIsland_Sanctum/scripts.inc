@@ -1,0 +1,77 @@
+TrainerIsland_Sanctum_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Sanctum_OnFrame
+	.byte 0
+
+
+TrainerIsland_Sanctum_OnFrame:
+	map_script_2 VAR_UNUSED_0x40F8, 0, TrainerIsland_Sanctum_EventScript_SetVar
+	.2byte 0
+
+TrainerIsland_Sanctum_EventScript_SetVar::
+	setvar VAR_UNUSED_0x40F8, 1
+	end
+
+TrainerIsland_Sanctum_EventScript_Flannery::
+	goto_if_eq VAR_UNUSED_0x40FD, 1, TrainerIsland_Sanctum_EventScript_FlanneryFirstMatch
+	goto_if_eq VAR_UNUSED_0x40FD, 2, TrainerIsland_Sanctum_EventScript_FlanneryRematch1
+	goto_if_eq VAR_UNUSED_0x40FD, 3, TrainerIsland_Sanctum_EventScript_FlanneryRematch2
+	goto_if_eq VAR_UNUSED_0x40FD, 4, TrainerIsland_Sanctum_EventScript_FlanneryRematch3
+	goto_if_eq VAR_UNUSED_0x40FD, 5, TrainerIsland_Sanctum_EventScript_FlanneryRematch4
+	end
+	
+TrainerIsland_Sanctum_EventScript_FlanneryFirstMatch::
+	trainerbattle_double TRAINER_MASTER_FLANNERY, TrainerIsland_Sanctum_Text_FlanneryIntro, TrainerIsland_Sanctum_Text_FlanneryDefeat, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40FD, 2
+	end
+
+TrainerIsland_Sanctum_EventScript_FlanneryRematch1::
+	cleartrainerflag TRAINER_MASTER_FLANNERY_2
+	trainerbattle_double TRAINER_MASTER_FLANNERY_2, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40FD, 3
+	end
+	
+TrainerIsland_Sanctum_EventScript_FlanneryRematch2::
+	cleartrainerflag TRAINER_MASTER_FLANNERY_3
+	trainerbattle_double TRAINER_MASTER_FLANNERY_3, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40FD, 4
+	end
+
+TrainerIsland_Sanctum_EventScript_FlanneryRematch3::
+	cleartrainerflag TRAINER_MASTER_FLANNERY_4
+	trainerbattle_double TRAINER_MASTER_FLANNERY_4, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40FD, 5
+	end
+	
+TrainerIsland_Sanctum_EventScript_FlanneryRematch4::
+	cleartrainerflag TRAINER_MASTER_FLANNERY
+	trainerbattle_double TRAINER_MASTER_FLANNERY, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40FD, 2
+	end
+	
+TrainerIsland_Sanctum_Text_FlanneryIntro:
+	.string "We meet again! Let's\n"
+	.string "make a fervent battle!$"
+
+TrainerIsland_Sanctum_Text_FlanneryDefeat:
+	.string "Your passion is like\n"
+	.string "the sun!"
+
+TrainerIsland_Sanctum_Text_FlanneryPostBattle:
+	.string "I went down in a blaze\n"
+	.string "of glory!$"
+
+TrainerIsland_Sanctum_Text_FlanneryIntro2:
+	.string "Are you ready for more?$"
+	
+TrainerIsland_Sanctum_Text_FlanneryDefeat2:
+	.string "A brilliant display of!\n"
+	.string "power!$"
+	
+TrainerIsland_Sanctum_Text_FlanneryPostBattle2:
+	.string "Let battle again! Aim \n"
+	.string "hotter! Shine brighter!$"

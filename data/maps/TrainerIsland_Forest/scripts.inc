@@ -1,0 +1,218 @@
+TrainerIsland_Forest_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Forest_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Forest_OnFrame
+	.byte 0
+
+TrainerIsland_Forest_OnFrame:
+	map_script_2 VAR_UNUSED_0x40F7, 0, TrainerIsland_Forest_EventScript_SetVar
+	.2byte 0
+
+TrainerIsland_Forest_EventScript_SetVar::
+	setvar VAR_UNUSED_0x40F7, 1
+	end
+
+
+TrainerIsland_Forest_OnTransition:
+	cleartrainerflag TRAINER_MASTER_JUN
+	cleartrainerflag TRAINER_MASTER_DAN
+	cleartrainerflag TRAINER_MASTER_LACEY
+	cleartrainerflag TRAINER_MASTER_ESPER
+	cleartrainerflag TRAINER_MASTER_BRUCE
+	end
+
+TrainerIsland_Forest_EventScript_Jun::
+	cleartrainerflag TRAINER_MASTER_JUN
+	trainerbattle_double TRAINER_MASTER_JUN, TrainerIsland_Forest_Text_JunIntro, TrainerIsland_Forest_Text_JunDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Forest_Text_JunPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Forest_EventScript_Dan::
+	cleartrainerflag TRAINER_MASTER_DAN
+	trainerbattle_double TRAINER_MASTER_DAN, TrainerIsland_Forest_Text_DanIntro, TrainerIsland_Forest_Text_DanDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Forest_Text_DanPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Forest_EventScript_Esper::
+	cleartrainerflag TRAINER_MASTER_ESPER
+	trainerbattle_double TRAINER_MASTER_EPSER, TrainerIsland_Forest_Text_EsperIntro, TrainerIsland_Forest_Text_EsperDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Forest_Text_EsperPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Forest_EventScript_Bruce::
+	cleartrainerflag TRAINER_MASTER_BRUCE
+	trainerbattle_double TRAINER_MASTER_BRUCE, TrainerIsland_Forest_Text_BruceIntro, TrainerIsland_Forest_Text_BruceDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Forest_Text_BrucePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+TrainerIsland_Forest_EventScript_Lacey::
+	cleartrainerflag TRAINER_MASTER_LACEY
+	trainerbattle_double TRAINER_MASTER_LACEY, TrainerIsland_Forest_Text_LaceyIntro, TrainerIsland_Forest_Text_LaceyDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Forest_Text_LaceyPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+	
+TrainerIsland_Forest_EventScript_Brandon::
+	cleartrainerflag TRAINER_MASTER_BRANDON
+	trainerbattle_double TRAINER_MASTER_BRANDON, TrainerIsland_Forest_Text_BrandonIntro, TrainerIsland_Forest_Text_BrandonDefeat, CommonEvent_Text_NeedTwoMons, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Forest_Text_BrandonPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Forest_EventScript_TateandLiza::
+	goto_if_eq VAR_UNUSED_0x40F7, 1, TrainerIsland_Forest_EventScript_TateandLizaFirstMatch
+	goto_if_eq VAR_UNUSED_0x40F7, 2, TrainerIsland_Forest_EventScript_TateandLizaRematch1
+	goto_if_eq VAR_UNUSED_0x40F7, 3, TrainerIsland_Forest_EventScript_TateandLizaRematch2
+	goto_if_eq VAR_UNUSED_0x40F7, 4, TrainerIsland_Forest_EventScript_TateandLizaRematch3
+	goto_if_eq VAR_UNUSED_0x40F7, 5, TrainerIsland_Forest_EventScript_TateandLizaRematch4
+	end
+	
+TrainerIsland_Forest_EventScript_TateandLizaFirstMatch::
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA
+	trainerbattle_double TRAINER_MASTER_TATEANDLIZA, TrainerIsland_Forest_Text_TateAndLizaIntro, TrainerIsland_Forest_Text_TateAndLizaDefeat, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40F7, 2
+	end
+
+TrainerIsland_Forest_EventScript_TateandLizaRematch1::
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_2
+	trainerbattle_double TRAINER_MASTER_TATEANDLIZA_2, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40F7, 3	
+	end
+
+
+TrainerIsland_Forest_EventScript_TateandLizaRematch2::
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_3
+	trainerbattle_double TRAINER_MASTER_TATEANDLIZA_3, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40F7, 4
+	end
+
+
+TrainerIsland_Forest_EventScript_TateandLizaRematch3::
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_4
+	trainerbattle_double TRAINER_MASTER_TATEANDLIZA_4, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40F7, 5
+	end
+
+
+TrainerIsland_Forest_EventScript_TateandLizaRematch4::
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA
+	trainerbattle_double TRAINER_MASTER_TATEANDLIZA, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
+	setvar VAR_UNUSED_0x40F7, 2
+	end
+
+TrainerIsland_Forest_EventScript_Sidney::
+	cleartrainerflag TRAINER_MASTER_SIDNEY
+	trainerbattle_double TRAINER_MASTER_SIDNEY, TrainerIsland_Forest_Text_SidneyIntro, TrainerIsland_Forest_Text_SidneyDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Forest_Text_SidneyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+TrainerIsland_Forest_Text_JunIntro:
+	.string "Are you ready?$"
+
+TrainerIsland_Forest_Text_JunDefeat:
+	.string "Apparently I wasn't\n"
+	.string "ready…$"
+
+TrainerIsland_Forest_Text_JunPostBattle:
+	.string "I'll be ready next time!$"
+	
+	
+	
+	
+TrainerIsland_Forest_Text_DanIntro:
+	.string "Don't underestimate the\n"
+	.string "power of insects!$"
+
+TrainerIsland_Forest_Text_DanDefeat:
+	.string "My bugs were squashed!$"
+
+TrainerIsland_Forest_Text_DanPostBattle:
+	.string "This loss is gonna bug me!$"
+
+
+
+
+TrainerIsland_Forest_Text_EsperIntro:
+	.string "I'm psychic! That's all\n"
+	.string "there is to it!$"
+
+TrainerIsland_Forest_Text_EsperDefeat:
+	.string "But psychics ALWAYS win…!$"
+	
+TrainerIsland_Forest_Text_EsperPostBattle:
+	.string "My psychic powers failed\n"
+	.string "me…$"
+	
+	
+
+TrainerIsland_Forest_Text_LaceyIntro:
+	.string "We're going to have a\n"
+	.string "picnick!$"
+
+TrainerIsland_Forest_Text_LaceyDefeat:
+	.string "All my food spoiled!$"
+
+
+TrainerIsland_Forest_Text_LaceyPostBattle:
+	.string "There is no picnick for\n"
+	.string "us today…$"
+	
+	
+
+TrainerIsland_Forest_Text_BruceIntro:
+	.string "Time to knock the house\n"
+	.string "down!$"
+
+TrainerIsland_Forest_Text_BruceDefeat:
+	.string "I got knocked around!$"
+	
+	
+TrainerIsland_Forest_Text_BrucePostBattle:
+	.string "I'll knock you down\n"
+	.string "some other day…!$"
+	
+	
+TrainerIsland_Forest_Text_BrandonIntro:
+	.string "Can you fathom this?$"
+	
+TrainerIsland_Forest_Text_BrandonDefeat:
+	.string "Apparently, you can!$"
+
+TrainerIsland_Forest_Text_BrandonPostBattle:
+	.string "It's a loss…$"
+	
+
+
+TrainerIsland_Forest_Text_TateAndLizaIntro:
+	.string "Welcome to the Magic Show!$"
+
+TrainerIsland_Forest_Text_TateAndLizaDefeat:
+	.string "And that's a wrap!$"
+
+TrainerIsland_Forest_Text_TateAndLizaPostBattle:
+	.string "To be continued…$"
+	
+
+TrainerIsland_Forest_Text_TateAndLizaRematchIntro:
+	.string "The show shall continue!$"
+
+TrainerIsland_Forest_Text_TateAndLizaRematchDefeat:
+	.string "And that's a wrap!$"
+
+TrainerIsland_Forest_Text_TateAndLizaRematchPostBattle:
+	.string "The show shall live on…$"
+	
+	
+
+TrainerIsland_Forest_Text_SidneyIntro:
+	.string "Prepare to be consumed by\n"
+	.string "the darkness!$"
+
+TrainerIsland_Forest_Text_SidneyDefeat:
+	.string "NOOOO!$"
+	
+TrainerIsland_Forest_Text_SidneyPostBattle:
+	.string "I'll be back!$"

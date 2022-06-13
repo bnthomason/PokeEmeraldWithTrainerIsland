@@ -3578,6 +3578,10 @@ static const u8 sVsSeekerDesc[] = _(
     "A rechargeable unit\n"
     "that flags battle-\n"
     "ready Trainers.");
+	
+static const u8 sBattleReaderDesc[] = _(
+    "A strange device that\n"
+    "monitors your battles.");
 
 static const u8 sTMCaseDesc[] = _(
     "A convenient case \n"
@@ -3597,6 +3601,10 @@ static const u8 sPokemonBoxLinkDesc[] = _(
 static const u8 sCoinCaseDesc[] = _(
     "A case that holds\n"
     "up to 9,999 Coins.");
+	
+static const u8 sPointTrackerDesc[] = _(
+    "Allows you to track\n"
+    "your points.");
 
 static const u8 sPowderJarDesc[] = _(
     "Stores Berry\n"

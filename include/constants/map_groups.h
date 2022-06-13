@@ -554,6 +554,38 @@
 #define MAP_NAVEL_ROCK_DOWN11                               (86 | (26 << 8))
 #define MAP_NAVEL_ROCK_BOTTOM                               (87 | (26 << 8))
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
+#define MAP_TRAINER_ISLAND_ENTRANCE                         (89 | (26 << 8))
+#define MAP_TRAINER_ISLAND_FOREST                           (90 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA1                            (91 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA2                            (92 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA3                            (93 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA4                            (94 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA5                            (95 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA6                            (96 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA7                            (97 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA8                            (98 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA9                            (99 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA10                           (100 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY                     (101 | (26 << 8))
+#define MAP_TRAINER_ISLAND_ENTRANCE_POKEMON_CENTER          (102 | (26 << 8))
+#define MAP_TRAINER_ISLAND_ENTRANCE_MART                    (103 | (26 << 8))
+#define MAP_TRAINER_ISLAND_1F                               (104 | (26 << 8))
+#define MAP_TRAINER_ISLAND_2F                               (105 | (26 << 8))
+#define MAP_TRAINER_ISLAND_B1F                              (106 | (26 << 8))
+#define MAP_TRAINER_ISLAND_HALL                             (107 | (26 << 8))
+#define MAP_TRAINER_ISLAND_SANCTUM                          (108 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA8_REST_HOUSE                 (109 | (26 << 8))
+#define MAP_TRAINER_ISLAND_AREA9_HOUSE                      (110 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_POKEMON_CENTER_1F   (111 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_POKEMON_CENTER_2F   (112 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_MART                (113 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_GYM                 (114 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_REDEMPTION_CENTER   (115 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE1              (116 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE2              (117 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE3              (118 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE4              (119 | (26 << 8))
+#define MAP_TRAINER_ISLAND_TRAINER_CITY_OFFICE              (120 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))
@@ -593,6 +625,6 @@
 
 #define MAP_GROUPS_COUNT 34
 
-// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 121, 2, 1, 13, 1, 1, 3, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

@@ -1,0 +1,118 @@
+TrainerIsland_TrainerCity_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_TrainerCity_PokemonCenter_1F_OnTransition
+	.byte 0
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_TRAINER_ISLAND_HARBOUR
+	end
+
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid1::
+	lock
+	faceplayer
+	goto_if_set FLAG_UNUSED_0x069, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_TradeCompleted
+	setvar VAR_0x8008, INGAME_TRADE_MAREEP
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_YouWillTradeWontYou, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	goto_if_ne VAR_RESULT, VAR_0x8009, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_MonYouTakeCare, MSGBOX_DEFAULT
+	setflag FLAG_UNUSED_0x069
+	release
+	end
+	
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid::
+	lock
+	faceplayer
+	goto_if_unset FLAG_UNUSED_0x069, TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_ThatKidWantsToTrade
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidGotHisDesire, MSGBOX_DEFAULT
+	release
+	end
+	
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Boy:
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TradingIsAPartofLife, MSGBOX_NPC
+	end
+	
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_ThatKidWantsToTrade:
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidWantsToTrade, MSGBOX_DEFAULT
+	release
+	end
+
+TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_DeclineTrade::
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_YouWontTradeMe, MSGBOX_DEFAULT
+	release
+	end
+
+TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_NotRequestedMon::
+	bufferspeciesname STR_VAR_1, VAR_0x8009
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThisIsntAMon, MSGBOX_DEFAULT
+	release
+	end
+
+TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_TradeCompleted::
+	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TakeCareOfHorsea, MSGBOX_DEFAULT
+	release
+	end
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_YouWillTradeWontYou:
+	.string "Hnngh… If only I had a {STR_VAR_1}…\n"
+	.string "My life would be perfect!\p"
+	.string "…Oh! Did you hear that?\n"
+	.string "My ultimate desire?\p"
+	.string "Do you have a {STR_VAR_1}? Please trade\n"
+	.string "your {STR_VAR_1} for my {STR_VAR_2}!$"
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_MonYouTakeCare:
+	.string "Thank you!\p"
+	.string "{STR_VAR_1}, welcome!\n"
+	.string "{STR_VAR_2}, you take care!$"
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThisIsntAMon:
+	.string "No, alas, that's not a\n"
+	.string "{STR_VAR_1}.$"
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_YouWontTradeMe:
+	.string "No? You won't trade me?\n"
+	.string "That's so discouraging…$"
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TakeCareOfHorsea:
+	.string "I'm going to take good care of HORSEA!\n"
+	.string "Please take care of MAREEP too!$"
+	
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidWantsToTrade:
+	.string "That kid wants to trade.\p"
+	.string "I would too, but I don't have\n"
+	.string "the pokemon he needs.$"
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidGotHisDesire:
+	.string "That kid got his desire.\p"
+	.string "Was it you who helped him?$"
+
+TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TradingIsAPartofLife:
+	.string "Trading pokemon is a part of\n"
+	.string "life these days. I wonder how\l"
+	.string "far it will go?$"

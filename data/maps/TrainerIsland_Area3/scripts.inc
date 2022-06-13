@@ -1,0 +1,114 @@
+TrainerIsland_Area3_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area3_OnTransition
+	.byte 0
+	
+TrainerIsland_Area3_OnTransition:
+	cleartrainerflag TRAINER_MASTER_LINDA
+	cleartrainerflag TRAINER_MASTER_PAT
+	cleartrainerflag TRAINER_MASTER_VANA
+	cleartrainerflag TRAINER_MASTER_LISAANDLIRA
+	end
+
+
+
+TrainerIsland_Area3_EventScript_Drake::
+	cleartrainerflag TRAINER_MASTER_DRAKE
+	trainerbattle_double TRAINER_MASTER_DRAKE, TrainerIsland_Area3_Text_DrakeIntro, TrainerIsland_Area3_Text_DrakeDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Area3_Text_DrakePostBattle, MSGBOX_AUTOCLOSE
+	end
+
+TrainerIsland_Area3_EventScript_Linda::
+	cleartrainerflag TRAINER_MASTER_LINDA
+	trainerbattle_double TRAINER_MASTER_LINDA, TrainerIsland_Area3_Text_LindaIntro, TrainerIsland_Area3_Text_LindaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area3_Text_LindaPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Area3_EventScript_Pat::
+	cleartrainerflag TRAINER_MASTER_PAT
+	trainerbattle_double TRAINER_MASTER_PAT, TrainerIsland_Area3_Text_PatIntro, TrainerIsland_Area3_Text_PatDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area3_Text_PatPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Area3_EventScript_Vana::
+	cleartrainerflag TRAINER_MASTER_VANA
+	trainerbattle_double TRAINER_MASTER_VANA, TrainerIsland_Area3_Text_VanaIntro, TrainerIsland_Area3_Text_VanaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area3_Text_VanaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+TrainerIsland_Area3_EventScript_LisaAndLira::
+	cleartrainerflag TRAINER_MASTER_LISAANDLIRA
+	trainerbattle_double TRAINER_MASTER_LISAANDLIRA, TrainerIsland_Area3_Text_LisaIntro, TrainerIsland_Area3_Text_LisaAndLiraDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area3_Text_LisaAndLiraPostBattle, MSGBOX_AUTOCLOSE
+	end
+	
+TrainerIsland_Area3_Text_DrakeIntro:
+	.string "Do you remember what it takes?$"
+
+
+TrainerIsland_Area3_Text_DrakeDefeat:
+	.string "Yes, I see you remember.$"
+	
+TrainerIsland_Area3_Text_DrakePostBattle:
+	.string "A virtuous heart. Always remember.$"
+	
+	
+	
+TrainerIsland_Area3_Text_LindaIntro:
+	.string "I am beautiful, no matter what\n"
+	.string "you say!\p"
+	.string "Your words can't bring me down!$"
+
+TrainerIsland_Area3_Text_LindaDefeat:
+	.string "I am beautiful, I every single\n"
+	.string "way!$"
+
+TrainerIsland_Area3_Text_LindaPostBattle:
+	.string "Your words won't make me frown!$"
+	
+
+
+
+TrainerIsland_Area3_Text_PatIntro:
+	.string "I have lived here for my\n"
+	.string "entire life. I won't leave\l"
+	.string "this place behind!\p"
+
+TrainerIsland_Area3_Text_PatDefeat:
+	.string "I am growing too old for this…$"
+	
+TrainerIsland_Area3_Text_PatPostBattle:
+	.string "However… it seems apparent that\n" 
+	.string "I will leave this place behind\l"
+	.string "when I die…$"
+	
+	
+	
+TrainerIsland_Area3_Text_VanaIntro:
+	.string "I always wanted to cross the\n"
+	.string "seas, but my husband won't\l"
+	.string "let me!\p"
+	.string "Argh! I'm so frustrated!$"
+
+TrainerIsland_Area3_Text_VanaDefeat:
+	.string "I am getting too old for this…$"
+	
+TrainerIsland_Area3_Text_VanaPostBattle:
+	.string "At this rate, I won't cross\n"
+	.string "the seas by the time I reach\l"
+	.string "one-hundred!$"
+	
+
+
+TrainerIsland_Area3_Text_LisaandLiraIntro:
+	.string "LISA: I'm Lisa!\p"
+	.string "LIRA: I'm Lira!\p"
+	.string "BOTH: We're twins!$"
+
+TrainerIsland_Area3_Text_LisaAndLiraDefeat:
+	.string "LISA: Oh me!\p"
+	.string "LIRA: Oh my!$"
+	
+TrainerIsland_Area3_Text_LisaAndLiraPostBattle:
+	.string "LISA: One day,\p"
+	.string "LIRA: we'll cross\p"
+	.string "BOTH: the seas!$"

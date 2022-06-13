@@ -1,0 +1,26 @@
+FLAG_UNUSED_0x068 - TM 150
+FLAG_UNUSED_0x0E9 - TM 151
+FLAG_UNUSED_0x1AA -	TrainerCity Pokeballs
+FLAG_UNUSED_0x1AB -	TrainerCity Clerk
+FLAG_UNUSED_0x264 - Hides Harbour Rival
+FLAG_UNUSED_0x2B7 - Hides PracticeMasters
+FLAG_UNUSED_0x2B8 - Hides NXTournamentTrainers
+FLAG_UNUSED_0x2B9 - Hides NXTournamentGymKeeper
+FLAG_UNUSED_0x2BA - Hides NXChampionRivalGymIntro
+FLAG_UNUSED_0x2BB - Hides NXChampionRival
+FLAG_UNUSED_0x4EC - Defeated Anabel
+FLAG_UNUSED_0x4ED - Defeated Greta
+FLAG_UNUSED_0x4EE - Defeated Noland
+FLAG_UNUSED_0x4EF - Defeated Spenser
+FLAG_UNUSED_0x4F0 - Defeated Tucker
+FLAG_UNUSED_0x4F1 - Defeated Brandon
+FLAG_UNUSED_0x4F2 - Defeated Lucy
+FLAG_UNUSED_0x4F3 - Defeated Sidney
+FLAG_UNUSED_0x4F4 - Defeated Phoebe
+FLAG_UNUSED_0x4F5 - Defeated Glacia
+FLAG_UNUSED_0x4F6 - Defeated Drake
+FLAG_UNUSED_0x4E7 - Defeated Steven
+FLAG_UNUSED_0x4F8 - Defeated Wallace
+FLAG_UNUSED_0x4F9 - Defeated NXTournament Trainers
+FLAG_UNUSED_0x4FA - Defeated Master Champions
+FLAG_UNUSED_0x4FF - Defeated Rival

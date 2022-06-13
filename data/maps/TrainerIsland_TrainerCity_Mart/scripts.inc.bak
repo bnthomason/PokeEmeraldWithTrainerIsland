@@ -1,0 +1,212 @@
+.set LOCALID_CLERK, 5
+
+TrainerIsland_TrainerCity_Mart_MapScripts::
+	.byte 0
+
+TrainerIsland_TrainerCity_Mart_EventScript_Clerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart TrainerIsland_Mart_Pokemart1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_Specialist::
+	lock
+	faceplayer
+	goto_if_unset FLAG_UNUSED_0x1AA TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Initial
+	goto_if_unset FLAG_UNUSED_0x1AB TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Pokeballs
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart TrainerIsland_Mart_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Initial::
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart TrainerIsland_Mart_Pokemart1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Pokeballs::
+	msgbox TrainerIsland_TrainerCity_Mart_Text_HowMayIServeYou, MSGBOX_DEFAULT
+	waitmessage
+	msgbox TrainerIsland_TrainerCity_Mart_Text_Pokeballs, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_CLERK, Specialist_EnterAndExitRoom
+	waitmovement 0
+	msgbox TrainerIsland_TrainerCity_Mart_Text_DustyButFunctional, MSGBOX_DEFAULT
+	pokemart TrainerIsland_Mart_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+TrainerIsland_TrainerCity_Mart_Pokemart1:
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_ETHER
+	.2byte ITEM_ELIXER
+	.2byte ITEM_MAX_ETHER
+	.2byte ITEM_MAX_ELIXER
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REVIVE
+	.2byte ITEM_X_SP_ATK
+	.2byte ITEM_X_SP_DEF
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFENSE
+	.2byte ITEM_DIRE_HIT
+	.2byte ITEM_GUARD_SPEC
+	.2byte ITEM_NONE
+	release
+	end
+	
+TrainerIsland_TrainerCity_Mart_Pokemart2:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_UTLRA_BALL
+	.2byte ITEM_MASTER_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_LEVEL_BALL
+	.2byte ITEM_LURE_BALL
+	.2byte ITEM_MOON_BALL
+	.2byte ITEM_FRIEND_BALL
+	.2byte ITEM_LOVE_BALL
+	.2byte ITEM_FAST_BALL
+	.2byte ITEM_HEAVY_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_CHERISH_BALL
+	.2byte ITEM_DRAGON_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+
+Specialist_EnterAndExitRoom:
+	delay_16
+	delay_16
+	move_up
+	delay_16
+	delay_16
+	set_invisible
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	set_visible
+	delay_16
+	delay_16
+	move_down
+	delay_16
+	delay_16
+	step_end
+	
+
+TrainerIsland_TrainerCity_Mart_EventScript_Boy::
+	goto_if_unset FLAG_UNUSED_0x1AA TrainerIsland_TrainerCity_Mart_EventScript_Rumor
+	goto_if_unset FLAG_UNUSED_0x1AB TrainerIsland_TrainerCity_Mart_EventScript_WhereAreThey
+	msgbox TrainerIsland_TrainerCity_Mart_Text_PokeballsForSale, MSGBOX_NPC
+	end
+
+TrainerIsland_TrainerCity_Mart_EventScript_Rumor::
+	msgbox TrainerIsland_TrainerCity_Mart_Text_Rumor, MSGBOX_NPC
+	setflag FLAG_UNUSED_0x1AA
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_WhereAreThey::
+	msgbox TrainerIsland_TrainerCity_Mart_Text_WhereAreThey, MSGBOX_NPC
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_Girl::
+	goto_if_unset FLAG_UNUSED_0x1AB TrainerIsland_TrainerCity_Mart_EventScript_Door
+	msgbox TrainerIsland_TrainerCity_Mart_Text_NowWeKnow, MSGBOX_NPC
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_Door::
+	msgbox TrainerIsland_TrainerCity_Mart_Text_Door, MSGBOX_NPC
+	end
+	
+TrainerIsland_TrainerCity_Mart_EventScript_TrickMaster::
+	msgbox TrainerIsland_TrainerCity_Mart_Text_TrickMaster, MSGBOX_NPC
+	end
+	
+TrainerIsland_TrainerCity_Mart_Text_TrickMaster:
+	.string "Oh, {PLAYER}! It's me, the\n"
+	.string "Trick Master!\p"
+	.string "I'm traveling abroad looking\n"
+	.string "for new items to reward\l"
+	.string "new participants doing the\l"
+	.string "trick house.$"
+	
+TrainerIsland_TrainerCity_Mart_Text_Rumor:
+	.string "It is rumored that this pokemart\n"
+	.string "sells special pokeballs.\p"
+	.string "I've looked everywhere, but I\n"
+	.string "can't find any.$"
+
+TrainerIsland_TrainerCity_Mart_Text_WhereAreThey:
+	.string "The rumored pokeballs… where are\n"
+	.string "they?$"
+
+TrainerIsland_TrainerCity_Mart_Text_PokeballsForSale:
+	.string "The pokeballs are here! They are\n"
+	.string "now for sale! YAY!!!$"
+	
+
+TrainerIsland_TrainerCity_Mart_Text_Door:
+	.string "Unlike most marts, this mart has\n"
+	.string "an extra door leading to the\l"
+	.string "storage room.\p"
+	.string "I wonder what they keep back\n"
+	.string "there…?$"
+
+TrainerIsland_TrainerCity_Mart_Text_NowWeKnow:
+	.string "Now we know what was behind that\n"
+	.string "door to the storage room.$"
+
+TrainerIsland_TrainerCity_Mart_Text_HowMayIServeYou:
+	.string "Hello! How may I serve you?\p"
+	.string "You're asking if I have a\n"
+	.string "particular item in stock?\p"
+	.string "Perhaps. What exactly are\n"
+	.string "you looking for?$"
+	
+
+TrainerIsland_TrainerCity_Mart_Text_Pokeballs:
+	.string "Pokeballs? Not much demand of\n"
+	.string "those around these parts of\l"
+	.string "late.\p"
+	.string "I recall having some stored\n"
+	.string "in the back.\p"
+	.string "One moment please.$"
+	
+TrainerIsland_TrainerCity_Mart_Text_DustyButFunctional:
+	.string "They're a bit dusty, but still\n"
+	.string "functional!$"

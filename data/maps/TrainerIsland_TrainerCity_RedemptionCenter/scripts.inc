@@ -1,0 +1,346 @@
+TrainerIsland_TrainerCity_RedemptionCenter_MapScripts::
+	.byte 0
+
+    @ Redemption Center prices
+	.set TM02_POINTS,  250
+	.set TM22_POINTS,  400
+	.set TM23_POINTS,  300
+	.set TM26_POINTS,  400
+	.set TM30_POINTS,  250	
+	.set TM36_POINTS,  300
+	.set POKEMON_TIER_1_POINTS, 500
+
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_PrizeClerkMons::
+	lock
+	faceplayer
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NeedPointTracker
+	showpointsbox 0, 0
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_WeExchangePOINTSForPrizes
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ChoosePrizeMon
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ChoosePrizeMon::
+	message TrainerIsland_TrainerCity_RedemptionCenter_Text_WhichPrize
+	waitmessage
+	multichoice 11, 0, MULTICHOICE_REDEMPION_CENTER_POKEMON_PRIZES, FALSE
+	switch VAR_RESULT
+	case 1, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_Feebas
+	case 2, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_Magikarp
+	case 3, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	case 127, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange::
+	hidepointsbox 0, 0
+	release
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_Feebas::
+	setvar VAR_TEMP_1, SPECIES_FEEBAS
+	setvar VAR_TEMP_2, POKEMON_TIER_1_POINTS
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeMon
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_Magikarp::
+	setvar VAR_TEMP_1, SPECIES_MAGIKARP
+	setvar VAR_TEMP_2, POKEMON_TIER_1_POINTS
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeMon
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeMon::
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_YouWantPrize, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	checkpoints VAR_RESULT
+	compare VAR_RESULT, VAR_TEMP_2
+	goto_if_lt TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughPOINTS
+	textcolor 3
+	switch VAR_TEMP_1
+	case SPECIES_FEEBAS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_GiveFeebas
+	case SPECIES_MAGIKARP,  TrainerIsland_TrainerCity_RedemptionCenter_EventScript_GiveDratini
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_GiveFeebas::
+	givemon VAR_TEMP_1, 10, ITEM_NONE
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_CheckReceivedMon
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_GiveMagikarp::
+	givemon VAR_TEMP_1, 10, ITEM_NONE
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_CheckReceivedMon
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_CheckReceivedMon:: 
+	compare VAR_RESULT, 0
+	goto_if_eq TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReceivedMonParty
+	compare VAR_RESULT, 1
+	goto_if_eq TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReceivedMonPC
+	compare VAR_RESULT, 2
+	goto_if_eq TrainerIsland_TrainerCity_RedemptionCenter_EventScript_PartyFull
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_PartyFull::
+	textcolor 3
+	msgbox Text_NoMoreRoomForPokemon
+	hidepointsbox 0, 0
+	release
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NicknamePartyMon::
+	getpartysize
+	subvar VAR_RESULT, 1
+	copyvar VAR_0x8004, VAR_RESULT
+	call EventScript_ChangePokemonNickname
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NeedPointTracker::
+	textcolor 3
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_PointTrackerRequired
+	release
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughPoints::
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_NeedMorePoints
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReceivedMonParty:: 
+	removepoints VAR_TEMP_2
+	updatepointsbox 0, 5
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	playfanfare MUS_LEVEL_UP
+	message Text_PlayerObtainedTheMon
+	waitmessage
+	waitfanfare
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq VAR_RESULT, YES, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NicknamePartyMon
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReceivedMonPC:: @ 816CDE0
+	removepoints VAR_TEMP_2
+	updatepointsbox 0, 5
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	playfanfare MUS_LEVEL_UP
+	message Text_PlayerObtainedTheMon
+	waitmessage
+	waitfanfare
+	msgbox Text_GiveNicknameToThisMon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq VAR_RESULT, NO, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TransferredToPC
+	call EventScript_NameReceivedBoxMon
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TransferredToPC
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TransferredToPC:: @ 816CE12
+	call EventScript_TransferredToPC
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_PrizeClerkTMs:: @ 816CE1D
+	lock
+	faceplayer
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NeedPointTracker
+	showpointsbox 0, 0
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_WeExchangePOINTSForPrizes
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ChoosePrizeTM
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ChoosePrizeTM:: @ 816CE47
+	message TrainerIsland_TrainerCity_RedemptionCenter_Text_WhichPrize
+	waitmessage
+	multichoice 11, 0, MULTICHOICE_GAME_CORNER_TMPRIZES, FALSE
+	switch VAR_RESULT
+	case 0, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM02
+	case 1, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM22
+	case 1, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM23
+	case 2, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM26
+	case 2, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM36
+	case 5, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	case 127, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM02:: @ 816CEA5
+	setvar VAR_TEMP_1, 1
+	bufferitemname STR_VAR_1, ITEM_TM02
+	setvar VAR_0x8004, ITEM_TM02
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeTM
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM22:: @ 816CEB9
+	setvar VAR_TEMP_1, 2
+	bufferitemname STR_VAR_1, ITEM_TM22
+	setvar VAR_0x8004, ITEM_TM22
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeTM
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM23:: @ 816CEB9
+	setvar VAR_TEMP_1, 3
+	bufferitemname STR_VAR_1, ITEM_TM23
+	setvar VAR_0x8004, ITEM_TM23
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeTM
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM26:: @ 816CECD
+	setvar VAR_TEMP_1, 4
+	bufferitemname STR_VAR_1, ITEM_TM26
+	setvar VAR_0x8004, ITEM_TM26
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeTM
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TM36:: @ 816CECD
+	setvar VAR_TEMP_1, 5
+	bufferitemname STR_VAR_1, ITEM_TM36
+	setvar VAR_0x8004, ITEM_TM36
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeTM
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeTM:: @ 816CF09
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_YouWantTM, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TryGivePrize
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ConfirmPrizeItem:: @ 816CF22
+	special BufferTMHMMoveName
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_YouWantPrize, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq TrainerIsland_TrainerCity_RedemptionCenter_EventScript_EndPrizeExchange
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_TryGivePrize
+	switch VAR_TEMP_1
+		case 1, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM02
+		case 2, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM22
+		case 3, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM26
+		case 4, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM23
+		case 5, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM30
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM02::
+	checkpoints VAR_TEMP_2
+	goto_if_lt TM02_POINTS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughCoinsForTM
+	checkitemspace ITEM_TM02
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NoRoomForTM
+	removepoints TM02_POINTS
+	additem ITEM_TM02
+	updatepointsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReturnToChooseTMPrize
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM22::
+	checkpoints VAR_TEMP_2
+	goto_if_lt TM22_POINTS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughCoinsForTM
+	checkitemspace ITEM_TM22
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NoRoomForTM
+	removepoints TM22_POINTS
+	additem ITEM_TM22
+	updatepointsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReturnToChooseTMPrize
+	end
+	
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM23::
+	checkpoints VAR_TEMP_2
+	goto_if_lt TM23_POINTS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughCoinsForTM
+	checkitemspace ITEM_TM23
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NoRoomForTM
+	removepoints TM23_POINTS
+	additem ITEM_TM23
+	updatepointsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReturnToChooseTMPrize
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM26::
+	checkpoints VAR_TEMP_2
+	goto_if_lt TM26_POINTS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughCoinsForTM
+	checkitemspace ITEM_TM26
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NoRoomForTM
+	removepoints TM26_POINTS
+	additem ITEM_TM26
+	updatepointsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReturnToChooseTMPrize
+	end
+
+
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM30::
+	checkpoints VAR_TEMP_2
+	goto_if_lt TM30_POINTS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughCoinsForTM
+	checkitemspace ITEM_TM30
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NoRoomForTM
+	removepoints TM30_POINTS
+	additem ITEM_TM30
+	updatepointsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReturnToChooseTMPrize
+	end
+
+
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BuyTM36::
+	checkpoints VAR_TEMP_2
+	goto_if_lt TM36_POINTS, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NotEnoughCoinsForTM
+	checkitemspace ITEM_TM36
+	goto_if_eq VAR_RESULT, FALSE, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NoRoomForTM
+	removepoints TM36_POINTS
+	additem ITEM_TM36
+	updatepointsbox 1, 1
+	playse SE_SHOP
+	msgbox MauvilleCity_GameCorner_Text_HereYouGo, MSGBOX_DEFAULT
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ReturnToChooseTMPrize
+	end
+
+
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_BagFull:: @ 816CF79
+	textcolor 3
+	msgbox Text_TooBadBagFull
+	hidepointsbox 0, 0
+	release
+	end
+
+TrainerIsland_TrainerCity_RedemptionCenter_EventScript_PrizeClerkItems:: @ 816CF88
+	lock
+	faceplayer
+	goto_if_unset FLAG_GOT_POINT_TRACKER, TrainerIsland_TrainerCity_RedemptionCenter_EventScript_NeedPointTracker
+	showpointsbox 0, 0
+	msgbox TrainerIsland_TrainerCity_RedemptionCenter_Text_WeExchangePointsForPrizes
+	goto TrainerIsland_TrainerCity_RedemptionCenter_EventScript_ChoosePrizeItem
+	end
+
+
+	
+TrainerIsland_TrainerCity_RedemptionCenter_Text_WhichPrize::
+    .string "Which prize would you like?$"
+
+TrainerIsland_TrainerCity_RedemptionCenter_Text_YouWantPrize::
+    .string "So, you want the {STR_VAR_1}?$"
+	
+
+TrainerIsland_TrainerCity_RedemptionCenter_Text_NeedMorePoints::
+    .string "Sorry, you'll need more POINTS\n"
+    .string "than that.$"
+
+TrainerIsland_TrainerCity_RedemptionCenter_Text_YouWantTM:: @ 81970B2
+    .string "Okay, a TM of {STR_VAR_2}\n"
+    .string "is what you want?$"
+
+TrainerIsland_TrainerCity_RedemptionCenter_Text_PointTrackerRequired:: @ 819703E
+    .string "A POINT TRACKER is required…$"
+
+TrainerIsland_TrainerCity_RedemptionCenter_Text_WeExchangePointsForPrizes:: @ 8197057
+    .string "We exchange your POINTS for prizes.$"

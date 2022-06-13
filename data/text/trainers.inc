@@ -4779,3 +4779,6 @@ Route134_Text_HudsonPostBattle:
 	.string "Our boat drifted out to sea.\p"
 	.string "My buddy's a timid fellow, so I'm\n"
 	.string "worried about him.$"
+
+CommonEvent_Text_NeedTwoMons::
+	.string "You only have two mons…"

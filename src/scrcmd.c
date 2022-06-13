@@ -31,6 +31,7 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "pokemon_storage_system.h"
+#include "points.h"
 #include "random.h"
 #include "overworld.h"
 #include "rotating_tile_puzzle.h"
@@ -1821,6 +1822,32 @@ bool8 ScrCmd_updatecoinsbox(struct ScriptContext *ctx)
     PrintCoinsString(GetCoins());
     return FALSE;
 }
+bool8 ScrCmd_showpointsbox(struct ScriptContext *ctx)
+{
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+
+    ShowPointsWindow(GetPoints(), x, y);
+    return FALSE;
+}
+
+bool8 ScrCmd_hidepointsbox(struct ScriptContext *ctx)
+{
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+
+    HidePointsWindow();
+    return FALSE;
+}
+
+bool8 ScrCmd_updatePointsbox(struct ScriptContext *ctx)
+{
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+
+    PrintPointsString(GetPoints());
+    return FALSE;
+}
 
 bool8 ScrCmd_trainerbattle(struct ScriptContext *ctx)
 {
@@ -2180,6 +2207,36 @@ bool8 ScrCmd_removecoins(struct ScriptContext *ctx)
         gSpecialVar_Result = TRUE;
     return FALSE;
 }
+
+bool8 ScrCmd_checkpoints(struct ScriptContext *ctx)
+{
+    u16 *ptr = GetVarPointer(ScriptReadHalfword(ctx));
+    *ptr = GetPoints();
+    return FALSE;
+}
+
+bool8 ScrCmd_addpoints(struct ScriptContext *ctx)
+{
+    u16 points = VarGet(ScriptReadHalfword(ctx));
+
+    if (AddPoints(points) == TRUE)
+        gSpecialVar_Result = FALSE;
+    else
+        gSpecialVar_Result = TRUE;
+    return FALSE;
+}
+
+bool8 ScrCmd_removepoints(struct ScriptContext *ctx)
+{
+    u16 points = VarGet(ScriptReadHalfword(ctx));
+
+    if (RemovePoints(points) == TRUE)
+        gSpecialVar_Result = FALSE;
+    else
+        gSpecialVar_Result = TRUE;
+    return FALSE;
+}
+
 
 bool8 ScrCmd_moverotatingtileobjects(struct ScriptContext *ctx)
 {
