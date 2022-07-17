@@ -946,6 +946,7 @@ struct SaveBlock1
     /*0x238*/ struct Pokemon playerParty[PARTY_SIZE];
     /*0x490*/ u32 money;
     /*0x494*/ u16 coins;
+    /*0x???*/ u16 points;
     /*0x496*/ u16 registeredItem; // registered for use with SELECT button
     /*0x498*/ struct ItemSlot pcItems[PC_ITEMS_COUNT];
     /*0x560*/ struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
@@ -1006,7 +1007,7 @@ struct SaveBlock1
     /*0x31DC*/ struct Roamer roamer;
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
     /*0x322C*/ struct MysteryGiftSave mysteryGift;
-    /*0x????*/ u16 points;
+
     /*0x3???*/ u8 dexSeen[NUM_DEX_FLAG_BYTES];
     /*0x3???*/ u8 dexCaught[NUM_DEX_FLAG_BYTES];
     /*0x3???*/ u32 trainerHillTimes[4];

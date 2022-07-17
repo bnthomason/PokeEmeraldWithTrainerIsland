@@ -6,7 +6,7 @@ TrainerIsland_Entrance_Mart_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart TrainerIsland_Mart_Pokemart
+	pokemart TrainerIsland_Entrance_Mart_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -24,9 +24,9 @@ TrainerIsland_Entrance_Mart_Pokemart:
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_ETHER
-	.2byte ITEM_ELIXER
+	.2byte ITEM_ELIXIR
 	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_MAX_ELIXER
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_REVIVE
 	.2byte ITEM_MAX_REVIVE
 	.2byte ITEM_X_SP_ATK
@@ -58,6 +58,6 @@ TrainerIsland_Entrance_Mart_Text_Pokeballs:
 
 TrainerIsland_Entrance_Mart_Text_SpecialItems:
 	.string "This mart sells some unique items…\n"
-	.string "Max Revives? Ethers and Elixers?\l"
+	.string "Max Revives? Ethers and Elixirs?\l"
 	.string "I never heard of those!$"
 

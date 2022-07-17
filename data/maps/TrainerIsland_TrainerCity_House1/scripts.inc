@@ -1,7 +1,7 @@
 TrainerIsland_TrainerCity_House1_MapScripts::
 	.byte 0
 	
-TrainerIsland_TrainerCity_House1_EventScript_Woman:
+TrainerIsland_TrainerCity_House1_EventScript_Woman::
 	msgbox TrainerIsland_TrainerCity_House1_Text_NothingHappeningOnTV, MSGBOX_NPC
 	end
 	

@@ -139,6 +139,12 @@ static const u8 sCherishBallDesc[] = _(
     "A rare Ball made\n"
     "in commemoration\n"
     "of some event.");
+	
+static const u8 sDragonBallDesc[] = _(
+    "A ball used to\n"
+    "capture specific\n"
+    "dragon pokemon.");
+
 
 // Medicine
 static const u8 sPotionDesc[] = _(
@@ -150,7 +156,7 @@ static const u8 sSuperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "60 points.");
+    "50 points.");
 #else
     "50 points.");
 #endif
@@ -159,7 +165,7 @@ static const u8 sHyperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "120 points.");
+    "200 points.");
 #else
     "200 points.");
 #endif
@@ -187,7 +193,7 @@ static const u8 sFreshWaterDesc[] = _(
     "A mineral water\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 30 points.");
+    "by 50 points.");
 #else
     "by 50 points.");
 #endif
@@ -196,7 +202,7 @@ static const u8 sSodaPopDesc[] = _(
     "A fizzy soda drink\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 50 points.");
+    "by 60 points.");
 #else
     "by 60 points.");
 #endif
@@ -205,7 +211,7 @@ static const u8 sLemonadeDesc[] = _(
     "A very sweet drink\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 70 points.");
+    "by 80 points.");
 #else
     "by 80 points.");
 #endif
@@ -219,7 +225,7 @@ static const u8 sEnergyPowderDesc[] = _(
     "A bitter powder\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 60 points.");
+    "by 50 points.");
 #else
     "by 50 points.");
 #endif
@@ -228,7 +234,7 @@ static const u8 sEnergyRootDesc[] = _(
     "A bitter root\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 120 points.");
+    "by 200 points.");
 #else
     "by 200 points.");
 #endif
@@ -3800,3 +3806,13 @@ static const u8 sSapphireDesc[] = _(
     "A brilliant blue gem\n"
     "that symbolizes\n"
     "honesty.");
+
+static const u8 sChampionsInsigniaDesc[] = _(
+    "A ribbon proving your\n"
+    "worth. What could it be\n"
+	"used for?");
+
+static const u8 sTrainerTicketDesc[] = _(
+    "A ticket given by\n"
+    "SCOTT to Trainer\n"
+    "Island.");

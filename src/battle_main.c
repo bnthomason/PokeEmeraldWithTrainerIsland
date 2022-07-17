@@ -1873,24 +1873,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
 
-            if (gTrainers[trainerNum].doubleBattle == TRUE)
-                personalityValue = 0x80;
-            else if (gTrainers[trainerNum].encounterMusic_gender & 0x80)
-            {
-                personalityValue = 0x78;
-                gender = MON_MALE;
-            }
-            else
-            {
-                 personalityValue = 0x88;
-                 gender = MON_FEMALE;
-            }
-
-            if (partyData[i].gender == TRAINER_MON_MALE)
-                gender = MON_MALE;
-            else if (partyData[i].gender == TRAINER_MON_FEMALE)
-                gender = MON_FEMALE;
-
             if (partyData[i].nature > 0)
                 CreateMonWithGenderNatureLetter(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, gender, partyData[i].nature, 0, partyData[i].shiny ? OT_ID_SHINY : OT_ID_RANDOM_NO_SHINY);
             else
@@ -4032,7 +4014,7 @@ static void HandleTurnActionSelectionState(void)
                                             | BATTLE_TYPE_EREADER_TRAINER
                                             | BATTLE_TYPE_RECORDED_LINK
                                             // Or if currently held by Sky Drop
-                                            || gStatuses3[gActiveBattler] & STATUS3_SKY_DROPPED))
+                                            ) || gStatuses3[gActiveBattler] & STATUS3_SKY_DROPPED)
                     {
                     #else
                     if (gBattleTypeFlags & (BATTLE_TYPE_LINK //DEBUG

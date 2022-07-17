@@ -6,8 +6,8 @@
   "region_map_section": "MAPSEC_TRAINERISLAND_B1F",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
-  "allow_cycling": false,
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": true,
   "show_map_name": true,
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "TrainerIsland_1F_EventScript_Sarah",
+      "script": "TrainerIsland_B1F_EventScript_Sarah",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "TrainerIsland_1F_EventScript_Matthew",
+      "script": "TrainerIsland_B1F_EventScript_Matthew",
       "flag": "0"
     }
   ],

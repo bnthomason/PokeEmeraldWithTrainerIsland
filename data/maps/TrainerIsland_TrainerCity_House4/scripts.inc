@@ -1,11 +1,11 @@
 TrainerIsland_TrainerCity_House4_MapScripts::
 	.byte 0
 	
-TrainerISland_TrainerCity_House4_EventScript_Artist:
-	msgbox TrainerIsland_TrainerCity_House3_Text_Art, MSGBOX_NPC
+TrainerIsland_TrainerCity_House4_EventScript_Artist::
+	msgbox TrainerIsland_TrainerCity_House4_Text_Artist, MSGBOX_NPC
 	
 
-TrainerIsland_TrainerCity_House3_Text_Art:
+TrainerIsland_TrainerCity_House4_Text_Artist:
 	.string "I'm not a trainer, I'm an\n"
 	.string "an artist.\p"
 	.string "I can't battle, I can draw.\p"

@@ -1840,7 +1840,7 @@ bool8 ScrCmd_hidepointsbox(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_updatePointsbox(struct ScriptContext *ctx)
+bool8 ScrCmd_updatepointsbox(struct ScriptContext *ctx)
 {
     u8 x = ScriptReadByte(ctx);
     u8 y = ScriptReadByte(ctx);

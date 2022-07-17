@@ -37,13 +37,12 @@ TrainerIsland_Area3_EventScript_Vana::
 
 TrainerIsland_Area3_EventScript_LisaAndLira::
 	cleartrainerflag TRAINER_MASTER_LISAANDLIRA
-	trainerbattle_double TRAINER_MASTER_LISAANDLIRA, TrainerIsland_Area3_Text_LisaIntro, TrainerIsland_Area3_Text_LisaAndLiraDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_LISAANDLIRA, TrainerIsland_Area3_Text_LisaAndLiraIntro, TrainerIsland_Area3_Text_LisaAndLiraDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area3_Text_LisaAndLiraPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area3_Text_DrakeIntro:
 	.string "Do you remember what it takes?$"
-
 
 TrainerIsland_Area3_Text_DrakeDefeat:
 	.string "Yes, I see you remember.$"
@@ -99,7 +98,7 @@ TrainerIsland_Area3_Text_VanaPostBattle:
 	
 
 
-TrainerIsland_Area3_Text_LisaandLiraIntro:
+TrainerIsland_Area3_Text_LisaAndLiraIntro:
 	.string "LISA: I'm Lisa!\p"
 	.string "LIRA: I'm Lira!\p"
 	.string "BOTH: We're twins!$"
@@ -112,4 +111,3 @@ TrainerIsland_Area3_Text_LisaAndLiraPostBattle:
 	.string "LISA: One day,\p"
 	.string "LIRA: we'll cross\p"
 	.string "BOTH: the seas!$"
-	

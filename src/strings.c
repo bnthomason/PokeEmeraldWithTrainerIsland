@@ -254,6 +254,14 @@ const u8 gText_TheBattle[] = _("the battle");
 const u8 gText_ThePokemonList[] = _("the POKéMON LIST");
 const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
+const u8 gText_TM02AndPrice[] = _("TM02{CLEAR_TO 0x48}250 POINTS");
+const u8 gText_TM22AndPrice[] = _("TM22{CLEAR_TO 0x48}400 POINTS");
+const u8 gText_TM23AndPrice[] = _("TM23{CLEAR_TO 0x48}300 POINTS");
+const u8 gText_TM26AndPrice[] = _("TM26{CLEAR_TO 0x48}400 POINTS");
+const u8 gText_TM30AndPrice[] = _("TM30{CLEAR_TO 0x48}250 POINTS");
+const u8 gText_TM36AndPrice[] = _("TM36{CLEAR_TO 0x48}300 POINTS");
+const u8 gText_MagikarpAndPrice[] = _("MAGIKARP{CLEAR_TO 0x4B} 50 POINTS");
+const u8 gText_FeebasAndPrice[] = _("FEEBAS{CLEAR_TO 0x4B} 50 POINTS");
 
 const u8 *const gBagMenu_ReturnToStrings[] =
 {
@@ -744,6 +752,7 @@ const u8 gText_BlueTent[] = _("BLUE TENT");
 const u8 gText_SouthernIsland[] = _("SOUTHERN ISLAND");
 const u8 gText_BirthIsland[] = _("BIRTH ISLAND");
 const u8 gText_FarawayIsland[] = _("FARAWAY ISLAND");
+const u8 gText_TrainerIsland[] = _("TRAINER ISLAND");
 const u8 gText_NavelRock[] = _("NAVEL ROCK");
 const u8 gText_ClawFossil[] = _("CLAW FOSSIL");
 const u8 gText_RootFossil[] = _("ROOT FOSSIL");

@@ -791,11 +791,11 @@
 	@ and an optional event script. When used with an event script you can pass in an optional flag to disable music
 	.macro trainerbattle_double_no_intro trainer:req, lose_text:req, not_enough_pkmn_text:req, event_script=FALSE, music=TRUE
 	.if \event_script == FALSE
-	trainerbattle TRAINER_BATTLE_DOUBLE, \trainer, 0, \intro_text, \not_enough_pkmn_text
+	trainerbattle TRAINER_BATTLE_DOUBLE_NO_INTRO_TEXT, \trainer, 0, \lose_text, \not_enough_pkmn_text, 
 	.elseif \music == TRUE
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_INTRO_TEXT, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
 	.else
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC_NO_INTRO_TEXT, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
 	.endif
 	.endm
 
@@ -1780,21 +1780,21 @@
 
 	@ Create a window showing how many Coins the player has.
 	.macro showpointsbox x:req, y:req
-	.byte 0xc0
+	.byte 0xe6
 	.byte \x
 	.byte \y
 	.endm
 
 	@ Destroys the window created by showcoins. It consumes its arguments but doesn't use them.
 	.macro hidepointsbox x:req, y:req
-	.byte 0xc1
+	.byte 0xe7
 	.byte \x
 	.byte \y
 	.endm
 
 	@ Updates the window created by showcoins. It consumes its arguments but doesn't use them.
 	.macro updatepointsbox x:req, y:req
-	.byte 0xc2
+	.byte 0xe8
 	.byte \x
 	.byte \y
 	.endm
@@ -2070,5 +2070,3 @@
 	.macro totemboost_evas2 battler:req
 	settotemboost \battler, 0, 0, 0, 0, 0, 0, 2
 	.endm
-	
-

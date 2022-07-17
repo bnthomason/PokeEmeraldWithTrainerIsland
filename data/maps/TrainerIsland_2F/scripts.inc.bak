@@ -10,13 +10,13 @@ TrainerIsland_2F_OnTransition:
 
 TrainerIsland_2F_EventScript_Jaden::
 	cleartrainerflag TRAINER_MASTER_JADEN
-	trainerbattle_double TRAINER_MASTER_JADEN, TrainerIsland_2F_Text_JadenIntro, TrainerIsland_2F_Text_JadenDefeat, CommonEvent_Text_NeedTwoMons, Add1Points CommonEvent_Text_NeedTwoMons, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_JADEN, TrainerIsland_2F_Text_JadenIntro, TrainerIsland_2F_Text_JadenDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_2F_Text_JadenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_2F_EventScript_Jamie::
 	cleartrainerflag TRAINER_MASTER_JAMIE
-	trainerbattle_double TRAINER_MASTER_JAMIE, TrainerIsland_2F_Text_JamieIntro, TrainerIsland_2F_Text_JamieDefeat, CommonEvent_Text_NeedTwoMons, Add1Points CommonEvent_Text_NeedTwoMons, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_JAMIE, TrainerIsland_2F_Text_JamieIntro, TrainerIsland_2F_Text_JamieDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_2F_Text_JamiePostBattle, MSGBOX_AUTOCLOSE
 	end
 	

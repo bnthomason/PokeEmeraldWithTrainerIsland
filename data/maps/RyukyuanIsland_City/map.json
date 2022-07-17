@@ -1,0 +1,242 @@
+{
+  "id": "MAP_RYUKYUAN_ISLAND_CITY",
+  "name": "RyukyuanIsland_City",
+  "layout": "LAYOUT_RYUKYUAN_ISLANDS_ENTRANCE",
+  "music": "MUS_RG_SEVII_67",
+  "region_map_section": "MAPSEC_NONE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SS_TIDAL",
+      "x": 31,
+      "y": 56,
+      "elevation": 1,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
+      "x": 31,
+      "y": 54,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Sailor",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VARS",
+      "x": 35,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Raikyu_1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VARS",
+      "x": 21,
+      "y": 38,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Raikyu_2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VARS",
+      "x": 51,
+      "y": 29,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Raikyu_3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VARS",
+      "x": 53,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Raikyu_4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VARS",
+      "x": 46,
+      "y": 45,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Raikyu_5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VARS",
+      "x": 17,
+      "y": 26,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RyuKyuanIsland_Entrance_EventScript_Raikyu_6",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 40,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 40,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 30,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 49,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 47,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 37,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 31,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 23,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 21,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 31,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 37,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 56,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 55,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 16,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 14,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKYUAN_ISLAND_CITY",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

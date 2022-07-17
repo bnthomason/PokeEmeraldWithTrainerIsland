@@ -10,19 +10,19 @@ TrainerIsland_B1F_OnTransition:
 
 TrainerIsland_B1F_EventScript_Sarah::
 	cleartrainerflag TRAINER_MASTER_SARAH
-	trainerbattle_double TRAINER_MASTER_SARAH, TrainerIsland_B1F_Text_SarahIntro, TrainerIsland_B1F_Text_SarahDefeat, Add1Points
+	trainerbattle_double TRAINER_MASTER_SARAH, TrainerIsland_B1F_Text_SarahIntro, TrainerIsland_B1F_Text_SarahDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_B1F_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_B1F_EventScript_Matthew::
 	cleartrainerflag TRAINER_MASTER_MATTHEW
-	trainerbattle_double TRAINER_MASTER_MATTHEW, TrainerIsland_B1F_Text_MatthewIntro, TrainerIsland_B1F_Text_MatthewDefeat, Add1Points
+	trainerbattle_double TRAINER_MASTER_MATTHEW, TrainerIsland_B1F_Text_MatthewIntro, TrainerIsland_B1F_Text_MatthewDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_B1F_Text_MatthewPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_B1F_EventScript_Paul::
 	cleartrainerflag TRAINER_MASTER_PAUL
-	trainerbattle_double TRAINER_MASTER_PAUL, TrainerIsland_B1F_Text_PaulIntro, TrainerIsland_B1F_Text_PaulDefeat, Add1Points
+	trainerbattle_double TRAINER_MASTER_PAUL, TrainerIsland_B1F_Text_PaulIntro, TrainerIsland_B1F_Text_PaulDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_B1F_Text_PaulPostBattle, MSGBOX_AUTOCLOSE
 	end
 

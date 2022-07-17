@@ -2,7 +2,7 @@ TrainerIsland_Area8_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area8_OnTransition
 	.byte 0
 	
-TrainerIsland_Area8__OnTransition:
+TrainerIsland_Area8_OnTransition:
 	cleartrainerflag TRAINER_MASTER_JUDAH
 	cleartrainerflag TRAINER_MASTER_DAVID
 	cleartrainerflag TRAINER_MASTER_KIRK
@@ -250,7 +250,7 @@ TrainerIsland_Area8_Text_KateIntro:
 	.string "a treasure!$"
 	
 TrainerIsland_Area8_Text_KateDefeat:
-	.string "But it does has its\n"
+	.string "But it does have its\n"
 	.string "drawbacks…$"
 				
 TrainerIsland_Area8_Text_KatePostBattle:
@@ -332,6 +332,22 @@ TrainerIsland_Area8_Text_StanPostBattle:
 	.string "My comics are the best!$"
 	
 	
+TrainerIsland_Area8_Text_SierraIntro:
+	.string "Unicorns are perfect.\n"
+	.string "Battling must be perfect.\p"
+	.string "Since I battle perfect…\n"
+	.string "then I'm a unicorn!$"
+	
+TrainerIsland_Area8_Text_SierraDefeat:
+	.string "Impossible!\p"
+	.string "You couldn't've defeated me…\n"
+	.string "I'm a freakin unicorn!$"
+	
+TrainerIsland_Area8_Text_SierraPostBattle:
+	.string "I'm a unicorn! I am perfect\n"
+	.string "in each and every way!\p"
+	.string "Then why did I lose…?$" 
+	
 
 TrainerIsland_Area8_Text_JonahIntro:
 	.string "I once was trapped in the\n"
@@ -359,5 +375,5 @@ TrainerIsland_Area8_Text_SamuelDefeat:
 	.string "down!$"
 	
 TrainerIsland_Area8_Text_SamuelPostBattle:
-	.string "Please be nice,\n"
+	.string "Please be nice\n"
 	.string "to my rare pokemon.$"

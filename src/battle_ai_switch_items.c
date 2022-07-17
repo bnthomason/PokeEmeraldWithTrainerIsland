@@ -695,6 +695,30 @@ static u32 GetBestMonDmg(struct Pokemon *party, int firstId, int lastId, u8 inva
     return bestMonId;
 }
 
+static u32 GetNextInParty(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, int aliveCount)
+{
+    int i;
+    int bestMonId = PARTY_SIZE;
+
+    gMoveResultFlags = 0;
+    // If we couldn't find the best mon in terms of typing, find the one that deals most damage.
+    for (i = firstId; i < lastId; i++)
+    {
+        if (gBitTable[i] & invalidMons)
+            continue;
+
+		if (i ==(*(gBattleStruct->monToSwitchIntoId + i)))
+		{
+			bestMonId = i;
+		}
+		else
+		{
+			bestMonId = firstId;
+		}
+    }
+    return bestMonId;
+}
+
 u8 GetMostSuitableMonToSwitchInto(void)
 {
     u32 opposingBattler = 0;
@@ -753,17 +777,28 @@ u8 GetMostSuitableMonToSwitchInto(void)
             aliveCount++;
     }
 
-    bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount);
-    if (bestMonId != PARTY_SIZE)
-        return bestMonId;
 
-    bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
-    if (bestMonId != PARTY_SIZE)
-        return bestMonId;
+	if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+        return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
+    if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+		{
+			bestMonId = GetNextInParty(party, firstId, lastId, invalidMons, aliveCount);
+			return bestMonId;
+		}
+	else
+	{
+		bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount);
+		if (bestMonId != PARTY_SIZE)
+			return bestMonId;
 
-    bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, opposingBattler);
-    if (bestMonId != PARTY_SIZE)
-        return bestMonId;
+		bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
+		if (bestMonId != PARTY_SIZE)
+			return bestMonId;
+
+		bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, opposingBattler);
+		if (bestMonId != PARTY_SIZE)
+			return bestMonId;
+	}
 
     return PARTY_SIZE;
 }

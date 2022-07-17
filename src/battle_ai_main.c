@@ -4907,7 +4907,7 @@ static s16 AI_HPAware(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 score--;
             
             if (GetHealthPercentage(battlerDef) <= 50)
-                score++;
+                score += 30;
         }
     }
     else

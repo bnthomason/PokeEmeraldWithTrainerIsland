@@ -1,79 +1,80 @@
-.set LOCALID_RIVAL, 1
+.set LOCALID_RIVAL, 14
 
 TrainerIsland_TrainerCity_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_TrainerCity_Gym_OnTransition
-
+	.byte 0
 
 TrainerIsland_TrainerCity_Gym_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
+	end
 	
 TrainerIsland_TrainerCity_Gym_EventScript_SidneyGreet::
 	cleartrainerflag TRAINER_ELITE_SIDNEY
-	trainerbattle_double TRAINER_ELITE_SIDNEY, TrainerIsland_TrainerCity_Gym_Text_SidneyIntro, TrainerIsland_TrainerCity_Gym_Text_SidneyDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_SIDNEY, TrainerIsland_TrainerCity_Gym_Text_SidneyIntro, TrainerIsland_TrainerCity_Gym_Text_SidneyDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, TrainerIsland_TrainerCity_Gym_EventScript_AfterSidneyBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterSidneyBattle::
-	setflag UNUSED_FLAG_0x4EC
+	setflag FLAG_UNUSED_0x4E3
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_PhoebeGreet::
 	cleartrainerflag TRAINER_ELITE_PHOEBE
-	trainerbattle_double TRAINER_ELITE_PHOEBE, TrainerIsland_TrainerCity_Gym_Text_PhoebeIntro, TrainerIsland_TrainerCity_Gym_Text_PhoebeDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_PHOEBE, TrainerIsland_TrainerCity_Gym_Text_PhoebeIntro, TrainerIsland_TrainerCity_Gym_Text_PhoebeDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterPhoebeBattle
 	end
 	
 TrainerIsland_TrainerCity_Gym_EventScript_AfterPhoebeBattle::
-	setflag UNUSED_FLAG_0x4ED
+	setflag FLAG_UNUSED_0x4E4
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_GlaciaGreet::
 	cleartrainerflag TRAINER_ELITE_GLACIA
-	trainerbattle_double TRAINER_ELITE_GLACIA, TrainerIsland_TrainerCity_Gym_Text_GlaciaIntro, TrainerIsland_TrainerCity_Gym_Text_GlaciaDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_GLACIA, TrainerIsland_TrainerCity_Gym_Text_GlaciaIntro, TrainerIsland_TrainerCity_Gym_Text_GlaciaDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterGlaciaBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterGlaciaBattle::
-	setflag UNUSED_FLAG_0x4EE
+	setflag FLAG_UNUSED_0x4E5
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_DrakeGreet::
 	cleartrainerflag TRAINER_ELITE_DRAKE
-	trainerbattle_double TRAINER_ELITE_DRAKE, TrainerIsland_TrainerCity_Gym_Text_DrakeIntro, TrainerIsland_TrainerCity_Gym_Text_DrakeDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_DRAKE, TrainerIsland_TrainerCity_Gym_Text_DrakeIntro, TrainerIsland_TrainerCity_Gym_Text_DrakeDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterDrakeBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterDrakeBattle::
-	setflag UNUSED_FLAG_0x4EF
+	setflag FLAG_UNUSED_0x4E6
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_LucyGreet::
 	cleartrainerflag TRAINER_ELITE_LUCY
-	trainerbattle_double TRAINER_ELITE_LUCY, TrainerIsland_TrainerCity_Gym_Text_LucyIntro, TrainerIsland_TrainerCity_Gym_Text_LucyDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_LUCY, TrainerIsland_TrainerCity_Gym_Text_LucyIntro, TrainerIsland_TrainerCity_Gym_Text_LucyDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterLucyBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterLucyBattle::
-	setflag UNUSED_FLAG_0x4F0
+	setflag FLAG_UNUSED_0x4E7
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_BrandonGreet::
-	trainerbattle_double TRAINER_ELITE_BRANDON, TrainerIsland_TrainerCity_Gym_Text_BrandonIntro, TrainerIsland_TrainerCity_Gym_Text_BrandonDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_BRANDON, TrainerIsland_TrainerCity_Gym_Text_BrandonIntro, TrainerIsland_TrainerCity_Gym_Text_BrandonDefeat, Add3Points
 	cleartrainerflag TRAINER_ELITE_BRANDON
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
@@ -81,84 +82,85 @@ TrainerIsland_TrainerCity_Gym_EventScript_BrandonGreet::
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterBrandonBattle::
-	setflag UNUSED_FLAG_0x4F1
+	setflag FLAG_UNUSED_0x4E8
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_TuckerGreet::
 	cleartrainerflag TRAINER_ELITE_TUCKER
-	trainerbattle_double TRAINER_ELITE_TUCKER, TrainerIsland_TrainerCity_Gym_Text_TuckerIntro, TrainerIsland_TrainerCity_Gym_Text_TuckerDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_TUCKER, TrainerIsland_TrainerCity_Gym_Text_TuckerIntro, TrainerIsland_TrainerCity_Gym_Text_TuckerDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterTuckerBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterTuckerBattle::
-	setflag UNUSED_FLAG_0x4F2
+	setflag FLAG_UNUSED_0x4E9
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_GretaGreet::
 	cleartrainerflag TRAINER_ELITE_GRETA
-	trainerbattle_double TRAINER_ELITE_GRETA, TrainerIsland_TrainerCity_Gym_Text_GretaIntro, TrainerIsland_TrainerCity_Gym_Text_GretaDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_GRETA, TrainerIsland_TrainerCity_Gym_Text_GretaIntro, TrainerIsland_TrainerCity_Gym_Text_GretaDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterGretaBattle
 	end
 
-TrainerIsland_TrainerCity_Gym_EventScript_AfterGreteBattle::
-	setflag UNUSED_FLAG_0x4F3
+TrainerIsland_TrainerCity_Gym_EventScript_AfterGretaBattle::
+	setflag FLAG_UNUSED_0x4EA
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AnabelGreet::
 	cleartrainerflag TRAINER_ELITE_ANABEL
-	trainerbattle_double TRAINER_ELITE_ANABEL,TrainerIsland_TrainerCity_Gym_Text_AnabelIntro, TrainerIsland_TrainerCity_Gym_Text_AnabelDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_ANABEL,TrainerIsland_TrainerCity_Gym_Text_AnabelIntro, TrainerIsland_TrainerCity_Gym_Text_AnabelDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterAnabelBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterAnabelBattle::
-	setflag UNUSED_FLAG_0x4F4
+	setflag FLAG_UNUSED_0x4EB
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_SpenserGreet::
 	cleartrainerflag TRAINER_ELITE_SPENSER
-	trainerbattle_double TRAINER_ELITE_SPENSER, TrainerIsland_TrainerCity_Gym_Text_SpenserIntro, TrainerIsland_TrainerCity_Gym_Text_SpenserDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_SPENSER, TrainerIsland_TrainerCity_Gym_Text_SpenserIntro, TrainerIsland_TrainerCity_Gym_Text_SpenserDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterSpenserBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterSpenserBattle::
-	setflag UNUSED_FLAG_0x4F5
+	setflag FLAG_UNUSED_0x4EC
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_NolandGreet::
 	cleartrainerflag TRAINER_ELITE_NOLAND
-	trainerbattle_double TRAINER_ELITE_NOLAND, TrainerIsland_TrainerCity_Gym_Text_NolandIntro, TrainerIsland_TrainerCity_Gym_Text_NolandDefeated, Add3Points
+	trainerbattle_double TRAINER_ELITE_NOLAND, TrainerIsland_TrainerCity_Gym_Text_NolandIntro, TrainerIsland_TrainerCity_Gym_Text_NolandDefeat, Add3Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterNolandBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterNolandBattle::
-	setflag UNUSED_FLAG_0x4F6
+	setflag FLAG_UNUSED_0x4ED
 	release
 	end
 	
 TrainerIsland_TrainerCity_Gym_EventScript_WallaceGreet::
 	lockall
-	cleartrainerflag TRAINER_ELITE_WALLACe
-	goto_if_unset UNUSED_FLAG_0x4EC, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4ED, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4EE, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4EF, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F0, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F1, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	cleartrainerflag TRAINER_ELITE_WALLACE
+	goto_if_unset FLAG_UNUSED_0x4E3, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4E4, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4E5, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4E6, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4E7, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4E8, TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters
+	trainerbattle_double TRAINER_ELITE_WALLACE, TrainerIsland_TrainerCity_Gym_Text_StevenIntro, TrainerIsland_TrainerCity_Gym_Text_StevenDefeat, Add4Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterWallaceBattle
@@ -167,13 +169,13 @@ TrainerIsland_TrainerCity_Gym_EventScript_WallaceGreet::
 TrainerIsland_TrainerCity_Gym_EventScript_StevenGreet::
 	lockall
 	cleartrainerflag TRAINER_ELITE_STEVEN
-	goto_if_unset UNUSED_FLAG_0x4F1, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F2, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F3, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F4, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F5, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
-	goto_if_unset UNUSED_FLAG_0x4F6, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
-	trainerbattle_double TRAINER_ELITE_STEVEN, TrainerIsland_TrainerCity_Gym_Text_StevenIntro, TrainerIsland_TrainerCity_Gym_Text_StevenDefeated, Add4Points
+	goto_if_unset FLAG_UNUSED_0x4E8, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4E9, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4EA, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4EB, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4EC, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
+	goto_if_unset FLAG_UNUSED_0x4ED, TrainerIsland_TrainerCity_Gym_EventScript_Steven_DefeatMasters
+	trainerbattle_double TRAINER_ELITE_STEVEN, TrainerIsland_TrainerCity_Gym_Text_StevenIntro, TrainerIsland_TrainerCity_Gym_Text_StevenDefeat, Add4Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterStevenBattle
@@ -190,16 +192,16 @@ TrainerIsland_TrainerCity_Gym_EventScript_Wallace_DefeatMasters:
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterWallaceBattle::
-	setflag UNUSED_FLAG_0x4F7
+	setflag FLAG_UNUSED_0x4EE
 	release
 	end
 	
 TrainerIsland_TrainerCity_Gym_EventScript_AfterStevenBattle::
-	setflag UNUSED_FLAG_0x4F8
+	setflag FLAG_UNUSED_0x4EF
 	release
 	end
 
-TrainerIsland_TrainerCity_Gym_EventScript_RivalGreet1::
+TrainerIsland_TrainerCity_Gym_EventScript_RivalGreet::
 	lockall
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay
@@ -209,19 +211,19 @@ TrainerIsland_TrainerCity_Gym_EventScript_RivalGreet1::
 TrainerIsland_TrainerCity_Gym_EventScript_RivalMay::
 	applymovement LOCALID_RIVAL, Common_Movement_FacePlayer
 	waitmovement 0
-	goto_if_unset UNUSED_FLAG_0x4EC, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4ED, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4EE, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4EF, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F0, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F1, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F2, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F3, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F4, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F5, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F6, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F7, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymElites
-	goto_if_unset UNUSED_FLAG_0x4F8, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymElites
+	goto_if_unset FLAG_UNUSED_0x4E3, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E4, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E5, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E6, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E7, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E8, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E9, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EA, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EB, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EC, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4ED, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EE, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymElites
+	goto_if_unset FLAG_UNUSED_0x4EF, TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymElites
 	goto TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_Battle
 	end
 
@@ -229,6 +231,7 @@ TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymMasters::
 	msgbox TrainerIsland_TrainerCity_Gym_Text_May_DefeatGymMasters, MSGBOX_DEFAULT
 	release
 	end
+	
 TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymElites::
 	msgbox TrainerIsland_TrainerCity_Gym_Text_May_DefeatGymChampions, MSGBOX_DEFAULT
 	release
@@ -237,28 +240,29 @@ TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_DefeatGymElites::
 TrainerIsland_TrainerCity_Gym_EventScript_RivalMay_Battle::
 	msgbox TrainerIsland_TrainerCity_Gym_Text_MayLetsBattle, MSGBOX_DEFAULT
 	playbgm MUS_ENCOUNTER_MAY, TRUE
-	switch VAR_STARTER_MON
-	case 0, TrainerIsland_TrainerCity_Gym_EventScript_StartMayBattleSceptile
-	case 1, TrainerIsland_TrainerCity_Gym_EventScript_StartMayBattleBlaziken
-	case 2, TrainerIsland_TrainerCity_Gym_EventScript_StartMayBattleSwampert
+	cleartrainerflag TRAINER_CHAMPION_MAY
+	trainerbattle_double_no_intro TRAINER_CHAMPION_MAY, TrainerIsland_TrainerCity_Gym_Text_MayDefeat, CommonEvent_Text_NeedTwoMons, Add5Points
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterMayBattle
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan::
 	applymovement LOCALID_RIVAL, Common_Movement_FacePlayer
 	waitmovement 0
-	goto_if_unset UNUSED_FLAG_0x4EC, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4ED, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4EE, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4EF, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F0, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F1, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F2, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F3, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F4, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F5, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F6, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
-	goto_if_unset UNUSED_FLAG_0x4F7, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymElites
-	goto_if_unset UNUSED_FLAG_0x4F8, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymElites
+	goto_if_unset FLAG_UNUSED_0x4E3, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E4, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E5, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E6, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E7, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E8, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4E9, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EA, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EB, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EC, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4ED, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymMasters
+	goto_if_unset FLAG_UNUSED_0x4EE, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymElites
+	goto_if_unset FLAG_UNUSED_0x4EF, TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymElites
 	goto TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_Battle
 	end
 
@@ -275,94 +279,43 @@ TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_DefeatGymElites::
 TrainerIsland_TrainerCity_Gym_EventScript_RivalBrendan_Battle::
 	msgbox TrainerIsland_TrainerCity_Gym_Text_BrendanLetsBattle, MSGBOX_DEFAULT
 	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
-	switch VAR_STARTER_MON
-	case 0, TrainerIsland_TrainerCity_Gym_EventScript_StartBrendanBattleSceptile
-	case 1, TrainerIsland_TrainerCity_Gym_EventScript_StartBrendanBattleBlaziken
-	case 2, TrainerIsland_TrainerCity_Gym_EventScript_StartBrendanBattleSwampert
-	end
-	
-TrainerIsland_TrainerCity_Gym_EventScript_StartMayBattleSceptile::
-	cleartrainerflag TRAINER_CHAMPION_MAY_SCEPTILE
-	trainerbattle_double_no_intro TRAINER_CHAMPION_MAY_SCEPTILE, TrainerIsland_TrainerCity_Gym_Text_MayDefeated, CommonEvent_Text_NeedTwoMons, Add5Points
+	cleartrainerflag TRAINER_CHAMPION_BRENDAN
+	trainerbattle_double_no_intro TRAINER_CHAMPION_BRENDAN, TrainerIsland_TrainerCity_Gym_Text_BrendanDefeat, CommonEvent_Text_NeedTwoMons, Add5Points
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterMayBattle
-	end
-
-TrainerIsland_TrainerCity_Gym_EventScript_StartMayBattleBlaziken::
-	cleartrainerflag TRAINER_CHAMPION_MAY_BLAZIKEN
-	trainerbattle_double_no_intro TRAINER_CHAMPION_MAY_BLAZIKEN, TrainerIsland_TrainerCity_Gym_Text_MayDefeated, CommonEvent_Text_NeedTwoMons, Add5Points
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterMayBattle
-	end
-
-TrainerIsland_TrainerCity_Gym_EventScript_StartMayBattleSwampert::
-	cleartrainerflag TRAINER_CHAMPION_MAY_SWAMPERT
-	trainerbattle_double_no_intro TRAINER_CHAMPION_MAY_SWAMPERT, TrainerIsland_TrainerCity_Gym_Text_MayDefeated, CommonEvent_Text_NeedTwoMons, Add5Points
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterMayBattle
-	end
-
-TrainerIsland_TrainerCity_Gym_EventScript_StartBrendanBattleSceptile::
-	cleartrainerflag TRAINER_CHAMPION_BRENDAN_SCEPTILE
-	trainerbattle_double_no_intro TRAINER_CHAMPION_BRENDAN_SCEPTILE, TrainerIsland_TrainerCity_Gym_Text_BrendanDefeated, CommonEvent_Text_NeedTwoMons, Add5Points
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterBrendanBattle
 	end
 
-TrainerIsland_TrainerCity_Gym_EventScript_StartBrendanBattleBlaziken::
-	cleartrainerflag TRAINER_CHAMPION_BRENDAN_BLAZIKEN
-	trainerbattle_double_no_intro TRAINER_CHAMPION_BRENDAN_BLAZIKEN, TrainerIsland_TrainerCity_Gym_Text_BrendanDefeated, CommonEvent_Text_NeedTwoMons, Add5Points
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterBrendanBattle
-	end
-
-TrainerIsland_TrainerCity_Gym_EventScript_StartBrendanBattleSwampert::
-	cleartrainerflag TRAINER_CHAMPION_BRENDAN_SWAMPERT
-	trainerbattle_double_no_intro TRAINER_CHAMPION_BRENDAN_SWAMPERT, TrainerIsland_TrainerCity_Gym_Text_BrendanDefeated, CommonEvent_Text_NeedTwoMons, Add5Points
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_Gym_TrytoResetVictories
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON,  TrainerIsland_TrainerCity_Gym_EventScript_AfterBrendanBattle
-	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_AfterMayBattle::
-	message TrainerIsland_TrainerCity_Gym_Text_RecievedChampionRibbon
-	waitmessage
-	playbgm MUS_VICTORY_LEAGUE, FALSE
-	msgbox TrainerIsland_TrainerCity_Gym_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_RIVAL
-	setflag FLAG_CHAMPIONRIBBON_GET
-	goto TrainerIsland_TrainerCity_Gym_EventScript_GiveTM151
+	goto_if_unset FLAG_UNUSED_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GiveInsignia
+	goto TrainerIsland_TrainerCity_Gym_EventScript_AfterChampionBattleRepeat
 	end
 	
 	
 TrainerIsland_TrainerCity_Gym_EventScript_AfterBrendanBattle::
-	message TrainerIsland_TrainerCity_Gym_Text_RecievedChampionRibbon
-	waitmessage
-	playbgm MUS_VICTORY_LEAGUE, FALSE
-	msgbox TrainerIsland_TrainerCity_Gym_ChampionsInsigniaInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_RIVAL
-	setflag FLAG_CHAMPIONRIBBON_GET
-	goto TrainerIsland_TrainerCity_Gym_EventScript_GiveGodlyPower
+	goto_if_unset FLAG_UNUSED_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GiveInsignia
+	goto TrainerIsland_TrainerCity_Gym_EventScript_AfterChampionBattleRepeat
 	end
 	
-TrainerIsland_TrainerCity_Gym_EventScript_GiveGodlyPower::
-	giveitem ITEM_TM151
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_UNUSED_0x0E9
-	msgbox TrainerIsland_TrainerCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+TrainerIsland_TrainerCity_Gym_EventScript_AfterChampionBattleRepeat:
 	msgbox TrainerIsland_TrainerCity_Gym_Text_ComeBackAnytime, MSGBOX_DEFAULT
+	waitmessage
+	release
+	end
+	
+TrainerIsland_TrainerCity_Gym_EventScript_GiveInsignia:
+	msgbox TrainerIsland_TrainerCity_Gym_ChampionsInsignia, MSGBOX_DEFAULT
+	waitmessage
+	msgbox TrainerIsland_TrainerCity_Gym_Text_Humble, MSGBOX_DEFAULT
+	setflag FLAG_UNUSED_0x4FF
 	release
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, TrainerIsland_TrainerCity_Gym_EventScript_GymGuidePostVictory
+	goto_if_set FLAG_UNUSED_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GymGuidePostVictory
 	msgbox TrainerIsland_TrainerCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
 	release
 	end
@@ -374,13 +327,13 @@ TrainerIsland_TrainerCity_Gym_EventScript_GymGuidePostVictory::
 
 TrainerIsland_TrainerCity_Gym_EventScript_LeftGymStatue::
 	lockall
-	goto_if_set UNUSED_FLAG_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GymStatueCertified
+	goto_if_set FLAG_UNUSED_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GymStatueCertified
 	goto TrainerIsland_TrainerCity_Gym_EventScript_GymStatue
 	end
 
 TrainerIsland_TrainerCity_Gym_EventScript_RightGymStatue::
 	lockall
-	goto_if_set UNUSED_FLAG_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GymStatueCertified
+	goto_if_set FLAG_UNUSED_0x4FF, TrainerIsland_TrainerCity_Gym_EventScript_GymStatueCertified
 	goto TrainerIsland_TrainerCity_Gym_EventScript_GymStatue
 	end
 
@@ -395,7 +348,7 @@ TrainerIsland_TrainerCity_Gym_EventScript_GymStatue::
 	end
 	
 TrainerIsland_TrainerCity_Gym_TrytoResetVictories:
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_Gym_ResetVictories
+	goto_if_unset FLAG_UNUSED_0x4FF, TrainerIsland_TrainerCity_Gym_ResetVictories
 	return
 	end
 
@@ -404,6 +357,15 @@ TrainerIsland_TrainerCity_Gym_ResetVictories:
 	clearflag FLAG_UNUSED_0x2B9
 	return
 	end
+	
+TrainerIsland_TrainerCity_Gym_Text_GymStatue:
+	.string "TRAINER CITY POKéMON GYM$"
+
+TrainerIsland_TrainerCity_Gym_Text_GymStatueCertified:
+	.string "TRAINER CITY POKéMON GYM\p"
+	.string "BIRCH'S CERTIFIED TRAINERS:\n"
+	.string "{PLAYER}$"
+
 	
 TrainerIsland_TrainerCity_Gym_Text_SidneyIntro:
 	.string "Let's see who's stronger!$"
@@ -541,6 +503,14 @@ TrainerIsland_TrainerCity_Gym_Text_MayLetsBattle:
 	.string "you'll lose all your medals.\p"
 	.string "Prepare yourself, {PLAYER}{KUN},\n"
 	.string "this is your final challenge!!!$"
+	
+TrainerIsland_TrainerCity_Gym_Text_MayDefeat:
+	.string "BRENDAN: {PLAYER}{KUN}, you've done\n"
+	.string "it! You've won!\p"
+	.string "The glory, the splendor, the\n"
+	.string "magnificence!\p"
+	.string "What more can I say?! I'm wasting\n"
+	.string "my breath praising you!$"
 
 TrainerIsland_TrainerCity_Gym_Text_Brendan_DefeatGymMasters:
 	.string "BRENDAN: You need to defeat all the\n"
@@ -564,11 +534,15 @@ TrainerIsland_TrainerCity_Gym_Text_BrendanLetsBattle:
 	.string "Prepare yourself, {PLAYER}{KUN},\n"
 	.string "this is your final battle!!!$"
 
-TrainerIsland_TrainerCity_Gym_Text_BrendanDefeated:
+TrainerIsland_TrainerCity_Gym_Text_BrendanDefeat:
 	.string "BRENDAN: {PLAYER}{KUN}, you've done\n"
 	.string "it! You've won!\p"
 	.string "The glory, the splendor, the\n"
 	.string "magnificence!\p"
+	.string "What more can I say?! I'm wasting\n"
+	.string "my breath praising you!$"
+	
+TrainerIsland_TrainerCity_Gym_Text_ChampionDefeat:
 	.string "I must award you for your victory,\n"
 	.string "I insist!$"
 
@@ -576,23 +550,19 @@ TrainerIsland_TrainerCity_Gym_Text_RecievedChampionRibbon:
 	.string "{PLAYER} received the CHAMPION'S\n"
 	.string "INSIGNIA.$"
 
-TrainerIsland_TrainerCity_Gym_ChampionsInsigniaInfoTakeThis:
+TrainerIsland_TrainerCity_Gym_ChampionsInsignia:
 	.string "The CHAMPION'S INSIGNIA proves your\n"
 	.string "prowless as a Master Trainer.\p"
 	.string "People in the outside world will see\n"
-	.string "this and know your mettle!\p"
-	.string "Please take this with you, too.$"
-
-TrainerIsland_TrainerCity_Gym_Text_ExplainGodlyPower:
-	.string "That's TM151, containing\n"
-	.string "GODLY POWER.\p"
-	.string "It's a relatively new move that only\n"
-	.string "a specific pokemon can learn.$"
-
+	.string "this and know your mettle!$"
+	
 TrainerIsland_TrainerCity_Gym_Text_ComeBackAnytime:
+	.string "Come back anytime, I'll be waiting!$"
+
+TrainerIsland_TrainerCity_Gym_Text_Humble:
 	.string "To think you started from humble\n"
 	.string "beginnings to be where you are today…\p"
-	.string "I'm truely astounded that you have\n"
+	.string "I'm truly astounded that you have\n"
 	.string "bested me and the rest of the world…\p"
 	.string "…\p"
 	.string "…\p"

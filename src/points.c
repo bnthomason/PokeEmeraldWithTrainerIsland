@@ -40,12 +40,12 @@ void HidePointsWindow(void)
 
 u16 GetPoints(void)
 {
-    return gSaveBlock1Ptr->points ^ gSaveBlock2Ptr->encryptionKey;
+    return gSaveBlock1Ptr->points;
 }
 
 void SetPoints(u16 pointAmount)
 {
-    gSaveBlock1Ptr->points = pointAmount ^ gSaveBlock2Ptr->encryptionKey;
+    gSaveBlock1Ptr->points = pointAmount;
 }
 
 bool8 AddPoints(u16 toAdd)

@@ -3,7 +3,7 @@ TrainerIsland_TrainerCity_PokemonCenter_1F_MapScripts::
 	.byte 0
 
 TrainerIsland_TrainerCity_PokemonCenter_1F_OnTransition:
-	setrespawn HEAL_LOCATION_TRAINER_ISLAND_HARBOUR
+	setrespawn HEAL_LOCATION_TRAINER_ISLAND_TRAINER_CITY
 	end
 
 
@@ -19,21 +19,21 @@ TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Nurse::
 TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid1::
 	lock
 	faceplayer
-	goto_if_set FLAG_UNUSED_0x069, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_TradeCompleted
+	goto_if_set FLAG_UNUSED_0x468, TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_TradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_MAREEP
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_YouWillTradeWontYou, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_DeclineTrade
+	goto_if_eq VAR_RESULT, NO, TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_DeclineTrade
 	special ChoosePartyMon
 	waitstate
 	copyvar VAR_0x800A, VAR_0x8004
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_DeclineTrade
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_DeclineTrade
 	copyvar VAR_0x8005, VAR_0x800A
 	specialvar VAR_RESULT, GetTradeSpecies
 	copyvar VAR_0x800B, VAR_RESULT
-	goto_if_ne VAR_RESULT, VAR_0x8009, TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_NotRequestedMon
+	goto_if_ne VAR_RESULT, VAR_0x8009, TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_NotRequestedMon
 	copyvar VAR_0x8004, VAR_0x8008
 	copyvar VAR_0x8005, VAR_0x800A
 	special CreateInGameTradePokemon
@@ -41,14 +41,14 @@ TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid1::
 	waitstate
 	bufferspeciesname STR_VAR_1, VAR_0x8009
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_MonYouTakeCare, MSGBOX_DEFAULT
-	setflag FLAG_UNUSED_0x069
+	setflag FLAG_UNUSED_0x468
 	release
 	end
 	
-TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid::
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid2::
 	lock
 	faceplayer
-	goto_if_unset FLAG_UNUSED_0x069, TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidWantsToTrade
+	goto_if_unset FLAG_UNUSED_0x468, TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_ThatKidWantsToTrade
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidGotHisDesire, MSGBOX_DEFAULT
 	release
 	end
@@ -57,23 +57,23 @@ TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Boy:
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TradingIsAPartofLife, MSGBOX_NPC
 	end
 	
-TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidWantsToTrade:
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_ThatKidWantsToTrade:
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThatKidWantsToTrade, MSGBOX_DEFAULT
 	release
 	end
 
-TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_DeclineTrade::
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_DeclineTrade::
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_YouWontTradeMe, MSGBOX_DEFAULT
 	release
 	end
 
-TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_NotRequestedMon::
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_NotRequestedMon::
 	bufferspeciesname STR_VAR_1, VAR_0x8009
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_ThisIsntAMon, MSGBOX_DEFAULT
 	release
 	end
 
-TrainerIsland_TrainerCity_PokemonCenter_1F__EventScript_TradeCompleted::
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_TradeCompleted::
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TakeCareOfHorsea, MSGBOX_DEFAULT
 	release
 	end

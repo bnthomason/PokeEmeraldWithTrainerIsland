@@ -613,7 +613,16 @@
     "TrainerIsland_TrainerCity_Gym",
     "TrainerIsland_TrainerCity_RedemptionCenter",
     "TrainerIsland_TrainerCity_House1",
-    "NewMap1"
+    "TrainerIsland_TrainerCity_House2",
+    "TrainerIsland_TrainerCity_House3",
+    "TrainerIsland_TrainerCity_House4",
+    "TrainerIsland_TrainerCity_Office",
+    "RyukyuanIsland_City",
+    "RyuKyuanCity_Flat1_1F",
+    "RyuKyuanCity_Flat1_2F",
+    "RyuKyuanCity_Flat1_3F",
+    "RyuKyuanCity_Flat2_F1",
+    "RyuKyuanCity_Flat2_2F"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

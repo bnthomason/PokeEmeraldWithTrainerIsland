@@ -9,13 +9,11 @@ TrainerIsland_1F_OnTransition:
 
 
 TrainerIsland_1F_EventScript_Chelsea::
-	cleartrainerflag TRAINER_MASTER_CHELSEA
 	trainerbattle_double TRAINER_MASTER_CHELSEA, TrainerIsland_1F_Text_ChelseaIntro, TrainerIsland_1F_Text_ChelseaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_1F_Text_ChelseaPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_1F_EventScript_Michael::
-	cleartrainerflag TRAINER_MASTER_MICHAEL
 	trainerbattle_double TRAINER_MASTER_MICHAEL, TrainerIsland_1F_Text_MichaelIntro, TrainerIsland_1F_Text_MichaelDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_1F_Text_MichaelPostBattle, MSGBOX_AUTOCLOSE
 	end

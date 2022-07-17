@@ -1,11 +1,19 @@
 TrainerIsland_Area5_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area5_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Area5_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Area5_OnFrame
 	.byte 0
 	
 	
 TrainerIsland_Area5_OnTransition:
 	cleartrainerflag TRAINER_MASTER_JAMES	
+	cleartrainerflag TRAINER_MASTER_NORMAN
+	cleartrainerflag TRAINER_MASTER_NORMAN_2
+	cleartrainerflag TRAINER_MASTER_NORMAN_3
+	cleartrainerflag TRAINER_MASTER_NORMAN_4
+	cleartrainerflag TRAINER_MASTER_BRAWLY
+	cleartrainerflag TRAINER_MASTER_BRAWLY_2
+	cleartrainerflag TRAINER_MASTER_BRAWLY_3
+	cleartrainerflag TRAINER_MASTER_BRAWLY_4
 	end
 
 
@@ -35,28 +43,24 @@ TrainerIsland_Area5_EventScript_NormanFirstMatch::
 	end
 
 TrainerIsland_Area5_EventScript_NormanRematch1::
-	cleartrainerflag TRAINER_MASTER_NORMAN_2
 	trainerbattle_double TRAINER_MASTER_NORMAN_2, TrainerIsland_Area5_Text_NormanIntro2, TrainerIsland_Area5_Text_NormanDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area5_Text_NormanPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F9, 3
 	end
 	
 TrainerIsland_Area5_EventScript_NormanRematch2::
-	cleartrainerflag TRAINER_MASTER_NORMAN_3
 	trainerbattle_double TRAINER_MASTER_NORMAN_3, TrainerIsland_Area5_Text_NormanIntro2, TrainerIsland_Area5_Text_NormanDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area5_Text_NormanPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F9, 4
 	end
 
 TrainerIsland_Area5_EventScript_NormanRematch3::
-	cleartrainerflag TRAINER_MASTER_NORMAN_4
 	trainerbattle_double TRAINER_MASTER_NORMAN_4, TrainerIsland_Area5_Text_NormanIntro2, TrainerIsland_Area5_Text_NormanDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area5_Text_NormanPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F9, 5
 	end
 	
 TrainerIsland_Area5_EventScript_NormanRematch4::
-	cleartrainerflag TRAINER_MASTER_NORMAN
 	trainerbattle_double TRAINER_MASTER_NORMAN, TrainerIsland_Area5_Text_NormanIntro2, TrainerIsland_Area5_Text_NormanDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area5_Text_NormanPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F9, 2
@@ -78,7 +82,6 @@ TrainerIsland_Area5_EventScript_BrawlyFirstMatch::
 	end
 
 TrainerIsland_Area5_EventScript_BrawlyRematch1::
-	cleartrainerflag TRAINER_MASTER_BRAWLY_2
 	trainerbattle_double TRAINER_MASTER_BRAWLY_2, TrainerIsland_Area5_Text_BrawlyIntro2, TrainerIsland_Area5_Text_BrawlyDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area5_Text_BrawlyPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FA, 3
@@ -107,8 +110,8 @@ TrainerIsland_Area5_EventScript_BrawlyRematch4::
 	
 TrainerIsland_Area5_EventScript_James::
 	cleartrainerflag TRAINER_MASTER_JAMES
-	trainerbattle_double TRAINER_MASTER_JAMES, TrainerIsland_Text_JamesIntro, TrainerIsland_Text_JamesDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
-	msgbox TrainerIsland_Text_JamesPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_double TRAINER_MASTER_JAMES, TrainerIsland_Area5_Text_JamesIntro, TrainerIsland_Area5_Text_JamesDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area5_Text_JamesPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area5_Text_NormanIntro:

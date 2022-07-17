@@ -753,6 +753,7 @@ extern const u8 gText_SouthernIsland[];
 extern const u8 gText_NavelRock[];
 extern const u8 gText_BirthIsland[];
 extern const u8 gText_FarawayIsland[];
+extern const u8 gText_TrainerIsland[];
 
 extern const u8 gText_BattleTrainers[];
 extern const u8 gText_BattleBasics[];
@@ -1303,6 +1304,17 @@ extern const u8 gText_TrainerHill1F[];
 extern const u8 gText_TrainerHill2F[];
 extern const u8 gText_TrainerHill3F[];
 extern const u8 gText_TrainerHill4F[];
+
+// Redemption Center Prizes
+extern const u8 gText_TM02AndPrice[];
+extern const u8 gText_TM22AndPrice[];
+extern const u8 gText_TM23AndPrice[];
+extern const u8 gText_TM26AndPrice[];
+extern const u8 gText_TM30AndPrice[];
+extern const u8 gText_TM36AndPrice[];
+
+extern const u8 gText_MagikarpAndPrice[];
+extern const u8 gText_FeebasAndPrice[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];

@@ -1,6 +1,6 @@
 TrainerIsland_Area2_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area2_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Area2_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Area2_OnFrame
 	.byte 0
 	
 TrainerIsland_Area2_OnTransition:
@@ -154,7 +154,7 @@ TrainerIsland_Area2_Text_JuanDefeat:
 	.string "I'm all washed up…$"
 	
 TrainerIsland_Area2_Text_JuanPostBattle:
-	.string "My team's like oil and water…"
+	.string "My team's like oil and water…$"
 	
 	
 	

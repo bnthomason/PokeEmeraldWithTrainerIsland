@@ -8,7 +8,7 @@ TrainerIsland_TrainerCity_Mart_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart TrainerIsland_Mart_Pokemart1
+	pokemart TrainerIsland_TrainerCity_Mart_Pokemart1
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -20,7 +20,7 @@ TrainerIsland_TrainerCity_Mart_EventScript_Specialist::
 	goto_if_unset FLAG_UNUSED_0x1AB TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Pokeballs
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart TrainerIsland_Mart_Pokemart2
+	pokemart TrainerIsland_TrainerCity_Mart_Pokemart2
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -28,7 +28,7 @@ TrainerIsland_TrainerCity_Mart_EventScript_Specialist::
 TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Initial::
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart TrainerIsland_Mart_Pokemart1
+	pokemart TrainerIsland_TrainerCity_Mart_Pokemart1
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -41,7 +41,7 @@ TrainerIsland_TrainerCity_Mart_EventScript_Specialist_Pokeballs::
 	applymovement LOCALID_CLERK, Specialist_EnterAndExitRoom
 	waitmovement 0
 	msgbox TrainerIsland_TrainerCity_Mart_Text_DustyButFunctional, MSGBOX_DEFAULT
-	pokemart TrainerIsland_Mart_Pokemart2
+	pokemart TrainerIsland_TrainerCity_Mart_Pokemart2
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -60,9 +60,9 @@ TrainerIsland_TrainerCity_Mart_Pokemart1:
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_ETHER
-	.2byte ITEM_ELIXER
+	.2byte ITEM_ELIXIR
 	.2byte ITEM_MAX_ETHER
-	.2byte ITEM_MAX_ELIXER
+	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_REVIVE
 	.2byte ITEM_MAX_REVIVE
 	.2byte ITEM_X_SP_ATK
@@ -79,7 +79,7 @@ TrainerIsland_TrainerCity_Mart_Pokemart1:
 TrainerIsland_TrainerCity_Mart_Pokemart2:
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_UTLRA_BALL
+	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_MASTER_BALL
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_NET_BALL
@@ -99,7 +99,6 @@ TrainerIsland_TrainerCity_Mart_Pokemart2:
 	.2byte ITEM_HEAVY_BALL
 	.2byte ITEM_DREAM_BALL
 	.2byte ITEM_CHERISH_BALL
-	.2byte ITEM_DRAGON_BALL
 	.2byte ITEM_NONE
 	release
 	end

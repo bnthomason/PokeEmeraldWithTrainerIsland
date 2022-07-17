@@ -5,11 +5,6 @@ TrainerIsland_TrainerCity_MapScripts::
 	.byte 0
 	
 TrainerIsland_TrainerCity_OnTransition:
-	goto_if_eq VAR_UNUSED_0x40FF, 0, TrainerIsland_TrainerCity_ResetTrainers
-	goto_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers	
-	end
-
-TrainerIsland_TrainerCity_ResetTrainers:
 	cleartrainerflag TRAINER_MASTER_CALEB
 	cleartrainerflag TRAINER_MASTER_RILEY
 	cleartrainerflag TRAINER_MASTER_JOHAN
@@ -30,7 +25,6 @@ TrainerIsland_TrainerCity_ResetTrainers:
 	end
 
 TrainerIsland_TrainerCity_EventScript_NXTournament_Caleb::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_CALEB, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -38,7 +32,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Caleb::
 	end
 
 TrainerIsland_TrainerCity_EventScript_NXTournament_Riley::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_RILEY, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -46,7 +39,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Riley::
 	end
 
 TrainerIsland_TrainerCity_EventScript_NXTournament_Johan::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_JOHAN, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -54,7 +46,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Johan::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Jessie::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_JESSIE, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -62,7 +53,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Jessie::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Rachel::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_RACHEL, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -71,7 +61,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Rachel::
 	
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Judai::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_JUDAI, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -79,7 +68,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Judai::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Asuka::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_ASUKA, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -87,7 +75,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Asuka::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Laina::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_LAINA, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -95,7 +82,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Laina::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Brett::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_BRETT, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -103,7 +89,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Brett::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Kelly::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_KELLY, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -111,7 +96,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Kelly::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Jack::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_JACK, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -120,7 +104,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Jack::
 	
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Frank::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_FRANK, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -128,7 +111,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Frank::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Devin::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_DEVIN, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -136,7 +118,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Devin::
 	end
 	
 TrainerIsland_TrainerCity_EventScript_NXTournament_Will::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_WILL, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -144,7 +125,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Will::
 	end
 
 TrainerIsland_TrainerCity_EventScript_NXTournament_Bertha::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_BERTHA, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -152,7 +132,6 @@ TrainerIsland_TrainerCity_EventScript_NXTournament_Bertha::
 	end
 
 TrainerIsland_TrainerCity_EventScript_NXTournament_Sedina::
-	call_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_ResetTrainers
 	trainerbattle_double TRAINER_MASTER_SEDINA, TrainerIsland_TrainerCity_Text_GenericIntro, TrainerIsland_TrainerCity_Text_GenericDefeat, Add1Points
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, TrainerIsland_TrainerCity_TrytoResetVictories
@@ -180,17 +159,17 @@ TrainerIsland_TrainerCity_ResetVictories:
 	return
 	end
 	
-TrainerIsland_TrainerCity_EventScript_NXTournament_GymKeeper:
+TrainerIsland_TrainerCity_EventScript_NXTournament_GymKeeper::
 	lock
 	faceplayer
-	goto_if_set FLAG_UNUSED_0x264, TrainerIsland_TrainerCity_EventScript_PreparingTournament
+	goto_if_unset FLAG_UNUSED_0x264, TrainerIsland_TrainerCity_EventScript_PreparingTournament
 	goto_if_lt VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_EventScript_KnockoutEveryone
 	goto_if_eq VAR_UNUSED_0x40FF, 17, TrainerIsland_TrainerCity_EventScript_YouMayEnter
 	release
 	end
 	
 TrainerIsland_TrainerCity_EventScript_PreparingTournament:
-	msgbox TrainerIsland_TrainerCity_Text_PreparingTournament, MSBOX_DEFAULT
+	msgbox TrainerIsland_TrainerCity_Text_PreparingTournament, MSGBOX_DEFAULT
 	release
 	end
 	
@@ -199,12 +178,12 @@ TrainerIsland_TrainerCity_EventScript_KnockoutEveryone:
 	setvar VAR_TEMP_1, 17
 	subvar VAR_TEMP_1, VAR_TEMP_0
 	buffernumberstring STR_VAR_1, VAR_TEMP_1
-	msgbox TrainerIsland_TrainerCity_EventScript_KnockoutEveryone, MSBOX_DEFAULT
+	msgbox TrainerIsland_TrainerCity_EventScript_KnockoutEveryone, MSGBOX_DEFAULT
 	release
 	end
 	
 TrainerIsland_TrainerCity_EventScript_YouMayEnter:
-	msgbox TrainerIsland_TrainerCity_EventScript_KnockoutEveryone, MSBOX_DEFAULT
+	msgbox TrainerIsland_TrainerCity_EventScript_KnockoutEveryone, MSGBOX_DEFAULT
 	waitmessage
 	applymovement LOCALID_GYMKEEPER, Common_Movement_WalkInPlaceUp
 	waitmovement 0

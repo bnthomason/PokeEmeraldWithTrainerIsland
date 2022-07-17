@@ -1,6 +1,6 @@
-mapscripts TrainerIsland_Area5_MapScripts::
+TrainerIsland_Area5_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area5_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Area5_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Area5_OnFrame
 	.byte 0
 	
 	
@@ -107,8 +107,8 @@ TrainerIsland_Area5_EventScript_BrawlyRematch4::
 	
 TrainerIsland_Area5_EventScript_James::
 	cleartrainerflag TRAINER_MASTER_JAMES
-	trainerbattle_double TRAINER_MASTER_JAMES, TrainerIsland_Text_JamesIntro, TrainerIsland_Text_JamesDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
-	msgbox TrainerIsland_Text_JamesPostBattle, MSGBOX_AUTOCLOSE
+	trainerbattle_double TRAINER_MASTER_JAMES, TrainerIsland_Area5_Text_JamesIntro, TrainerIsland_Area5_Text_JamesDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area5_Text_JamesPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area5_Text_NormanIntro:

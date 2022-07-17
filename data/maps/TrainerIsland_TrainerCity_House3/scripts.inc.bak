@@ -6,7 +6,7 @@ TrainerIsland_TrainerCity_House3_EventScript_OldMan:
 	end	
 	
 TrainerIsland_TrainerCity_House3_EventScript_OldWoman:
-	msgbox TrainerIsland_TrainerCity_House3_Text_Professor, MSGBOX_NPC
+	msgbox TrainerIsland_TrainerCity_House3_Text_Cult, MSGBOX_NPC
 	end	
 	
 TrainerIsland_TrainerCity_House3_Text_BeCareful:

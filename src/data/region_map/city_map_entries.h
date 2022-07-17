@@ -110,4 +110,14 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 1,
         .tilemap = gPokenavCityMap_EverGrande_1,
     },
+	{
+        .mapSecId = MAPSEC_TRAINERISLAND_TRAINERCITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_TrainerCity_0,
+    },
+	{
+        .mapSecId = MAPSEC_RYUKYUISLAND_CITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_RyuKyuanCity,
+    },
 };

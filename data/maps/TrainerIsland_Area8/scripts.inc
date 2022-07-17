@@ -3,6 +3,7 @@ TrainerIsland_Area8_MapScripts::
 	.byte 0
 	
 TrainerIsland_Area8_OnTransition:
+	cleartrainerflag TRAINER_MASTER_PHOEBE
 	cleartrainerflag TRAINER_MASTER_JUDAH
 	cleartrainerflag TRAINER_MASTER_DAVID
 	cleartrainerflag TRAINER_MASTER_KIRK
@@ -24,109 +25,92 @@ TrainerIsland_Area8_OnTransition:
 
 
 TrainerIsland_Area8_EventScript_Phoebe::
-	cleartrainerflag TRAINER_MASTER_PHOEBE
+
 	trainerbattle_double TRAINER_MASTER_PHOEBE, TrainerIsland_Area8_Text_PhoebeIntro, TrainerIsland_Area8_Text_PhoebeDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
 	msgbox TrainerIsland_Area8_Text_PhoebePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Judah::
-	cleartrainerflag TRAINER_MASTER_JUDAH
 	trainerbattle_double TRAINER_MASTER_JUDAH, TrainerIsland_Area8_Text_JudahIntro, TrainerIsland_Area8_Text_JudahDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_JudahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_David::
-	cleartrainerflag TRAINER_MASTER_DAVID
 	trainerbattle_double TRAINER_MASTER_DAVID, TrainerIsland_Area8_Text_DavidIntro, TrainerIsland_Area8_Text_DavidDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_DavidPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Kirk::
-	cleartrainerflag TRAINER_MASTER_KIRK
 	trainerbattle_double TRAINER_MASTER_KIRK, TrainerIsland_Area8_Text_KirkIntro, TrainerIsland_Area8_Text_KirkDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_KirkPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Valerie::
-	cleartrainerflag TRAINER_MASTER_VALERIE
 	trainerbattle_double TRAINER_MASTER_VALERIE, TrainerIsland_Area8_Text_ValerieIntro, TrainerIsland_Area8_Text_ValerieDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_ValeriePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Greg::
-	cleartrainerflag TRAINER_MASTER_GREG
 	trainerbattle_double TRAINER_MASTER_GREG, TrainerIsland_Area8_Text_GregIntro, TrainerIsland_Area8_Text_GregDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_GregPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Joshua::
-	cleartrainerflag TRAINER_MASTER_JOSHUA
 	trainerbattle_double TRAINER_MASTER_JOSHUA, TrainerIsland_Area8_Text_JoshuaIntro, TrainerIsland_Area8_Text_JoshuaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_JoshuaPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Darwin::
-	cleartrainerflag TRAINER_MASTER_DARWIN
 	trainerbattle_double TRAINER_MASTER_DARWIN, TrainerIsland_Area8_Text_DarwinIntro, TrainerIsland_Area8_Text_DarwinDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_DarwinPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Kate::
-	cleartrainerflag TRAINER_MASTER_KATE
 	trainerbattle_double TRAINER_MASTER_KATE, TrainerIsland_Area8_Text_KateIntro, TrainerIsland_Area8_Text_KateDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_KatePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Elise::
-	cleartrainerflag TRAINER_MASTER_ELISE
 	trainerbattle_double TRAINER_MASTER_ELISE, TrainerIsland_Area8_Text_EliseIntro, TrainerIsland_Area8_Text_EliseDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_ElisePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Corren::
-	cleartrainerflag TRAINER_MASTER_CORREN
 	trainerbattle_double TRAINER_MASTER_CORREN, TrainerIsland_Area8_Text_CorrenIntro, TrainerIsland_Area8_Text_CorrenDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_CorrenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Yulie::
-	cleartrainerflag TRAINER_MASTER_YULIE
 	trainerbattle_double TRAINER_MASTER_YULIE, TrainerIsland_Area8_Text_YulieIntro, TrainerIsland_Area8_Text_YulieDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_YuliePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Tom::
-	cleartrainerflag TRAINER_MASTER_TOM
 	trainerbattle_double TRAINER_MASTER_TOM, TrainerIsland_Area8_Text_TomIntro, TrainerIsland_Area8_Text_TomDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_TomPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_George::
-	cleartrainerflag TRAINER_MASTER_GEORGE
 	trainerbattle_double TRAINER_MASTER_GEORGE, TrainerIsland_Area8_Text_GeorgeIntro, TrainerIsland_Area8_Text_GeorgeDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_GeorgePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Stan::
-	cleartrainerflag TRAINER_MASTER_STAN
 	trainerbattle_double TRAINER_MASTER_STAN, TrainerIsland_Area8_Text_StanIntro, TrainerIsland_Area8_Text_StanDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_StanPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area8_EventScript_Sierra::
-	cleartrainerflag TRAINER_MASTER_SIERRA
 	trainerbattle_double TRAINER_MASTER_SIERRA, TrainerIsland_Area8_Text_SierraIntro, TrainerIsland_Area8_Text_SierraDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_SierraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Jonah::
-	cleartrainerflag TRAINER_MASTER_JONAH
 	trainerbattle_double TRAINER_MASTER_JONAH, TrainerIsland_Area8_Text_JonahIntro, TrainerIsland_Area8_Text_JonahDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_JonahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area8_EventScript_Samuel::
-	cleartrainerflag TRAINER_MASTER_SAMUEL
 	trainerbattle_double TRAINER_MASTER_SAMUEL, TrainerIsland_Area8_Text_SamuelIntro, TrainerIsland_Area8_Text_SamuelDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area8_Text_SamuelPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -250,7 +234,7 @@ TrainerIsland_Area8_Text_KateIntro:
 	.string "a treasure!$"
 	
 TrainerIsland_Area8_Text_KateDefeat:
-	.string "But it does has its\n"
+	.string "But it does have its\n"
 	.string "drawbacks…$"
 				
 TrainerIsland_Area8_Text_KatePostBattle:
@@ -332,6 +316,22 @@ TrainerIsland_Area8_Text_StanPostBattle:
 	.string "My comics are the best!$"
 	
 	
+TrainerIsland_Area8_Text_SierraIntro:
+	.string "Unicorns are perfect.\n"
+	.string "Battling must be perfect.\p"
+	.string "Since I battle perfect…\n"
+	.string "then I'm a unicorn!$"
+	
+TrainerIsland_Area8_Text_SierraDefeat:
+	.string "Impossible!\p"
+	.string "You couldn't've defeated me…\n"
+	.string "I'm a freakin unicorn!$"
+	
+TrainerIsland_Area8_Text_SierraPostBattle:
+	.string "I'm a unicorn! I am perfect\n"
+	.string "in each and every way!\p"
+	.string "Then why did I lose…?$" 
+	
 
 TrainerIsland_Area8_Text_JonahIntro:
 	.string "I once was trapped in the\n"
@@ -359,5 +359,5 @@ TrainerIsland_Area8_Text_SamuelDefeat:
 	.string "down!$"
 	
 TrainerIsland_Area8_Text_SamuelPostBattle:
-	.string "Please be nice,\n"
+	.string "Please be nice\n"
 	.string "to my rare pokemon.$"

@@ -181,6 +181,7 @@ extern const u8 gText_Cancel4[];
 extern const u8 gText_IsThisTheCorrectTime[];
 extern const u8 gText_PkmnFainted3[];
 extern const u8 gText_Coins[];
+extern const u8 gText_Points[];
 extern const u8 gText_Silver[];
 extern const u8 gText_Gold[];
 
@@ -929,6 +930,7 @@ extern const u8 gText_ItemFinderNothing[];
 extern const u8 gText_ItemFinderNearby[];
 extern const u8 gText_ItemFinderOnTop[];
 extern const u8 gText_CoinCase[];
+extern const u8 gText_PointTracker[];
 extern const u8 gText_PowderQty[];
 extern const u8 gText_BootedUpHM[];
 extern const u8 gText_BootedUpTM[];
@@ -1301,6 +1303,17 @@ extern const u8 gText_TrainerHill1F[];
 extern const u8 gText_TrainerHill2F[];
 extern const u8 gText_TrainerHill3F[];
 extern const u8 gText_TrainerHill4F[];
+
+// Redemption Center Prizes
+extern const u8 gText_TM02AndPrice[];
+extern const u8 gText_TM22AndPrice[];
+extern const u8 gText_TM23AndPrice[];
+extern const u8 gText_TM26AndPrice[];
+extern const u8 gText_TM30AndPrice[];
+extern const u8 gText_TM36AndPrice[];
+
+extern const u8 gText_MagikarpAndPrice[];
+extern const u8 gText_FeebasAndPrice[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];

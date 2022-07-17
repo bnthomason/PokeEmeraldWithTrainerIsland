@@ -1066,6 +1066,22 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_SKITTY
+    },
+	[INGAME_TRADE_MAREEP] =
+    {
+        .nickname = _("SHEEPY"),
+        .species = SPECIES_MAREEP,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .abilityNum = 0,
+        .otId = 52136,
+        .conditions = {30, 5, 5, 5, 5},
+        .personality = 0x7F,
+        .heldItem = ITEM_HARBOR_MAIL,
+        .mailNum = 3,
+        .otName = _("OSAKA"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_HORSEA
     }
 };
 

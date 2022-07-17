@@ -36,6 +36,7 @@
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_storage_system.h"
+#include "points.h"
 #include "random.h"
 #include "region_map.h"
 #include "script.h"
@@ -97,8 +98,10 @@ enum { // Flags
     DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF,
     DEBUG_FLAG_MENU_ITEM_NATDEXONOFF,
     DEBUG_FLAG_MENU_ITEM_POKENAVONOFF,
+ 	DEBUG_FLAG_MENU_ITEM_FRONTIERPASSONOFF,
     DEBUG_FLAG_MENU_ITEM_FLYANYWHERE,
     DEBUG_FLAG_MENU_ITEM_GETALLBADGES,
+    DEBUG_FLAG_MENU_ITEM_GETALLSYMBOLS,
     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF,
     DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF,
     DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF,
@@ -115,6 +118,7 @@ enum { // Give
     DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX,
     DEBUG_GIVE_MENU_ITEM_MAX_MONEY,
     DEBUG_GIVE_MENU_ITEM_MAX_COINS,
+	DEBUG_GIVE_MENU_ITEM_MAX_POINTS,
     DEBUG_GIVE_MENU_ITEM_DAYCARE_EGG,
     DEBUG_GIVE_MENU_ITEM_FILL_PC,
     DEBUG_GIVE_MENU_ITEM_CHEAT,
@@ -162,6 +166,12 @@ struct DebugMonData
     u8  mon_iv_speed;
     u8  mon_iv_satk;
     u8  mon_iv_sdef;
+    u8  mon_ev_hp;
+    u8  mon_ev_atk;
+    u8  mon_ev_def;
+    u8  mon_ev_speed;
+    u8  mon_ev_satk;
+    u8  mon_ev_sdef;
     u16 mon_move_0;
     u16 mon_move_1;
     u16 mon_move_2;
@@ -224,8 +234,10 @@ static void DebugAction_Flags_SetPokedexFlags(u8);
 static void DebugAction_Flags_SwitchDex(u8);
 static void DebugAction_Flags_SwitchNatDex(u8);
 static void DebugAction_Flags_SwitchPokeNav(u8);
+static void DebugAction_Flags_SwitchFrontierPass(u8);
 static void DebugAction_Flags_ToggleFlyFlags(u8);
 static void DebugAction_Flags_ToggleBadgeFlags(u8);
+static void DebugAction_Flags_ToggleSymbolFlags(u8);
 static void DebugAction_Flags_CollisionOnOff(u8);
 static void DebugAction_Flags_EncounterOnOff(u8);
 static void DebugAction_Flags_TrainerSeeOnOff(u8);
@@ -248,10 +260,12 @@ static void DebugAction_Give_Pokemon_SelectShiny(u8 taskId);
 static void DebugAction_Give_Pokemon_SelectNature(u8 taskId);
 static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId);
 static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId);
+static void DebugAction_Give_Pokemon_SelectEVs(u8 taskId);
 static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId);
 static void DebugAction_Give_Pokemon_Move(u8 taskId);
 static void DebugAction_Give_MaxMoney(u8 taskId);
 static void DebugAction_Give_MaxCoins(u8 taskId);
+static void DebugAction_Give_MaxPoints(u8 taskId);
 static void DebugAction_Give_DayCareEgg(u8 taskId);
 static void DebugAction_Give_FillPC(u8 taskId);
 static void DebugAction_Give_CHEAT(u8 taskId);
@@ -288,7 +302,7 @@ extern const u8 gAbilityNames[][ABILITY_NAME_LENGTH + 1];
 
 // *******************************
 //Maps per map group COPY FROM /include/constants/map_groups.h
- static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
+ static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 123, 2, 1, 13, 1, 1, 3, 1, 0};
 
 // Text
 // Main Menu
@@ -332,8 +346,10 @@ static const u8 gDebugText_Flags_SetPokedexFlags[] =        _("All Pokédex Flag
 static const u8 gDebugText_Flags_SwitchDex[] =              _("Pokédex ON/OFF");
 static const u8 gDebugText_Flags_SwitchNationalDex[] =      _("NatDex ON/OFF");
 static const u8 gDebugText_Flags_SwitchPokeNav[] =          _("PokéNav ON/OFF");
+static const u8 gDebugText_Flags_SwitchFrontierPass[] =     _("FrontPass ON/OFF");
 static const u8 gDebugText_Flags_ToggleFlyFlags[] =         _("Fly Flags ON/OFF");
 static const u8 gDebugText_Flags_ToggleAllBadges[] =        _("All badges ON/OFF");
+static const u8 gDebugText_Flags_ToggleAllSymbols[] =       _("All symbols ON/OFF");
 static const u8 gDebugText_Flags_SwitchCollision[] =        _("Collision ON/OFF");
 static const u8 gDebugText_Flags_SwitchEncounter[] =        _("Encounter ON/OFF");
 static const u8 gDebugText_Flags_SwitchTrainerSee[] =       _("TrainerSee ON/OFF");
@@ -367,12 +383,20 @@ static const u8 gDebugText_PokemonIV_2[] =              _("IV Defense:          
 static const u8 gDebugText_PokemonIV_3[] =              _("IV Speed:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
 static const u8 gDebugText_PokemonIV_4[] =              _("IV Sp. Attack:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
 static const u8 gDebugText_PokemonIV_5[] =              _("IV Sp. Defense:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
-static const u8 gDebugText_PokemonMove_0[] =            _("Move 0: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
-static const u8 gDebugText_PokemonMove_1[] =            _("Move 1: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
-static const u8 gDebugText_PokemonMove_2[] =            _("Move 2: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
-static const u8 gDebugText_PokemonMove_3[] =            _("Move 3: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
+static const u8 gDebugText_PokemonEVs[] =               _("All EVs:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonEV_0[] =              _("EV HP:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonEV_1[] =              _("EV Attack:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonEV_2[] =              _("EV Defense:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonEV_3[] =              _("EV Speed:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonEV_4[] =              _("EV Sp. Attack:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonEV_5[] =              _("EV Sp. Defense:               \n    {STR_VAR_3}            \n             \n{STR_VAR_2}          ");
+static const u8 gDebugText_PokemonMove_0[] =            _("Move 1: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
+static const u8 gDebugText_PokemonMove_1[] =            _("Move 2: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
+static const u8 gDebugText_PokemonMove_2[] =            _("Move 3: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
+static const u8 gDebugText_PokemonMove_3[] =            _("Move 4: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
 static const u8 gDebugText_Give_MaxMoney[] =            _("Max Money");
 static const u8 gDebugText_Give_MaxCoins[] =            _("Max Coins");
+static const u8 gDebugText_Give_MaxPoints[] =           _("Max Points");
 static const u8 gDebugText_Give_DaycareEgg[] =          _("Daycare Egg");
 static const u8 gDebugText_Give_FillPc[] =              _("Fill Pc");
 static const u8 gDebugText_Give_GiveCHEAT[] =           _("CHEAT Start");
@@ -464,8 +488,10 @@ static const struct ListMenuItem sDebugMenu_Items_Flags[] =
     [DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF]     = {gDebugText_Flags_SwitchDex,           DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF},
     [DEBUG_FLAG_MENU_ITEM_NATDEXONOFF]      = {gDebugText_Flags_SwitchNationalDex,   DEBUG_FLAG_MENU_ITEM_NATDEXONOFF},
     [DEBUG_FLAG_MENU_ITEM_POKENAVONOFF]     = {gDebugText_Flags_SwitchPokeNav,       DEBUG_FLAG_MENU_ITEM_POKENAVONOFF},
+	[DEBUG_FLAG_MENU_ITEM_FRONTIERPASSONOFF]= {gDebugText_Flags_SwitchFrontierPass,	 DEBUG_FLAG_MENU_ITEM_FRONTIERPASSONOFF},	
     [DEBUG_FLAG_MENU_ITEM_FLYANYWHERE]      = {gDebugText_Flags_ToggleFlyFlags,      DEBUG_FLAG_MENU_ITEM_FLYANYWHERE},
     [DEBUG_FLAG_MENU_ITEM_GETALLBADGES]     = {gDebugText_Flags_ToggleAllBadges,     DEBUG_FLAG_MENU_ITEM_GETALLBADGES},
+	[DEBUG_FLAG_MENU_ITEM_GETALLSYMBOLS]    = {gDebugText_Flags_ToggleAllSymbols, 	 DEBUG_FLAG_MENU_ITEM_GETALLSYMBOLS},
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = {gDebugText_Flags_SwitchCollision,     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF},
     [DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF]  = {gDebugText_Flags_SwitchEncounter,     DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF},
     [DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF]= {gDebugText_Flags_SwitchTrainerSee,    DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF},
@@ -484,6 +510,7 @@ static const struct ListMenuItem sDebugMenu_Items_Give[] =
     [DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX]  = {gDebugText_Give_GivePokemonComplex,  DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX},
     [DEBUG_GIVE_MENU_ITEM_MAX_MONEY]        = {gDebugText_Give_MaxMoney,            DEBUG_GIVE_MENU_ITEM_MAX_MONEY},
     [DEBUG_GIVE_MENU_ITEM_MAX_COINS]        = {gDebugText_Give_MaxCoins,            DEBUG_GIVE_MENU_ITEM_MAX_COINS},
+	[DEBUG_GIVE_MENU_ITEM_MAX_POINTS]       = {gDebugText_Give_MaxPoints,           DEBUG_GIVE_MENU_ITEM_MAX_POINTS},
     [DEBUG_GIVE_MENU_ITEM_DAYCARE_EGG]      = {gDebugText_Give_DaycareEgg,          DEBUG_GIVE_MENU_ITEM_DAYCARE_EGG},
     [DEBUG_GIVE_MENU_ITEM_FILL_PC]          = {gDebugText_Give_FillPc,              DEBUG_GIVE_MENU_ITEM_FILL_PC},
     [DEBUG_GIVE_MENU_ITEM_CHEAT]            = {gDebugText_Give_GiveCHEAT,           DEBUG_GIVE_MENU_ITEM_CHEAT},
@@ -543,6 +570,8 @@ static void (*const sDebugMenu_Actions_Flags[])(u8) =
     [DEBUG_FLAG_MENU_ITEM_POKENAVONOFF]     = DebugAction_Flags_SwitchPokeNav,
     [DEBUG_FLAG_MENU_ITEM_FLYANYWHERE]      = DebugAction_Flags_ToggleFlyFlags,
     [DEBUG_FLAG_MENU_ITEM_GETALLBADGES]     = DebugAction_Flags_ToggleBadgeFlags,
+	[DEBUG_FLAG_MENU_ITEM_FRONTIERPASSONOFF]= DebugAction_Flags_SwitchFrontierPass,
+	[DEBUG_FLAG_MENU_ITEM_GETALLSYMBOLS]    = DebugAction_Flags_ToggleSymbolFlags,
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = DebugAction_Flags_CollisionOnOff,
     [DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF]  = DebugAction_Flags_EncounterOnOff,
     [DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF]= DebugAction_Flags_TrainerSeeOnOff,
@@ -561,6 +590,7 @@ static void (*const sDebugMenu_Actions_Give[])(u8) =
     [DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX]  = DebugAction_Give_PokemonComplex,
     [DEBUG_GIVE_MENU_ITEM_MAX_MONEY]        = DebugAction_Give_MaxMoney,
     [DEBUG_GIVE_MENU_ITEM_MAX_COINS]        = DebugAction_Give_MaxCoins,
+	[DEBUG_GIVE_MENU_ITEM_MAX_POINTS]       = DebugAction_Give_MaxPoints, 
     [DEBUG_GIVE_MENU_ITEM_DAYCARE_EGG]      = DebugAction_Give_DayCareEgg,
     [DEBUG_GIVE_MENU_ITEM_FILL_PC]          = DebugAction_Give_FillPC,
     [DEBUG_GIVE_MENU_ITEM_CHEAT]            = DebugAction_Give_CHEAT,
@@ -913,6 +943,8 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagSet(FLAG_VISITED_TRAINERCITY);
+    FlagSet(FLAG_LANDMARK_TRAINERISLAND);	
     Debug_DestroyMenu(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -1371,6 +1403,18 @@ static void DebugAction_Flags_SwitchNatDex(u8 taskId)
         PlaySE(SE_PC_LOGIN);
     }
 }
+static void DebugAction_Flags_SwitchFrontierPass(u8 taskId)
+{
+    if(FlagGet(FLAG_SYS_FRONTIER_PASS))
+    {
+        FlagClear(FLAG_SYS_FRONTIER_PASS);
+        PlaySE(SE_PC_OFF);
+    }else{
+        FlagSet(FLAG_SYS_FRONTIER_PASS);
+        PlaySE(SE_PC_LOGIN);
+    }
+}
+
 static void DebugAction_Flags_SwitchPokeNav(u8 taskId)
 {
     if(FlagGet(FLAG_SYS_POKENAV_GET))
@@ -1407,6 +1451,8 @@ static void DebugAction_Flags_ToggleFlyFlags(u8 taskId)
     FlagToggle(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagToggle(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagToggle(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagToggle(FLAG_VISITED_TRAINERCITY);
+	FlagToggle(FLAG_LANDMARK_TRAINERISLAND);
 }
 static void DebugAction_Flags_ToggleBadgeFlags(u8 taskId)
 {
@@ -1424,6 +1470,30 @@ static void DebugAction_Flags_ToggleBadgeFlags(u8 taskId)
     FlagToggle(FLAG_BADGE07_GET);
     FlagToggle(FLAG_BADGE08_GET);
 }
+
+static void DebugAction_Flags_ToggleSymbolFlags(u8 taskId)
+{
+    // Sound effect
+    if(FlagGet(FLAG_SYS_PYRAMID_GOLD))
+        PlaySE(SE_PC_OFF);
+    else
+        PlaySE(SE_PC_LOGIN);
+    FlagToggle(FLAG_SYS_TOWER_SILVER);
+    FlagToggle(FLAG_SYS_DOME_SILVER);
+    FlagToggle(FLAG_SYS_PALACE_SILVER);
+    FlagToggle(FLAG_SYS_ARENA_SILVER);
+    FlagToggle(FLAG_SYS_FACTORY_SILVER);
+    FlagToggle(FLAG_SYS_PIKE_SILVER);
+    FlagToggle(FLAG_SYS_PYRAMID_SILVER);
+    FlagToggle(FLAG_SYS_TOWER_GOLD);
+    FlagToggle(FLAG_SYS_DOME_GOLD);
+    FlagToggle(FLAG_SYS_PALACE_GOLD);
+    FlagToggle(FLAG_SYS_ARENA_GOLD);
+    FlagToggle(FLAG_SYS_FACTORY_GOLD);
+    FlagToggle(FLAG_SYS_PIKE_GOLD);
+    FlagToggle(FLAG_SYS_PYRAMID_GOLD);
+}
+
 static void DebugAction_Flags_CollisionOnOff(u8 taskId)
 {
     if(FlagGet(FLAG_SYS_NO_COLLISION))
@@ -1849,6 +1919,12 @@ static void ResetMonDataStruct(struct DebugMonData *sDebugMonData)
     sDebugMonData->mon_iv_speed     = 0;
     sDebugMonData->mon_iv_satk      = 0;
     sDebugMonData->mon_iv_sdef      = 0;
+    sDebugMonData->mon_ev_hp        = 0;
+    sDebugMonData->mon_ev_atk       = 0;
+    sDebugMonData->mon_ev_def       = 0;
+    sDebugMonData->mon_ev_speed     = 0;
+    sDebugMonData->mon_ev_satk      = 0;
+    sDebugMonData->mon_ev_sdef      = 0;
 }
 static void DebugAction_Give_PokemonSimple(u8 taskId)
 {
@@ -2369,6 +2445,145 @@ static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId)
             gTasks[taskId].data[4] = 0;
             gTasks[taskId].data[7] = 0; //Reset iterator
 
+			StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].data[4]]);
+			ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, 3);
+			StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
+			StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_0);
+			AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
+
+            gTasks[taskId].func = DebugAction_Give_Pokemon_SelectEVs;
+        }
+    }
+    else if (gMain.newKeys & B_BUTTON)
+    {
+        PlaySE(SE_SELECT);
+        Free(sDebugMonData); //Frees EWRAM of MonData Struct
+        DebugAction_DestroyExtraWindow(taskId);
+    }
+}
+
+static void DebugAction_Give_Pokemon_SelectEVs(u8 taskId)
+{
+    if (gMain.newKeys & DPAD_ANY)
+    {
+        PlaySE(SE_SELECT);
+
+        if(gMain.newKeys & DPAD_UP)
+        {
+            gTasks[taskId].data[3] += sPowersOfTen[gTasks[taskId].data[4]];
+            if(gTasks[taskId].data[3] > 255)
+                gTasks[taskId].data[3] = 255;
+        }
+        if(gMain.newKeys & DPAD_DOWN)
+        {
+            gTasks[taskId].data[3] -= sPowersOfTen[gTasks[taskId].data[4]];
+            if(gTasks[taskId].data[3] < 0)
+                gTasks[taskId].data[3] = 0;
+        }
+        if(gMain.newKeys & DPAD_LEFT)
+        {
+            if(gTasks[taskId].data[4] > 0)
+                gTasks[taskId].data[4] -= 1;
+        }
+        if(gMain.newKeys & DPAD_RIGHT)
+        {
+            if(gTasks[taskId].data[4] < 2)
+                gTasks[taskId].data[4] += 1;
+        }
+
+        StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].data[4]]);
+        ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, 3);
+        StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
+        switch (gTasks[taskId].data[7])
+        {
+        case 0:
+            StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_0);
+            break;
+        case 1:
+            StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_1);
+            break;
+        case 2:
+            StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_2);
+            break;
+        case 3:
+            StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_3);
+            break;
+        case 4:
+            StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_4);
+            break;
+        case 5:
+            StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_5);
+            break;
+        }
+        AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
+    }
+
+    //If A or B button
+    if (gMain.newKeys & A_BUTTON)
+    {
+        switch (gTasks[taskId].data[7])
+        {
+        case 0:
+            sDebugMonData->mon_ev_hp = gTasks[taskId].data[3];
+            break;
+        case 1:
+            sDebugMonData->mon_ev_atk = gTasks[taskId].data[3];
+            break;
+        case 2:
+            sDebugMonData->mon_ev_def = gTasks[taskId].data[3];
+            break;
+        case 3:
+            sDebugMonData->mon_ev_speed = gTasks[taskId].data[3];
+            break;
+        case 4:
+            sDebugMonData->mon_ev_satk = gTasks[taskId].data[3];
+            break;
+        case 5:
+            sDebugMonData->mon_ev_sdef = gTasks[taskId].data[3];
+            break;
+        }
+
+        //Check if all EVs set
+        if (gTasks[taskId].data[7] != 5)
+        {
+            gTasks[taskId].data[7] += 1;
+            gTasks[taskId].data[3] = 0;
+            gTasks[taskId].data[4] = 0;
+
+            StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].data[4]]);
+            ConvertIntToDecimalStringN(gStringVar3, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, 3);
+            StringCopyPadded(gStringVar3, gStringVar3, CHAR_SPACE, 15);
+            switch (gTasks[taskId].data[7])
+            {
+            case 0:
+                StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_0);
+                break;
+            case 1:
+                StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_1);
+                break;
+            case 2:
+                StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_2);
+                break;
+            case 3:
+                StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_3);
+                break;
+            case 4:
+                StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_4);
+                break;
+            case 5:
+                StringExpandPlaceholders(gStringVar4, gDebugText_PokemonEV_5);
+                break;
+            }
+            AddTextPrinterParameterized(gTasks[taskId].data[2], 1, gStringVar4, 1, 1, 0, NULL);
+
+            gTasks[taskId].func = DebugAction_Give_Pokemon_SelectEVs;
+        }
+        else
+        {
+            gTasks[taskId].data[3] = 0;
+            gTasks[taskId].data[4] = 0;
+            gTasks[taskId].data[7] = 0; //Reset iterator
+
             StringCopy(gStringVar2, gText_DigitIndicator[gTasks[taskId].data[4]]);
             StringCopy(gStringVar1, gMoveNames[gTasks[taskId].data[3]]);
             StringCopyPadded(gStringVar1, gStringVar1, CHAR_SPACE, 15);
@@ -2386,6 +2601,7 @@ static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId)
         DebugAction_DestroyExtraWindow(taskId);
     }
 }
+
 static void DebugAction_Give_Pokemon_Move(u8 taskId)
 {
     if (gMain.newKeys & DPAD_ANY)
@@ -2515,6 +2731,8 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     u16 moves[4];
     u8 IVs[6];
     u8 iv_val;
+	u8 evs[6];
+	u8 evTotal;
     u16 species     = sDebugMonData->mon_speciesId;
     u8 level        = sDebugMonData->mon_level;
     u8 isShiny      = sDebugMonData->isShiny; //Shiny: no 0, yes 1
@@ -2530,6 +2748,12 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     IVs[3]          = sDebugMonData->mon_iv_speed;
     IVs[4]          = sDebugMonData->mon_iv_satk;
     IVs[5]          = sDebugMonData->mon_iv_sdef;
+    evs[0]          = sDebugMonData->mon_ev_hp;
+    evs[1]          = sDebugMonData->mon_ev_atk;
+    evs[2]          = sDebugMonData->mon_ev_def;
+    evs[3]          = sDebugMonData->mon_ev_speed;
+    evs[4]          = sDebugMonData->mon_ev_satk;
+    evs[5]          = sDebugMonData->mon_ev_sdef;
 
 
     //Nature
@@ -2560,15 +2784,15 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
     for (i = 0; i < NUM_STATS; i++)
     {
         // ev
-        // if (evs[i] != 0xFF && evTotal < 510)
-        // {
-        //     // only up to 510 evs
-        //     if ((evTotal + evs[i]) > 510)
-        //         evs[i] = (510 - evTotal);
+        if (evs[i] != 0xFF && evTotal < 510)
+        {
+            // only up to 510 evs
+            if ((evTotal + evs[i]) > 510)
+                evs[i] = (510 - evTotal);
 
-        //     evTotal += evs[i];
-        //     SetMonData(&mon, MON_DATA_HP_EV + i, &evs[i]);
-        // }
+            evTotal += evs[i];
+            SetMonData(&mon, MON_DATA_HP_EV + i, &evs[i]);
+        }
 
         // iv
         iv_val = IVs[i];
@@ -2650,6 +2874,12 @@ static void DebugAction_Give_MaxCoins(u8 taskId)
 {
     SetCoins(9999);
 }
+
+static void DebugAction_Give_MaxPoints(u8 taskId)
+{
+    SetPoints(9999);
+}
+
 
 static void DebugAction_Give_DayCareEgg(u8 taskId)
 {

@@ -1,11 +1,11 @@
 TrainerIsland_TrainerCity_House3_MapScripts::
 	.byte 0
 	
-TrainerIsland_TrainerCity_House3_EventScript_OldMan:
+TrainerIsland_TrainerCity_House3_EventScript_OldMan::
 	msgbox TrainerIsland_TrainerCity_House3_Text_BeCareful, MSGBOX_NPC
 	end	
 	
-TrainerIsland_TrainerCity_House3_EventScript_OldWoman:
+TrainerIsland_TrainerCity_House3_EventScript_OldWoman::
 	msgbox TrainerIsland_TrainerCity_House3_Text_Cult, MSGBOX_NPC
 	end	
 	

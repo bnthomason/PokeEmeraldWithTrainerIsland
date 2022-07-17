@@ -3,16 +3,16 @@ TrainerIsland_Area7_MapScripts::
 	.byte 0
 	
 TrainerIsland_Area7_OnTransition:
+	cleartrainerflag TRAINER_MASTER_LEAF
+	cleartrainerflag TRAINER_MASTER_RED
 	end
 
 TrainerIsland_Area7_EventScript_Leaf::
-	cleartrainerflag TRAINER_MASTER_LEAF
 	trainerbattle_double TRAINER_MASTER_LEAF, TrainerIsland_Area7_Text_LeafIntro, TrainerIsland_Area7_Text_LeafDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
 	msgbox TrainerIsland_Area7_Text_LeafPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area7_EventScript_Red::
-	cleartrainerflag TRAINER_MASTER_RED
 	trainerbattle_double TRAINER_MASTER_RED, TrainerIsland_Area7_Text_RedIntro, TrainerIsland_Area7_Text_RedDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
 	msgbox TrainerIsland_Area7_Text_RedPostBattle, MSGBOX_AUTOCLOSE
 	end

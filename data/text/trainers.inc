@@ -3049,6 +3049,16 @@ Route120_Text_JenniferDefeat:
 Route120_Text_JenniferPostBattle:
 	.string "The special abilities of POKéMON\n"
 	.string "will make battle styles change.$"
+	
+Route120_Text_JohnathanIntro:
+	.string "POKéMON can be tough to beat when\n"
+	.string "matched up properly.$"
+
+Route120_Text_JohnathanDefeat:
+	.string "It was a total mismatch…$"
+
+Route120_Text_JohnathanPostBattle:
+	.string "Next time, I'll try harder still…$"
 
 Route120_Text_ChipIntro:
 	.string "Who might you be?\p"

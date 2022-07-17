@@ -101,6 +101,7 @@
 	.include "src/roulette.o"
 	.include "src/pokedex_cry_screen.o"
 	.include "src/coins.o"
+	.include "src/points.o"
 	.include "src/battle_transition.o"
 	.include "src/battle_message.o"
 	.include "src/cable_car.o"

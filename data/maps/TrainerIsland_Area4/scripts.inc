@@ -1,6 +1,6 @@
 TrainerIsland_Area4_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area4_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Area4_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Area4_OnFrame
 	.byte 0
 
 TrainerIsland_Area4_OnFrame:
@@ -12,10 +12,17 @@ TrainerIsland_Area4_EventScript_SetVar::
 	end
 	
 TrainerIsland_Area4_OnTransition:
+	cleartrainerflag TRAINER_MASTER_GRETA
+	cleartrainerflag TRAINER_MASTER_LUCY
+	cleartrainerflag TRAINER_MASTER_TUCKER
 	cleartrainerflag TRAINER_MASTER_JOE
 	cleartrainerflag TRAINER_MASTER_RITCHIE
 	cleartrainerflag TRAINER_MASTER_DIEGO
 	cleartrainerflag TRAINER_MASTER_CARLY		
+	cleartrainerflag TRAINER_MASTER_WATTSON
+	cleartrainerflag TRAINER_MASTER_WATTSON_2
+	cleartrainerflag TRAINER_MASTER_WATTSON_3
+	cleartrainerflag TRAINER_MASTER_WATTSON_4
 	end
 	
 TrainerIsland_Area4_EventScript_Wattson::
@@ -27,14 +34,12 @@ TrainerIsland_Area4_EventScript_Wattson::
 	end
 	
 TrainerIsland_Area4_EventScript_WattsonFirstMatch::
-	cleartrainerflag TRAINER_MASTER_WATTSON
 	trainerbattle_double TRAINER_MASTER_WATTSON, TrainerIsland_Area4_Text_WattsonIntro, TrainerIsland_Area4_Text_WattsonDefeat, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area4_Text_WattsonPostBattle, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FC, 2
 	end
 
 TrainerIsland_Area4_EventScript_WattsonRematch1::
-	cleartrainerflag TRAINER_MASTER_WATTSON_2
 	trainerbattle_double TRAINER_MASTER_WATTSON_2, TrainerIsland_Area4_Text_WattsonIntro2, TrainerIsland_Area4_Text_WattsonDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area4_Text_WattsonPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FC, 3	
@@ -42,7 +47,6 @@ TrainerIsland_Area4_EventScript_WattsonRematch1::
 
 
 TrainerIsland_Area4_EventScript_WattsonRematch2::
-	cleartrainerflag TRAINER_MASTER_WATTSON_3
 	trainerbattle_double TRAINER_MASTER_WATTSON_3, TrainerIsland_Area4_Text_WattsonIntro2, TrainerIsland_Area4_Text_WattsonDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area4_Text_WattsonPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FC, 4
@@ -50,7 +54,6 @@ TrainerIsland_Area4_EventScript_WattsonRematch2::
 
 
 TrainerIsland_Area4_EventScript_WattsonRematch3::
-	cleartrainerflag TRAINER_MASTER_WATTSON_4
 	trainerbattle_double TRAINER_MASTER_WATTSON_4, TrainerIsland_Area4_Text_WattsonIntro2, TrainerIsland_Area4_Text_WattsonDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area4_Text_WattsonPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FC, 5
@@ -58,55 +61,50 @@ TrainerIsland_Area4_EventScript_WattsonRematch3::
 
 
 TrainerIsland_Area4_EventScript_WattsonRematch4::
-	cleartrainerflag TRAINER_MASTER_WATTSON
 	trainerbattle_double TRAINER_MASTER_WATTSON, TrainerIsland_Area4_Text_WattsonIntro2, TrainerIsland_Area4_Text_WattsonDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area4_Text_WattsonPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FC, 2
 	end
 	
 	
-TrainerIsle_EventScript_Glacia::
-	trainerbattle_double TRAINER_MASTER_GLACIA, TrainerIsland_Text_GlaciaIntro, TrainerIsland_Text_GlaciaDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
-	msgbox TrainerIsland_Text_GlaciaPostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Glacia::
+	trainerbattle_double TRAINER_MASTER_GLACIA, TrainerIsland_Area4_Text_GlaciaIntro, TrainerIsland_Area4_Text_GlaciaDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Area4_Text_GlaciaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-TrainerIsle_EventScript_Greta::
-	trainerbattle_double TRAINER_MASTER_GRETA, TrainerIsland_Text_GretaIntro, TrainerIsland_Text_GretaDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
-	msgbox TrainerIsland_Text_GretaPostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Greta::
+	trainerbattle_double TRAINER_MASTER_GRETA, TrainerIsland_Area4_Text_GretaIntro, TrainerIsland_Area4_Text_GretaDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Area4_Text_GretaPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-TrainerIsle_EventScript_Tucker::
-	trainerbattle_double TRAINER_MASTER_TUCKER, TrainerIsland_Text_TuckerIntro, TrainerIsland_Text_TuckerDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
-	msgbox TrainerIsland_Text_TuckerPostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Tucker::
+	trainerbattle_double TRAINER_MASTER_TUCKER, TrainerIsland_Area4_Text_TuckerIntro, TrainerIsland_Area4_Text_TuckerDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Area4_Text_TuckerPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-TrainerIsle_EventScript_Lucy::
-	trainerbattle_double TRAINER_MASTER_LUCY, TrainerIsland_Text_LucyIntro, TrainerIsland_Text_LucyDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
-	msgbox TrainerIsland_Text_LucyPostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Lucy::
+	trainerbattle_double TRAINER_MASTER_LUCY, TrainerIsland_Area4_Text_LucyIntro, TrainerIsland_Area4_Text_LucyDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	msgbox TrainerIsland_Area4_Text_LucyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-TrainerIsle_EventScript_Joe::
-	cleartrainerflag TRAINER_MASTER_JOE
-	trainerbattle_double TRAINER_MASTER_JOE, TrainerIsland_Text_JoeIntro, TrainerIsland_Text_JoeDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
-	msgbox TrainerIsland_Text_JoePostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Joe::
+	trainerbattle_double TRAINER_MASTER_JOE, TrainerIsland_Area4_Text_JoeIntro, TrainerIsland_Area4_Text_JoeDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area4_Text_JoePostBattle, MSGBOX_AUTOCLOSE
 	end
 
-TrainerIsle_EventScript_Ritchie::
-	cleartrainerflag TRAINER_MASTER_RITCHIE
-	trainerbattle_double TRAINER_MASTER_RITCHIE, TrainerIsland_Text_RitchieIntro, TrainerIsland_Text_RitchieDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
-	msgbox TrainerIsland_Text_RitchiePostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Ritchie::
+	trainerbattle_double TRAINER_MASTER_RITCHIE, TrainerIsland_Area4_Text_RitchieIntro, TrainerIsland_Area4_Text_RitchieDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area4_Text_RitchiePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-TrainerIsle_EventScript_Diego::
-	cleartrainerflag TRAINER_MASTER_DIEGO
-	trainerbattle_double TRAINER_MASTER_DIEGO, TrainerIsland_Text_DiegoIntro, TrainerIsland_Text_DiegoDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
-	msgbox TrainerIsland_Text_DiegoPostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Diego::
+	trainerbattle_double TRAINER_MASTER_DIEGO, TrainerIsland_Area4_Text_DiegoIntro, TrainerIsland_Area4_Text_DiegoDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area4_Text_DiegoPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-TrainerIsle_EventScript_Carly::
-	cleartrainerflag TRAINER_MASTER_CARLY	
-	trainerbattle_double TRAINER_MASTER_CARLY, TrainerIsland_Text_CarlyIntro, TrainerIsland_Text_CarlyDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
-	msgbox TrainerIsland_Text_CarlyPostBattle, MSGBOX_AUTOCLOSE
+TrainerIsland_Area4_EventScript_Carly::
+	trainerbattle_double TRAINER_MASTER_CARLY, TrainerIsland_Area4_Text_CarlyIntro, TrainerIsland_Area4_Text_CarlyDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	msgbox TrainerIsland_Area4_Text_CarlyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area4_Text_WattsonIntro:
@@ -128,6 +126,8 @@ TrainerIsland_Area4_Text_WattsonDefeat2:
 
 TrainerIsland_Area4_Text_WattsonPostBattle2:
 	.string "The buzz is real, let's go again!$"
+	
+	
 
 TrainerIsland_Area4_Text_GlaciaIntro:
 	.string "A tournament is coming up, but all\n"

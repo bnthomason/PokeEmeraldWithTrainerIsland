@@ -586,6 +586,12 @@
 #define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE3              (118 | (26 << 8))
 #define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE4              (119 | (26 << 8))
 #define MAP_TRAINER_ISLAND_TRAINER_CITY_OFFICE              (120 | (26 << 8))
+#define MAP_RYUKYUAN_ISLAND_CITY                            (121 | (26 << 8))
+#define MAP_RYU_KYUAN_CITY_FLAT1_1F                         (122 | (26 << 8))
+#define MAP_RYU_KYUAN_CITY_FLAT1_2F                         (123 | (26 << 8))
+#define MAP_RYU_KYUAN_CITY_FLAT1_3F                         (124 | (26 << 8))
+#define MAP_RYU_KYUAN_CITY_FLAT2_1F                         (125 | (26 << 8))
+#define MAP_RYU_KYUAN_CITY_FLAT2_2F                         (126 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))
@@ -625,6 +631,6 @@
 
 #define MAP_GROUPS_COUNT 34
 
-// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 121, 2, 1, 13, 1, 1, 3, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 127, 2, 1, 13, 1, 1, 3, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

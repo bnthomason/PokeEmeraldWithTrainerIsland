@@ -2417,7 +2417,7 @@
       "width": 58,
       "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "0",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/UnusedOutdoorArea/border.bin",
       "blockdata_filepath": "data/layouts/UnusedOutdoorArea/map.bin"
     },
@@ -4730,6 +4730,66 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/TrainerIsland_TrainerCity_Office/border.bin",
       "blockdata_filepath": "data/layouts/TrainerIsland_TrainerCity_Office/map.bin"
+    },
+    {
+      "id": "LAYOUT_RYUKYUAN_ISLANDS_ENTRANCE",
+      "name": "RyukyuanIsland_City_Layout",
+      "width": 81,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/RyukyuanIsland_City/border.bin",
+      "blockdata_filepath": "data/layouts/RyukyuanIsland_City/map.bin"
+    },
+    {
+      "id": "LAYOUT_RYU_KYUAN_CITY_FLAT1_1F",
+      "name": "RyuKyuanCity_Flat1_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RyuKyuanCity_Flat1_1F/border.bin",
+      "blockdata_filepath": "data/layouts/RyuKyuanCity_Flat1_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RYU_KYUAN_CITY_FLAT1_2F",
+      "name": "RyuKyuanCity_Flat1_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RyuKyuanCity_Flat1_2F/border.bin",
+      "blockdata_filepath": "data/layouts/RyuKyuanCity_Flat1_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RYU_KYUAN_CITY_FLAT1_3F",
+      "name": "RyuKyuanCity_Flat1_3F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RyuKyuanCity_Flat1_3F/border.bin",
+      "blockdata_filepath": "data/layouts/RyuKyuanCity_Flat1_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RYU_KYUAN_CITY_FLAT2_1F",
+      "name": "RyuKyuanCity_Flat2_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RyuKyuanCity_Flat2_1F/border.bin",
+      "blockdata_filepath": "data/layouts/RyuKyuanCity_Flat2_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RYU_KYUAN_CITY_FLAT2_2F",
+      "name": "RyuKyuanCity_Flat2_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RyuKyuanCity_Flat2_2F/border.bin",
+      "blockdata_filepath": "data/layouts/RyuKyuanCity_Flat2_2F/map.bin"
     }
   ]
 }

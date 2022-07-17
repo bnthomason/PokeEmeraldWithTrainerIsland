@@ -1,11 +1,11 @@
 TrainerIsland_TrainerCity_House2_MapScripts::
 	.byte 0
 	
-TrainerIsland_TrainerCity_House3_EventScript_LittleBoy:
+TrainerIsland_TrainerCity_House2_EventScript_LittleBoy::
 	msgbox TrainerIsland_TrainerCity_House1_Text_Tournament, MSGBOX_NPC
 	end
 	
-TrainerIsland_TrainerCity_House3_EventScript_LittleGirl:
+TrainerIsland_TrainerCity_House2_EventScript_LittleGirl::
 	msgbox TrainerIsland_TrainerCity_House1_Text_Rivalry, MSGBOX_NPC
 	end
 	

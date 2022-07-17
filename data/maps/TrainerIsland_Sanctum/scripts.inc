@@ -1,14 +1,22 @@
 TrainerIsland_Sanctum_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Sanctum_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Sanctum_OnFrame
+	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Sanctum_OnTransition
 	.byte 0
 
 
 TrainerIsland_Sanctum_OnFrame:
-	map_script_2 VAR_UNUSED_0x40F8, 0, TrainerIsland_Sanctum_EventScript_SetVar
+	map_script_2 VAR_UNUSED_0x40FD, 0, TrainerIsland_Sanctum_EventScript_SetVar
+	.2byte 0
+	
+TrainerIsland_Sanctum_OnTransition:
+	cleartrainerflag TRAINER_MASTER_FLANNERY
+	cleartrainerflag TRAINER_MASTER_FLANNERY_2
+	cleartrainerflag TRAINER_MASTER_FLANNERY_3
+	cleartrainerflag TRAINER_MASTER_FLANNERY_4
 	.2byte 0
 
 TrainerIsland_Sanctum_EventScript_SetVar::
-	setvar VAR_UNUSED_0x40F8, 1
+	setvar VAR_UNUSED_0x40FD, 1
 	end
 
 TrainerIsland_Sanctum_EventScript_Flannery::
@@ -26,28 +34,25 @@ TrainerIsland_Sanctum_EventScript_FlanneryFirstMatch::
 	end
 
 TrainerIsland_Sanctum_EventScript_FlanneryRematch1::
-	cleartrainerflag TRAINER_MASTER_FLANNERY_2
 	trainerbattle_double TRAINER_MASTER_FLANNERY_2, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FD, 3
 	end
 	
 TrainerIsland_Sanctum_EventScript_FlanneryRematch2::
-	cleartrainerflag TRAINER_MASTER_FLANNERY_3
 	trainerbattle_double TRAINER_MASTER_FLANNERY_3, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FD, 4
 	end
 
 TrainerIsland_Sanctum_EventScript_FlanneryRematch3::
-	cleartrainerflag TRAINER_MASTER_FLANNERY_4
 	trainerbattle_double TRAINER_MASTER_FLANNERY_4, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FD, 5
 	end
 	
 TrainerIsland_Sanctum_EventScript_FlanneryRematch4::
-	cleartrainerflag TRAINER_MASTER_FLANNERY
+
 	trainerbattle_double TRAINER_MASTER_FLANNERY, TrainerIsland_Sanctum_Text_FlanneryIntro2, TrainerIsland_Sanctum_Text_FlanneryDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Sanctum_Text_FlanneryPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FD, 2

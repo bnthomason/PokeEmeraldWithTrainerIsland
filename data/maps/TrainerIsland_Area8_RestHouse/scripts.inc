@@ -9,10 +9,14 @@ TrainerIsland_Area8_RestHouse_EventScript_Bed::
 	end
 
 TrainerIsland_Area8_RestHouse_EventScript_Rest::
+	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
+	releaseall
 	end
 	
 TrainerIsland_Area8_RestHouse_EventScript_Declined::
+	closemessage
+	releaseall	
 	end
 
 TrainerIsland_Area8_RestHouse_Text_TakeARest:

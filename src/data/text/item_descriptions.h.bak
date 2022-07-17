@@ -21,12 +21,6 @@ static const u8 sMasterBallDesc[] = _(
     "The best Ball that\n"
     "catches a Pokémon\n"
     "without fail.");
-	
-static const u8 sDragonBallDesc[] = _(
-    "Designed to catch\n"
-    "specific dragon\n"
-    "pokemon.");
-
 
 static const u8 sPremierBallDesc[] = _(
     "A rare Ball made\n"
@@ -145,6 +139,12 @@ static const u8 sCherishBallDesc[] = _(
     "A rare Ball made\n"
     "in commemoration\n"
     "of some event.");
+	
+static const u8 sDragonBallDesc[] = _(
+    "A ball used to\n"
+    "capture specific\n"
+    "dragon pokemon.");
+
 
 // Medicine
 static const u8 sPotionDesc[] = _(
@@ -3806,3 +3806,13 @@ static const u8 sSapphireDesc[] = _(
     "A brilliant blue gem\n"
     "that symbolizes\n"
     "honesty.");
+
+static const u8 sChampionsInsigniaDesc[] = _(
+    "A ribbon proving your\n"
+    "worth. What could it be\n"
+	"used for?");
+
+static const u8 sTrainerTicketDesc[] = _(
+    "A ticket given by\n"
+    "SCOTT to Trainer\n"
+    "Island.");

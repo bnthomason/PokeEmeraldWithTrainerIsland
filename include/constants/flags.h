@@ -47,7 +47,7 @@
 #define FLAG_SYS_NO_BAG_USE         0x23 // Unused Flag //DEBUG
 #define FLAG_SYS_NO_CATCHING        0x24 // Unused Flag //DEBUG
 #define FLAG_SYS_PC_FROM_DEBUG_MENU 0x25 // Unused Flag //DEBUG
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_SYS_NO_GENDER_CHANGE   0x26 // Unused Flag //DEBUG
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
@@ -511,12 +511,12 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_RECEIVED_TRAINER_TICKET         0x1DE // Unused Flag
+#define FLAG_SHOWN_TRAINER_TICKET            0x1DF // Unused Flag
+#define FLAG_ENABLE_SHIP_TRAINER_ISLAND      0x1E0 // Unused Flag
+#define FLAG_RECEIVED_RYUKU_TICKET	         0x1E1 // Unused Flag
+#define FLAG_SHOWN_RYUKU_TICKET              0x1E2 // Unused Flag
+#define FLAG_ENABLE_SHIP_RYUKU_ISLANDS	     0x1E3 // Unused Flag
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
@@ -1382,9 +1382,9 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_UNUSED_0x881                           (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
+#define FLAG_LANDMARK_TRAINERISLAND          	    (SYSTEM_FLAGS + 0x21) // Unused Flag
+#define FLAG_VISITED_TRAINERCITY	                (SYSTEM_FLAGS + 0x22) // Unused Flag
+#define FLAG_LANDMARK_RYUKYUISLAND                  (SYSTEM_FLAGS + 0x23) // Unused Flag
 #define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
 #define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
 #define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag

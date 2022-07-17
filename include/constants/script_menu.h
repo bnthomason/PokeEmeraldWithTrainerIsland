@@ -122,6 +122,8 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
+#define MULTI_REDEMPTION_CENTER_POKEMON    114
+#define MULTI_REDEMPTION_CENTER_TMS        115
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
@@ -130,8 +132,9 @@
 #define SSTIDAL_SELECTION_NAVEL_ROCK       3
 #define SSTIDAL_SELECTION_BIRTH_ISLAND     4
 #define SSTIDAL_SELECTION_FARAWAY_ISLAND   5
-#define SSTIDAL_SELECTION_EXIT             6
-#define SSTIDAL_SELECTION_COUNT            7
+#define SSTIDAL_SELECTION_TRAINER_ISLAND   6
+#define SSTIDAL_SELECTION_EXIT             7
+#define SSTIDAL_SELECTION_COUNT            8
 
 // Std String Ids
 #define STDSTRING_COOL             0

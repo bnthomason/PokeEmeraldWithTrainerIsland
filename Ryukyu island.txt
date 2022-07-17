@@ -1,0 +1,50 @@
+Dracoceros: Forest
+Nebugon: Dark Cave
+Raikyu: City
+Faerian: Ocean
+Impyrian: Lava Cave
+Wintego: Ice Cave
+
+City Buildings Count:
+
+Cave Count: 7
+Dark Cave Count: 12
+Volcano Cave Count: 3
+Ice Cave Count: 5
+
+Locations (Connections)
+
+Harbour (Entrance)
+City (Harbour [South], Route 151 [North], Route 152 [West], Route 153 [East])
+Building 1
+Route 151 (City [South], <Central> Dark Cave [North])
+Route 152 (City [East], <Western> Dark Cave 1F [North], Ocean Area 1 [West])
+Route 153 (City [West], <Eastern> Dark Cave 1F [North], Forest Area 1 [West])
+<Central> Dark Cave 1F Area 1 (Route 151 [South], <Central> Dark Cave 1F Area 2 [North], <Western> Dark Cave 1F Area 2 [West], <Eastern> Dark Cave 1F Area 2 [East])
+<Western> Dark Cave 1F Area 1 (Route 152 [South], <Western> Dark Cave 1F Area 2 [North])
+<Eastern> Dark Cave 1F Area 1 (Route 153 [South], <Eastern> Dark Cave 1F Area 2 [North])
+<Central> Dark Cave 1F Area 2 (<Central> Dark Cave 1F Area 1 (South), <Central> Dark Cave 1F Area 3 (North), Volcanic Cavern 2F [Up])
+<Western> Dark Cave 1F Area 2 (<Western> Dark Cave 1F Area 1 (South), <Central> Dark Cave 1F Area 1 (East), <Western> Dark Cave B1F Area 1 [Down])
+<Eastern> Dark Cave 1F Area 2 (<Eastern> Dark Cave 1F Area 1 (South), <Central> Dark Cave 1F Area 1 (West), <Eastern> Dark Cave B1F Area 1 [Down])
+<Western> Dark Cave B1F Area 1 (<Western> Dark Cave 1F Area 1 [Up], <Western> Dark Cave B1F Area 2 [North])
+<Eastern> Dark Cave B1F Area 1 (<Eastern> Dark Cave 1F Area 1 [Up], <Eastern> Dark Cave B1F Area 2 [North])
+<Western> Dark Cave B1F Area 2 (<Western> Dark Cave B1F Area 1 [South], <Western> Dark Cave B2F Area 1 [Down])
+<Eastern> Dark Cave B1F Area 2 (<Eastern> Dark Cave B1F Area 1 [South], <Eastern> Dark Cave B2F Area 1 [Down])
+<Western> Dark Cave B2F Area 1 (<Western> Dark Cave B1F Area 2 [Down], <Western> Dark Cave B2F Area 2 [North])
+<Eastern> Dark Cave B2F Area 1 (<Eastern> Dark Cave B1F Area 2 [Down], <Eastern> Dark Cave B2F Area 2 [North])
+<Western> Dark Cave B2F Area 2 (<Western> Dark Cave B2F Area 1 [South], <Western> Dark Cave B3F Area 1 [Down])
+<Eastern> Dark Cave B2F Area 2 (<Eastern> Dark Cave B2F Area 1 [South], <Eastern> Dark Cave B3F Area 1 [Down])
+<Western> Dark Cave B3F Area 1 (<Western> Dark Cave B2F Area 2 [Down], <Central> Dark Cave B3F Area 1 [East])
+<Eastern> Dark Cave B3F Area 1 (<Eastern> Dark Cave B2F Area 2 [Down], <Central> Dark Cave B3F Area 1 [West])
+<Central> Dark Cave B3F Area 2 (<Western> Dark Cave B3F Area 1 [West], <Eastern> Dark Cave B3F Area 1 [East], <Central> Dark Cave B4F Area 1 [Down])
+<Central> Dark Cave B4F Area 1 "Nebugon" (<Central> Dark Cave B3F Area 1 [Up])
+Voclanic Cavern 2F (<Central> Dark Cave 1F Area 2 [Down], Volcanic Caverns 3F [Up])
+Volcanic Cavern 3F (Volcanic Cavern 2F [Down], Volcanic Cavern 4F [Up])
+Volcanic Cavern 4F "Impyrian" (Volcanic Cavern 3F [Down])
+<Central> Dark Cave 1F Area 3 (<Central> Dark Cave 1F Area 2 [South], <Southern> Ice Cave 1F [North])
+<Southern> Ice Cave 1F (<Central> Dark Cave 1F Area 2 [South], <Western> Ice Cave B1F [Down-West], <Eastern> Ice Cave B1F [Dpwm-East])
+<Western> Ice Cave B1F (<Southern> Ice Cave 1F [Up-South], <Northern> Ice Cave 1F [Up-North])
+<Eastern> Ice Cave B1F (<Southern> Ice Cave 1F [Up-South], <Northern> Ice Cave 1F [Up-North])
+<Northern> Ice Cave 1F (<Western> Ice Cave B1F [Down-West], <Eastern> Ice Cave B1F [Down-East], <Central> Ice Cave 2F [Up])
+<Central> Ice Cave 2F "Wintego" (<Northern> Ice Cave 1F [Down-North], <Southern> Ice Cave 1F [Down-South]
+

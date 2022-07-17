@@ -2,7 +2,7 @@ TrainerIsland_Area7_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area7_OnTransition
 	.byte 0
 	
-TrainerIsland_Area7__OnTransition:
+TrainerIsland_Area7_OnTransition:
 	end
 
 TrainerIsland_Area7_EventScript_Leaf::

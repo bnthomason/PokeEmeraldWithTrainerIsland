@@ -5,7 +5,7 @@ TrainerIsland_Entrance_PokemonCenter_MapScripts::
 	.byte 0
 
 TrainerIsland_Entrance_PokemonCenter_OnTransition:
-	setrespawn HEAL_LOCATION_TRAINER_ISLAND_HARBOUR
+	setrespawn HEAL_LOCATION_TRAINER_ISLAND_ENTRANCE
 	end
 
 

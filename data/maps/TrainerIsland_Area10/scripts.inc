@@ -3,6 +3,11 @@ TrainerIsland_Area10_MapScripts::
 	.byte 0
 	
 TrainerIsland_Area10_OnTransition:
+	cleartrainerflag TRAINER_MASTER_ROXANNE
+	cleartrainerflag TRAINER_MASTER_ROXANNE_2
+	cleartrainerflag TRAINER_MASTER_ROXANNE_3
+	cleartrainerflag TRAINER_MASTER_ROXANNE_4
+	cleartrainerflag TRAINER_MASTER_SPENSER
 	cleartrainerflag TRAINER_MASTER_ROD
 	cleartrainerflag TRAINER_MASTER_JOANNE
 	cleartrainerflag TRAINER_MASTER_AMY
@@ -25,64 +30,66 @@ TrainerIsland_Area10_EventScript_RoxanneFirstMatch::
 	end
 
 TrainerIsland_Area10_EventScript_RoxanneRematch1::
-	cleartrainerflag TRAINER_MASTER_ROXANNE_2
 	trainerbattle_double TRAINER_MASTER_ROXANNE_2, TrainerIsland_Area10_Text_RoxanneIntro2, TrainerIsland_Area10_Text_RoxanneDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area10_Text_RoxannePostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FA, 3
 	end
 	
 TrainerIsland_Area10_EventScript_RoxanneRematch2::
-	cleartrainerflag TRAINER_MASTER_ROXANNE_3
 	trainerbattle_double TRAINER_MASTER_ROXANNE_3, TrainerIsland_Area10_Text_RoxanneIntro2, TrainerIsland_Area10_Text_RoxanneDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area10_Text_RoxannePostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FA, 4
 	end
 
 TrainerIsland_Area10_EventScript_RoxanneRematch3::
-	cleartrainerflag TRAINER_MASTER_ROXANNE_4
 	trainerbattle_double TRAINER_MASTER_ROXANNE_4, TrainerIsland_Area10_Text_RoxanneIntro2, TrainerIsland_Area10_Text_RoxanneDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area10_Text_RoxannePostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FA, 5
 	end
 	
 TrainerIsland_Area10_EventScript_RoxanneRematch4::
-	cleartrainerflag TRAINER_MASTER_ROXANNE
 	trainerbattle_double TRAINER_MASTER_ROXANNE, TrainerIsland_Area10_Text_RoxanneIntro2, TrainerIsland_Area10_Text_RoxanneDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area10_Text_RoxannePostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FA, 2
 	end
 	
-TrainerIsle_Area10_EventScript_Spenser::
-	cleartrainerflag TRAINER_MASTER_SPENSER
+TrainerIsland_Area10_EventScript_Spenser::
 	trainerbattle_double TRAINER_MASTER_SPENSER, TrainerIsland_Area10_Text_SpenserIntro, TrainerIsland_Area10_Text_SpenserDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area10_Text_SpenserPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 
-TrainerIsle_Area10_EventScript_Rod::
-	cleartrainerflag TRAINER_MASTER_ROD
+TrainerIsland_Area10_EventScript_Rod::
 	trainerbattle_double TRAINER_MASTER_ROD, TrainerIsland_Area10_Text_RodIntro, TrainerIsland_Area10_Text_RodDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area10_Text_RodPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 	
-TrainerIsle_Area10_EventScript_Joanne::
-	cleartrainerflag TRAINER_MASTER_JOANNE
+TrainerIsland_Area10_EventScript_Joanne::
 	trainerbattle_double TRAINER_MASTER_JOANNE, TrainerIsland_Area10_Text_JoanneIntro, TrainerIsland_Area10_Text_JoanneDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area10_Text_JoannePostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-TrainerIsle_Area10_EventScript_Amy::
-	cleartrainerflag TRAINER_MASTER_AMY
+TrainerIsland_Area10_EventScript_Amy::
 	trainerbattle_double TRAINER_MASTER_AMY, TrainerIsland_Area10_Text_AmyIntro, TrainerIsland_Area10_Text_AmyDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area10_Text_AmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-TrainerIsle_Area10_EventScript_Bill::
-	cleartrainerflag TRAINER_MASTER_BILL
+TrainerIsland_Area10_EventScript_Bill::
 	trainerbattle_double TRAINER_MASTER_BILL, TrainerIsland_Area10_Text_BillIntro, TrainerIsland_Area10_Text_BillDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area10_Text_BillPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+TrainerIsland_Area10_Text_SpenserIntro:
+	.string "It's a fight to the finish,\n"
+	.string "lad! Bring. It. On!$"
+
+TrainerIsland_Area10_Text_SpenserDefeat:
+	.string "You thromped me again.$"
+
+TrainerIsland_Area10_Text_SpenserPostBattle:
+	.string "That was a good battle.\n" 
+	.string "Let's do it again.$"
 
 
 TrainerIsland_Area10_Text_JoanneIntro:
@@ -116,7 +123,7 @@ TrainerIsland_Area10_Text_RodDefeat:
 
 TrainerIsland_Area10_Text_RodPostBattle:
 	.string "You were the better\n"
-	.string "battler today.$"
+	.string "trainer today.$"
 	
 	
 TrainerIsland_Area10_Text_AmyIntro:

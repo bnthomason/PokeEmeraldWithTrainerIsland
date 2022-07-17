@@ -771,6 +771,24 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_RedemptionCenterPokemon[] =
+{
+    {gText_MagikarpAndPrice},
+    {gText_FeebasAndPrice},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_RedemptionCenterTMs[] =
+{
+    {gText_TM02AndPrice},
+    {gText_TM22AndPrice},
+    {gText_TM23AndPrice},
+    {gText_TM26AndPrice},
+    {gText_TM30AndPrice},
+    {gText_TM36AndPrice},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -898,6 +916,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+	[MULTI_REDEMPTION_CENTER_POKEMON]  = MULTICHOICE(MultichoiceList_RedemptionCenterPokemon),
+	[MULTI_REDEMPTION_CENTER_TMS] 	   = MULTICHOICE(MultichoiceList_RedemptionCenterTMs),
 };
 
 const u8 *const gStdStrings[] =
@@ -960,6 +980,7 @@ static const u8 *const sLilycoveSSTidalDestinations[SSTIDAL_SELECTION_COUNT] =
     [SSTIDAL_SELECTION_NAVEL_ROCK]      = gText_NavelRock,
     [SSTIDAL_SELECTION_BIRTH_ISLAND]    = gText_BirthIsland,
     [SSTIDAL_SELECTION_FARAWAY_ISLAND]  = gText_FarawayIsland,
+    [SSTIDAL_SELECTION_TRAINER_ISLAND]  = gText_TrainerIsland,
     [SSTIDAL_SELECTION_EXIT]            = gText_Exit,
 };
 

@@ -2,7 +2,7 @@
   "id": "MAP_TRAINER_ISLAND_TRAINER_CITY_OFFICE",
   "name": "TrainerIsland_TrainerCity_Office",
   "layout": "LAYOUT_TRAINER_ISLAND_TRAINER_CITY_OFFICE",
-  "music": "MUS_RG_SEVII_ROUTE",
+  "music": "MUS_RG_SEVII_67",
   "region_map_section": "MAPSEC_TRAINERISLAND_TRAINERCITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

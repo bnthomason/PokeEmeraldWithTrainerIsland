@@ -1,8 +1,10 @@
 .set LOCALID_RIVAL, 1
+.set LOCALID_SAILOR, 2
+.set LOCALID_SS_TIDAL, 3
 
 TrainerIsland_Entrance_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Entrance_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Entrance_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Entrance_OnFrame
 	.byte 0
 
 
@@ -14,6 +16,39 @@ TrainerIsland_Entrance_OnFrame:
 TrainerIsland_Entrance_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	end
+	
+TrainerIsland_Entrance_EventScript_Sailor::
+	lock
+	faceplayer
+	msgbox EventTicket_Text_TrainerIslandSailBack, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, TrainerIsland_EventScript_Stay
+	msgbox EventTicket_Text_SailHome, MSGBOX_DEFAULT
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 30
+	hideobjectat LOCALID_SAILOR, MAP_TRAINER_ISLAND_ENTRANCE
+	setvar VAR_0x8004, LOCALID_SS_TIDAL
+	call Common_EventScript_FerryDepartIsland
+	warp MAP_LILYCOVE_CITY_HARBOR, 8, 11
+	waitstate
+	release
+	end
+
+TrainerIsland_EventScript_Stay::
+	msgbox EventTicket_Text_Stay, MSGBOX_DEFAULT
+	release
+	end
+
+TrainerIsland_Entrance_EventScript_Sign::
+	msgbox TrainerIsland_Entrance_Text_Sign, MSGBOX_SIGN
+	end
+
+
+TrainerIsland_Entrance_EventScript_Tip::
+	msgbox TrainerIsland_Entrance_Text_Tip, MSGBOX_SIGN
+	end
+
 
 TrainerIsland_Entrance_EventScript_SetVar::
 	setvar VAR_UNUSED_0x404E, 1
@@ -136,6 +171,7 @@ TrainerIsland_Entrance_Movement_RivalEnter2:
 	step_end
 
 TrainerIsland_Entrance_Movement_RivalExit:
+	walk_up
 	walk_left
 	walk_left
 	walk_left

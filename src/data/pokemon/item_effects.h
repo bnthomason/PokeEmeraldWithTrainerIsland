@@ -37,7 +37,7 @@ const u8 gItemEffect_MaxPotion[7] = {
 const u8 gItemEffect_HyperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 120, // Amount of HP to recover
+    [6] = 200, // Amount of HP to recover
 #else
     [6] = 200, // Amount of HP to recover
 #endif
@@ -46,7 +46,7 @@ const u8 gItemEffect_HyperPotion[7] = {
 const u8 gItemEffect_SuperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 60, // Amount of HP to recover
+    [6] = 50, // Amount of HP to recover
 #else
     [6] = 50, // Amount of HP to recover
 #endif
@@ -69,7 +69,7 @@ const u8 gItemEffect_MaxRevive[7] = {
 const u8 gItemEffect_FreshWater[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 30, // Amount of HP to recover
+    [6] = 50, // Amount of HP to recover
 #else
     [6] = 50, // Amount of HP to recover
 #endif
@@ -78,7 +78,7 @@ const u8 gItemEffect_FreshWater[7] = {
 const u8 gItemEffect_SodaPop[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 50, // Amount of HP to recover
+    [6] = 60, // Amount of HP to recover
 #else
     [6] = 60, // Amount of HP to recover
 #endif
@@ -87,7 +87,7 @@ const u8 gItemEffect_SodaPop[7] = {
 const u8 gItemEffect_Lemonade[7] = {
     [4] = ITEM4_HEAL_HP,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 70, // Amount of HP to recover
+    [6] = 80, // Amount of HP to recover
 #else
     [6] = 80, // Amount of HP to recover
 #endif
@@ -102,7 +102,7 @@ const u8 gItemEffect_EnergyPowder[10] = {
     [4] = ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 60, // Amount of HP to recover
+    [6] = 50, // Amount of HP to recover
 #else
     [6] = 50, // Amount of HP to recover
 #endif
@@ -115,7 +115,7 @@ const u8 gItemEffect_EnergyRoot[10] = {
     [4] = ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
 #if I_HEALTH_RECOVERY >= GEN_7
-    [6] = 120, // Amount of HP to recover
+    [6] = 200, // Amount of HP to recover
 #else
     [6] = 200, // Amount of HP to recover
 #endif
@@ -499,7 +499,6 @@ const u8 *const gItemEffectTable[] =
     [ITEM_MAX_ELIXIR - ITEM_POTION]       = gItemEffect_MaxElixir,
     [ITEM_BERRY_JUICE - ITEM_POTION]      = gItemEffect_BerryJuice,
     [ITEM_SACRED_ASH - ITEM_POTION]       = gItemEffect_SacredAsh,
-    [ITEM_SWEET_HEART - ITEM_POTION]      = gItemEffect_Potion,
     [ITEM_MAX_HONEY - ITEM_POTION]        = gItemEffect_MaxRevive,
 
     // Regional Specialties

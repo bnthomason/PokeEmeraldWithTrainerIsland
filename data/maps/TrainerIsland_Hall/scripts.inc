@@ -8,13 +8,11 @@ TrainerIsland_Hall_OnTransition:
 	end
 
 TrainerIsland_Hall_EventScript_Mark::
-	cleartrainerflag TRAINER_MASTER_MARK
 	trainerbattle_double TRAINER_MASTER_MARK, TrainerIsland_Hall_Text_MarkIntro, TrainerIsland_Hall_Text_MarkDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Hall_Text_MarkPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Hall_EventScript_Flam::
-	cleartrainerflag TRAINER_MASTER_FLAM
 	trainerbattle_double TRAINER_MASTER_FLAM, TrainerIsland_Hall_Text_FlamIntro, TrainerIsland_Hall_Text_FlamDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Hall_Text_FlamPostBattle, MSGBOX_AUTOCLOSE
 	end

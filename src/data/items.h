@@ -364,6 +364,19 @@ const struct Item gItems[] =
         .secondaryId = ITEM_CHERISH_BALL - FIRST_BALL,
     },
 
+    [ITEM_DRAGON_BALL] =
+    {
+        .name = _("Dragon Ball"),
+        .itemId = ITEM_DRAGON_BALL,
+        .price = 1000,
+        .description = sDragonBallDesc,
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_DRAGON_BALL - FIRST_BALL,
+        .battleUsage = ITEM_B_USE_OTHER,
+        .battleUseFunc = ItemUseInBattle_PokeBall,
+        .secondaryId = ITEM_DRAGON_BALL - FIRST_BALL,
+    },
+
 // Medicine
 
     [ITEM_POTION] =
@@ -754,21 +767,6 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_SacredAsh,
-        .flingPower = 30,
-    },
-
-    [ITEM_SWEET_HEART] =
-    {
-        .name = _("Sweet Heart"),
-        .itemId = ITEM_SWEET_HEART,
-        .price = 3000,
-        .holdEffectParam = 20,
-        .description = sSweetHeartDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = ITEM_B_USE_MEDICINE,
-        .battleUseFunc = ItemUseInBattle_Medicine,
         .flingPower = 30,
     },
 
@@ -10037,6 +10035,30 @@ const struct Item gItems[] =
         .itemId = ITEM_BATTLE_READER,
         .price = 0,
         .description = sBattleReaderDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_CHAMPIONS_INSIGNIA] =
+    {
+        .name = _("ChampInsignia"),
+        .itemId = ITEM_CHAMPIONS_INSIGNIA,
+        .price = 0,
+        .description = sChampionsInsigniaDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+	
+    [ITEM_TRAINER_TICKET] =
+    {
+        .name = _("TrainerTicket"),
+        .itemId = ITEM_TRAINER_TICKET,
+        .price = 0,
+        .description = sTrainerTicketDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

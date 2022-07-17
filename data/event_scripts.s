@@ -1005,19 +1005,46 @@ Common_EventScript_LegendaryFlewAway::
 	end
 
 Add1Points::
-	addpoints 1
+	setvar VAR_TEMP_4, 1
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	end
 
 Add2Points::
-	addpoints 2
+	setvar VAR_TEMP_4, 2
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	end
 
 Add3Points::
-	addpoints 3
+	setvar VAR_TEMP_4, 3
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	end
 	
 Add4Points::
-	addpoints 4
+	setvar VAR_TEMP_4, 4
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	end
 	
-Add5Points::
-	addpoints 5
+Add5Points:: 
+	setvar VAR_TEMP_4, 5
+	checkitem ITEM_POINT_TRACKER
+	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	end
+
+
+AddXPoints:
+	addpoints VAR_TEMP_4
+	buffernumberstring STR_VAR_1, VAR_TEMP_4
+	msgbox gText_PlayerGotPoints, MSGBOX_AUTOCLOSE
+	waitmessage
+	end
+
+gText_PlayerGotPoints::
+	.string "{PLAYER} got {STR_VAR_1} points!$"
+
 
 	.include "data/scripts/pc_transfer.inc"
 	.include "data/scripts/questionnaire.inc"
@@ -1067,6 +1094,7 @@ Add5Points::
 	.include "data/text/blend_master.inc"
 	.include "data/text/battle_tent.inc"
 	.include "data/text/event_ticket_2.inc"
+	.include "data/text/event_ticket_3.inc"
 	.include "data/text/move_tutors.inc"
 	.include "data/scripts/move_tutors.inc"
 	.include "data/scripts/trainer_hill.inc"
@@ -1138,3 +1166,15 @@ Add5Points::
 	.include "data/maps/TrainerIsland_TrainerCity_House4/scripts.inc"
 
 	.include "data/maps/TrainerIsland_TrainerCity_Office/scripts.inc"
+
+	.include "data/maps/RyukyuanIsland_City/scripts.inc"
+
+	.include "data/maps/RyuKyuanCity_Flat1_1F/scripts.inc"
+
+	.include "data/maps/RyuKyuanCity_Flat1_2F/scripts.inc"
+
+	.include "data/maps/RyuKyuanCity_Flat1_3F/scripts.inc"
+
+	.include "data/maps/RyuKyuanCity_Flat2_1F/scripts.inc"
+
+	.include "data/maps/RyuKyuanCity_Flat2_2F/scripts.inc"

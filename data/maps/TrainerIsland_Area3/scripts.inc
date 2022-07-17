@@ -3,6 +3,7 @@ TrainerIsland_Area3_MapScripts::
 	.byte 0
 	
 TrainerIsland_Area3_OnTransition:
+	cleartrainerflag TRAINER_MASTER_DRAKE
 	cleartrainerflag TRAINER_MASTER_LINDA
 	cleartrainerflag TRAINER_MASTER_PAT
 	cleartrainerflag TRAINER_MASTER_VANA
@@ -12,38 +13,32 @@ TrainerIsland_Area3_OnTransition:
 
 
 TrainerIsland_Area3_EventScript_Drake::
-	cleartrainerflag TRAINER_MASTER_DRAKE
 	trainerbattle_double TRAINER_MASTER_DRAKE, TrainerIsland_Area3_Text_DrakeIntro, TrainerIsland_Area3_Text_DrakeDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
 	msgbox TrainerIsland_Area3_Text_DrakePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area3_EventScript_Linda::
-	cleartrainerflag TRAINER_MASTER_LINDA
 	trainerbattle_double TRAINER_MASTER_LINDA, TrainerIsland_Area3_Text_LindaIntro, TrainerIsland_Area3_Text_LindaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area3_Text_LindaPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area3_EventScript_Pat::
-	cleartrainerflag TRAINER_MASTER_PAT
 	trainerbattle_double TRAINER_MASTER_PAT, TrainerIsland_Area3_Text_PatIntro, TrainerIsland_Area3_Text_PatDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area3_Text_PatPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area3_EventScript_Vana::
-	cleartrainerflag TRAINER_MASTER_VANA
 	trainerbattle_double TRAINER_MASTER_VANA, TrainerIsland_Area3_Text_VanaIntro, TrainerIsland_Area3_Text_VanaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area3_Text_VanaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area3_EventScript_LisaAndLira::
-	cleartrainerflag TRAINER_MASTER_LISAANDLIRA
-	trainerbattle_double TRAINER_MASTER_LISAANDLIRA, TrainerIsland_Area3_Text_LisaIntro, TrainerIsland_Area3_Text_LisaAndLiraDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_LISAANDLIRA, TrainerIsland_Area3_Text_LisaAndLiraIntro, TrainerIsland_Area3_Text_LisaAndLiraDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area3_Text_LisaAndLiraPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area3_Text_DrakeIntro:
 	.string "Do you remember what it takes?$"
-
 
 TrainerIsland_Area3_Text_DrakeDefeat:
 	.string "Yes, I see you remember.$"
@@ -99,7 +94,7 @@ TrainerIsland_Area3_Text_VanaPostBattle:
 	
 
 
-TrainerIsland_Area3_Text_LisaandLiraIntro:
+TrainerIsland_Area3_Text_LisaAndLiraIntro:
 	.string "LISA: I'm Lisa!\p"
 	.string "LIRA: I'm Lira!\p"
 	.string "BOTH: We're twins!$"

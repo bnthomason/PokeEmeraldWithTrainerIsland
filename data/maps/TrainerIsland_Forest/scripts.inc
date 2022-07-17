@@ -1,6 +1,6 @@
 TrainerIsland_Forest_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Forest_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME, TrainerIsland_Forest_OnFrame
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Forest_OnFrame
 	.byte 0
 
 TrainerIsland_Forest_OnFrame:
@@ -18,93 +18,87 @@ TrainerIsland_Forest_OnTransition:
 	cleartrainerflag TRAINER_MASTER_LACEY
 	cleartrainerflag TRAINER_MASTER_ESPER
 	cleartrainerflag TRAINER_MASTER_BRUCE
+	cleartrainerflag TRAINER_MASTER_BRANDON
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_2
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_3
+	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_4
+	cleartrainerflag TRAINER_MASTER_SIDNEY
 	end
 
 TrainerIsland_Forest_EventScript_Jun::
-	cleartrainerflag TRAINER_MASTER_JUN
 	trainerbattle_double TRAINER_MASTER_JUN, TrainerIsland_Forest_Text_JunIntro, TrainerIsland_Forest_Text_JunDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Forest_Text_JunPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Forest_EventScript_Dan::
-	cleartrainerflag TRAINER_MASTER_DAN
 	trainerbattle_double TRAINER_MASTER_DAN, TrainerIsland_Forest_Text_DanIntro, TrainerIsland_Forest_Text_DanDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Forest_Text_DanPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Forest_EventScript_Esper::
-	cleartrainerflag TRAINER_MASTER_ESPER
-	trainerbattle_double TRAINER_MASTER_EPSER, TrainerIsland_Forest_Text_EsperIntro, TrainerIsland_Forest_Text_EsperDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_ESPER, TrainerIsland_Forest_Text_EsperIntro, TrainerIsland_Forest_Text_EsperDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Forest_Text_EsperPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Forest_EventScript_Bruce::
-	cleartrainerflag TRAINER_MASTER_BRUCE
 	trainerbattle_double TRAINER_MASTER_BRUCE, TrainerIsland_Forest_Text_BruceIntro, TrainerIsland_Forest_Text_BruceDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Forest_Text_BrucePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Forest_EventScript_Lacey::
-	cleartrainerflag TRAINER_MASTER_LACEY
 	trainerbattle_double TRAINER_MASTER_LACEY, TrainerIsland_Forest_Text_LaceyIntro, TrainerIsland_Forest_Text_LaceyDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Forest_Text_LaceyPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 	
 TrainerIsland_Forest_EventScript_Brandon::
-	cleartrainerflag TRAINER_MASTER_BRANDON
 	trainerbattle_double TRAINER_MASTER_BRANDON, TrainerIsland_Forest_Text_BrandonIntro, TrainerIsland_Forest_Text_BrandonDefeat, CommonEvent_Text_NeedTwoMons, CommonEvent_Text_NeedTwoMons, Add3Points
 	msgbox TrainerIsland_Forest_Text_BrandonPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
-TrainerIsland_Forest_EventScript_TateandLiza::
-	goto_if_eq VAR_UNUSED_0x40F7, 1, TrainerIsland_Forest_EventScript_TateandLizaFirstMatch
-	goto_if_eq VAR_UNUSED_0x40F7, 2, TrainerIsland_Forest_EventScript_TateandLizaRematch1
-	goto_if_eq VAR_UNUSED_0x40F7, 3, TrainerIsland_Forest_EventScript_TateandLizaRematch2
-	goto_if_eq VAR_UNUSED_0x40F7, 4, TrainerIsland_Forest_EventScript_TateandLizaRematch3
-	goto_if_eq VAR_UNUSED_0x40F7, 5, TrainerIsland_Forest_EventScript_TateandLizaRematch4
+TrainerIsland_Forest_EventScript_TateAndLiza::
+	goto_if_eq VAR_UNUSED_0x40F7, 1, TrainerIsland_Forest_EventScript_TateAndLizaFirstMatch
+	goto_if_eq VAR_UNUSED_0x40F7, 2, TrainerIsland_Forest_EventScript_TateAndLizaRematch1
+	goto_if_eq VAR_UNUSED_0x40F7, 3, TrainerIsland_Forest_EventScript_TateAndLizaRematch2
+	goto_if_eq VAR_UNUSED_0x40F7, 4, TrainerIsland_Forest_EventScript_TateAndLizaRematch3
+	goto_if_eq VAR_UNUSED_0x40F7, 5, TrainerIsland_Forest_EventScript_TateAndLizaRematch4
 	end
 	
-TrainerIsland_Forest_EventScript_TateandLizaFirstMatch::
-	cleartrainerflag TRAINER_MASTER_TATEANDLIZA
+TrainerIsland_Forest_EventScript_TateAndLizaFirstMatch::
 	trainerbattle_double TRAINER_MASTER_TATEANDLIZA, TrainerIsland_Forest_Text_TateAndLizaIntro, TrainerIsland_Forest_Text_TateAndLizaDefeat, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F7, 2
 	end
 
-TrainerIsland_Forest_EventScript_TateandLizaRematch1::
-	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_2
+TrainerIsland_Forest_EventScript_TateAndLizaRematch1::
 	trainerbattle_double TRAINER_MASTER_TATEANDLIZA_2, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F7, 3	
 	end
 
 
-TrainerIsland_Forest_EventScript_TateandLizaRematch2::
-	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_3
+TrainerIsland_Forest_EventScript_TateAndLizaRematch2::
 	trainerbattle_double TRAINER_MASTER_TATEANDLIZA_3, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F7, 4
 	end
 
 
-TrainerIsland_Forest_EventScript_TateandLizaRematch3::
-	cleartrainerflag TRAINER_MASTER_TATEANDLIZA_4
+TrainerIsland_Forest_EventScript_TateAndLizaRematch3::
 	trainerbattle_double TRAINER_MASTER_TATEANDLIZA_4, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F7, 5
 	end
 
 
-TrainerIsland_Forest_EventScript_TateandLizaRematch4::
-	cleartrainerflag TRAINER_MASTER_TATEANDLIZA
+TrainerIsland_Forest_EventScript_TateAndLizaRematch4::
 	trainerbattle_double TRAINER_MASTER_TATEANDLIZA, TrainerIsland_Forest_Text_TateAndLizaIntro2, TrainerIsland_Forest_Text_TateAndLizaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Forest_Text_TateAndLizaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40F7, 2
 	end
 
 TrainerIsland_Forest_EventScript_Sidney::
-	cleartrainerflag TRAINER_MASTER_SIDNEY
 	trainerbattle_double TRAINER_MASTER_SIDNEY, TrainerIsland_Forest_Text_SidneyIntro, TrainerIsland_Forest_Text_SidneyDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
 	msgbox TrainerIsland_Forest_Text_SidneyPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -196,13 +190,13 @@ TrainerIsland_Forest_Text_TateAndLizaPostBattle:
 	.string "To be continued…$"
 	
 
-TrainerIsland_Forest_Text_TateAndLizaRematchIntro:
+TrainerIsland_Forest_Text_TateAndLizaIntro2:
 	.string "The show shall continue!$"
 
-TrainerIsland_Forest_Text_TateAndLizaRematchDefeat:
+TrainerIsland_Forest_Text_TateAndLizaDefeat2:
 	.string "And that's a wrap!$"
 
-TrainerIsland_Forest_Text_TateAndLizaRematchPostBattle:
+TrainerIsland_Forest_Text_TateAndLizaPostBattle2:
 	.string "The show shall live on…$"
 	
 	

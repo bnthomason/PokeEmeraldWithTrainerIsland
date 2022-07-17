@@ -791,11 +791,11 @@
 	@ and an optional event script. When used with an event script you can pass in an optional flag to disable music
 	.macro trainerbattle_double_no_intro trainer:req, lose_text:req, not_enough_pkmn_text:req, event_script=FALSE, music=TRUE
 	.if \event_script == FALSE
-	trainerbattle TRAINER_BATTLE_DOUBLE, \trainer, 0, \intro_text, \not_enough_pkmn_text
+	trainerbattle TRAINER_BATTLE_DOUBLE_NO_INTRO_TEXT, \trainer, 0, \lose_text, \not_enough_pkmn_text, 
 	.elseif \music == TRUE
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_INTRO_TEXT, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
 	.else
-	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC_NO_INTRO_TEXT, \trainer, 0, \lose_text, \not_enough_pkmn_text, \event_script
 	.endif
 	.endm
 
@@ -2070,5 +2070,3 @@
 	.macro totemboost_evas2 battler:req
 	settotemboost \battler, 0, 0, 0, 0, 0, 0, 2
 	.endm
-	
-

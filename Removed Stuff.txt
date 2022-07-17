@@ -1,0 +1,23 @@
+src\data\items.h
+ 
+	[ITEM_SWEET_HEART] =
+    {
+        .name = _("Sweet Heart"),
+        .itemId = ITEM_SWEET_HEART,
+        .price = 3000,
+        .holdEffectParam = 20,
+        .description = sSweetHeartDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+        .flingPower = 30,
+    },
+	
+src\data\pokemon\item_effects.h
+
+    [ITEM_SWEET_HEART - ITEM_POTION]      = gItemEffect_Potion,
+	
+src\data\item_icon_table.h
+    [ITEM_SWEET_HEART] = {gItemIcon_SweetHeart, gItemIconPalette_SweetHeart},

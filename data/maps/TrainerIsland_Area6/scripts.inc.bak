@@ -3,7 +3,7 @@ TrainerIsland_Area6_MapScripts::
 	.byte 0
 	
 TrainerIsland_Area6_OnTransition:
-	cleartrainerflag TRAINER_MASTER_AROMALADYJEWELS
+	cleartrainerflag TRAINER_MASTER_JEWELS
 	cleartrainerflag TRAINER_MASTER_JOHN
 	cleartrainerflag TRAINER_MASTER_LUNA
 	cleartrainerflag TRAINER_MASTER_AWEN
@@ -96,7 +96,7 @@ TrainerIsland_Area6_EventScript_Aurora::
 
 TrainerIsland_Area6_EventScript_Jewels::
 	cleartrainerflag TRAINER_MASTER_JEWELS
-	trainerbattle_double TRAINER_MASTER_JEWELS, TrainerIsland_Area6_Text_yJewelsIntro, TrainerIsland_Area6_Text_JewelsDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_JEWELS, TrainerIsland_Area6_Text_JewelsIntro, TrainerIsland_Area6_Text_JewelsDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area6_Text_JewelsPostBattle, MSGBOX_AUTOCLOSE
 	end
 

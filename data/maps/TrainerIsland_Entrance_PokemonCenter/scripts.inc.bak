@@ -1,6 +1,6 @@
 .set LOCALID_NURSE, 1
 
-mapscripts TrainerIsland_Entrance_PokemonCenter_MapScripts::
+TrainerIsland_Entrance_PokemonCenter_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Entrance_PokemonCenter_OnTransition
 	.byte 0
 

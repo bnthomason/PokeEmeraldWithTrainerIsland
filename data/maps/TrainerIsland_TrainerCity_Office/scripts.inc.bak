@@ -1,3 +1,8 @@
+.set LOCALID_SCIENTIST_1, 2
+.set LOCALID_SCIENTIST_2, 1
+.set LOCALID_SCIENTIST_3, 3
+.set LOCALID_SCIENTIST_4, 4
+
 TrainerIsland_TrainerCity_Office_MapScripts::
 	.byte 0
 	
@@ -23,7 +28,7 @@ TrainerIsland_TrainerCity_Office_EventScript_PrintIsThatSo::
 	
 TrainerIsland_TrainerCity_Office_EventScript_ThatsGreatThanks::
 	msgbox TrainerIsland_TrainerCity_Office_Text_ThatsGreatThanks, MSGBOX_DEFAULT
-	giveitem BATTLEREADER
+	giveitem ITEM_BATTLE_READER
 	msgbox TrainerIsland_TrainerCity_Office_Text_BattleReaderExplanation, MSGBOX_DEFAULT
 	clearflag FLAG_UNUSED_0x2B7
 	release
@@ -36,62 +41,86 @@ TrainerIsland_TrainerCity_Office_EventScript_ConductingResearch::
 TrainerIsland_TrainerCity_Office_EventScript_Worker1::
 	lock
 	faceplayer
-	goto_if_set UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker1_Prepare
+	goto_if_set FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker1_Prepare
 	goto_if_unset FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker1_Temperatures
 	end
 
 TrainerIsland_TrainerCity_Office_EventScript_Worker1_Prepare::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker1_Prepare, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_1, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker1_Temperatures::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker1_Temperatures, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_1, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker2::
 	lock
 	faceplayer
-	goto_if_set UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker2_Prepare
+	goto_if_set FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker2_Prepare
 	goto_if_unset FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker2_Strategies
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker2_Prepare::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker2_Prepare, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_2, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release	
 	end
 
 TrainerIsland_TrainerCity_Office_EventScript_Worker2_Strategies::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker2_Strategies, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_2, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker3::
 	lock
 	faceplayer
-	goto_if_set UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_Text_Worker3_Prepare
+	goto_if_set FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker3_Prepare
 	goto_if_unset FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker3_BLanguage
 	end
 
 TrainerIsland_TrainerCity_Office_EventScript_Worker3_Prepare::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker3_Prepare, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_3, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker3_BLanguage::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker3_BLanguage, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_3, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 
 TrainerIsland_TrainerCity_Office_EventScript_Worker4::
 	lock
 	faceplayer
-	goto_if_set UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_Text_Worker4_Prepare
+	goto_if_set FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_Worker4_Prepare
 	goto_if_unset FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_Text_Worker4_VoiceRecording
 	end
 
 
 TrainerIsland_TrainerCity_Office_EventScript_Worker4_Prepare::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker4_Prepare, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_4, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker4_BLanguage::
 	msgbox TrainerIsland_TrainerCity_Office_Text_Worker4_VoiceRecording, MSGBOX_NPC
+	applymovement LOCALID_SCIENTIST_4, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 
 TrainerIsland_TrainerCity_Office_Text_WillYouHelpWithResearch:
@@ -132,16 +161,16 @@ TrainerIsland_TrainerCity_Office_Text_ThatsGreatThanks:
 	.string "Thats great! I'll get the\n"
 	.string "trainers gathered for the\l"
 	.string "tournament right away so\l"
-	.string "that you can get started.!\l"
+	.string "that you can get started!\l"
 	.string "Also, put this on.$"
 	
 TrainerIsland_TrainerCity_Office_Text_BattleReaderExplanation:
 	.string "As I said before, this will\n"
-	.string "monitor everythingf you do in\l"
+	.string "monitor everything you do in\l"
 	.string "in battle.\p"
-	.string "Your strategies are safe and wont\n"
+	.string "Your strategies are safe and won't\n"
 	.string "be sold or revealed to anyone.\p"
-	.string "Now go on out there and hav fun!$"
+	.string "Now go on out there and have fun!$"
 	
 TrainerIsland_TrainerCity_Office_Text_Worker1_Prepare:
 	.string "I'm preparing my workspace to\n"
@@ -172,7 +201,7 @@ TrainerIsland_TrainerCity_Office_Text_Worker2_Strategies:
 TrainerIsland_TrainerCity_Office_Text_Worker3_Prepare:
 	.string "I'm setting up my workspace\n"
 	.string "to be able to see and record\l"
-	.string "battle strategies.$"
+	.string "body language.$"
 	
 	
 TrainerIsland_TrainerCity_Office_Text_Worker3_BLanguage:
@@ -190,7 +219,7 @@ TrainerIsland_TrainerCity_Office_Text_Worker4_Prepare:
 	.string "your voice commands.$"
 	
 	
-TrainerIsland_TrainerCity_Office_Text_Worker4_BLanguager:
+TrainerIsland_TrainerCity_Office_Text_Worker4_VoiceRecording:
 	.string "I'm busy. What is it?\p"
 	.string "Oh, what I'm working on?\p"
 	.string "My workspace is set up to\n"

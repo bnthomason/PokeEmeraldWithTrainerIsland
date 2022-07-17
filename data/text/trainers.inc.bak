@@ -3049,6 +3049,16 @@ Route120_Text_JenniferDefeat:
 Route120_Text_JenniferPostBattle:
 	.string "The special abilities of POKéMON\n"
 	.string "will make battle styles change.$"
+	
+Route120_Text_JohnathanIntro:
+	.string "POKéMON can be tough to beat when\n"
+	.string "matched up properly.$"
+
+Route120_Text_JohnathanDefeat:
+	.string "It was a total mismatch…$"
+
+Route120_Text_JohnathanPostBattle:
+	.string "Next time, I'll try harder…\n"
 
 Route120_Text_ChipIntro:
 	.string "Who might you be?\p"
@@ -4779,3 +4789,6 @@ Route134_Text_HudsonPostBattle:
 	.string "Our boat drifted out to sea.\p"
 	.string "My buddy's a timid fellow, so I'm\n"
 	.string "worried about him.$"
+
+CommonEvent_Text_NeedTwoMons::
+	.string "You only have two mons…"

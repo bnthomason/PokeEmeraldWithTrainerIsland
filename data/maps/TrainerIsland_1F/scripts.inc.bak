@@ -2,7 +2,7 @@ TrainerIsland_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_1F_OnTransition
 	.byte 0
 	
-TrainerIsland_1F__OnTransition:
+TrainerIsland_1F_OnTransition:
 	cleartrainerflag TRAINER_MASTER_CHELSEA
 	cleartrainerflag TRAINER_MASTER_MICHAEL
 	end
