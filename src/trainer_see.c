@@ -282,15 +282,15 @@ static u8 CheckTrainer(u8 objectEventId)
 
     if (approachDistance != 0)
     {
-        if (scriptPtr[1] == TRAINER_BATTLE_DOUBLE
-            || scriptPtr[1] == TRAINER_BATTLE_REMATCH_DOUBLE
-            || scriptPtr[1] == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE)
-        {
-            if (GetMonsStateToDoubles_2() != 0)
-                return 0;
+        // if (scriptPtr[1] == TRAINER_BATTLE_DOUBLE
+            // || scriptPtr[1] == TRAINER_BATTLE_REMATCH_DOUBLE
+            // || scriptPtr[1] == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE)
+        // {
+            // if (GetMonsStateToDoubles_2() != 0)
+                // return 0;
 
-            numTrainers = 2;
-        }
+			numTrainers = 2;
+        // }
 
         gApproachingTrainers[gNoOfApproachingTrainers].objectEventId = objectEventId;
         gApproachingTrainers[gNoOfApproachingTrainers].trainerScriptPtr = scriptPtr;
