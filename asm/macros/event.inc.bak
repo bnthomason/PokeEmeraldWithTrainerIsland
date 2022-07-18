@@ -706,6 +706,7 @@
 	.elseif \type == TRAINER_BATTLE_DOUBLE_NO_INTRO_TEXT
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text
+		.4byte \pointer3 @ text
 	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_INTRO_TEXT
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text

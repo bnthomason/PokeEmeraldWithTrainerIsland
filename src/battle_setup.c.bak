@@ -1171,11 +1171,10 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 	case TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC_NO_INTRO_TEXT:
         TrainerBattleLoadArgs(sContinueScriptNoIntroDoubleBattleParams, data);
         SetMapVarsToTrainer();
-        return EventScript_TryDoNoIntroDoubleTrainerBattle;;
+        return EventScript_TryDoDoubleTrainerBattle;
 	case TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_INTRO_TEXT:
 		TrainerBattleLoadArgs(sContinueScriptNoIntroDoubleBattleParams, data);
         SetMapVarsToTrainer();
-		return EventScript_TryDoNoIntroDoubleTrainerBattle;
     case TRAINER_BATTLE_REMATCH_DOUBLE:
         TrainerBattleLoadArgs(sDoubleBattleParams, data);
         SetMapVarsToTrainer();

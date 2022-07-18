@@ -12578,7 +12578,7 @@ static const struct TrainerMon sParty_Master_Dan[] = {
     .lvl = 100,
     .species = SPECIES_VIVILLON,
     .heldItem = ITEM_NONE,
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .evs = {0, 128, 0, 2, 190, 190},
     .moves = {MOVE_HURRICANE, MOVE_BUG_BUZZ, MOVE_DRAINING_KISS, MOVE_PSYBEAM}
     },
@@ -12636,7 +12636,7 @@ static const struct TrainerMon sParty_Master_Lacey[] = {
     .species = SPECIES_SEVIPER,
     .heldItem = ITEM_NONE,
     .evs = {3, 252, 0, 252, 3, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_POISON_TAIL, MOVE_X_SCISSOR, MOVE_CRUNCH, MOVE_EARTHQUAKE}
     }
 };
@@ -12693,7 +12693,7 @@ static const struct TrainerMon sParty_Master_Brandon[] = {
     .species = SPECIES_VIRIZION,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 252, 3, 0, 3},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_SACRED_SWORD, MOVE_LEAF_BLADE, MOVE_ZEN_HEADBUTT, MOVE_REST}
     }
 };
@@ -12750,7 +12750,7 @@ static const struct TrainerMon sParty_Master_Sidney[] = {
     .species = SPECIES_DARKRAI,
     .heldItem = ITEM_BLACK_GLASSES,
     .evs = {88, 168, 2, 0, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_DARK_PULSE, MOVE_DARK_VOID, MOVE_NIGHTMARE, MOVE_DREAM_EATER}
     }
 };
@@ -13878,7 +13878,7 @@ static const struct TrainerMon sParty_Master_Drake[] = {
     .species = SPECIES_GARCHOMP,
     .heldItem = ITEM_BLACK_BELT,
     .evs = {0, 252, 0, 6, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_DRAGON_CLAW, MOVE_SUPERPOWER, MOVE_EARTHQUAKE, MOVE_STONE_EDGE}
     },
     {
@@ -14037,7 +14037,7 @@ static const struct TrainerMon sParty_Master_Wattson_2[] = {
     .species = SPECIES_ZEBSTRIKA,
     .heldItem = ITEM_MAGNET,
     .evs = {0, 252, 0, 252, 6, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_WILD_CHARGE, MOVE_FLAME_CHARGE, MOVE_BOUNCE, MOVE_LASER_FOCUS}
     }
 };
@@ -14076,7 +14076,7 @@ static const struct TrainerMon sParty_Master_Wattson_3[] = {
     .species = SPECIES_ZEBSTRIKA,
     .heldItem = ITEM_MAGNET,
     .evs = {0, 252, 0, 252, 6, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_WILD_CHARGE, MOVE_FLAME_CHARGE, MOVE_BOUNCE, MOVE_LASER_FOCUS}
     },
 	{
@@ -14115,7 +14115,7 @@ static const struct TrainerMon sParty_Master_Wattson_4[] = {
     .species = SPECIES_ZEBSTRIKA,
     .heldItem = ITEM_MAGNET,
     .evs = {0, 252, 0, 252, 6, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_WILD_CHARGE, MOVE_FLAME_CHARGE, MOVE_BOUNCE, MOVE_LASER_FOCUS}
     },
 	{
@@ -14496,7 +14496,7 @@ static const struct TrainerMon sParty_Master_Diego[] = {
     .species = SPECIES_KELDEO,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 0, 6, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_SECRET_SWORD, MOVE_BUBBLE, MOVE_AIR_SLASH, MOVE_SWORDS_DANCE}
     }
 };
@@ -14763,7 +14763,7 @@ static const struct TrainerMon sParty_Master_Brawly_4[] = {
     .species = SPECIES_VIRIZION,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 252, 3, 0, 3},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_SACRED_SWORD, MOVE_LEAF_BLADE, MOVE_AIR_SLASH, MOVE_BULK_UP}
     }
 };
@@ -15889,7 +15889,7 @@ static const struct TrainerMon sParty_Master_Joshua[] = {
     .species = SPECIES_GARCHOMP,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 0, 6, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_DRAGON_CLAW, MOVE_SUPERPOWER, MOVE_EARTHQUAKE, MOVE_STONE_EDGE}
     },
     {
@@ -15938,7 +15938,7 @@ static const struct TrainerMon sParty_Master_Darwin[] = {
     .species = SPECIES_DONPHAN,
     .heldItem = ITEM_NONE,
     .evs = {100, 5, 200, 0, 5, 200},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_REST}
     },
     {
@@ -16182,7 +16182,7 @@ static const struct TrainerMon sParty_Master_George[] = {
     .species = SPECIES_ZEBSTRIKA,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 0, 252, 6, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_WILD_CHARGE, MOVE_FLAME_CHARGE, MOVE_BOUNCE, MOVE_LASER_FOCUS}
     },
 	{
@@ -16260,7 +16260,7 @@ static const struct TrainerMon sParty_Master_Sierra[] = {
     .species = SPECIES_ZEBSTRIKA,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 0, 252, 6, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_WILD_CHARGE, MOVE_FLAME_CHARGE, MOVE_TAKE_DOWN, MOVE_THRASH}
     },
     {
@@ -16482,7 +16482,7 @@ static const struct TrainerMon sParty_Master_Mai[] = {
     .species = SPECIES_ZEBSTRIKA,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 0, 252, 6, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_DISCHARGE, MOVE_SIGNAL_BEAM, MOVE_FLAME_CHARGE, MOVE_THRASH}
     }
 };
@@ -16938,7 +16938,7 @@ static const struct TrainerMon sParty_Master_Spenser[] = {
     .species = SPECIES_KELDEO_RESOLUTE,
     .heldItem = ITEM_MYSTIC_WATER,
     .evs = {0, 252, 0, 6, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_SECRET_SWORD, MOVE_BUBBLE, MOVE_AIR_SLASH, MOVE_SWORDS_DANCE}
     }
 };
@@ -17486,7 +17486,7 @@ static const struct TrainerMon sParty_Master_Paul[] = {
     .species = SPECIES_DONPHAN,
     .heldItem = ITEM_NONE,
     .evs = {100, 5, 200, 0, 5, 200},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_REST}
     },
     {
@@ -17537,7 +17537,7 @@ static const struct TrainerMon sParty_Master_Flam[] = {
     .species = SPECIES_SALAZZLE,
     .heldItem = ITEM_NONE,
     .evs = {252, 252, 0, 3, 3, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_FIRE_LASH, MOVE_POISON_FANG, MOVE_BREAKING_SWIPE, MOVE_SHADOW_CLAW}
     },
 };
@@ -18441,7 +18441,7 @@ static const struct TrainerMon sParty_Master_Sedina[] = {
     .species = SPECIES_VIRIZION,
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 252, 3, 0, 3},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_SACRED_SWORD, MOVE_LEAF_BLADE, MOVE_ZEN_HEADBUTT, MOVE_REST}
     }
 };
@@ -18612,7 +18612,7 @@ static const struct TrainerMon sParty_Elite_Spenser[] = {
     .species = SPECIES_KELDEO_RESOLUTE,
     .heldItem = ITEM_MYSTIC_WATER,
     .evs = {0, 252, 0, 6, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_SECRET_SWORD, MOVE_BUBBLE, MOVE_AIR_SLASH, MOVE_SWORDS_DANCE}
     }
 };
@@ -18795,7 +18795,7 @@ static const struct TrainerMon sParty_Elite_Drake[] = {
     .species = SPECIES_GARCHOMP,
     .heldItem = ITEM_BLACK_BELT,
     .evs = {0, 252, 0, 6, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_DRAGON_CLAW, MOVE_SUPERPOWER, MOVE_EARTHQUAKE, MOVE_STONE_EDGE}
     },
     {
@@ -18954,7 +18954,7 @@ static const struct TrainerMon sParty_Elite_Sidney[] = {
     .species = SPECIES_DARKRAI,
     .heldItem = ITEM_BLACK_GLASSES,
     .evs = {88, 168, 2, 0, 252, 0},
-	.nature = NATURE_HARDY,
+	.nature = NATURE_SERIOUS,
     .moves = {MOVE_DARK_PULSE, MOVE_DARK_VOID, MOVE_NIGHTMARE, MOVE_DREAM_EATER}
     }
 };

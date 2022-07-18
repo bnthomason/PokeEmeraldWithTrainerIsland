@@ -27,6 +27,11 @@
       "direction": "left",
       "offset": 0,
       "map": "MAP_TRAINER_ISLAND_AREA10"
+    },
+    {
+      "direction": "up",
+      "offset": 0,
+      "map": "MAP_TRAINER_ISLAND_AREA9"
     }
   ],
   "object_events": [

@@ -4625,7 +4625,7 @@
       "id": "LAYOUT_TRAINER_ISLAND_AREA9_HOUSE",
       "name": "TrainerIsland_Area9_House_Layout",
       "width": 17,
-      "height": 8,
+      "height": 10,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/TrainerIsland_Area9_House/border.bin",

@@ -28,22 +28,21 @@ TrainerIsland_Area9_House_EventScript_SetVar::
 	setvar VAR_UNUSED_0x408B, 1
 	end
 
-TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle::
+TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle1::
 	applymovement LOCALID_VIVIAN, Common_Movement_FacePlayer
 	waitmovement 0
 	applymovement LOCALID_VIVIAN, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement LOCALID_VIVIAN, Common_Movement_Delay48
 	waitmovement 0
-	applymovement LOCALID_VIVIAN, TrainerIsland_Area9_House_Movement_VivianApproach
+	applymovement LOCALID_VIVIAN, TrainerIsland_Area9_House_Movement_VivianApproachRightSide
 	waitmovement 0
-	msgbox TrainerIsland_Area9_House_Text_VivianIntro, MSGBOX_DEFAULT
-	trainerbattle_double_no_intro TRAINER_MASTER_VIVIAN, TrainerIsland_Area9_House_Text_VivianDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_VIVIAN, TrainerIsland_Area9_House_Text_VivianIntro, TrainerIsland_Area9_House_Text_VivianDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	applymovement LOCALID_VIVIAN, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox TrainerIsland_Area9_House_Text_VivianPostBattle, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_VIVIAN, TrainerIsland_Area9_House_Movement_VivianSitDown
+	applymovement LOCALID_VIVIAN, TrainerIsland_Area9_House_Movement_VivianSitDownRightSide
 	waitmovement 0
 	applymovement LOCALID_VICTOR, Common_Movement_FacePlayer
 	waitmovement 0
@@ -51,14 +50,14 @@ TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle::
 	waitmovement 0
 	applymovement LOCALID_VICTOR, Common_Movement_Delay48
 	waitmovement 0
-	applymovement LOCALID_VICTOR, TrainerIsland_Area9_House_Movement_VictorApproach
+	applymovement LOCALID_VICTOR, TrainerIsland_Area9_House_Movement_VictorApproachRightSide
 	waitmovement 0
-	trainerbattle_double_no_intro TRAINER_MASTER_VICTOR, TrainerIsland_Area9_House_Text_VictorDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_VICTOR, TrainerIsland_Area9_House_Text_VictorIntro, TrainerIsland_Area9_House_Text_VictorDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	applymovement LOCALID_VICTOR, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0	
 	msgbox TrainerIsland_Area9_House_Text_VictorPostBattle, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_VICTOR, TrainerIsland_Area9_House_Movement_VictorSitDown
+	applymovement LOCALID_VICTOR, TrainerIsland_Area9_House_Movement_VictorSitDownRightSide
 	waitmovement 0
 	applymovement LOCALID_VICTORIA, Common_Movement_FacePlayer
 	waitmovement 0
@@ -66,14 +65,14 @@ TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle::
 	waitmovement 0
 	applymovement LOCALID_VICTORIA, Common_Movement_Delay48
 	waitmovement 0
-	applymovement LOCALID_VICTORIA, TrainerIsland_Area9_House_Movement_VictoriaApproach
+	applymovement LOCALID_VICTORIA, TrainerIsland_Area9_House_Movement_VictoriaApproachRightSide
 	waitmovement 0
-	trainerbattle_double_no_intro TRAINER_MASTER_VICTORIA, TrainerIsland_Area9_House_Text_VictoriaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_VICTORIA, TrainerIsland_Area9_House_Text_VictoriaIntro, TrainerIsland_Area9_House_Text_VictoriaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	applymovement LOCALID_VICTORIA, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0	
 	msgbox TrainerIsland_Area9_House_Text_VictoriaPostBattle, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_VICTORIA, TrainerIsland_Area9_House_Movement_VictoriaSitDown
+	applymovement LOCALID_VICTORIA, TrainerIsland_Area9_House_Movement_VictoriaSitDownRightSide
 	waitmovement 0
 	applymovement LOCALID_VIVI, Common_Movement_FacePlayer
 	waitmovement 0
@@ -81,16 +80,16 @@ TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle::
 	waitmovement 0
 	applymovement LOCALID_VIVI, Common_Movement_Delay48
 	waitmovement 0
-	applymovement LOCALID_VIVI, TrainerIsland_Area9_House_Movement_ViviApproach
+	applymovement LOCALID_VIVI, TrainerIsland_Area9_House_Movement_ViviApproachRightSide
 	waitmovement 0
-	trainerbattle_double_no_intro TRAINER_MASTER_VIVI, TrainerIsland_Area9_House_Text_ViviDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_VIVI, TrainerIsland_Area9_House_Text_ViviIntro, TrainerIsland_Area9_House_Text_ViviDefeat, Add1Points
 	msgbox TrainerIsland_Area9_House_Text_ViviPostBattle, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, TrainerIsland_Area9_House_EventScript_ViviCries
 	goto_if_eq VAR_RESULT, NO, TrainerIsland_Area9_House_EventScript_ViviWantstoCry
 	closemessage
 	applymovement LOCALID_VIVI, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	applymovement LOCALID_VIVI, TrainerIsland_Area9_House_Movement_ViviSitDown
+	applymovement LOCALID_VIVI, TrainerIsland_Area9_House_Movement_ViviSitDownRightSide
 	waitmovement 0
 	applymovement LOCALID_VICKY, Common_Movement_FacePlayer
 	waitmovement 0
@@ -98,14 +97,14 @@ TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle::
 	waitmovement 0
 	applymovement LOCALID_VICKY, Common_Movement_Delay48
 	waitmovement 0
-	applymovement LOCALID_VICKY, TrainerIsland_Area9_House_Movement_VickyApproach
+	applymovement LOCALID_VICKY, TrainerIsland_Area9_House_Movement_VickyApproachRightSide
 	waitmovement 0
-	trainerbattle_double_no_intro TRAINER_MASTER_VICKY, TrainerIsland_Area9_House_Text_VickyDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	trainerbattle_double TRAINER_MASTER_VICKY, TrainerIsland_Area9_House_Text_VickyIntro, TrainerIsland_Area9_House_Text_VickyDefeat, Add1Points
 	applymovement LOCALID_VICKY, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0	
 	msgbox TrainerIsland_Area9_House_Text_VickyPostBattle, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VickySitDown
+	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VickySitDownRightSide
 	waitmovement 0
 	applymovement LOCALID_VITO, Common_Movement_FacePlayer
 	waitmovement 0
@@ -113,16 +112,112 @@ TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle::
 	waitmovement 0
 	applymovement LOCALID_VITO, Common_Movement_Delay48
 	waitmovement 0
-	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VitoApproach
+	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VitoApproachRightSide
 	waitmovement 0
-	trainerbattle_double_no_intro TRAINER_MASTER_VITO, TrainerIsland_Area9_House_Text_VitoDefeat, CommonEvent_Text_NeedTwoMons, TrainerIsland_Area9_House_VitoDefeated
+	trainerbattle_double TRAINER_MASTER_VITO, TrainerIsland_Area9_House_Text_VitoIntro, TrainerIsland_Area9_House_Text_VitoDefeat, TrainerIsland_Area9_House_VitoDefeated
 	applymovement LOCALID_VITO, Common_Movement_WalkInPlaceRight
 	waitmovement 0	
 	msgbox TrainerIsland_Area9_House_Text_VitoPostBattle2, MSGBOX_DEFAULT	
 	closemessage
-	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VitoGoStand
+	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VitoGoStandRightSide
 	waitmovement 0
 	end
+
+TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle2::
+	applymovement LOCALID_VIVIAN, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_VIVIAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VIVIAN, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_VIVIAN, TrainerIsland_Area9_House_Movement_VivianApproachLeftSide
+	waitmovement 0
+	trainerbattle_double TRAINER_MASTER_VIVIAN, TrainerIsland_Area9_House_Text_VivianIntro, TrainerIsland_Area9_House_Text_VivianDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	applymovement LOCALID_VIVIAN, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox TrainerIsland_Area9_House_Text_VivianPostBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_VIVIAN, TrainerIsland_Area9_House_Movement_VivianSitDownLeftSide
+	waitmovement 0
+	applymovement LOCALID_VICTOR, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_VICTOR, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VICTOR, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_VICTOR, TrainerIsland_Area9_House_Movement_VictorApproachLeftSide
+	waitmovement 0
+	trainerbattle_double TRAINER_MASTER_VICTOR, TrainerIsland_Area9_House_Text_VictorIntro, TrainerIsland_Area9_House_Text_VictorDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	applymovement LOCALID_VICTOR, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0	
+	msgbox TrainerIsland_Area9_House_Text_VictorPostBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_VICTOR, TrainerIsland_Area9_House_Movement_VictorSitDownLeftSide
+	waitmovement 0
+	applymovement LOCALID_VICTORIA, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_VICTORIA, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VICTORIA, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_VICTORIA, TrainerIsland_Area9_House_Movement_VictoriaApproachLeftSide
+	waitmovement 0
+	trainerbattle_double TRAINER_MASTER_VICTORIA, TrainerIsland_Area9_House_Text_VictoriaIntro, TrainerIsland_Area9_House_Text_VictoriaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
+	applymovement LOCALID_VICTORIA, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0	
+	msgbox TrainerIsland_Area9_House_Text_VictoriaPostBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_VICTORIA, TrainerIsland_Area9_House_Movement_VictoriaSitDownLeftSide
+	waitmovement 0
+	applymovement LOCALID_VIVI, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_VIVI, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VIVI, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_VIVI, TrainerIsland_Area9_House_Movement_ViviApproachLeftSide
+	waitmovement 0
+	trainerbattle_double TRAINER_MASTER_VIVI, TrainerIsland_Area9_House_Text_ViviIntro, TrainerIsland_Area9_House_Text_ViviDefeat, Add1Points
+	msgbox TrainerIsland_Area9_House_Text_ViviPostBattle, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, TrainerIsland_Area9_House_EventScript_ViviCries
+	goto_if_eq VAR_RESULT, NO, TrainerIsland_Area9_House_EventScript_ViviWantstoCry
+	closemessage
+	applymovement LOCALID_VIVI, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	applymovement LOCALID_VIVI, TrainerIsland_Area9_House_Movement_ViviSitDownLeftSide
+	waitmovement 0
+	applymovement LOCALID_VICKY, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_VICKY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VICKY, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_VICKY, TrainerIsland_Area9_House_Movement_VickyApproachLeftSide
+	waitmovement 0
+	trainerbattle_double TRAINER_MASTER_VICKY, TrainerIsland_Area9_House_Text_VickyIntro, TrainerIsland_Area9_House_Text_VickyDefeat, Add1Points
+	applymovement LOCALID_VICKY, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0	
+	msgbox TrainerIsland_Area9_House_Text_VickyPostBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VickySitDownLeftSide
+	waitmovement 0
+	applymovement LOCALID_VITO, Common_Movement_FacePlayer
+	waitmovement 0
+	applymovement LOCALID_VITO, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_VITO, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VitoApproachLeftSide
+	waitmovement 0
+	trainerbattle_double TRAINER_MASTER_VITO, TrainerIsland_Area9_House_Text_VitoIntro, TrainerIsland_Area9_House_Text_VitoDefeat, TrainerIsland_Area9_House_VitoDefeated
+	applymovement LOCALID_VITO, Common_Movement_WalkInPlaceRight
+	waitmovement 0	
+	msgbox TrainerIsland_Area9_House_Text_VitoPostBattle2, MSGBOX_DEFAULT	
+	closemessage
+	applymovement LOCALID_VITO, TrainerIsland_Area9_House_Movement_VitoGoStandLeftSide
+	waitmovement 0
+	end
+
 
 TrainerIsland_Area9_House_VitoDefeated:
 	call Add2Points2
@@ -196,17 +291,19 @@ TrainerIsland_Area9_House_EventScript_Vivian::
 	release
 	end
 	
-TrainerIsland_Area9_House_Movement_VivianApproach:
-	walk_down
-	walk_down
-	walk_down
+TrainerIsland_Area9_House_Movement_VivianApproachRightSide:
 	walk_left
 	walk_left
 	walk_left
-	face_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_in_place_down
 	step_end
 
-TrainerIsland_Area9_House_Movement_VivianSitDown:
+TrainerIsland_Area9_House_Movement_VivianSitDownRightSide:
+	walk_faster_up
 	walk_faster_up
 	walk_faster_up
 	walk_faster_up
@@ -216,19 +313,20 @@ TrainerIsland_Area9_House_Movement_VivianSitDown:
 	face_left
 	step_end
 
-TrainerIsland_Area9_House_Movement_VictorApproach:
+TrainerIsland_Area9_House_Movement_VictorApproachRightSide:
 	walk_down
 	walk_right
 	walk_right
 	walk_right
 	walk_right
 	walk_right
-	walk_right
+	walk_down
 	face_down
+	walk_in_place_down
 	step_end
 
-TrainerIsland_Area9_House_Movement_VictorSitDown:
-	walk_left
+TrainerIsland_Area9_House_Movement_VictorSitDownRightSide:
+	walk_up
 	walk_left
 	walk_left
 	walk_left
@@ -238,37 +336,41 @@ TrainerIsland_Area9_House_Movement_VictorSitDown:
 	face_right
 	step_end
 
-TrainerIsland_Area9_House_Movement_VictoriaApproach:
+TrainerIsland_Area9_House_Movement_VictoriaApproachRightSide:
 	walk_up
 	walk_right
 	walk_right
 	walk_right
+	walk_down
 	walk_down
 	walk_down
 	walk_down
 	walk_in_place_down
 	step_end
 
-TrainerIsland_Area9_House_Movement_VictoriaSitDown:
+TrainerIsland_Area9_House_Movement_VictoriaSitDownRightSide:
 	walk_up
 	walk_up
 	walk_up
 	walk_up
+	walk_left
 	walk_left
 	walk_left
 	walk_down
 	face_left
 	step_end
 
-TrainerIsland_Area9_House_Movement_ViviApproach:
+TrainerIsland_Area9_House_Movement_ViviApproachRightSide:
 	walk_down
 	walk_right
 	walk_right
 	walk_right
-	face_down
+	walk_down
+	walk_in_place_down
 	step_end
 
-TrainerIsland_Area9_House_Movement_ViviSitDown:
+TrainerIsland_Area9_House_Movement_ViviSitDownRightSide:
+	walk_up
 	walk_left
 	walk_left
 	walk_left
@@ -276,7 +378,7 @@ TrainerIsland_Area9_House_Movement_ViviSitDown:
 	face_left
 	step_end
 
-TrainerIsland_Area9_House_Movement_VickyApproach:
+TrainerIsland_Area9_House_Movement_VickyApproachRightSide:
 	walk_up
 	walk_right
 	walk_right
@@ -284,13 +386,15 @@ TrainerIsland_Area9_House_Movement_VickyApproach:
 	walk_right
 	walk_right
 	walk_right
+	walk_down
 	walk_down
 	walk_down
 	walk_down
 	walk_in_place_down
 	step_end
 
-TrainerIsland_Area9_House_Movement_VickySitDown:
+TrainerIsland_Area9_House_Movement_VickySitDownRightSide:
+	walk_up
 	walk_up
 	walk_up
 	walk_up
@@ -304,7 +408,7 @@ TrainerIsland_Area9_House_Movement_VickySitDown:
 	face_right
 	step_end
 	
-TrainerIsland_Area9_House_Movement_VitoApproach:
+TrainerIsland_Area9_House_Movement_VitoApproachRightSide:
 	walk_down
 	walk_left
 	walk_left
@@ -312,10 +416,12 @@ TrainerIsland_Area9_House_Movement_VitoApproach:
 	walk_left
 	walk_left
 	walk_left
-	face_down
+	walk_down
+	walk_in_place_down
 	step_end
 
-TrainerIsland_Area9_House_Movement_VitoGoStand:
+TrainerIsland_Area9_House_Movement_VitoGoStandRightSide:
+	walk_up
 	walk_right
 	walk_right
 	walk_right
@@ -326,7 +432,148 @@ TrainerIsland_Area9_House_Movement_VitoGoStand:
 	face_down
 	step_end
 	
+
+TrainerIsland_Area9_House_Movement_VivianApproachLeftSide:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_in_place_down
+	step_end
+
+TrainerIsland_Area9_House_Movement_VivianSitDownLeftSide:
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	face_left
+	step_end
+
+TrainerIsland_Area9_House_Movement_VictorApproachLeftSide:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	face_down
+	walk_in_place_down
+	step_end
+
+TrainerIsland_Area9_House_Movement_VictorSitDownLeftSide:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	face_right
+	step_end
+
+TrainerIsland_Area9_House_Movement_VictoriaApproachLeftSide:
+	walk_up
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_in_place_down
+	step_end
+
+TrainerIsland_Area9_House_Movement_VictoriaSitDownLeftSide:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_down
+	face_left
+	step_end
+
+TrainerIsland_Area9_House_Movement_ViviApproachLeftSide:
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_in_place_down
+	step_end
+
+TrainerIsland_Area9_House_Movement_ViviSitDownLeftSide:
+	walk_up
+	walk_left
+	walk_left
+	walk_up
+	face_left
+	step_end
+
+TrainerIsland_Area9_House_Movement_VickyApproachLeftSide:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_in_place_down
+	step_end
+
+TrainerIsland_Area9_House_Movement_VickySitDownLeftSide:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	face_right
+	step_end
 	
+TrainerIsland_Area9_House_Movement_VitoApproachLeftSide:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_in_place_down
+	step_end
+
+TrainerIsland_Area9_House_Movement_VitoGoStandLeftSide:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	face_down
+	step_end
+	
+
+
 TrainerIsland_Area9_House_Text_VivianIntro:
 	.string "I am Vivian, the newest member of\n"
 	.string "the Winstrate Family!\p"

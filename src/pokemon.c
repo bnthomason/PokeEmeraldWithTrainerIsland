@@ -3318,16 +3318,57 @@ void CreateMonWithNature(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV,
     CreateMon(mon, species, level, fixedIV, TRUE, personality, OT_ID_PLAYER_ID, 0);
 }
 
-void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 gender, u8 nature, u8 unownLetter, u8 otIdType)
+void CreateMonWithGenderNatureLetter(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 nature, u8 unownLetter, u8 otIdType)
 {
     u32 personality;
     u8 genderRatio;
+	u8 gender = 0;
+	u8 ran = 0;
 
     genderRatio = gBaseStats[species].genderRatio;
 
 // Infinite loop protection
-    if ((genderRatio == MON_MALE) || (genderRatio == MON_FEMALE) || (genderRatio == MON_GENDERLESS))
-       gender = genderRatio;
+    // if ((genderRatio == MON_MALE) || (genderRatio == MON_FEMALE) || (genderRatio == MON_GENDERLESS))
+       // gender = genderRatio;
+   
+  				if (genderRatio == MON_MALE)
+					gender = 0;
+				else if (genderRatio == MON_FEMALE)
+					gender = 254;
+				else if (genderRatio == MON_GENDERLESS)
+					gender = 255;
+				else if (genderRatio >= 31 && genderRatio <= 32)
+				{
+				ran = Random() % 128;
+					if (ran <= 112)
+						gender = 0;
+					else
+						gender = 254;
+				}
+				else if (genderRatio >= 63 && genderRatio <= 64)
+				{
+				ran = Random() % 128;
+					if (ran <= 96)
+						gender = 0;
+					else
+						gender = 254;
+				}
+				else if (genderRatio >= 127 && genderRatio <= 128)
+				{
+					ran = Random() % 128;
+					if (ran <= 64)
+						gender = 0;
+					else
+						gender = 254;
+				}
+				else if (genderRatio >= 191 && genderRatio <= 192)
+				{
+					ran = Random() % 128;
+					if (ran <= 32)
+						gender = 0;
+					else
+						gender = 254;
+				}
 
     if ((u8)(unownLetter - 1) < NUM_UNOWN_FORMS)
     {

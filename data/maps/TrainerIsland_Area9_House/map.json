@@ -96,14 +96,14 @@
   "warp_events": [
     {
       "x": 8,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_TRAINER_ISLAND_AREA9",
       "dest_warp_id": 0
     },
     {
       "x": 7,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_TRAINER_ISLAND_AREA9",
       "dest_warp_id": 0
@@ -113,11 +113,20 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 7,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_UNUSED_0x408B",
       "var_value": "1",
-      "script": "TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle"
+      "script": "TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle1"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_UNUSED_0x408B",
+      "var_value": "1",
+      "script": "TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle2"
     }
   ],
   "bg_events": [
