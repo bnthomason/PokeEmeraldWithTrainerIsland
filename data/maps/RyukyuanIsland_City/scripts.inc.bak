@@ -1,7 +1,7 @@
 .set LOCALID_SAILOR, 2
 .set LOCALID_SS_TIDAL, 1
 
-RyuKyuanIsland_City_MapScripts::
+RyukyuanIsland_City_MapScripts::
 	.byte 0
 
 

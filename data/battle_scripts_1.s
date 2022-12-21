@@ -22,6 +22,7 @@
 gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_HIT
 	.4byte BattleScript_EffectSleep                   @ EFFECT_SLEEP
+	.4byte BattleScript_EffectSleepHit                @ EFFECT_SLEEP_HIT	
 	.4byte BattleScript_EffectPoisonHit               @ EFFECT_POISON_HIT
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_ABSORB
 	.4byte BattleScript_EffectBurnHit                 @ EFFECT_BURN_HIT
@@ -130,6 +131,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectNightmare               @ EFFECT_NIGHTMARE
 	.4byte BattleScript_EffectMinimize                @ EFFECT_MINIMIZE
 	.4byte BattleScript_EffectCurse                   @ EFFECT_CURSE
+	.4byte BattleScript_EffectCurseHit                @ EFFECT_CURSE
 	.4byte BattleScript_EffectHealingWish             @ EFFECT_HEALING_WISH
 	.4byte BattleScript_EffectProtect                 @ EFFECT_PROTECT
 	.4byte BattleScript_EffectSpikes                  @ EFFECT_SPIKES
@@ -141,6 +143,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSwagger                 @ EFFECT_SWAGGER
 	.4byte BattleScript_EffectFuryCutter              @ EFFECT_FURY_CUTTER
 	.4byte BattleScript_EffectAttract                 @ EFFECT_ATTRACT
+	.4byte BattleScript_EffectAttractHit              @ EFFECT_ATTRACT_HIT
 	.4byte BattleScript_EffectHit                     @ EFFECT_RETURN
 	.4byte BattleScript_EffectPresent                 @ EFFECT_PRESENT
 	.4byte BattleScript_EffectHit                     @ EFFECT_FRUSTRATION
@@ -411,6 +414,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_BEAK_BLAST
 	.4byte BattleScript_EffectCourtChange             @ EFFECT_COURT_CHANGE
 	.4byte BattleScript_EffectSteelBeam               @ EFFECT_STEEL_BEAM
+	.4byte BattleScript_EffectWindstorm				  @ EFFECT_WINDSTORM
+	
 
 BattleScript_EffectSteelBeam::
 	attackcanceler
@@ -3030,6 +3035,18 @@ BattleScript_EffectSleep::
 	seteffectprimary
 	goto BattleScript_MoveEnd
 
+
+BattleScript_EffectSleepHit::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_SLEEP
+	seteffectprimary
+	goto BattleScript_MoveEnd
+
 BattleScript_TerrainPreventsEnd2::
 	pause B_WAIT_TIME_SHORT
 	printfromtable gTerrainPreventsStringIds
@@ -4643,6 +4660,30 @@ BattleScript_DoGhostCurse::
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
+	
+BattleScript_EffectCurseHit::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	attackanimation
+	waitanimation
+	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_GhostCurseHit
+	goto BattleScript_MoveEnd	
+BattleScript_GhostCurseHit::
+	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoGhostCurseHit
+	getmovetarget BS_ATTACKER
+BattleScript_DoGhostCurseHit::
+	cursetarget_norecoil BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sB_ANIM_TURN, 0
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNLAIDCURSE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+	
 
 BattleScript_EffectMatBlock::
 	attackcanceler
@@ -4811,6 +4852,19 @@ BattleScript_EffectAttract::
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryDestinyKnotAttacker
 	goto BattleScript_MoveEnd
+	
+BattleScript_EffectAttractHit::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	tryinfatuating BattleScript_ButItFailed
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNFELLINLOVE
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_TryDestinyKnotAttacker
+	goto BattleScript_MoveEnd	
 
 BattleScript_EffectPresent::
 	attackcanceler
@@ -4940,6 +4994,16 @@ BattleScript_MoveWeatherChange::
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_WeatherFormChanges
 	goto BattleScript_MoveEnd
+	
+BattleScript_EffectWindstorm::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_SUN_PRIMAL, BattleScript_ExtremelyHarshSunlightWasNotLessened
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_RAIN_PRIMAL, BattleScript_NoReliefFromHeavyRain
+	jumpifhalfword CMP_COMMON_BITS, gBattleWeather, B_WEATHER_STRONG_WINDS, BattleScript_MysteriousAirCurrentBlowsOn
+	setwindy BattleScript_ButItFailed
+	goto BattleScript_MoveWeatherChange
 
 BattleScript_EffectSunnyDay::
 	attackcanceler
@@ -6537,7 +6601,7 @@ BattleScript_RainEnds::
 	end2
 
 BattleScript_DamagingWeatherContinues::
-	printfromtable gSandStormHailContinuesStringIds
+	printfromtable gDamagingWeatherContinuesStringIds
 	waitmessage B_WAIT_TIME_LONG
 	playanimation_var BS_ATTACKER, sB_ANIM_ARG1
 	setbyte gBattleCommunication, 0
@@ -6546,7 +6610,7 @@ BattleScript_DamagingWeatherLoop::
 	weatherdamage
 	jumpifword CMP_EQUAL, gBattleMoveDamage, 0, BattleScript_DamagingWeatherLoopIncrement
 	jumpifword CMP_COMMON_BITS gBattleMoveDamage, 1 << 31, BattleScript_DamagingWeatherHeal
-	printfromtable gSandStormHailDmgStringIds
+	printfromtable gDamagingWeatherDmgStringIds
 	waitmessage B_WAIT_TIME_LONG
 	effectivenesssound
 	hitanimation BS_ATTACKER
@@ -6569,8 +6633,8 @@ BattleScript_DamagingWeatherContinuesEnd::
 	bicword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE | HITMARKER_GRUDGE
 	end2
 
-BattleScript_SandStormHailEnds::
-	printfromtable gSandStormHailEndStringIds
+BattleScript_DamagingWeatherEnds::
+	printfromtable gDamagingWeatherEndStringIds
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_WeatherFormChanges
 	end2
@@ -6586,6 +6650,19 @@ BattleScript_SunlightFaded::
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_WeatherFormChanges
 	end2
+	
+BattleScript_WindstormContinues::
+	printstring STRINGID_WINDSTORMCONTINUES
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_WINDSTORM_CONTINUES
+	end2
+
+BattleScript_WindstormEnds::
+	printstring STRINGID_WINDSTORMSTOPPED
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_WeatherFormChanges
+	end2
+
 
 BattleScript_OverworldWeatherStarts::
 	printfromtable gWeatherStartsStringIds

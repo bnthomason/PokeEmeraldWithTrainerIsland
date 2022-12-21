@@ -1299,9 +1299,15 @@
 	.byte 0xfe
 	.4byte \ptr
 	.endm
-
-	.macro metalburstdamagecalculator ptr:req
+	
+	.macro callnative func:req
 	.byte 0xff
+	.4byte \func
+	.endm
+
+@ various command changed to more readable macros
+	.macro metalburstdamagecalculator ptr:req
+	callnative BS_CalcMetalBurstDmg
 	.4byte \ptr
 	.endm
 
@@ -1975,6 +1981,18 @@
 	.macro swapsidestatuses
 	various BS_ATTACKER, VARIOUS_SWAP_SIDE_STATUSES
 	.endm
+	
+	.macro cursetarget_norecoil ptr:req
+	various BS_TARGET, VARIOUS_CURSETARGET_NORECOIL
+	.4byte \ptr
+	.endm
+	
+	.macro setwindy ptr:req
+	various BS_ATTACKER, VARIOUS_SETWINDSTORM
+	.4byte \ptr
+	.endm
+
+	
 
 @ helpful macros
 	.macro setstatchanger stat:req, stages:req, down:req

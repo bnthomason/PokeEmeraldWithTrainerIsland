@@ -706,7 +706,6 @@
 	.elseif \type == TRAINER_BATTLE_DOUBLE_NO_INTRO_TEXT
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text
-		.4byte \pointer3 @ text
 	.elseif \type == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_INTRO_TEXT
 		.4byte \pointer1 @ text
 		.4byte \pointer2 @ text
@@ -1786,14 +1785,14 @@
 	.byte \y
 	.endm
 
-	@ Destroys the window created by showcoins. It consumes its arguments but doesn't use them.
+	@ Destroys the window created by showpoints. It consumes its arguments but doesn't use them.
 	.macro hidepointsbox x:req, y:req
 	.byte 0xe7
 	.byte \x
 	.byte \y
 	.endm
 
-	@ Updates the window created by showcoins. It consumes its arguments but doesn't use them.
+	@ Updates the window created by showpoints. It consumes its arguments but doesn't use them.
 	.macro updatepointsbox x:req, y:req
 	.byte 0xe8
 	.byte \x

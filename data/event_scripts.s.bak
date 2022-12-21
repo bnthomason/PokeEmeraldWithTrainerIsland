@@ -1007,31 +1007,31 @@ Common_EventScript_LegendaryFlewAway::
 Add1Points::
 	setvar VAR_TEMP_4, 1
 	checkitem ITEM_POINT_TRACKER
-	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	call_if_eq VAR_RESULT, TRUE, AddXPoints
 	end
 
 Add2Points::
 	setvar VAR_TEMP_4, 2
 	checkitem ITEM_POINT_TRACKER
-	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	call_if_eq VAR_RESULT, TRUE, AddXPoints
 	end
 
 Add3Points::
 	setvar VAR_TEMP_4, 3
 	checkitem ITEM_POINT_TRACKER
-	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	call_if_eq VAR_RESULT, TRUE, AddXPoints
 	end
 	
 Add4Points::
 	setvar VAR_TEMP_4, 4
 	checkitem ITEM_POINT_TRACKER
-	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	call_if_eq VAR_RESULT, TRUE, AddXPoints
 	end
 	
 Add5Points:: 
 	setvar VAR_TEMP_4, 5
 	checkitem ITEM_POINT_TRACKER
-	goto_if_eq VAR_RESULT, TRUE, AddXPoints
+	call_if_eq VAR_RESULT, TRUE, AddXPoints
 	end
 
 
@@ -1039,7 +1039,8 @@ AddXPoints:
 	addpoints VAR_TEMP_4
 	buffernumberstring STR_VAR_1, VAR_TEMP_4
 	msgbox gText_PlayerGotPoints, MSGBOX_AUTOCLOSE
-	end
+	waitmessage
+	return
 
 gText_PlayerGotPoints::
 	.string "{PLAYER} got {STR_VAR_1} points!$"

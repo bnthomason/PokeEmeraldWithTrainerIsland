@@ -84,7 +84,7 @@ BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part2_2::
 BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_1_1::
 	msgbox BattleFrontier_ScottsHouse_Text_SplendidWork, MSGBOX_DEFAULT
 	goto_if_set FLAG_RECEIVED_SILVER_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_4_1_1_1
-	goto BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols
+	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveSilverShield
 	end
 
 BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_1_2::
@@ -432,7 +432,7 @@ BattleFrontier_ScottsHouse_Text_LetsSee:
 BattleFrontier_ScottsHouse_Text_YoureMakingProgress:
 	.string "SCOTT: Ah! I see you've defeated\n"
 	.string "one of the main challenges thus far.\p"
-	.string "You're making progresss.$"
+	.string "You're making progress.$"
 
 BattleFrontier_ScottsHouse_Text_SplendidWork:
 	.string "SCOTT: Ah! I see you've defeated\n"

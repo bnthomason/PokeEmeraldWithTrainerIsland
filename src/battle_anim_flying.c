@@ -176,6 +176,20 @@ const struct SpriteTemplate gFallingFeatherSpriteTemplate =
     .callback = AnimFallingFeather,
 };
 
+const struct SpriteTemplate gWeatherBallFeatherDownSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_FEATHER,
+    .paletteTag = ANIM_TAG_WHITE_FEATHER,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = &sAnims_FallingFeather[2],
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimWeatherBallDown,
+};
+
+
+
+
 // Unused
 static const struct SpriteTemplate sUnusedBubbleThrowSpriteTemplate =
 {

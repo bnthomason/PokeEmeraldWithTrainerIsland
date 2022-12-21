@@ -359,6 +359,9 @@ static const u8 sText_SunlightFaded[] = _("The sunlight faded.");
 static const u8 sText_StartedHail[] = _("It started to hail!");
 static const u8 sText_HailContinues[] = _("Hail continues to fall.");
 static const u8 sText_HailStopped[] = _("The hail stopped.");
+static const u8 sText_WindstormStarted[] = _("It started to get windy!");
+static const u8 sText_WindstormContinues[] = _("Wind continues to blow.");
+static const u8 sText_WindstormStopped[] = _("The wind stopped.");
 static const u8 sText_FailedToSpitUp[] = _("But it failed to SPIT UP\na thing!");
 static const u8 sText_FailedToSwallow[] = _("But it failed to SWALLOW\na thing!");
 static const u8 sText_WindBecameHeatWave[] = _("The wind turned into a\nHEAT WAVE!");
@@ -435,8 +438,6 @@ static const u8 sText_ExclamationMark4[] = _("!");
 static const u8 sText_ExclamationMark5[] = _("!");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
-static const u8 sText_PkmnTookTargetHigh[] = _("{B_ATK_NAME_WITH_PREFIX} took {B_DEF_NAME_WITH_PREFIX}\ninto the air!");
-static const u8 sText_TargetTooHeavy[] = _("But the target\nwas too heavy!");
 
 const u8 * const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -741,14 +742,11 @@ static const u8 sText_PkmnAboutToBeAttackedByItsItem[] = _("{B_DEF_NAME_WITH_PRE
 static const u8 sText_CantEscapeBecauseOfCurrentMove[] = _("{B_DEF_NAME_WITH_PREFIX} can no longer escape\nbecause of {B_CURRENT_MOVE}!");
 static const u8 sText_NeutralizingGasEnters[] = _("Neutralizing Gas filled the area!");
 static const u8 sText_NeutralizingGasOver[] = _("The effects of Neutralizing\nGas wore off!");
-<<<<<<< HEAD
-=======
 static const u8 sText_PkmnTookTargetHigh[] = _("{B_ATK_NAME_WITH_PREFIX} took {B_DEF_NAME_WITH_PREFIX}\ninto the air!");
 static const u8 sText_TargetTooHeavy[] = _("But the target\nwas too heavy!");
 static const u8 sText_MeteorBeamCharging[] = _("{B_ATK_NAME_WITH_PREFIX} is overflowing\nwith space energy!");
 static const u8 sText_HeatingUpBeak[] = _("{B_ATK_NAME_WITH_PREFIX} started\nheating up its beak!");
 static const u8 sText_CourtChange[] = _("{B_ATK_NAME_WITH_PREFIX} swapped the battle\neffects affecting each side!");
->>>>>>> rh-hideout/battle_engine
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -1066,6 +1064,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_STARTEDHAIL - BATTLESTRINGS_TABLE_START] = sText_StartedHail,
     [STRINGID_HAILCONTINUES - BATTLESTRINGS_TABLE_START] = sText_HailContinues,
     [STRINGID_HAILSTOPPED - BATTLESTRINGS_TABLE_START] = sText_HailStopped,
+	[STRINGID_WINDSTORMSTARTED - BATTLESTRINGS_TABLE_START] = sText_WindstormStarted,
+	[STRINGID_WINDSTORMCONTINUES - BATTLESTRINGS_TABLE_START] = sText_WindstormContinues,
+	[STRINGID_WINDSTORMSTOPPED - BATTLESTRINGS_TABLE_START] = sText_WindstormStopped,	
     [STRINGID_FAILEDTOSPITUP - BATTLESTRINGS_TABLE_START] = sText_FailedToSpitUp,
     [STRINGID_FAILEDTOSWALLOW - BATTLESTRINGS_TABLE_START] = sText_FailedToSwallow,
     [STRINGID_WINDBECAMEHEATWAVE - BATTLESTRINGS_TABLE_START] = sText_WindBecameHeatWave,
@@ -1446,22 +1447,23 @@ const u16 gMoveWeatherChangeStringIds[] =
     [B_MSG_WEATHER_FAILED]    = STRINGID_BUTITFAILED,
     [B_MSG_STARTED_SANDSTORM] = STRINGID_SANDSTORMBREWED,
     [B_MSG_STARTED_SUNLIGHT]  = STRINGID_SUNLIGHTGOTBRIGHT,
+	[B_MSG_STARTED_WINDSTORM] = STRINGID_WINDSTORMSTARTED,
     [B_MSG_STARTED_HAIL]      = STRINGID_STARTEDHAIL,
 };
 
-const u16 gSandStormHailContinuesStringIds[] =
+const u16 gDamagingWeatherContinuesStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
     [B_MSG_HAIL]      = STRINGID_HAILCONTINUES
 };
 
-const u16 gSandStormHailDmgStringIds[] =
+const u16 gDamagingWeatherDmgStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
     [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
 };
 
-const u16 gSandStormHailEndStringIds[] =
+const u16 gDamagingWeatherEndStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
     [B_MSG_HAIL]      = STRINGID_HAILSTOPPED
@@ -1863,7 +1865,7 @@ static const u8 sText_SpaceIs[] = _(" is");
 static const u8 sText_ApostropheS[] = _("'s");
 
 // For displaying names of invalid moves
-static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][17] =
+static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][18] =
 {
     [TYPE_NORMAL]   = _("a NORMAL move"),
     [TYPE_FIGHTING] = _("a FIGHTING move"),
@@ -1884,6 +1886,7 @@ static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][17] =
     [TYPE_DRAGON]   = _("a DRAGON move"),
     [TYPE_DARK]     = _("a DARK move"),
     [TYPE_FAIRY]    = _("a FAIRY move"),
+    [TYPE_LIGHT]    = _("a LIGHT move"),
 };
 
 const u8 gText_BattleTourney[] = _("BATTLE TOURNEY");
@@ -2975,7 +2978,7 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
         ConvertInternationalString(text, gBattleResources->secretBase->language);
         toCpy = text;
     }
-    else if (trainerId == TRAINER_UNION_ROOM)
+    else if (trainerId == TRAINER_OPPONENT_C00)
     {
         toCpy = gLinkPlayers[multiplayerId ^ BIT_SIDE].name;
     }
@@ -3008,12 +3011,14 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
     }
     else
     {
-        toCpy = gTrainers[trainerId].trainerName;
+        if(!StringCompare(gTrainers[trainerId].trainerName, gText_ExpandedPlaceholder_May) || !StringCompare(gTrainers[trainerId].trainerName, gText_ExpandedPlaceholder_Brendan))
+		toCpy = gSaveBlock2Ptr->rivalName;
+	else
+		toCpy = gTrainers[trainerId].trainerName;
     }
 
     return toCpy;
 }
-
 static const u8 *BattleStringGetOpponentName(u8 *text, u8 multiplayerId, u8 battlerId)
 {
     const u8 *toCpy;
@@ -3241,7 +3246,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
             case B_TXT_LAST_ITEM: // last used item
                 if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
                 {
-                    if (gLastUsedItem == ITEM_ENIGMA_BERRY_E_READER)
+                    if (gLastUsedItem == ITEM_ENIGMA_BERRY)
                     {
                         if (!(gBattleTypeFlags & BATTLE_TYPE_MULTI))
                         {
@@ -3663,7 +3668,7 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
             hword = T1_READ_16(&src[srcID + 1]);
             if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
             {
-                if (hword == ITEM_ENIGMA_BERRY_E_READER)
+                if (hword == ITEM_ENIGMA_BERRY)
                 {
                     if (gLinkPlayers[gBattleScripting.multiplayerId].id == gPotentialItemEffectBattler)
                     {

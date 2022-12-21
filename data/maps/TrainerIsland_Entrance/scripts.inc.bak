@@ -155,7 +155,7 @@ TrainerIsland_Entrance_EventScript_RivalEnd::
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
-	setflag FLAG_UNUSED_0x264
+	clearflag FLAG_UNUSED_0x264
 	setvar VAR_UNUSED_0x404E, 2
 	end
 
@@ -171,6 +171,7 @@ TrainerIsland_Entrance_Movement_RivalEnter2:
 	step_end
 
 TrainerIsland_Entrance_Movement_RivalExit:
+	walk_up
 	walk_left
 	walk_left
 	walk_left

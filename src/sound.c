@@ -441,6 +441,21 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
         release = 225;
         pitch = 15200;
         break;
+	case CRY_MODE_TRILL_1:
+		length = 15;
+		release = 225;
+		pitch = 15400;
+		break;
+	case CRY_MODE_TRILL_2:
+		length = 15;
+		release = 225;
+		pitch = 15600;
+		break;
+	case CRY_MODE_TRILL_3:
+		length = 150;
+		release = 200;
+		pitch = 15400;
+		break;
     case CRY_MODE_WEAK_DOUBLES:
         length = 20;
         release = 225;

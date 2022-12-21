@@ -8527,6 +8527,38 @@ static const union AnimCmd sAnim_CALYREX_1[] =
     ANIMCMD_END,
 };
 
+
+static const union AnimCmd sAnim_DRACOCEROS_CHILD_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 90),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+
+static const union AnimCmd sAnim_DRACOCEROS_JUVENILE_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 90),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DRACOCEROS_ADULT_1[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_FRAME(1, 90),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_VENUSAUR_MEGA_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -9315,6 +9347,8 @@ static const union AnimCmd sAnim_PICHU_SPIKY_EARED_1[] =
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
+
+
 
 static const union AnimCmd *const sAnims_NONE[] ={
     sAnim_GeneralFrame0,
@@ -14041,6 +14075,21 @@ static const union AnimCmd *const sAnims_CALYREX[] ={
     sAnim_CALYREX_1,
 };
 
+static const union AnimCmd *const sAnims_DRACOCEROS_CHILD[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRACOCEROS_CHILD_1,
+};
+
+static const union AnimCmd *const sAnims_DRACOCEROS_JUVENILE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRACOCEROS_JUVENILE_1,
+};
+
+static const union AnimCmd *const sAnims_DRACOCEROS_ADULT[] ={
+    sAnim_GeneralFrame0,
+    sAnim_DRACOCEROS_ADULT_1,
+};
+
 static const union AnimCmd *const sAnims_VENUSAUR_MEGA[] ={
     sAnim_GeneralFrame0,
     sAnim_VENUSAUR_MEGA_1,
@@ -15573,6 +15622,9 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(GLASTRIER),
     ANIM_CMD(SPECTRIER),
     ANIM_CMD(CALYREX),
+    ANIM_CMD(DRACOCEROS_CHILD),
+    ANIM_CMD(DRACOCEROS_JUVENILE),
+    ANIM_CMD(DRACOCEROS_ADULT),
     ANIM_CMD(VENUSAUR_MEGA),
     ANIM_CMD(CHARIZARD_MEGA_X),
     ANIM_CMD(CHARIZARD_MEGA_Y),

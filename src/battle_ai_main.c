@@ -2334,7 +2334,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         case EFFECT_HEAL_PULSE: // and floral healing
             if (!IsTargetingPartner(battlerAtk, battlerDef)) // Don't heal enemies
             {
-                score -= 10;
+                score -= 50;
             }
             else
             {
@@ -3609,7 +3609,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     case EFFECT_SPITE:
         //TODO - predicted move
         break;
-    case EFFECT_WISH:
+    case EFFECT_WISH:			
     case EFFECT_HEAL_BELL:
         if (ShouldUseWishAromatherapy(battlerAtk, battlerDef, move))
             score += 7;
@@ -3859,7 +3859,12 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
         break;
     case EFFECT_BELLY_DRUM:
         if (!CanTargetFaintAi(battlerDef, battlerAtk) && HasMoveWithSplit(battlerAtk, SPLIT_PHYSICAL) && AI_DATA->abilities[battlerAtk] != ABILITY_CONTRARY)
-            score += (MAX_STAT_STAGE - gBattleMons[battlerAtk].statStages[STAT_ATK]);
+		{
+            if (gWishFutureKnock.wishCounter[battlerAtk] != 0)
+				score = score + 14 + (MAX_STAT_STAGE - gBattleMons[battlerAtk].statStages[STAT_ATK]);
+		}
+		else
+			score += (MAX_STAT_STAGE - gBattleMons[battlerAtk].statStages[STAT_ATK]);
         break;
     case EFFECT_PSYCH_UP:
     case EFFECT_SPECTRAL_THIEF:
@@ -4920,7 +4925,7 @@ static s16 AI_HPAware(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 score--;
 
             if (GetHealthPercentage(battlerDef) <= 50)
-                score += 30;
+                score += 50;
         }
     }
     else

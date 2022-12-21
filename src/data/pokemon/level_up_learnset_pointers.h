@@ -899,6 +899,9 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_GLASTRIER] = sGlastrierLevelUpLearnset,
     [SPECIES_SPECTRIER] = sSpectrierLevelUpLearnset,
     [SPECIES_CALYREX] = sCalyrexLevelUpLearnset,
+	[SPECIES_DRACOCEROS_CHILD] = sDracocerosChildLevelUpLearnset,
+	[SPECIES_DRACOCEROS_JUVENILE] = sDracocerosJuvenileLevelUpLearnset,
+	[SPECIES_DRACOCEROS_ADULT] = sDracocerosAdultLevelUpLearnset,
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurLevelUpLearnset,
     [SPECIES_CHARIZARD_MEGA_X] = sCharizardLevelUpLearnset,

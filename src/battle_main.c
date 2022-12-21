@@ -207,7 +207,7 @@ EWRAM_DATA u8 gBattleCommunication[BATTLE_COMMUNICATION_ENTRIES_COUNT] = {0};
 EWRAM_DATA u8 gBattleOutcome = 0;
 EWRAM_DATA struct ProtectStruct gProtectStructs[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA struct SpecialStatus gSpecialStatuses[MAX_BATTLERS_COUNT] = {0};
-EWRAM_DATA u16 gBattleWeather = 0;
+EWRAM_DATA u32 gBattleWeather = 0;
 EWRAM_DATA struct WishFutureKnock gWishFutureKnock = {0};
 EWRAM_DATA u16 gIntroSlideFlags = 0;
 EWRAM_DATA u8 gSentPokesToOpponent[2] = {0};
@@ -331,6 +331,7 @@ const u8 gTypeNames[NUMBER_OF_MON_TYPES][TYPE_NAME_LENGTH + 1] =
     [TYPE_DRAGON] = _("Dragon"),
     [TYPE_DARK] = _("Dark"),
     [TYPE_FAIRY] = _("Fairy"),
+    [TYPE_LIGHT] = _("Light"),
 };
 
 // This is a factor in how much money you get for beating a trainer.
@@ -4462,6 +4463,8 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
         speed = (speed * 150) / 100;
     else if (ability == ABILITY_SURGE_SURFER && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
         speed *= 2;
+	else if (ability == ABILITY_LIGHTWING)
+		speed *= 2;
     else if (ability == ABILITY_SLOW_START && gDisableStructs[battlerId].slowStartTimer != 0)
         speed /= 2;
 
@@ -5238,7 +5241,7 @@ static void TrySpecialEvolution(void) // Attempts to perform non-level related b
         #ifndef POKEMON_EXPANSION
             u16 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_BATTLE_SPECIAL, i);
         #else
-            u16 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_BATTLE_SPECIAL, i, NULL);
+            u16 species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_BATTLE_SPECIAL, i, SPECIES_NONE);
         #endif
         if (species != SPECIES_NONE && !(sTriedEvolving & gBitTable[i]))
         {
@@ -5366,6 +5369,8 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
                 gBattleStruct->dynamicMoveType = TYPE_FIRE | F_DYNAMIC_TYPE_2;
             else if (gBattleWeather & B_WEATHER_HAIL)
                 gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_2;
+			else if (gBattleWeather & B_WEATHER_WINDSTORM)
+				gBattleStruct->dynamicMoveType = TYPE_FLYING | F_DYNAMIC_TYPE_2;
             else
                 gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_2;
         }

@@ -5348,3 +5348,24 @@ const u8 gCalyrexPokedexText[] = _(
     "providing healing and blessings. It\n"
     "reigned over the Galar region in times\n"
     "of yore.");
+
+const u8 gDracocerosChildPokedexText[] = _(
+    "Dracoceros is a healing pokemon. They\n"
+    "bask in the sunlight at day and sing\n"
+    "beautiful songs at night. The young\n"
+    "love to play on clouds with their wings.");
+
+const u8 gDracocerosJuvenilePokedexText[] = _(
+    "Dracoceros is a healing pokemon. They\n"
+    "bask in the sunlight at day and sing\n"
+    "beautiful songs at night. The teens fly\n"
+    "gracefully through the sky on heavenly\n"
+    "wings.");
+
+const u8 gDracocerosAdultPokedexText[] = _(
+    "Dracoceros is a healing pokemon. They\n"
+    "bask in the sunlight at day and sing\n"
+    "beautiful songs at night. The adults\n"
+    "shine brightly with the light of hope."
+	);
+

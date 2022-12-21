@@ -535,6 +535,7 @@
 #define B_ANIM_AQUA_RING_HEAL           32
 #define B_ANIM_BEAK_BLAST_SETUP         33
 #define B_ANIM_SHELL_TRAP_SETUP         34
+#define B_ANIM_WINDSTORM_CONTINUES		35
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -581,6 +582,7 @@
 #define ANIM_WEATHER_RAIN 2
 #define ANIM_WEATHER_SANDSTORM 3
 #define ANIM_WEATHER_HAIL 4
+#define ANIM_WEATHER_WINDSTORM 5
 
 // mon pal blend
 #define ANIM_PAL_BG             0x1

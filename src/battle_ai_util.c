@@ -93,6 +93,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_GOOEY] = 5,
     [ABILITY_GRASS_PELT] = 2,
     [ABILITY_GRASSY_SURGE] = 8,
+    [ABILITY_GREAT_POWER] = 10,
     [ABILITY_GUTS] = 6,
     [ABILITY_HARVEST] = 5,
     [ABILITY_HEALER] = 0,
@@ -130,6 +131,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_MAGIC_GUARD] = 9,
     [ABILITY_MAGICIAN] = 3,
     [ABILITY_MAGMA_ARMOR] = 1,
+    [ABILITY_MAGNA_POWER] = 10,
     [ABILITY_MAGNET_PULL] = 9,
     [ABILITY_MARVEL_SCALE] = 5,
     [ABILITY_MEGA_LAUNCHER] = 7,
@@ -222,6 +224,8 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_STURDY] = 6,
     [ABILITY_SUCTION_CUPS] = 2,
     [ABILITY_SUPER_LUCK] = 3,
+    [ABILITY_SUPER_PHYSICAL] = 10,
+    [ABILITY_SUPER_SPECIAL] = 10,
     [ABILITY_SURGE_SURFER] = 4,
     [ABILITY_SWARM] = 5,
     [ABILITY_SWEET_VEIL] = 4,
@@ -1468,6 +1472,30 @@ bool32 ShouldTryOHKO(u8 battlerAtk, u8 battlerDef, u16 atkAbility, u16 defAbilit
 }
 
 bool32 ShouldSetSandstorm(u8 battler, u16 ability, u16 holdEffect)
+{
+    if (!AI_WeatherHasEffect())
+        return FALSE;
+    else if (gBattleWeather & B_WEATHER_SANDSTORM)
+        return FALSE;
+
+    if (ability == ABILITY_SAND_VEIL
+      || ability == ABILITY_SAND_RUSH
+      || ability == ABILITY_SAND_FORCE
+      || ability == ABILITY_OVERCOAT
+      || ability == ABILITY_MAGIC_GUARD
+      || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
+      || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
+      || HasMoveEffect(battler, EFFECT_SHORE_UP)
+      || HasMoveEffect(battler, EFFECT_WEATHER_BALL))
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool32 ShouldSetWindStorm(u8 battler, u16 ability, u16 holdEffect)
 {
     if (!AI_WeatherHasEffect())
         return FALSE;
@@ -3146,6 +3174,7 @@ bool32 ShouldUseWishAromatherapy(u8 battlerAtk, u8 battlerDef, u16 move)
     struct Pokemon* party;
     bool32 hasStatus = FALSE;
     bool32 needHealing = FALSE;
+	bool32 ComboMove = FALSE;
 
     GetAIPartyIndexes(battlerAtk, &firstId, &lastId);
 
@@ -3157,27 +3186,33 @@ bool32 ShouldUseWishAromatherapy(u8 battlerAtk, u8 battlerDef, u16 move)
     if (CountUsablePartyMons(battlerAtk) == 0
       && (CanTargetFaintAi(battlerDef, battlerAtk) || BattlerWillFaintFromSecondaryDamage(battlerAtk, AI_DATA->abilities[battlerAtk])))
         return FALSE; // Don't heal if last mon and will faint
+		
+	if (BattlerStatCanRise(battlerAtk, AI_DATA->abilities[battlerAtk], STAT_ATK) || HasMoveWithSplit(battlerAtk, SPLIT_PHYSICAL))
+	{
+		if (move == MOVE_WISH && HasMove(battlerAtk, MOVE_BELLY_DRUM))
+			ComboMove = TRUE;
+	}
+	else
+		for (i = 0; i < PARTY_SIZE; i++)
+		{
+			u16 currHp = GetMonData(&party[i], MON_DATA_HP);
+			u16 maxHp = GetMonData(&party[i], MON_DATA_MAX_HP);
 
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        u16 currHp = GetMonData(&party[i], MON_DATA_HP);
-        u16 maxHp = GetMonData(&party[i], MON_DATA_MAX_HP);
+			if (!GetMonData(&party[i], MON_DATA_IS_EGG, NULL) && currHp > 0)
+			{
+				if ((currHp * 100) / maxHp < 65 // Less than 65% health remaining
+				  && i >= firstId && i < lastId) // Can only switch to mon on your team
+				{
+					needHealing = TRUE;
+				}
 
-        if (!GetMonData(&party[i], MON_DATA_IS_EGG, NULL) && currHp > 0)
-        {
-            if ((currHp * 100) / maxHp < 65 // Less than 65% health remaining
-              && i >= firstId && i < lastId) // Can only switch to mon on your team
-            {
-                needHealing = TRUE;
-            }
-
-            if (GetMonData(&party[i], MON_DATA_STATUS, NULL) != STATUS1_NONE)
-            {
-                if (move != MOVE_HEAL_BELL || GetMonAbility(&party[i]) != ABILITY_SOUNDPROOF)
-                    hasStatus = TRUE;
-            }
-        }
-    }
+				if (GetMonData(&party[i], MON_DATA_STATUS, NULL) != STATUS1_NONE)
+				{
+					if (move != MOVE_HEAL_BELL || GetMonAbility(&party[i]) != ABILITY_SOUNDPROOF)
+						hasStatus = TRUE;
+				}
+			}
+		}
 
     if (!IsDoubleBattle())
     {
@@ -3186,6 +3221,8 @@ bool32 ShouldUseWishAromatherapy(u8 battlerAtk, u8 battlerDef, u16 move)
         case EFFECT_WISH:
             if (needHealing)
                 return TRUE;
+			else if (ComboMove)
+				return TRUE;
             break;
         case EFFECT_HEAL_BELL:
             if (hasStatus)
@@ -3197,7 +3234,9 @@ bool32 ShouldUseWishAromatherapy(u8 battlerAtk, u8 battlerDef, u16 move)
         switch (gBattleMoves[move].effect)
         {
         case EFFECT_WISH:
-            return ShouldRecover(battlerAtk, battlerDef, move, 50); // Switch recovery isn't good idea in doubles
+			if (ComboMove)
+				return TRUE;
+            else return ShouldRecover(battlerAtk, battlerDef, move, 50); // Switch recovery isn't good idea in doubles
         case EFFECT_HEAL_BELL:
             if (hasStatus)
                 return TRUE;

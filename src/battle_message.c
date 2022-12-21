@@ -359,6 +359,9 @@ static const u8 sText_SunlightFaded[] = _("The sunlight faded.");
 static const u8 sText_StartedHail[] = _("It started to hail!");
 static const u8 sText_HailContinues[] = _("Hail continues to fall.");
 static const u8 sText_HailStopped[] = _("The hail stopped.");
+static const u8 sText_WindstormStarted[] = _("It started to get windy!");
+static const u8 sText_WindstormContinues[] = _("Wind continues to blow.");
+static const u8 sText_WindstormStopped[] = _("The wind stopped.");
 static const u8 sText_FailedToSpitUp[] = _("But it failed to SPIT UP\na thing!");
 static const u8 sText_FailedToSwallow[] = _("But it failed to SWALLOW\na thing!");
 static const u8 sText_WindBecameHeatWave[] = _("The wind turned into a\nHEAT WAVE!");
@@ -1061,6 +1064,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_STARTEDHAIL - BATTLESTRINGS_TABLE_START] = sText_StartedHail,
     [STRINGID_HAILCONTINUES - BATTLESTRINGS_TABLE_START] = sText_HailContinues,
     [STRINGID_HAILSTOPPED - BATTLESTRINGS_TABLE_START] = sText_HailStopped,
+	[STRINGID_WINDSTORMSTARTED - BATTLESTRINGS_TABLE_START] = sText_WindstormStarted,
+	[STRINGID_WINDSTORMCONTINUES - BATTLESTRINGS_TABLE_START] = sText_WindstormContinues,
+	[STRINGID_WINDSTORMSTOPPED - BATTLESTRINGS_TABLE_START] = sText_WindstormStopped,	
     [STRINGID_FAILEDTOSPITUP - BATTLESTRINGS_TABLE_START] = sText_FailedToSpitUp,
     [STRINGID_FAILEDTOSWALLOW - BATTLESTRINGS_TABLE_START] = sText_FailedToSwallow,
     [STRINGID_WINDBECAMEHEATWAVE - BATTLESTRINGS_TABLE_START] = sText_WindBecameHeatWave,
@@ -1441,22 +1447,23 @@ const u16 gMoveWeatherChangeStringIds[] =
     [B_MSG_WEATHER_FAILED]    = STRINGID_BUTITFAILED,
     [B_MSG_STARTED_SANDSTORM] = STRINGID_SANDSTORMBREWED,
     [B_MSG_STARTED_SUNLIGHT]  = STRINGID_SUNLIGHTGOTBRIGHT,
+	[B_MSG_STARTED_WINDSTORM] = STRINGID_WINDSTORMSTARTED,
     [B_MSG_STARTED_HAIL]      = STRINGID_STARTEDHAIL,
 };
 
-const u16 gSandStormHailContinuesStringIds[] =
+const u16 gDamagingWeatherContinuesStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_SANDSTORMRAGES,
     [B_MSG_HAIL]      = STRINGID_HAILCONTINUES
 };
 
-const u16 gSandStormHailDmgStringIds[] =
+const u16 gDamagingWeatherDmgStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_PKMNBUFFETEDBYSANDSTORM,
     [B_MSG_HAIL]      = STRINGID_PKMNPELTEDBYHAIL
 };
 
-const u16 gSandStormHailEndStringIds[] =
+const u16 gDamagingWeatherEndStringIds[] =
 {
     [B_MSG_SANDSTORM] = STRINGID_SANDSTORMSUBSIDED,
     [B_MSG_HAIL]      = STRINGID_HAILSTOPPED
@@ -1858,7 +1865,7 @@ static const u8 sText_SpaceIs[] = _(" is");
 static const u8 sText_ApostropheS[] = _("'s");
 
 // For displaying names of invalid moves
-static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][17] =
+static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][18] =
 {
     [TYPE_NORMAL]   = _("a NORMAL move"),
     [TYPE_FIGHTING] = _("a FIGHTING move"),
@@ -1879,6 +1886,7 @@ static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][17] =
     [TYPE_DRAGON]   = _("a DRAGON move"),
     [TYPE_DARK]     = _("a DARK move"),
     [TYPE_FAIRY]    = _("a FAIRY move"),
+    [TYPE_LIGHT]    = _("a LIGHT move"),
 };
 
 const u8 gText_BattleTourney[] = _("BATTLE TOURNEY");
@@ -2970,7 +2978,7 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
         ConvertInternationalString(text, gBattleResources->secretBase->language);
         toCpy = text;
     }
-    else if (trainerId == TRAINER_UNION_ROOM)
+    else if (trainerId == TRAINER_OPPONENT_C00)
     {
         toCpy = gLinkPlayers[multiplayerId ^ BIT_SIDE].name;
     }
@@ -3003,7 +3011,10 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
     }
     else
     {
-        toCpy = gTrainers[trainerId].trainerName;
+        if(!StringCompare(gTrainers[trainerId].trainerName, gText_ExpandedPlaceholder_May) || !StringCompare(gTrainers[trainerId].trainerName, gText_ExpandedPlaceholder_Brendan))
+		toCpy = gSaveBlock2Ptr->rivalName;
+	else
+		toCpy = gTrainers[trainerId].trainerName;
     }
 
     return toCpy;

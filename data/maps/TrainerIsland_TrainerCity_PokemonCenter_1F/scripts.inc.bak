@@ -1,3 +1,5 @@
+.set LOCALID_NURSE, 1
+
 TrainerIsland_TrainerCity_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_TrainerCity_PokemonCenter_1F_OnTransition
 	.byte 0
@@ -53,7 +55,7 @@ TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Gameboy_Kid2::
 	release
 	end
 	
-TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Boy:
+TrainerIsland_TrainerCity_PokemonCenter_1F_EventScript_Boy::
 	msgbox TrainerIsland_TrainerCity_PokemonCenter_1F_Text_TradingIsAPartofLife, MSGBOX_NPC
 	end
 	

@@ -12462,7 +12462,7 @@ static const struct TrainerMon sParty_Master_Jun[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_DRAGON_TAIL, MOVE_AQUA_TAIL, MOVE_IRON_TAIL}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_IRON_TAIL, MOVE_AQUA_TAIL, MOVE_SYNTHESIS}
     },
     {
     .iv = 255,
@@ -12572,7 +12572,15 @@ static const struct TrainerMon sParty_Master_Dan[] = {
 	.nature = NATURE_LONELY,
     .moves = {MOVE_FELL_STINGER, MOVE_POISON_JAB, MOVE_ASSURANCE, MOVE_LASER_FOCUS}
     },
-
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_VIVILLON,
+    .heldItem = ITEM_NONE,
+	.nature = NATURE_SERIOUS,
+    .evs = {0, 128, 0, 2, 190, 190},
+    .moves = {MOVE_HURRICANE, MOVE_BUG_BUZZ, MOVE_DRAINING_KISS, MOVE_PSYBEAM}
+    },
     {
     .iv = 255,
     .lvl = 100,
@@ -12658,7 +12666,7 @@ static const struct TrainerMon sParty_Master_Brandon[] = {
     .heldItem = ITEM_MIRACLE_SEED,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_DRAGON_TAIL, MOVE_AQUA_TAIL, MOVE_IRON_TAIL}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_IRON_TAIL, MOVE_AQUA_TAIL, MOVE_SYNTHESIS}
     },
     {
     .iv = 255,
@@ -12970,7 +12978,7 @@ static const struct TrainerMon sParty_Master_TateAndLiza_4[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -12979,7 +12987,7 @@ static const struct TrainerMon sParty_Master_TateAndLiza_4[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     }
 };
 
@@ -13732,7 +13740,7 @@ static const struct TrainerMon sParty_Master_Linda[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_DRAGON_TAIL, MOVE_AQUA_TAIL, MOVE_IRON_TAIL}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_IRON_TAIL, MOVE_AQUA_TAIL, MOVE_REST}
     },
     {
     .iv = 255,
@@ -13741,7 +13749,7 @@ static const struct TrainerMon sParty_Master_Linda[] = {
     .heldItem = ITEM_NONE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_AURORA_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_AURORA_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     },
     {
     .iv = 255,
@@ -14188,10 +14196,10 @@ static const struct TrainerMon sParty_Master_Glacia[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_AURORUS,
-    .heldItem = ITEM_HARD_STONE,
-    .evs = {44, 44, 1, 1, 252, 168},
+    .heldItem = ITEM_NEVER_MELT_ICE,
+    .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_FROST_BREATH, MOVE_ROCK_SLIDE, MOVE_PSYCHIC, MOVE_THUNDERBOLT}
+    .moves = {MOVE_FROST_BREATH, MOVE_ROCK_SLIDE, MOVE_PSYCHIC, MOVE_REST}
     },
 	{
     .iv = 255,
@@ -14257,7 +14265,7 @@ static const struct TrainerMon sParty_Master_Greta[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_WATER_PULSE, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -14266,7 +14274,7 @@ static const struct TrainerMon sParty_Master_Greta[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     }
 };
 
@@ -14548,7 +14556,7 @@ static const struct TrainerMon sParty_Master_Brawly_1[] = {
     .heldItem = ITEM_MIRACLE_SEED,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_DRAGON_TAIL, MOVE_AQUA_TAIL, MOVE_IRON_TAIL}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_IRON_TAIL, MOVE_AQUA_TAIL, MOVE_SYNTHESIS}
     },
     {
     .iv = 255,
@@ -14707,7 +14715,7 @@ static const struct TrainerMon sParty_Master_Brawly_3[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_EARTHQUAKE, MOVE_NIGHT_SLASH, MOVE_DRAGON_DANCE}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_EARTHQUAKE, MOVE_SYNTHESIS, MOVE_DRAGON_DANCE}
     }
 };
 
@@ -14746,7 +14754,7 @@ static const struct TrainerMon sParty_Master_Brawly_4[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_EARTHQUAKE, MOVE_NIGHT_SLASH, MOVE_DRAGON_DANCE}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_EARTHQUAKE, MOVE_SYNTHESIS, MOVE_DRAGON_DANCE}
     },
     {
     .iv = 255,
@@ -14812,7 +14820,7 @@ static const struct TrainerMon sParty_Master_Norman_1[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -14821,7 +14829,7 @@ static const struct TrainerMon sParty_Master_Norman_1[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     }
 };
 
@@ -14947,7 +14955,7 @@ static const struct TrainerMon sParty_Master_Norman_4[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
 	{
     .iv = 255,
@@ -14971,10 +14979,10 @@ static const struct TrainerMon sParty_Master_Norman_4[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_LATIAS,
-    .heldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_NONE,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -15473,7 +15481,7 @@ static const struct TrainerMon sParty_Master_Awen[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_WATER_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -15482,7 +15490,7 @@ static const struct TrainerMon sParty_Master_Awen[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_FLAMETHROWER, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     }
 };
 
@@ -15732,7 +15740,7 @@ static const struct TrainerMon sParty_Master_David[] = {
     .lvl = 100,
     .species = SPECIES_GROVYLE,
     .heldItem = ITEM_NONE,
-    .evs = {2, 168, 2, 168, 168},
+    .evs = {0, 2, 168, 2, 168, 168},
 	.nature = NATURE_QUIRKY,
     .moves = {MOVE_LEAF_BLADE, MOVE_DRAGON_CLAW, MOVE_AERIAL_ACE, MOVE_SLASH}
     },	
@@ -15937,7 +15945,7 @@ static const struct TrainerMon sParty_Master_Darwin[] = {
     .lvl = 100,
     .species = SPECIES_DONPHAN,
     .heldItem = ITEM_NONE,
-    .evs = {100, 5, 200, 0, 5, 200},
+    .evs = {0, 200, 5, 100, 200, 5},
 	.nature = NATURE_SERIOUS,
     .moves = {MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_REST}
     },
@@ -15946,7 +15954,7 @@ static const struct TrainerMon sParty_Master_Darwin[] = {
     .lvl = 100,
     .species = SPECIES_HIPPOWDON,
     .heldItem = ITEM_NONE,
-    .evs = {0, 200, 5, 100, 200, 5},
+    .evs = {100, 5, 200, 0, 5, 200},
 	.nature = NATURE_DOCILE,
     .moves = {MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_REST}
     },
@@ -16768,7 +16776,7 @@ static const struct TrainerMon sParty_Master_Vivi[] = {
     .heldItem = ITEM_NONE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -16864,7 +16872,7 @@ static const struct TrainerMon sParty_Master_Vito[] = {
     .heldItem = ITEM_CHARCOAL,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_FIRE_BLAST, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_REST}
+    .moves = {MOVE_FIRE_BLAST, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -17111,7 +17119,7 @@ static const struct TrainerMon sParty_Master_Roxanne_3[] = {
     .heldItem = ITEM_NEVER_MELT_ICE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -17168,7 +17176,7 @@ static const struct TrainerMon sParty_Master_Roxanne_4[] = {
     .heldItem = ITEM_NEVER_MELT_ICE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -17177,10 +17185,10 @@ static const struct TrainerMon sParty_Master_Joanne[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_LATIAS,
-    .heldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_NONE,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -17324,7 +17332,7 @@ static const struct TrainerMon sParty_Master_Amy[] = {
     .heldItem = ITEM_NONE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_AURORA_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_AURORA_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -17473,7 +17481,7 @@ static const struct TrainerMon sParty_Master_Matthew[] = {
     .lvl = 100,
     .species = SPECIES_BLAZIKEN,
     .heldItem = ITEM_NONE,
-    .evs = { 0, 252, 0, 6, 252, 0},
+    .evs = {0, 252, 0, 6, 252, 0},
 	.nature = NATURE_NAUGHTY,
     .moves = {MOVE_SKY_UPPERCUT, MOVE_BLAZE_KICK, MOVE_AERIAL_ACE, MOVE_SWORDS_DANCE}
     },	
@@ -17485,7 +17493,7 @@ static const struct TrainerMon sParty_Master_Paul[] = {
     .lvl = 100,
     .species = SPECIES_DONPHAN,
     .heldItem = ITEM_NONE,
-    .evs = {100, 5, 200, 0, 5, 200},
+    .evs = {0, 200, 5, 100, 200, 5},
 	.nature = NATURE_SERIOUS,
     .moves = {MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_REST}
     },
@@ -17494,7 +17502,7 @@ static const struct TrainerMon sParty_Master_Paul[] = {
     .lvl = 100,
     .species = SPECIES_HIPPOWDON,
     .heldItem = ITEM_NONE,
-    .evs = {0, 200, 5, 100, 200, 5},
+    .evs = {100, 5, 200, 0, 5, 200},
 	.nature = NATURE_DOCILE,
     .moves = {MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_DEFENSE_CURL, MOVE_REST}
     },
@@ -17783,9 +17791,18 @@ static const struct TrainerMon sParty_Master_Caleb[] = {
     {
     .iv = 255,
     .lvl = 100,
+    .species = SPECIES_GROTLE,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_QUIRKY,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_EARTH_POWER, MOVE_ROCK_SLIDE, MOVE_SYNTHESIS}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
     .species = SPECIES_GROVYLE,
     .heldItem = ITEM_NONE,
-    .evs = {2, 168, 2, 168, 168},
+    .evs = {0, 2, 168, 2, 168, 168},
 	.nature = NATURE_QUIRKY,
     .moves = {MOVE_LEAF_BLADE, MOVE_DRAGON_CLAW, MOVE_AERIAL_ACE, MOVE_SLASH}
     },	
@@ -17796,7 +17813,7 @@ static const struct TrainerMon sParty_Master_Caleb[] = {
     .heldItem = ITEM_NONE,
     .evs = {0, 252, 0, 6, 252, 0},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_FLAMETHROWER, MOVE_BRICK_BREAK, MOVE_EARTH_POWER, MOVE_NASTY_PLOT}
+    .moves = {MOVE_FLAMETHROWER, MOVE_BRICK_BREAK, MOVE_NASTY_PLOT, MOVE_SYNTHESIS}
     },
     {
     .iv = 255,
@@ -17805,7 +17822,16 @@ static const struct TrainerMon sParty_Master_Caleb[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_GIGA_DRAIN, MOVE_SHADOW_BALL, MOVE_EARTH_POWER, MOVE_AMNESIA}
+    .moves = {MOVE_LEAF_BLADE, MOVE_SHADOW_BALL, MOVE_AMNESIA, MOVE_SYNTHESIS}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_SERVINE,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_QUIRKY,
+    .moves = {MOVE_LEAF_BLADE, MOVE_AQUA_TAIL, MOVE_IRON_TAIL, MOVE_SYNTHESIS}
     }
 };
 
@@ -17828,6 +17854,24 @@ static const struct TrainerMon sParty_Master_Riley[] = {
 	.nature = NATURE_BOLD,
     .moves = {MOVE_BLIZZARD, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM, MOVE_RECOVER}
     },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_CRESSELIA,
+    .heldItem = ITEM_NONE,
+    .evs = {88, 0, 168, 0, 2, 252},
+	.nature = NATURE_SASSY,
+    .moves = {MOVE_MOONBLAST, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_MOONLIGHT}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_LATIAS,
+    .heldItem = ITEM_NONE,
+    .evs = {0, 0, 3, 3, 252, 252},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    },
 	{
     .iv = 255,
     .lvl = 100,
@@ -17835,7 +17879,16 @@ static const struct TrainerMon sParty_Master_Riley[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_BOLD,
-    .moves = {MOVE_HYDRO_PUMP, MOVE_LIGHT_OF_RUIN, MOVE_DRAGON_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_HYDRO_PUMP, MOVE_BLIZZARD, MOVE_ATTRACT, MOVE_RECOVER}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_SUICUNE,
+    .heldItem = ITEM_NONE,
+    .evs = {128, 0, 128, 2, 0, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_AURORA_BEAM, MOVE_AMNESIA, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -17844,11 +17897,29 @@ static const struct TrainerMon sParty_Master_Riley[] = {
     .heldItem = ITEM_NONE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_AURORA_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_FROST_BREATH, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
 static const struct TrainerMon sParty_Master_Johan[] = {
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_ZEBSTRIKA,
+    .heldItem = ITEM_NONE,
+    .evs = {0, 252, 0, 252, 6, 0},
+	.nature = NATURE_SERIOUS,
+    .moves = {MOVE_WILD_CHARGE, MOVE_FLAME_CHARGE, MOVE_TAKE_DOWN, MOVE_THRASH}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_RAPIDASH,
+    .heldItem = ITEM_NONE,
+    .evs = {2, 2, 2, 168, 168, 168},
+	.nature = NATURE_SERIOUS,
+    .moves = {MOVE_FLAME_CHARGE, MOVE_WILD_CHARGE, MOVE_TAKE_DOWN, MOVE_THRASH}
+    },
     {
     .iv = 255,
     .lvl = 100,
@@ -17884,7 +17955,7 @@ static const struct TrainerMon sParty_Master_Johan[] = {
     .evs = {0, 6, 0, 252, 252, 0},
 	.nature = NATURE_MILD,
     .moves = {MOVE_PSYCHIC, MOVE_HYPER_BEAM, MOVE_NASTY_PLOT, MOVE_WISH}
-    },
+    }
 };
 
 static const struct TrainerMon sParty_Master_Jessie[] = {
@@ -17895,7 +17966,16 @@ static const struct TrainerMon sParty_Master_Jessie[] = {
     .heldItem = ITEM_MYSTIC_WATER,
     .evs = {252, 1, 88, 0, 1, 168},
 	.nature = NATURE_SASSY,
-    .moves = {MOVE_WATER_SPOUT, MOVE_EARTH_POWER, MOVE_ROLLOUT, MOVE_REST}
+    .moves = {MOVE_WATER_SPOUT, MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_REST}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_KINGDRA,
+    .heldItem = ITEM_NONE,
+    .evs = {44, 1, 44, 1, 168, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_DRAGON_PULSE, MOVE_AMNESIA, MOVE_REST}
     },
     {
     .iv = 255,
@@ -17905,6 +17985,15 @@ static const struct TrainerMon sParty_Master_Jessie[] = {
     .evs = {44, 44, 1, 1, 252, 168},
 	.nature = NATURE_MILD,
     .moves = {MOVE_THUNDER, MOVE_DRAGON_PULSE, MOVE_NASTY_PLOT, MOVE_REST}
+    },
+	{
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_LATIOS,
+    .heldItem = ITEM_NONE,
+    .evs = {0, 0, 3, 3, 252, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -17931,10 +18020,10 @@ static const struct TrainerMon 	sParty_Master_Rachel[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_LATIAS,
-    .heldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_NONE,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -17944,6 +18033,15 @@ static const struct TrainerMon 	sParty_Master_Rachel[] = {
     .evs = {170, 0, 170, 170, 0, 0},
 	.nature = NATURE_DOCILE,
     .moves = {MOVE_DOUBLE_EDGE, MOVE_TAIL_WHIP, MOVE_SING, MOVE_ATTRACT}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_NINETALES,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_BOLD,
+    .moves = {MOVE_FIRE_BLAST, MOVE_PSYCHIC, MOVE_EARTH_POWER, MOVE_RECOVER}
     },
 	{
     .iv = 255,
@@ -17957,11 +18055,11 @@ static const struct TrainerMon 	sParty_Master_Rachel[] = {
     {
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_NINETALES,
+    .species = SPECIES_AURORUS,
     .heldItem = ITEM_NONE,
-    .evs = {6, 0, 252, 0, 0, 252},
-	.nature = NATURE_BOLD,
-    .moves = {MOVE_FIRE_BLAST, MOVE_PSYCHIC, MOVE_EARTH_POWER, MOVE_RECOVER}
+    .evs = {168, 0, 252, 0, 0, 90},
+	.nature = NATURE_SERIOUS,
+    .moves = {MOVE_FROST_BREATH, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -17978,11 +18076,29 @@ static const struct TrainerMon sParty_Master_Judai[] = {
     {
     .iv = 255,
     .lvl = 100,
+    .species = SPECIES_TORKOAL,
+    .heldItem = ITEM_NONE,
+    .evs = {129, 129, 0, 0, 252, 0},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_OVERHEAT, MOVE_DIG, MOVE_SOLAR_BEAM, MOVE_NASTY_PLOT}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
     .species = SPECIES_TROPIUS,
     .heldItem = ITEM_NONE,
     .evs = {129, 0, 129, 0, 0, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_SOLAR_BEAM, MOVE_FLY, MOVE_SOLAR_BEAM, MOVE_AMNESIA}
+    .moves = {MOVE_SOLAR_BEAM, MOVE_FLY, MOVE_AMNESIA, MOVE_SYNTHESIS}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_LATIAS,
+    .heldItem = ITEM_NONE,
+    .evs = {0, 0, 3, 3, 252, 252},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -18005,6 +18121,24 @@ static const struct TrainerMon sParty_Master_Judai[] = {
 };
 
 static const struct TrainerMon sParty_Master_Asuka[] = {
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_DRAGON_FANG,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_SERIOUS,
+    .moves = {MOVE_DRAGON_CLAW, MOVE_IRON_TAIL, MOVE_STONE_EDGE, MOVE_REST}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_GARCHOMP,
+    .heldItem = ITEM_DRAGON_FANG,
+    .evs = {0, 252, 0, 6, 252, 0},
+	.nature = NATURE_SERIOUS,
+    .moves = {MOVE_DRAGON_CLAW, MOVE_CROSS_CHOP, MOVE_EARTHQUAKE, MOVE_REST}
+    },
     {
     .iv = 255,
     .lvl = 100,
@@ -18047,39 +18181,57 @@ static const struct TrainerMon sParty_Master_Laina[] = {
     {
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_RAICHU,
+    .species = SPECIES_ENTEI,
     .heldItem = ITEM_NONE,
-    .evs = {0, 6, 0, 252, 252, 0},
+    .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_VOLT_TACKLE, MOVE_IRON_TAIL, MOVE_SURF, MOVE_BRICK_BREAK}
+    .moves = {MOVE_FLAME_WHEEL, MOVE_MUD_SHOT, MOVE_NASTY_PLOT, MOVE_REST}
     },
     {
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_TOGEKISS,
+    .species = SPECIES_SUICUNE,
     .heldItem = ITEM_NONE,
-    .evs = {252, 0, 6, 0, 0, 252},
+    .evs = {128, 0, 128, 2, 0, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_SKY_ATTACK, MOVE_TRI_ATTACK, MOVE_FAIRY_WIND, MOVE_LIFE_DEW}
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_AURORA_BEAM, MOVE_AMNESIA, MOVE_REST}
+    },
+	{
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_LATIOS,
+    .heldItem = ITEM_NONE,
+    .evs = {0, 0, 3, 3, 252, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_HAXORUS,
+    .species = SPECIES_LATIAS,
     .heldItem = ITEM_NONE,
-    .evs = {6, 168, 84, 0, 168, 84},
-	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_DUAL_CHOP, MOVE_CRUNCH, MOVE_LASER_FOCUS, MOVE_SWORDS_DANCE}
+    .evs = {0, 0, 3, 3, 252, 252},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
-    {
+	{
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_STOUTLAND,
+    .species = SPECIES_HO_OH,
     .heldItem = ITEM_NONE,
-    .evs = {168, 3, 168, 0, 3, 168},
-	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_CRUNCH, MOVE_FIRE_FANG, MOVE_THUNDER_FANG, MOVE_ICE_FANG}
+    .evs = {88, 168, 0, 0, 252, 2},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_SACRED_FIRE, MOVE_FIRE_BLAST, MOVE_ANCIENT_POWER, MOVE_RECOVER}
     },
+	{
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_LUGIA,
+    .heldItem = ITEM_NONE,
+    .evs = {88, 0, 168, 0, 2, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_AEROBLAST, MOVE_HYDRO_PUMP, MOVE_ANCIENT_POWER, MOVE_RECOVER}
+    }
 };
 
 static const struct TrainerMon sParty_Master_Brett[] = {
@@ -18100,6 +18252,24 @@ static const struct TrainerMon sParty_Master_Brett[] = {
     .evs = {0, 252, 0, 2, 128, 128},
 	.nature = NATURE_LONELY,
     .moves = {MOVE_FELL_STINGER, MOVE_POISON_JAB, MOVE_ASSURANCE, MOVE_LASER_FOCUS}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_VIVILLON,
+    .heldItem = ITEM_NONE,
+	.nature = NATURE_SERIOUS,
+    .evs = {0, 128, 0, 2, 190, 190},
+    .moves = {MOVE_HURRICANE, MOVE_BUG_BUZZ, MOVE_DRAINING_KISS, MOVE_PSYBEAM}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_VIVILLON,
+    .heldItem = ITEM_NONE,
+	.nature = NATURE_SERIOUS,
+    .evs = {0, 128, 0, 2, 190, 190},
+    .moves = {MOVE_HURRICANE, MOVE_BUG_BUZZ, MOVE_DRAINING_KISS, MOVE_PSYBEAM}
     },
     {
     .iv = 255,
@@ -18125,6 +18295,24 @@ static const struct TrainerMon sParty_Master_Kelly[] = {
     {
     .iv = 255,
     .lvl = 100,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_NONE,
+    .evs = {3, 252, 0, 252, 3, 0},
+	.nature = NATURE_SERIOUS,
+    .moves = {MOVE_POISON_TAIL, MOVE_X_SCISSOR, MOVE_CRUNCH, MOVE_EARTHQUAKE}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_GYARADOS,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 252, 0, 0, 252, 0},
+	.nature = NATURE_LONELY,
+    .moves = {MOVE_AQUA_TAIL, MOVE_BRAVE_BIRD, MOVE_DRAGON_TAIL, MOVE_RECOVER}
+    },
+	{
+    .iv = 255,
+    .lvl = 100,
     .species = SPECIES_VAPOREON,
     .heldItem = ITEM_NONE,
     .evs = {88, 0, 168, 1, 1, 252},
@@ -18138,7 +18326,7 @@ static const struct TrainerMon sParty_Master_Kelly[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_HYDRO_PUMP, MOVE_FAIRY_WIND, MOVE_ICY_WIND, MOVE_SPARKLING_ARIA}
+    .moves = {MOVE_SPARKLING_ARIA, MOVE_FAIRY_WIND, MOVE_ICY_WIND, MOVE_REST}
     },
     {
     .iv = 255,
@@ -18147,7 +18335,7 @@ static const struct TrainerMon sParty_Master_Kelly[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_DRAGON_TAIL, MOVE_AQUA_TAIL, MOVE_IRON_TAIL}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_IRON_TAIL, MOVE_AQUA_TAIL, MOVE_REST}
     },
     {
     .iv = 255,
@@ -18161,23 +18349,23 @@ static const struct TrainerMon sParty_Master_Kelly[] = {
 };
 
 static const struct TrainerMon sParty_Master_Jack[] = {
-	{
+    {
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_PERSIAN,
+    .species = SPECIES_LINOONE,
     .heldItem = ITEM_NONE,
-    .evs = {170, 170, 0, 170, 0, 0},
-	.nature = NATURE_DOCILE,
-    .moves = {MOVE_SLASH, MOVE_SWORDS_DANCE, MOVE_PAY_DAY, MOVE_FOCUS_ENERGY}
+    .evs = {3, 252, 3, 252, 0, 0},
+	.nature = NATURE_NAUGHTY,
+    .moves = {MOVE_SLASH, MOVE_SHADOW_CLAW, MOVE_X_SCISSOR, MOVE_LASER_FOCUS}
     },
-	{
+    {
     .iv = 255,
     .lvl = 100,
-    .species = SPECIES_PERSIAN,
+    .species = SPECIES_FURRET,
     .heldItem = ITEM_NONE,
-    .evs = {170, 170, 0, 170, 0, 0},
-	.nature = NATURE_DOCILE,
-    .moves = {MOVE_SLASH, MOVE_SWORDS_DANCE, MOVE_PAY_DAY, MOVE_FOCUS_ENERGY}
+    .evs = {3, 3, 252, 252, 0, 0},
+	.nature = NATURE_IMPISH,
+    .moves = {MOVE_STRENGTH, MOVE_BELLY_DRUM, MOVE_WISH, MOVE_BATON_PASS}
     },
 	{
     .iv = 255,
@@ -18196,6 +18384,24 @@ static const struct TrainerMon sParty_Master_Jack[] = {
     .evs = {170, 0, 170, 170, 0, 0},
 	.nature = NATURE_DOCILE,
     .moves = {MOVE_DOUBLE_EDGE, MOVE_TAIL_WHIP, MOVE_SING, MOVE_ATTRACT}
+    },
+	{
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_DUBWOOL,
+    .heldItem = ITEM_NONE,
+    .evs = {128, 0, 252, 2, 0, 128},
+	.nature = NATURE_BRAVE,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_ZEN_HEADBUTT, MOVE_BODY_PRESS, MOVE_COTTON_GUARD}
+    },
+	{
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_DUBWOOL,
+    .heldItem = ITEM_NONE,
+    .evs = {128, 0, 252, 2, 0, 128},
+	.nature = NATURE_BRAVE,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_ZEN_HEADBUTT, MOVE_BODY_PRESS, MOVE_COTTON_GUARD}
     }
 };
 		
@@ -18207,8 +18413,17 @@ static const struct TrainerMon sParty_Master_Frank[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_SOLAR_BEAM, MOVE_SWEET_SCENT, MOVE_SUNNY_DAY, MOVE_SYNTHESIS}
+    .moves = {MOVE_SOLAR_BEAM, MOVE_ANCIENT_POWER, MOVE_SUNNY_DAY, MOVE_SYNTHESIS}
     },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_SERVINE,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_QUIRKY,
+    .moves = {MOVE_LEAF_BLADE, MOVE_AQUA_TAIL, MOVE_IRON_TAIL, MOVE_SYNTHESIS}
+    },	
     {
     .iv = 255,
     .lvl = 100,
@@ -18216,8 +18431,17 @@ static const struct TrainerMon sParty_Master_Frank[] = {
     .heldItem = ITEM_NONE,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_SOLAR_BEAM, MOVE_SWEET_SCENT, MOVE_SUNNY_DAY, MOVE_SYNTHESIS}
+    .moves = {MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE, MOVE_SUNNY_DAY, MOVE_SYNTHESIS}
     },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_SERPERIOR,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_QUIRKY,
+    .moves = {MOVE_LEAF_BLADE, MOVE_AQUA_TAIL, MOVE_IRON_TAIL, MOVE_SYNTHESIS}
+    },	
     {
     .iv = 255,
     .lvl = 100,
@@ -18241,6 +18465,24 @@ static const struct TrainerMon sParty_Master_Frank[] = {
 
 
 static const struct TrainerMon sParty_Master_Devin[] = {
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_CRADILY,
+    .heldItem = ITEM_NONE,
+    .evs = {88, 0, 168, 0, 2, 252},
+	.nature = NATURE_BOLD,
+    .moves = {MOVE_ENERGY_BALL, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_SLUDGE_BOMB}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_ARMALDO,
+    .heldItem = ITEM_NONE,
+    .evs = {0, 252, 168, 0, 90, 0},
+	.nature = NATURE_DOCILE,
+    .moves = {MOVE_X_SCISSOR, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_SHADOW_CLAW}
+    },
     {
     .iv = 255,
     .lvl = 100,
@@ -18275,7 +18517,7 @@ static const struct TrainerMon sParty_Master_Devin[] = {
     .heldItem = ITEM_NEVER_MELT_ICE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -18289,15 +18531,6 @@ static const struct TrainerMon sParty_Master_Will[] = {
 	.nature = NATURE_SERIOUS,
     .moves = {MOVE_ROCK_WRECKER, MOVE_EARTHQUAKE, MOVE_IRON_TAIL, MOVE_SWORDS_DANCE}
     },
-    {
-    .iv = 255,
-    .lvl = 100,
-    .species = SPECIES_TYRANTRUM,
-    .heldItem = ITEM_NONE,
-    .evs = {90, 252, 0, 0, 168, 0},
-	.nature = NATURE_NAUGHTY,
-    .moves = {MOVE_DRAGON_CLAW, MOVE_HEAD_SMASH, MOVE_EARTHQUAKE, MOVE_CRUNCH}
-    },
 	{
     .iv = 255,
     .lvl = 100,
@@ -18306,6 +18539,33 @@ static const struct TrainerMon sParty_Master_Will[] = {
     .evs = {1, 252, 1, 168, 88, 0},
 	.nature = NATURE_NAUGHTY,
     .moves = {MOVE_HEAD_SMASH, MOVE_HAMMER_ARM, MOVE_EARTHQUAKE, MOVE_SWORDS_DANCE}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_AMPHAROS,
+    .heldItem = ITEM_NONE,
+    .evs = {44, 44, 1, 1, 252, 168},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_THUNDER, MOVE_DRAGON_PULSE, MOVE_NASTY_PLOT, MOVE_REST}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_TORKOAL,
+    .heldItem = ITEM_NONE,
+    .evs = {129, 129, 0, 0, 252, 0},
+	.nature = NATURE_MILD,
+    .moves = {MOVE_OVERHEAT, MOVE_DIG, MOVE_SOLAR_BEAM, MOVE_SYNTHESIS}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_TYRANTRUM,
+    .heldItem = ITEM_DRAGON_FANG,
+    .evs = {90, 252, 0, 0, 168, 0},
+	.nature = NATURE_NAUGHTY,
+    .moves = {MOVE_DRAGON_CLAW, MOVE_HEAD_SMASH, MOVE_EARTHQUAKE, MOVE_CRUNCH}
     },
     {
     .iv = 255,
@@ -18341,11 +18601,29 @@ static const struct TrainerMon sParty_Master_Bertha[] = {
     {
     .iv = 255,
     .lvl = 100,
+    .species = SPECIES_TROPIUS,
+    .heldItem = ITEM_NONE,
+    .evs = {129, 0, 129, 0, 0, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_SOLAR_BEAM, MOVE_FLY, MOVE_SUNNY_DAY, MOVE_SYNTHESIS}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
+    .species = SPECIES_KINGDRA,
+    .heldItem = ITEM_NONE,
+    .evs = {44, 1, 44, 1, 168, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_DRAGON_PULSE, MOVE_AMNESIA, MOVE_REST}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
     .species = SPECIES_AURORUS,
     .heldItem = ITEM_NEVER_MELT_ICE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
 
@@ -18362,11 +18640,20 @@ static const struct TrainerMon sParty_Master_Sedina[] = {
     {
     .iv = 255,
     .lvl = 100,
+    .species = SPECIES_PRIMARINA,
+    .heldItem = ITEM_NONE,
+    .evs = {6, 0, 252, 0, 0, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_SPARKLING_ARIA, MOVE_FAIRY_WIND, MOVE_ICY_WIND, MOVE_REST}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
     .species = SPECIES_LATIAS,
-    .heldItem = ITEM_LEFTOVERS,
+    .heldItem = ITEM_NONE,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
 	{
     .iv = 255,
@@ -18380,13 +18667,24 @@ static const struct TrainerMon sParty_Master_Sedina[] = {
     {
     .iv = 255,
     .lvl = 100,
+    .species = SPECIES_SUICUNE,
+    .heldItem = ITEM_NONE,
+    .evs = {128, 0, 128, 2, 0, 252},
+	.nature = NATURE_CALM,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_AURORA_BEAM, MOVE_AMNESIA, MOVE_RECOVER}
+    },
+    {
+    .iv = 255,
+    .lvl = 100,
     .species = SPECIES_AURORUS,
     .heldItem = ITEM_NEVER_MELT_ICE,
     .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_THUNDERBOLT}
+    .moves = {MOVE_ICE_BEAM, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE, MOVE_REST}
     }
 };
+
+
 
 
  static const struct TrainerMon sParty_Elite_Brandon[] = {
@@ -18406,7 +18704,7 @@ static const struct TrainerMon sParty_Master_Sedina[] = {
     .heldItem = ITEM_MIRACLE_SEED,
     .evs = {6, 0, 252, 0, 0, 252},
 	.nature = NATURE_DOCILE,
-    .moves = {MOVE_PETAL_BLIZZARD, MOVE_DRAGON_TAIL, MOVE_AQUA_TAIL, MOVE_IRON_TAIL}
+    .moves = {MOVE_PETAL_BLIZZARD, MOVE_IRON_TAIL, MOVE_AQUA_TAIL, MOVE_REST}
     },
     {
     .iv = 255,
@@ -18718,7 +19016,7 @@ static const struct TrainerMon sParty_Elite_Greta[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_CALM,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_WATER_PULSE, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_LUSTER_PURGE, MOVE_HYDRO_PUMP, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,
@@ -18727,7 +19025,7 @@ static const struct TrainerMon sParty_Elite_Greta[] = {
     .heldItem = ITEM_LEFTOVERS,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_DRAGON_PULSE, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     }
 };
 
@@ -18877,10 +19175,10 @@ static const struct TrainerMon sParty_Elite_Glacia[] = {
     .iv = 255,
     .lvl = 100,
     .species = SPECIES_AURORUS,
-    .heldItem = ITEM_HARD_STONE,
-    .evs = {44, 44, 1, 1, 252, 168},
+    .heldItem = ITEM_NEVER_MELT_ICE,
+    .evs = {168, 0, 252, 0, 0, 90},
 	.nature = NATURE_SERIOUS,
-    .moves = {MOVE_FROST_BREATH, MOVE_ROCK_SLIDE, MOVE_PSYCHIC, MOVE_THUNDERBOLT}
+    .moves = {MOVE_FROST_BREATH, MOVE_ROCK_SLIDE, MOVE_PSYCHIC, MOVE_REST}
     },
 	{
     .iv = 255,

@@ -2772,7 +2772,12 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_GLASTRIER - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_SPECTRIER - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_CALYREX - 1]       = ANIM_V_SQUISH_AND_BOUNCE,
-
+	
+	// Custom Pokemon
+	[SPECIES_DRACOCEROS_CHILD - 1]	= ANIM_V_JUMPS_H_JUMPS,
+	[SPECIES_DRACOCEROS_JUVENILE - 1]	= ANIM_H_SHAKE_SLOW,
+	[SPECIES_DRACOCEROS_ADULT - 1]	= ANIM_H_SHAKE,
+	
     // Forms
     [SPECIES_ROTOM_HEAT - 1]      = ANIM_V_SQUISH_AND_BOUNCE,
     [SPECIES_ROTOM_FROST - 1]     = ANIM_V_SQUISH_AND_BOUNCE,
@@ -2796,6 +2801,7 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_ARCEUS_DRAGON - 1]   = ANIM_CIRCULAR_VIBRATE,
     [SPECIES_ARCEUS_DARK - 1]     = ANIM_CIRCULAR_VIBRATE,
     [SPECIES_ARCEUS_FAIRY - 1]    = ANIM_CIRCULAR_VIBRATE,
+
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
@@ -2857,6 +2863,10 @@ static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =
     [SPECIES_RAYQUAZA - 1]   = 60,
     [SPECIES_TAPU_FINI - 1]  = 5,
     [SPECIES_ROTOM_FAN - 1]  = 7,
+	// Custom Pokemon
+	[SPECIES_DRACOCEROS_CHILD - 1]		= 0,
+	[SPECIES_DRACOCEROS_JUVENILE - 1]	= 30,
+	[SPECIES_DRACOCEROS_ADULT - 1] 		= 120,
 };
 
 #define PP_UP_SHIFTS(val)           val,        (val) << 2,        (val) << 4,        (val) << 6

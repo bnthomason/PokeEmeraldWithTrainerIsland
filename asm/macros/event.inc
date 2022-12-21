@@ -1778,21 +1778,21 @@
 	.2byte \count
 	.endm
 
-	@ Create a window showing how many Coins the player has.
+	@ Create a window showing how many Points the player has.
 	.macro showpointsbox x:req, y:req
 	.byte 0xe6
 	.byte \x
 	.byte \y
 	.endm
 
-	@ Destroys the window created by showcoins. It consumes its arguments but doesn't use them.
+	@ Destroys the window created by showpoints. It consumes its arguments but doesn't use them.
 	.macro hidepointsbox x:req, y:req
 	.byte 0xe7
 	.byte \x
 	.byte \y
 	.endm
 
-	@ Updates the window created by showcoins. It consumes its arguments but doesn't use them.
+	@ Updates the window created by showpoints. It consumes its arguments but doesn't use them.
 	.macro updatepointsbox x:req, y:req
 	.byte 0xe8
 	.byte \x

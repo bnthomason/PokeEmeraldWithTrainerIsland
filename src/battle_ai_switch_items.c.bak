@@ -776,20 +776,8 @@ u8 GetMostSuitableMonToSwitchInto(void)
             invalidMons |= gBitTable[i];
         else
             aliveCount++;
-    }
-
-<<<<<<< HEAD
-=======
-    bestMonId = GetBestMonBatonPass(party, firstId, lastId, invalidMons, aliveCount);
-    if (bestMonId != PARTY_SIZE)
-        return bestMonId;
-
-    bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, opposingBattler);
-    if (bestMonId != PARTY_SIZE)
-        return bestMonId;
->>>>>>> rh-hideout/battle_engine
-
-	if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+   
+   if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
 		{
@@ -802,7 +790,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
 		if (bestMonId != PARTY_SIZE)
 			return bestMonId;
 
-		bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
+		bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, opposingBattler);
 		if (bestMonId != PARTY_SIZE)
 			return bestMonId;
 

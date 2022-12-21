@@ -273,5 +273,6 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_SKY_PILLAR_WALLACE
 	setflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	clearflag FLAG_UNUSED_0x2B7
+	setflag FLAG_UNUSED_0x2B8
 	call EventScript_ResetAllBerries
 	end

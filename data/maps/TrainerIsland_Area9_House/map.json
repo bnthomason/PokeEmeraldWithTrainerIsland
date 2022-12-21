@@ -117,7 +117,7 @@
       "elevation": 0,
       "var": "VAR_UNUSED_0x408B",
       "var_value": "1",
-      "script": "TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle1"
+      "script": "TrainerIsland_Area9_House_EventScript_Winstrate_VivianBattle1"
     },
     {
       "type": "trigger",
@@ -126,7 +126,7 @@
       "elevation": 0,
       "var": "VAR_UNUSED_0x408B",
       "var_value": "1",
-      "script": "TrainerIsland_Area9_House_EventScript_WinstrateFamilyBattle2"
+      "script": "TrainerIsland_Area9_House_EventScript_Winstrate_VivianBattle2"
     }
   ],
   "bg_events": [

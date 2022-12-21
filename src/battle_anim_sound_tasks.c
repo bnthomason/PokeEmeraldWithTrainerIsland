@@ -13,6 +13,8 @@ static void SoundTask_FireBlast_Step1(u8 taskId);
 static void SoundTask_FireBlast_Step2(u8 taskId);
 static void SoundTask_LoopSEAdjustPanning_Step(u8 taskId);
 static void SoundTask_PlayDoubleCry_Step(u8 taskId);
+static void SoundTask_PlayTripleCry_Step1(u8 taskId);
+static void SoundTask_PlayTripleCry_Step2(u8 taskId);
 static void SoundTask_PlayCryWithEcho_Step(u8 taskId);
 static void SoundTask_AdjustPanningVar_Step(u8 taskId);
 static void SoundTask_SeVolumeChange(u8 taskId);
@@ -225,6 +227,7 @@ void SoundTask_PlayDoubleCry(u8 taskId)
     {
         if (gBattleAnimArgs[1] == DOUBLE_CRY_GROWL)
             PlayCry_ByMode(species, pan, CRY_MODE_GROWL_1);
+			
         else // DOUBLE_CRY_ROAR
             PlayCry_ByMode(species, pan, CRY_MODE_ROAR_1);
 
@@ -260,6 +263,103 @@ static void SoundTask_PlayDoubleCry_Step(u8 taskId)
             if (!IsCryPlaying())
             {
                 PlayCry_ByMode(species, pan, CRY_MODE_ROAR_2);
+                DestroyAnimVisualTask(taskId);
+            }
+        }
+    }
+}
+
+void SoundTask_PlayTripleCry(u8 taskId)
+{
+    u16 species = 0;
+    s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
+    if (IsContest())
+    {
+        if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+            species = gContestResources->moveAnim->species;
+        #ifndef UBFIX
+        else
+            DestroyAnimVisualTask(taskId); // UB: task gets destroyed twice.
+        #endif
+    }
+    else
+    {
+        u8 battlerId;
+
+        // Get wanted battler.
+        if (gBattleAnimArgs[0] == ANIM_ATTACKER)
+            battlerId = gBattleAnimAttacker;
+        else if (gBattleAnimArgs[0] == ANIM_TARGET)
+            battlerId = gBattleAnimTarget;
+        else if (gBattleAnimArgs[0] == ANIM_ATK_PARTNER)
+            battlerId = BATTLE_PARTNER(gBattleAnimAttacker);
+        else
+            battlerId = BATTLE_PARTNER(gBattleAnimTarget);
+
+        // Check if battler is visible.
+        if ((gBattleAnimArgs[0] == ANIM_TARGET || gBattleAnimArgs[0] == ANIM_DEF_PARTNER) && !IsBattlerSpriteVisible(battlerId))
+        {
+            DestroyAnimVisualTask(taskId);
+            return;
+        }
+
+        if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
+            species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+        else
+            species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    }
+
+    gTasks[taskId].data[0] = gBattleAnimArgs[1];
+    gTasks[taskId].data[1] = species;
+    gTasks[taskId].data[2] = pan;
+
+    if (species != SPECIES_NONE)
+    {
+		PlayCry_ByMode(species, pan, CRY_MODE_TRILL_1);
+        gTasks[taskId].func = SoundTask_PlayTripleCry_Step1;
+    }
+    else
+    {
+        DestroyAnimVisualTask(taskId);
+    }
+}
+
+static void SoundTask_PlayTripleCry_Step1(u8 taskId)
+{
+    u16 species = gTasks[taskId].data[1];
+    s8 pan = gTasks[taskId].data[2];
+
+    if (gTasks[taskId].data[9] < 2)
+    {
+        gTasks[taskId].data[9]++;
+    }
+    else
+    {
+        {
+            if (!IsCryPlaying())
+            {
+                PlayCry_ByMode(species, pan, CRY_MODE_TRILL_2);
+				gTasks[taskId].func = SoundTask_PlayTripleCry_Step2;
+            }
+        }
+    }
+}
+
+static void SoundTask_PlayTripleCry_Step2(u8 taskId)
+{
+    u16 species = gTasks[taskId].data[1];
+    s8 pan = gTasks[taskId].data[2];
+
+    if (gTasks[taskId].data[9] < 2)
+    {
+        gTasks[taskId].data[9]++;
+    }
+    else
+    {
+        {
+            if (!IsCryPlaying())
+            {
+                PlayCry_ByMode(species, pan, CRY_MODE_TRILL_3);
                 DestroyAnimVisualTask(taskId);
             }
         }

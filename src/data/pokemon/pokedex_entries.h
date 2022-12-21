@@ -10787,4 +10787,42 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 256,
         .trainerOffset = 0,
     },
+
+    [NATIONAL_DEX_DRACOCEROS_CHILD] =
+	{
+		.categoryName = _("Healing"),
+		.height = 6,
+		.weight = 110,
+		.description = gDracocerosChildPokedexText,
+		.pokemonScale = 556,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+    [NATIONAL_DEX_DRACOCEROS_JUVENILE] =
+	{
+		.categoryName = _("Healing"),
+		.height = 12,
+		.weight = 220,
+		.description = gDracocerosJuvenilePokedexText,
+		.pokemonScale = 456,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
+
+    [NATIONAL_DEX_DRACOCEROS_ADULT] =
+	{
+		.categoryName = _("Healing"),
+		.height = 18,
+		.weight = 330,
+		.description = gDracocerosAdultPokedexText,
+		.pokemonScale = 356,
+		.pokemonOffset = 17,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+	},
 };
+
+

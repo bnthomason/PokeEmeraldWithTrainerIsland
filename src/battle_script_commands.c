@@ -490,6 +490,7 @@ static void Cmd_settailwind(void);
 static void Cmd_tryspiteppreduce(void);
 static void Cmd_healpartystatus(void);
 static void Cmd_cursetarget(void);
+static void Cmd_cursetarget_norecoil(void);
 static void Cmd_trysetspikes(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
@@ -569,7 +570,7 @@ static void Cmd_averagestats(void);
 static void Cmd_jumpifoppositegenders(void);
 static void Cmd_trygetbaddreamstarget(void);
 static void Cmd_tryworryseed(void);
-static void Cmd_metalburstdamagecalculator(void);
+static void Cmd_callnative(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -828,7 +829,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_jumpifoppositegenders,                   //0xFC
     Cmd_trygetbaddreamstarget,                   //0xFD
     Cmd_tryworryseed,                            //0xFE
-    Cmd_metalburstdamagecalculator,              //0xFF
+    Cmd_callnative,  				             //0xFF
 };
 
 const struct StatFractions gAccuracyStageRatios[] =
@@ -4736,7 +4737,8 @@ static void Cmd_playanimation(void)
     else if (animId == B_ANIM_RAIN_CONTINUES
           || animId == B_ANIM_SUN_CONTINUES
           || animId == B_ANIM_SANDSTORM_CONTINUES
-          || animId == B_ANIM_HAIL_CONTINUES)
+          || animId == B_ANIM_HAIL_CONTINUES
+		  || animId == B_ANIM_WINDSTORM_CONTINUES)
     {
         BtlController_EmitBattleAnimation(BUFFER_A, animId, *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -4783,7 +4785,8 @@ static void Cmd_playanimation_var(void)
     else if (*animationIdPtr == B_ANIM_RAIN_CONTINUES
           || *animationIdPtr == B_ANIM_SUN_CONTINUES
           || *animationIdPtr == B_ANIM_SANDSTORM_CONTINUES
-          || *animationIdPtr == B_ANIM_HAIL_CONTINUES)
+          || *animationIdPtr == B_ANIM_HAIL_CONTINUES
+		  || *animationIdPtr == B_ANIM_WINDSTORM_CONTINUES)
     {
         BtlController_EmitBattleAnimation(BUFFER_A, *animationIdPtr, *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -8126,6 +8129,19 @@ static void Cmd_various(void)
         BtlController_EmitPlayFanfareOrBGM(BUFFER_A, MUS_VICTORY_TRAINER, TRUE);
         MarkBattlerForControllerExec(gActiveBattler);
         break;
+	case VARIOUS_SETWINDSTORM:
+	if (!TryChangeBattleWeather(gBattlerAttacker, ENUM_WEATHER_WINDSTORM, FALSE))
+		{
+			gMoveResultFlags |= MOVE_RESULT_MISSED;
+			gBattleCommunication[MULTISTRING_CHOOSER] = 2;
+			gBattlescriptCurrInstr += 7;
+		}
+	else
+		{
+			gBattleCommunication[MULTISTRING_CHOOSER] = 7;
+			gBattlescriptCurrInstr += 7;
+		}
+	return;
     case VARIOUS_STAT_TEXT_BUFFER:
         PREPARE_STAT_BUFFER(gBattleTextBuff1, gBattleCommunication[0]);
         break;
@@ -9581,6 +9597,18 @@ static void Cmd_various(void)
     case VARIOUS_SWAP_SIDE_STATUSES:
         CourtChangeSwapSideStatuses();
         break;
+	case VARIOUS_CURSETARGET_NORECOIL:
+		if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED)
+		{
+			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 3);
+		}
+		else
+		{
+			gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
+
+			gBattlescriptCurrInstr += 7;
+		}
+		return;
     } // End of switch (gBattlescriptCurrInstr[2])
 
     gBattlescriptCurrInstr += 3;
@@ -14224,42 +14252,45 @@ static void Cmd_tryworryseed(void)
         gBattlescriptCurrInstr += 5;
     }
 }
+static void Cmd_callnative(void)
+{
+    void (*func)() = (void *)T1_READ_PTR(gBattlescriptCurrInstr + 1);
+    func();
+}
 
-static void Cmd_metalburstdamagecalculator(void)
+// Callnative Funcs
+void BS_CalcMetalBurstDmg(void)
 {
     u8 sideAttacker = GetBattlerSide(gBattlerAttacker);
     u8 sideTarget = 0;
-
     if (gProtectStructs[gBattlerAttacker].physicalDmg
         && sideAttacker != (sideTarget = GetBattlerSide(gProtectStructs[gBattlerAttacker].physicalBattlerId))
         && gBattleMons[gProtectStructs[gBattlerAttacker].physicalBattlerId].hp)
     {
         gBattleMoveDamage = gProtectStructs[gBattlerAttacker].physicalDmg * 150 / 100;
-
         if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove))
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
         else
             gBattlerTarget = gProtectStructs[gBattlerAttacker].physicalBattlerId;
 
-        gBattlescriptCurrInstr += 5;
+        gBattlescriptCurrInstr += 9;
     }
     else if (gProtectStructs[gBattlerAttacker].specialDmg
              && sideAttacker != (sideTarget = GetBattlerSide(gProtectStructs[gBattlerAttacker].specialBattlerId))
              && gBattleMons[gProtectStructs[gBattlerAttacker].specialBattlerId].hp)
     {
         gBattleMoveDamage = gProtectStructs[gBattlerAttacker].specialDmg * 150 / 100;
-
         if (IsAffectedByFollowMe(gBattlerAttacker, sideTarget, gCurrentMove))
             gBattlerTarget = gSideTimers[sideTarget].followmeTarget;
         else
             gBattlerTarget = gProtectStructs[gBattlerAttacker].specialBattlerId;
 
-        gBattlescriptCurrInstr += 5;
+        gBattlescriptCurrInstr += 9;
     }
     else
     {
         gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = TRUE;
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 5);
     }
 }
 

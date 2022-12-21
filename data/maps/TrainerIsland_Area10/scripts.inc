@@ -1,6 +1,16 @@
 TrainerIsland_Area10_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_Area10_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TrainerIsland_Area10_OnFrame
 	.byte 0
+
+TrainerIsland_Area10_OnFrame:
+	map_script_2 VAR_UNUSED_0x40FA, 0, TrainerIsland_Area10_EventScript_SetVar
+	.2byte 0
+
+TrainerIsland_Area10_EventScript_SetVar::
+	setvar VAR_UNUSED_0x40FA, 1
+	end
+
 	
 TrainerIsland_Area10_OnTransition:
 	cleartrainerflag TRAINER_MASTER_ROXANNE

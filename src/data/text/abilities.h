@@ -254,6 +254,11 @@ static const u8 sChillingNeighDescription[] = _("KOs boost Attack stat.");
 static const u8 sGrimNeighDescription[] = _("KOs boost Sp. Atk stat.");
 static const u8 sAsOneIceRiderDescription[] = _("Unnerve and Chilling Neigh.");
 static const u8 sAsOneShadowRiderDescription[] = _("Unnerve and Grim Neigh.");
+static const u8 sGreatPowerDescription[] = _("Raises Special Attack.");
+static const u8 sMagnaPowerDescription[] = _("Raises Special Attack.");
+static const u8 sSuperSpecialDescription[] = _("Raises Special Attack.");
+static const u8 sSuperPhysicalDescription[] = _("Raises Attack.");
+static const u8 sLightWingDescription[] = _("Raises Speed.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -526,6 +531,11 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_GRIM_NEIGH] = _("Grim Neigh"),
     [ABILITY_AS_ONE_ICE_RIDER] = _("As One"),
     [ABILITY_AS_ONE_SHADOW_RIDER] = _("As One"),
+	[ABILITY_GREAT_POWER] = _("Great Power"),
+	[ABILITY_MAGNA_POWER] = _("Magna Power"),
+	[ABILITY_SUPER_SPECIAL] = _("Super Special"),
+	[ABILITY_SUPER_PHYSICAL] = _("Super Physical"),
+	[ABILITY_LIGHTWING] = _("Light Wing"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -798,6 +808,11 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_GRIM_NEIGH] = _("Grim Neigh"),
     [ABILITY_AS_ONE_ICE_RIDER] = _("As One"),
     [ABILITY_AS_ONE_SHADOW_RIDER] = _("As One"),
+	[ABILITY_GREAT_POWER] = _("Great Power"),
+	[ABILITY_MAGNA_POWER] = _("Magna Power"),
+	[ABILITY_SUPER_SPECIAL] = _("SuperSpecial"),
+	[ABILITY_SUPER_PHYSICAL] = _("SuperPhyscl"),
+	[ABILITY_SUPER_PHYSICAL] = _("Light Wing"),
 };
 #endif
 
@@ -1071,4 +1086,9 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_GRIM_NEIGH] = sGrimNeighDescription,
     [ABILITY_AS_ONE_ICE_RIDER] = sAsOneIceRiderDescription,
     [ABILITY_AS_ONE_SHADOW_RIDER] = sAsOneShadowRiderDescription,
+	[ABILITY_GREAT_POWER] = sGreatPowerDescription,
+	[ABILITY_MAGNA_POWER] = sMagnaPowerDescription,
+	[ABILITY_SUPER_SPECIAL] = sSuperSpecialDescription,
+	[ABILITY_SUPER_PHYSICAL] = sSuperPhysicalDescription,
+	[ABILITY_LIGHTWING] = sLightWingDescription,
 };

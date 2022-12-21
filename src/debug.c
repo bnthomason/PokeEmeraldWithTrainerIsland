@@ -314,7 +314,7 @@ static const u8 gDebugText_Give[] =             _("Give X");
 static const u8 gDebugText_Sound[] =            _("Sound");
 static const u8 gDebugText_Cancel[] =           _("Cancel");
 // Script menu
-static const u8 gDebugText_Util_Script_1[] =               _("Script 1");
+static const u8 gDebugText_Util_Script_1[] =               _("BT Winstreak 100 All");
 static const u8 gDebugText_Util_Script_2[] =               _("Script 2");
 static const u8 gDebugText_Util_Script_3[] =               _("Script 3");
 static const u8 gDebugText_Util_Script_4[] =               _("Script 4");
@@ -1229,7 +1229,11 @@ static void DebugAction_Util_Trainer_Id(u8 taskId)
 // Actions Scripts
 static void DebugAction_Util_Script_1(u8 taskId)
 {
-    Debug_DestroyMenu(taskId);
+	gSaveBlock2Ptr->frontier.towerWinStreaks[0][50] = 100;
+	gSaveBlock2Ptr->frontier.towerWinStreaks[1][50] = 100;
+	gSaveBlock2Ptr->frontier.towerWinStreaks[0][100] = 100;
+	gSaveBlock2Ptr->frontier.towerWinStreaks[1][100] = 100;
+	Debug_DestroyMenu(taskId);
     ScriptContext2_Enable();
     ScriptContext1_SetupScript(Debug_Script_1);
 }

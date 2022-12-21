@@ -3,6 +3,12 @@ ENTRY(Start)
 gNumMusicPlayers = 4;
 gMaxLines = 0;
 
+/* Modify the following load addresses as needed to make more room. Alternately, delete both the
+   declarations below and their references further down to get rid of the gaps.                  */
+
+__anim_mon_load_address = 0x8b00000;
+__gfx_load_address = 0x8c00000;
+
 SECTIONS {
     . = 0x2000000;
 
@@ -232,6 +238,7 @@ SECTIONS {
         src/roulette.o(.text);
         src/pokedex_cry_screen.o(.text);
         src/coins.o(.text);
+        src/points.o(.text);
         src/landmark.o(.text);
         src/fldeff_strength.o(.text);
         src/battle_transition.o(.text);

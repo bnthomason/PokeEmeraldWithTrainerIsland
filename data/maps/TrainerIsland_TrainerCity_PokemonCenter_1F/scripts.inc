@@ -1,3 +1,5 @@
+.set LOCALID_NURSE, 4
+
 TrainerIsland_TrainerCity_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, TrainerIsland_TrainerCity_PokemonCenter_1F_OnTransition
 	.byte 0

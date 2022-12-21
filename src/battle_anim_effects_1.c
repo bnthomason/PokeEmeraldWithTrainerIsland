@@ -800,6 +800,17 @@ const struct SpriteTemplate gTwisterLeafSpriteTemplate =
     .callback = AnimMoveTwisterParticle,
 };
 
+const struct SpriteTemplate gFeatherStormSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_FEATHER,
+    .paletteTag = ANIM_TAG_WHITE_FEATHER,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimMoveTwisterParticle,
+};
+
 const struct SpriteTemplate gAttackOrderParticleSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ATTACK_ORDER,

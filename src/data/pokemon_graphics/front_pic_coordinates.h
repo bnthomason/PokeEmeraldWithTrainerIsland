@@ -4499,6 +4499,22 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = MON_COORDS_SIZE(48, 64),
         .y_offset = 2,
     },
+    [SPECIES_DRACOCEROS_CHILD] =
+    {
+        .size = MON_COORDS_SIZE(56, 56),
+        .y_offset = 1,
+    },	
+    [SPECIES_DRACOCEROS_JUVENILE] =
+    {
+        .size = MON_COORDS_SIZE(48, 56),
+        .y_offset = 2,
+    },	
+    [SPECIES_DRACOCEROS_ADULT] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 0,
+    },			
+	
     // Megas
     [SPECIES_VENUSAUR_MEGA] =
     {

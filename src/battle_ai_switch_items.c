@@ -776,6 +776,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
             invalidMons |= gBitTable[i];
         else
             aliveCount++;
+	}
    
    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);

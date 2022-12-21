@@ -2100,20 +2100,30 @@ static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void)
     return Menu_ProcessInputNoWrap();
 }
 
-void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
+static void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
 {
     const u8* name;
+    const u8* rivalname;
     u8 i;
 
     if (gSaveBlock2Ptr->playerGender == MALE)
-        name = gMalePresetNames[nameId];
+	{
+        	name = gMalePresetNames[nameId];
+		rivalname = gText_ExpandedPlaceholder_May;
+	}
     else
-        name = gFemalePresetNames[nameId];
-    for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        gSaveBlock2Ptr->playerName[i] = name[i];
-    gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
+	{
+        	name = gFemalePresetNames[nameId];
+		rivalname = gText_ExpandedPlaceholder_Brendan;
+	}
+    for (i = 0; i < 7; i++)
+	{
+        	gSaveBlock2Ptr->playerName[i] = name[i];
+		gSaveBlock2Ptr->rivalName[i] = rivalname[i];
+	}
+    gSaveBlock2Ptr->playerName[7] = 0xFF;
+    gSaveBlock2Ptr->rivalName[7] = 0xFF;
 }
-
 static void CreateMainMenuErrorWindow(const u8* str)
 {
     FillWindowPixelBuffer(7, PIXEL_FILL(1));

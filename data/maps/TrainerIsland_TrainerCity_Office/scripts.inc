@@ -9,8 +9,8 @@ TrainerIsland_TrainerCity_Office_MapScripts::
 TrainerIsland_TrainerCity_Office_EventScript_CEO::
 	lock
 	faceplayer
-	goto_if_set FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_WillYouHelpWithResearch
-	goto_if_unset FLAG_UNUSED_0x2B7, TrainerIsland_TrainerCity_Office_EventScript_ConductingResearch
+	goto_if_set FLAG_UNUSED_0x2B8, TrainerIsland_TrainerCity_Office_EventScript_WillYouHelpWithResearch
+	goto_if_unset FLAG_UNUSED_0x2B8, TrainerIsland_TrainerCity_Office_EventScript_ConductingResearch
 	end
 
 TrainerIsland_TrainerCity_Office_EventScript_WillYouHelpWithResearch::
@@ -28,14 +28,18 @@ TrainerIsland_TrainerCity_Office_EventScript_PrintIsThatSo::
 	
 TrainerIsland_TrainerCity_Office_EventScript_ThatsGreatThanks::
 	msgbox TrainerIsland_TrainerCity_Office_Text_ThatsGreatThanks, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
 	giveitem ITEM_BATTLE_READER
 	msgbox TrainerIsland_TrainerCity_Office_Text_BattleReaderExplanation, MSGBOX_DEFAULT
-	clearflag FLAG_UNUSED_0x2B7
+	setflag FLAG_UNUSED_0x2B7
+	clearflag FLAG_UNUSED_0x2B8
 	release
 	end
 
 TrainerIsland_TrainerCity_Office_EventScript_ConductingResearch::
-	msgbox TrainerIsland_TrainerCity_Office_Text_ConductingResearch, MSGBOX_YESNO
+	msgbox TrainerIsland_TrainerCity_Office_Text_ConductingResearch, MSGBOX_DEFAULT
+	closemessage
 	end
 	
 TrainerIsland_TrainerCity_Office_EventScript_Worker1::
@@ -146,7 +150,7 @@ TrainerIsland_TrainerCity_Office_Text_WillYouHelpWithResearch:
 	.string "Research?$"
 
 TrainerIsland_TrainerCity_Office_Text_ConductingResearch:
-	.string "We atre underway conducting\n"
+	.string "We are underway conducting\n"
 	.string "research.\p"	
 	.string "Please, continue your battles\n"
 	.string "in Trainer City so we can\l"
