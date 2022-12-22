@@ -190,6 +190,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival::
 	call_if_eq VAR_0x8008, 1, LittlerootTown_MaysHouse_1F_EventScript_MayApproachPlayer1
 	call_if_eq VAR_0x8008, 2, LittlerootTown_MaysHouse_1F_EventScript_MayApproachPlayer2
 	msgbox RivalsHouse_1F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	closemessage
 	special RivalNameChange
 	msgbox RivalsHouse_1F_Text_MayWhoIAm, MSGBOX_DEFAULT
 	closemessage
@@ -371,7 +372,7 @@ RivalsHouse_1F_Text_MayWhoAreYou:
 	.string "Um… I'm…\n"
 
 RivalsHouse_1F_Text_MayWhoIAm:
-	.string "…{Rival}. Glad to meet you!\p"
+	.string "…{RIVAL}. Glad to meet you!\p"
 	.string "I…\n"
 	.string "I have this dream of becoming friends\l"
 	.string "with POKéMON all over the world.\p"

@@ -430,6 +430,11 @@ static const u8 *ExpandPlaceholder_PlayerName(void)
     return gSaveBlock2Ptr->playerName;
 }
 
+static const u8 *ExpandPlaceholder_RivalName(void)
+{
+    return gSaveBlock2Ptr->rivalName;
+}
+
 static const u8 *ExpandPlaceholder_StringVar1(void)
 {
     return gStringVar1;
@@ -451,11 +456,6 @@ static const u8 *ExpandPlaceholder_KunChan(void)
         return gText_ExpandedPlaceholder_Kun;
     else
         return gText_ExpandedPlaceholder_Chan;
-}
-
-static const u8 *ExpandPlaceholder_RivalName(void)
-{
-    return gSaveBlock2Ptr->rivalName;
 }
 
 static const u8 *ExpandPlaceholder_Version(void)

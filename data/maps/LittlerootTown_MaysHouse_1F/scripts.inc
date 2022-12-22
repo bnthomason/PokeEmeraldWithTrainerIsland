@@ -190,6 +190,7 @@ LittlerootTown_MaysHouse_1F_EventScript_MeetRival::
 	call_if_eq VAR_0x8008, 1, LittlerootTown_MaysHouse_1F_EventScript_MayApproachPlayer1
 	call_if_eq VAR_0x8008, 2, LittlerootTown_MaysHouse_1F_EventScript_MayApproachPlayer2
 	msgbox RivalsHouse_1F_Text_MayWhoAreYou, MSGBOX_DEFAULT
+	closemessage
 	special RivalNameChange
 	msgbox RivalsHouse_1F_Text_MayWhoIAm, MSGBOX_DEFAULT
 	closemessage

@@ -188,6 +188,7 @@ extern const u8 gText_YourName[];
 extern const u8 gText_BoxName[];
 extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_TellHimTheWords[];
+extern const u8 gText_RivalName[];
 
 
 // start of .rodata
@@ -2138,6 +2139,18 @@ static const struct NamingScreenTemplate sWaldaWordsScreenTemplate =
     .title = gText_TellHimTheWords,
 };
 
+static const struct NamingScreenTemplate rivalNamingScreenTemplate =
+{
+    .copyExistingString = FALSE,
+    .maxChars = PLAYER_NAME_LENGTH,
+    .iconFunction = 1,
+    .addGenderIcon = FALSE,
+    .initialPage = KBPAGE_LETTERS_UPPER,
+    .unused = 35,
+    .title = gText_RivalName,
+};
+
+
 static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
 {
     [NAMING_SCREEN_PLAYER]     = &sPlayerNamingScreenTemplate,
@@ -2575,4 +2588,14 @@ static const struct SpritePalette sSpritePalettes[] =
     {}
 };
 
-
+void RivalNameChange(void)
+{
+	if(gSaveBlock2Ptr->playerGender == 0)
+	{
+		DoNamingScreen(5, gSaveBlock2Ptr->rivalName, 1, 0, 0, CB2_ReturnToFieldContinueScript);
+	}
+	else
+	{
+		DoNamingScreen(5, gSaveBlock2Ptr->rivalName, 0, 0, 0, CB2_ReturnToFieldContinueScript);
+	}
+}

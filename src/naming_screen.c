@@ -2142,7 +2142,7 @@ static const struct NamingScreenTemplate sWaldaWordsScreenTemplate =
 static const struct NamingScreenTemplate rivalNamingScreenTemplate =
 {
     .copyExistingString = FALSE,
-    .maxChars = PLAYER_NAME_LENGTH,
+    .maxChars = 7,
     .iconFunction = 1,
     .addGenderIcon = FALSE,
     .initialPage = KBPAGE_LETTERS_UPPER,
