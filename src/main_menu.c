@@ -225,6 +225,7 @@ static void Task_NewGameBirchSpeech_WaitPressBeforeNameChoice(u8);
 static void Task_NewGameBirchSpeech_StartNamingScreen(u8);
 static void CB2_NewGameBirchSpeech_ReturnFromNamingScreen(void);
 static void Task_NewGameBirchSpeech_CreateNameYesNo(u8);
+void NewGameBirchSpeech_SetDefaultPlayerName (u8);
 static void Task_NewGameBirchSpeech_ProcessNameYesNoMenu(u8);
 void CreateYesNoMenuParameterized(u8, u8, u16, u16, u8, u8);
 static void Task_NewGameBirchSpeech_SlidePlatformAway2(u8);
@@ -2100,7 +2101,7 @@ static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void)
     return Menu_ProcessInputNoWrap();
 }
 
-static void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
+void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
 {
     const u8* name;
     const u8* rivalname;
@@ -2124,6 +2125,7 @@ static void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
     gSaveBlock2Ptr->playerName[7] = 0xFF;
     gSaveBlock2Ptr->rivalName[7] = 0xFF;
 }
+
 static void CreateMainMenuErrorWindow(const u8* str)
 {
     FillWindowPixelBuffer(7, PIXEL_FILL(1));

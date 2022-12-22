@@ -320,7 +320,7 @@ RivalsHouse_2F_Text_MayWhoAreYou:
 	.string "Um… I'm…$"
 	
 RivalsHouse_2F_Text_MayWhoIAm:
-	.string "…{RIVAL}. Glad to meet you!\p"
+	.string "…{Rival}. Glad to meet you!\p"
 	.string "I…\n"
 	.string "I have this dream of becoming friends\l"
 	.string "with POKéMON all over the world.\p"

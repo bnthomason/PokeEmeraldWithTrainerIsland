@@ -183,7 +183,7 @@ TrainerIsland_Entrance_Movement_RivalExit:
 	step_end
 	
 TrainerIsland_Entrance_Text_MayTrainerIsland_EntranceNotice:
-	.string "MAY: Is that…?$"
+	.string "{RIVAL}: Is that…?$"
 
 TrainerIsland_Entrance_Text_MayTalk:
 	.string "Welcome, {PLAYER}{KUN}, to Trainer\n"
@@ -201,7 +201,7 @@ TrainerIsland_Entrance_Text_MayTalk2:
 	.string "island! See ya!$"
 
 TrainerIsland_Entrance_Text_BrendanTrainerIsland_EntranceNotice:
-	.string "BRENDAN: Is that…?$"
+	.string "{RIVAL}: Is that…?$"
 
 TrainerIsland_Entrance_Text_BrendanTalk:
 	.string "Welcome, {PLAYER}{KUN}, to Trainer\n"

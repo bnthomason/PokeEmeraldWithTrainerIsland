@@ -490,19 +490,19 @@ TrainerIsland_TrainerCity_Gym_Text_Wallace_DefeatMasters:
 	.string "you can challenge me.$"
 
 TrainerIsland_TrainerCity_Gym_Text_May_DefeatGymMasters:
-	.string "MAY: You need to defeat all the\n"
+	.string "{RIVAL}: You need to defeat all the\n"
 	.string "masters and the two champions\l"
 	.string "in this room before you\l"
 	.string "can challenge me.$"
 
 TrainerIsland_TrainerCity_Gym_Text_May_DefeatGymChampions:
-	.string "MAY: Though you defeated all the\n"
+	.string "{RIVAL}: Though you defeated all the\n"
 	.string "masters, you still need to defeat\l"
 	.string "both champions before you can\l"
 	.string "challenge me.$"
 	
 TrainerIsland_TrainerCity_Gym_Text_MayLetsBattle:
-	.string "MAY: Congradulations, {PLAYER}{KUN},\n"
+	.string "{RIVAL}: Congradulations, {PLAYER}{KUN},\n"
 	.string "you made it this far!\p"
 	.string "I applaud you for your efforts and\n"
 	.string "feats, but this is where it stops.\p"
@@ -512,7 +512,7 @@ TrainerIsland_TrainerCity_Gym_Text_MayLetsBattle:
 	.string "this is your final challenge!!!$"
 	
 TrainerIsland_TrainerCity_Gym_Text_MayDefeat:
-	.string "BRENDAN: {PLAYER}{KUN}, you've done\n"
+	.string "{RIVAL}: {PLAYER}{KUN}, you've done\n"
 	.string "it! You've won!\p"
 	.string "The glory, the splendor, the\n"
 	.string "magnificence!\p"
@@ -520,19 +520,19 @@ TrainerIsland_TrainerCity_Gym_Text_MayDefeat:
 	.string "my breath praising you!$"
 
 TrainerIsland_TrainerCity_Gym_Text_Brendan_DefeatGymMasters:
-	.string "BRENDAN: You need to defeat all the\n"
+	.string "{RIVAL}: You need to defeat all the\n"
 	.string "masters and the two champions\l"
 	.string "in this room before you\l"
 	.string "can challenge me.$"
 
 TrainerIsland_TrainerCity_Gym_Text_Brendan_DefeatGymChampions:
-	.string "BRENDAN: Though you defeated all the\n"
+	.string "{RIVAL}: Though you defeated all the\n"
 	.string "masters, you still need to defeat\l"
 	.string "both champions before you can\l"
 	.string "challenge me.$"
 	
 TrainerIsland_TrainerCity_Gym_Text_BrendanLetsBattle:
-	.string "BRENDAN: Congradulations,\n"
+	.string "{RIVAL}: Congradulations,\n"
 	.string "{PLAYER}{KUN}, you made it this far!\p"
 	.string "I applaud you for your efforts and\n"
 	.string "feats, but this is where it all ends.\p"
@@ -542,7 +542,7 @@ TrainerIsland_TrainerCity_Gym_Text_BrendanLetsBattle:
 	.string "this is your final battle!!!$"
 
 TrainerIsland_TrainerCity_Gym_Text_BrendanDefeat:
-	.string "BRENDAN: {PLAYER}{KUN}, you've done\n"
+	.string "{RIVAL}: {PLAYER}{KUN}, you've done\n"
 	.string "it! You've won!\p"
 	.string "The glory, the splendor, the\n"
 	.string "magnificence!\p"

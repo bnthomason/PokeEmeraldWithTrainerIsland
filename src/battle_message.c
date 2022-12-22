@@ -2978,7 +2978,7 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
         ConvertInternationalString(text, gBattleResources->secretBase->language);
         toCpy = text;
     }
-    else if (trainerId == TRAINER_OPPONENT_C00)
+    else if (trainerId == TRAINER_UNION_ROOM)
     {
         toCpy = gLinkPlayers[multiplayerId ^ BIT_SIDE].name;
     }
