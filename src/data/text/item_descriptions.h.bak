@@ -156,7 +156,7 @@ static const u8 sSuperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "60 points.");
+    "50 points.");
 #else
     "50 points.");
 #endif
@@ -165,7 +165,7 @@ static const u8 sHyperPotionDesc[] = _(
     "Restores the HP of\n"
     "a Pokémon by\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "120 points.");
+    "200 points.");
 #else
     "200 points.");
 #endif
@@ -193,7 +193,7 @@ static const u8 sFreshWaterDesc[] = _(
     "A mineral water\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 30 points.");
+    "by 50 points.");
 #else
     "by 50 points.");
 #endif
@@ -202,7 +202,7 @@ static const u8 sSodaPopDesc[] = _(
     "A fizzy soda drink\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 50 points.");
+    "by 60 points.");
 #else
     "by 60 points.");
 #endif
@@ -211,7 +211,7 @@ static const u8 sLemonadeDesc[] = _(
     "A very sweet drink\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 70 points.");
+    "by 80 points.");
 #else
     "by 80 points.");
 #endif
@@ -225,7 +225,7 @@ static const u8 sEnergyPowderDesc[] = _(
     "A bitter powder\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 60 points.");
+    "by 50 points.");
 #else
     "by 50 points.");
 #endif
@@ -234,7 +234,7 @@ static const u8 sEnergyRootDesc[] = _(
     "A bitter root\n"
     "that restores HP\n"
 #if I_HEALTH_RECOVERY >= GEN_7
-    "by 120 points.");
+    "by 200 points.");
 #else
     "by 200 points.");
 #endif
@@ -1412,6 +1412,12 @@ static const u8 sPixiePlateDesc[] = _(
     "A stone tablet that\n"
     "boosts the power of\n"
     "Fairy-type moves.");
+	
+static const u8 sBrightPlateDesc[] = _(
+    "A stone tablet that\n"
+    "boosts the power of\n"
+    "Light-type moves.");
+
 
 // Drives
 static const u8 sDouseDriveDesc[] = _(
@@ -1517,6 +1523,11 @@ static const u8 sSteelMemoryDesc[] = _(
 
 static const u8 sFairyMemoryDesc[] = _(
     "A disc with Fairy\n"
+    "type data. It swaps\n"
+    "Silvally's type.");
+
+static const u8 sLightMemoryDesc[] = _(
+    "A disc with Light\n"
     "type data. It swaps\n"
     "Silvally's type.");
 
@@ -1766,6 +1777,16 @@ static const u8 sDianciteDesc[] = _(
     "This stone enables\n"
     "Diancie to Mega\n"
     "Evolve in battle.");
+	
+static const u8 sHolyHaloDesc[] = _(
+    "Powers up Dracoceros's\n"
+    "moves, gradually restoring\n"
+    "HP, and mega evolves.");
+	
+static const u8 sChaosCrossDesc[] = _(
+    "Powers up Dracoceros's\n"
+    "moves, gradually restoring\n"
+    "HP, and mega evolves.");
 
 // Gems
 static const u8 sNormalGemDesc[] = _(
@@ -1858,6 +1879,11 @@ static const u8 sFairyGemDesc[] = _(
     "power of Fairy\n"
     "Type moves.");
 
+static const u8 sLightGemDesc[] = _(
+    "Increases the\n"
+    "power of Light\n"
+    "Type moves.");
+
 // Z-Crystals
 static const u8 sNormaliumZDesc[] = _(
     "Upgrade Normal-\n"
@@ -1946,6 +1972,11 @@ static const u8 sSteeliumZDesc[] = _(
 
 static const u8 sFairiumZDesc[] = _(
     "Upgrade Fairy-\n"
+    "type moves into\n"
+    "Z-Moves.");
+	
+static const u8 sLightiumZDesc[] = _(
+    "Upgrade Light-\n"
     "type moves into\n"
     "Z-Moves.");
 
@@ -2294,6 +2325,16 @@ static const u8 sMetalCoatDesc[] = _(
     "A hold item that\n"
     "raises the power of\n"
     "Steel-type moves.");
+	
+static const u8 sPinkBowDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "Fairy-type moves.");
+	
+static const u8 sRainbowPrismDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "Light-type moves.");
 
 // Choice Items
 static const u8 sChoiceBandDesc[] = _(

@@ -229,6 +229,60 @@
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
       "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_DEX_UPGRADE_JOHTO_STARTER_STATE",
+      "var_value": "3",
+      "script": "LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger0"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_DEX_UPGRADE_JOHTO_STARTER_STATE",
+      "var_value": "3",
+      "script": "LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_DEX_UPGRADE_JOHTO_STARTER_STATE",
+      "var_value": "3",
+      "script": "LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger3"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_DEX_UPGRADE_JOHTO_STARTER_STATE",
+      "var_value": "3",
+      "script": "LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_DEX_UPGRADE_JOHTO_STARTER_STATE",
+      "var_value": "3",
+      "script": "LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_DEX_UPGRADE_JOHTO_STARTER_STATE",
+      "var_value": "3",
+      "script": "LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger5"
     }
   ],
   "bg_events": [

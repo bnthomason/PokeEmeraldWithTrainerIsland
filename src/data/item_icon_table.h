@@ -287,6 +287,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_DREAD_PLATE] = {gItemIcon_DreadPlate, gItemIconPalette_DreadPlate},
     [ITEM_IRON_PLATE] = {gItemIcon_IronPlate, gItemIconPalette_IronPlate},
     [ITEM_PIXIE_PLATE] = {gItemIcon_PixiePlate, gItemIconPalette_PixiePlate},
+    [ITEM_BRIGHT_PLATE] = {gItemIcon_BrightPlate, gItemIconPalette_BrightPlate},
     // Drives
     [ITEM_DOUSE_DRIVE] = {gItemIcon_DouseDrive, gItemIconPalette_DouseDrive},
     [ITEM_SHOCK_DRIVE] = {gItemIcon_ShockDrive, gItemIconPalette_ShockDrive},
@@ -310,6 +311,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_DARK_MEMORY] = {gItemIcon_DarkMemory, gItemIconPalette_DarkMemory},
     [ITEM_STEEL_MEMORY] = {gItemIcon_SteelMemory, gItemIconPalette_SteelMemory},
     [ITEM_FAIRY_MEMORY] = {gItemIcon_FairyMemory, gItemIconPalette_FairyMemory},
+    [ITEM_LIGHT_MEMORY] = {gItemIcon_LightMemory, gItemIconPalette_LightMemory},
     [ITEM_RUSTED_SWORD] = {gItemIcon_RustedSword, gItemIconPalette_RustedWeapons},
     [ITEM_RUSTED_SHIELD] = {gItemIcon_RustedShield, gItemIconPalette_RustedWeapons},
     // Colored Orbs
@@ -382,6 +384,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_DARK_GEM] = {gItemIcon_DarkGem, gItemIconPalette_DarkGem},
     [ITEM_STEEL_GEM] = {gItemIcon_SteelGem, gItemIconPalette_SteelGem},
     [ITEM_FAIRY_GEM] = {gItemIcon_FairyGem, gItemIconPalette_FairyGem},
+    [ITEM_LIGHT_GEM] = {gItemIcon_LightGem, gItemIconPalette_LightGem},
     // Z-Crystals
     [ITEM_NORMALIUM_Z] = {gItemIcon_NormaliumZ, gItemIconPalette_NormaliumZ},
     [ITEM_FIRIUM_Z] = {gItemIcon_FiriumZ, gItemIconPalette_FiriumZ},
@@ -401,6 +404,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_DARKINIUM_Z] = {gItemIcon_DarkiniumZ, gItemIconPalette_DarkiniumZ},
     [ITEM_STEELIUM_Z] = {gItemIcon_SteeliumZ, gItemIconPalette_SteeliumZ},
     [ITEM_FAIRIUM_Z] = {gItemIcon_FairiumZ, gItemIconPalette_FairiumZ},
+    [ITEM_LIGHTIUM_Z] = {gItemIcon_LightiumZ, gItemIconPalette_LightiumZ},	
     [ITEM_PIKANIUM_Z] = {gItemIcon_PikaniumZ, gItemIconPalette_PikaniumZ},
     [ITEM_EEVIUM_Z] = {gItemIcon_EeviumZ, gItemIconPalette_EeviumZ},
     [ITEM_SNORLIUM_Z] = {gItemIcon_SnorliumZ, gItemIconPalette_SnorliumZ},

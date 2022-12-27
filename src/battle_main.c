@@ -4456,6 +4456,10 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
             speed *= 2;
         else if (ability == ABILITY_SLUSH_RUSH  && gBattleWeather & B_WEATHER_HAIL)
             speed *= 2;
+		else if (ability == ABILITY_GLIDER		&& gBattleWeather & B_WEATHER_WINDSTORM)
+			speed *= 2;
+		else if (ability == ABILITY_LIGHTWING	&& gBattleWeather & B_WEATHER_WINDSTORM)
+			speed *= 2;
     }
 
     // other abilities

@@ -841,6 +841,7 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 case MOVE_RAIN_DANCE:
                 case MOVE_HAIL:
                 case MOVE_SANDSTORM:
+				case MOVE_WINDSTORM:
                     RETURN_SCORE_MINUS(30);
             }
         }
@@ -1452,6 +1453,11 @@ static s16 AI_CheckBadMove(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             break;
         case EFFECT_SANDSTORM:
             if (gBattleWeather & (B_WEATHER_SANDSTORM | B_WEATHER_PRIMAL_ANY)
+             || PartnerMoveEffectIsWeather(BATTLE_PARTNER(battlerAtk), AI_DATA->partnerMove))
+                score -= 8;
+            break;
+        case EFFECT_WINDSTORM:
+            if (gBattleWeather & (B_WEATHER_WINDSTORM | B_WEATHER_PRIMAL_ANY)
              || PartnerMoveEffectIsWeather(BATTLE_PARTNER(battlerAtk), AI_DATA->partnerMove))
                 score -= 8;
             break;
@@ -2659,6 +2665,12 @@ static s16 AI_DoubleBattle(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
             RETURN_SCORE_PLUS(1);   // our partner benefits from sandstorm
         }
         break;
+    case EFFECT_WINDSTORM:
+        if (ShouldSetWindstorm(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
+        {
+            RETURN_SCORE_PLUS(1);   // our partner benefits from windstorm
+        }
+        break;
     case EFFECT_RAIN_DANCE:
         if (ShouldSetRain(battlerAtkPartner, atkPartnerAbility, atkPartnerHoldEffect))
         {
@@ -3800,6 +3812,15 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
                 score += 2;                
         }
         break;
+    case EFFECT_WINDSTORM:
+        if (ShouldSetWindstorm(battlerAtk, AI_DATA->holdEffects[battlerAtk], AI_DATA->holdEffects[battlerAtk]))
+        {
+            score++;
+                score++;
+            if (HasMoveWithType(battlerDef, TYPE_GROUND) || HasMoveWithType(BATTLE_PARTNER(battlerDef), TYPE_FLYING))
+                score++;              
+        }
+        break;
     case EFFECT_HAIL:
         if (ShouldSetHail(battlerAtk, AI_DATA->abilities[battlerAtk], AI_DATA->holdEffects[battlerAtk]))
         {
@@ -4510,7 +4531,7 @@ static s16 AI_CheckViability(u8 battlerAtk, u8 battlerDef, u16 move, s16 score)
     case EFFECT_HEAL_BLOCK:
         if (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER && predictedMove != MOVE_NONE && IsHealingMoveEffect(gBattleMoves[predictedMove].effect))
             score += 3; // Try to cancel healing move
-        else if (HasHealingEffect(battlerDef) || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_LEFTOVERS
+        else if (HasHealingEffect(battlerDef) || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_LEFTOVERS || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_HOLY_HALO || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_CHAOS_CROSS
           || (AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_BLACK_SLUDGE && IS_BATTLER_OF_TYPE(battlerDef, TYPE_POISON)))
             score += 2;
         break;

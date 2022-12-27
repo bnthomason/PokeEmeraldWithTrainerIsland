@@ -2978,6 +2978,47 @@ static const u8 sEerieSpellDescription[] = _(
     "Attacks with psychic power.\n"
     "Foe's last move has 3 PP cut.");
 
+static const u8 sTrillDescription[] = _(
+    "Trills a high pitched cry,\n"
+    "raising its Special Attack.");
+
+static const u8 sLightSparkDescription[] = _(
+    "Nuzzles the opponent with a\n"
+    "spark of light.");
+	
+static const u8 sFlashGleamDescription[] = _(
+    "Flashes a gleam of light.\n"
+    "May lower accuracy.");
+	
+static const u8 sWindStormDescription[] = _(
+    "Conjures up harsh winds that\n"
+	"boosts flying attacks.");
+
+	
+static const u8 sAlicornChargeDescription[] = _(
+    "Lowers its head and charges\n"
+	"horn-first at the foe.");
+	
+static const u8 sLightPulseDescription[] = _(
+    "Sends forth a pulse filled \n"
+	"with happy thoughts.");
+	
+static const u8 sHealingTouchDescription[] = _(
+    "Shoots a powerful blast of\n"
+	"light at the foe.");
+
+static const u8 sFeatherStormDescription[] = _(
+    "Beats its wings to whip up a\n"
+	"storm of feathers.");
+
+static const u8 sPhotonBlastDescription[] = _(
+    "Beats its wings to whip up a\n"
+	"storm of feathers.");
+	
+static const u8 sLightofRevivalDescription[] = _(
+    "Revives one fainted pokemon\n"
+	"in the player's party.");
+
 static const u8 sNotDoneYetDescription[] = _(
     "Not done yet.");
 
@@ -3740,4 +3781,15 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_GLACIAL_LANCE - 1] = sGlacialLanceDescription,
     [MOVE_ASTRAL_BARRAGE - 1] = sAstralBarrageDescription,
     [MOVE_EERIE_SPELL - 1] = sEerieSpellDescription,
+	// RYUKU DESCRIPTION
+	[MOVE_TRILL - 1] = sTrillDescription,
+	[MOVE_LIGHTSPARK - 1] = sLightSparkDescription,
+	[MOVE_FLASH_GLEAM - 1] = sFlashGleamDescription,
+	[MOVE_WINDSTORM - 1] = sWindStormDescription,
+	[MOVE_ALICORN_CHARGE - 1] = sAlicornChargeDescription,
+	[MOVE_LIGHT_PULSE - 1] = sLightPulseDescription,
+	[MOVE_HEALING_TOUCH - 1] = sHealingTouchDescription,
+	[MOVE_FEATHERSTORM - 1] = sFeatherStormDescription,
+	[MOVE_PHOTON_BLAST - 1] = sPhotonBlastDescription,
+	[MOVE_LIGHT_OF_REVIVAL - 1] = sLightofRevivalDescription,
 };

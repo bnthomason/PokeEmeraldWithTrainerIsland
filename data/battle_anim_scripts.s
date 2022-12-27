@@ -779,8 +779,9 @@ gBattleAnims_Moves::
 	.4byte Move_GLACIAL_LANCE
 	.4byte Move_ASTRAL_BARRAGE
 	.4byte Move_EERIE_SPELL
+@@@@@@@@@@@@ RYUKU @@@@@@@@@@@@
 	.4byte Move_TRILL
-	.4byte Move_LIGHT_SPARK
+	.4byte Move_LIGHTSPARK
 	.4byte Move_FLASH_GLEAM
 	.4byte Move_WINDSTORM
 	.4byte Move_ALICORN_CHARGE
@@ -819,7 +820,6 @@ gBattleAnims_General::
 	.4byte General_Sun                      @ B_ANIM_SUN_CONTINUES
 	.4byte General_Sandstorm                @ B_ANIM_SANDSTORM_CONTINUES
 	.4byte General_Hail                     @ B_ANIM_HAIL_CONTINUES
-	.4byte General_Windstorm				@ B_ANIM_WINDSTORM_CONTINUES
 	.4byte General_LeechSeedDrain           @ B_ANIM_LEECH_SEED_DRAIN
 	.4byte General_MonHit                   @ B_ANIM_MON_HIT
 	.4byte General_ItemSteal                @ B_ANIM_ITEM_STEAL
@@ -841,6 +841,7 @@ gBattleAnims_General::
 	.4byte General_AquaRingHeal             @ B_ANIM_AQUA_RING_HEAL
 	.4byte General_BeakBlastSetUp           @ B_ANIM_BEAK_BLAST_SETUP
 	.4byte General_ShellTrapSetUp           @ B_ANIM_SHELL_TRAP_SETUP
+	.4byte General_Windstorm				@ B_ANIM_WINDSTORM_CONTINUES
 
 	.align 2
 gBattleAnims_Special::
@@ -24494,9 +24495,9 @@ General_Sandstorm:
 General_Hail:
 	goto Move_HAIL
 	
-General_Windstorm::
+General_Windstorm:
 	loadspritegfx ANIM_TAG_FLYING_DIRT
-	playsewithpan SE_M_GUST, 0
+	playsewithpan SE_M_TWISTER, 0
 	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_FLYING_DIRT, 0, 12, 12, RGB(20, 20, 20)
 	waitforvisualfinish
 	end
@@ -24965,33 +24966,32 @@ Move_TRILL::
 	waitforvisualfinish
 	end
 	
-Move_LIGHT_SPARK::
+Move_LIGHTSPARK::
 	loadspritegfx ANIM_TAG_IMPACT
 	loadspritegfx ANIM_TAG_SPARK_2
 	playsewithpan SE_M_TWISTER, SOUND_PAN_ATTACKER
 	delay 0
-	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 5, 5, RGB(31, 31, 22)
-	createvisualtask AnimTask_FadeScreenToWhite, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 5, 5, RGB(31, 31, 30)
+	waitforvisualfinish
+	delay 10
 	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_ATTACKER
 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 32, 24, 190, 12, ANIM_ATTACKER, 1, 0
 	delay 0
 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 80, 24, 22, 12, ANIM_ATTACKER, 1, 0
 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 156, 24, 121, 13, ANIM_ATTACKER, 1, 1
 	delay 0
-	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 0, 0, RGB(31, 31, 22)
+	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 0, 0, RGB(31, 31, 30)
 	delay 10
-	createvisualtask AnimTask_FadeScreenToWhite, 1
-	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 5, 5, RGB(31, 31, 22)
+	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 5, 5, RGB(31, 31, 30)
 	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_ATTACKER
 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 100, 24, 60, 10, ANIM_ATTACKER, 1, 0
 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 170, 24, 42, 11, ANIM_ATTACKER, 1, 1
 	delay 0
 	createsprite gSparkElectricitySpriteTemplate, ANIM_ATTACKER, 0, 238, 24, 165, 10, ANIM_ATTACKER, 1, 1
 	delay 0
-	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 0, 0, RGB(31, 31, 22)
+	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 0, 0, RGB(31, 31, 30)
 	delay 20
-	createvisualtask AnimTask_FadeScreenToWhite, 1
-	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 7, 7, RGB(31, 31, 22)
+	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 7, 7, RGB(31, 31, 30)
 	playsewithpan SE_M_THUNDERBOLT2, SOUND_PAN_ATTACKER
 	createsprite gSparkElectricityFlashingSpriteTemplate, ANIM_ATTACKER, 4, 0, 0, 32, 12, 0, 20, 0, 0
 	createsprite gSparkElectricityFlashingSpriteTemplate, ANIM_ATTACKER, 4, 0, 0, 32, 12, 64, 20, 1, 0
@@ -25003,16 +25003,18 @@ Move_LIGHT_SPARK::
 	createsprite gSparkElectricityFlashingSpriteTemplate, ANIM_ATTACKER, 4, 0, 0, 16, 12, 224, 20, 2, 0
 	delay 4
 	waitforvisualfinish
-	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 0, 0, RGB(31, 31, 22)
+	createvisualtask AnimTask_BlendColorCycle, 2, 3, -31, 1, 0, 0, RGB(31, 31, 30)
 	createsprite gHorizontalLungeSpriteTemplate, ANIM_ATTACKER, 2, 4, 4
 	delay 4
-	createvisualtask AnimTask_FadeScreenToWhite, 3
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, ANIM_TARGET, 2
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendColorCycle, 2, 4, -31, 2, 0, 6, RGB(31, 31, 22)
+	blendoff
 	waitforvisualfinish
 	end
+	
+
 	
 
 Move_FLASH_GLEAM::
@@ -25180,18 +25182,18 @@ Move_FEATHERSTORM::
 	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 115, 60, 7, 60, 30
 	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 115, 55, 10, 60, 30
 	delay 3
-	createsprite gTwisterRockSpriteTemplate, ANIM_TARGET, 2, 100, 50, 4, 50, 26
+	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 100, 50, 4, 50, 26
 	delay 1
 	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 105, 25, 8, 60, 20
 	delay 1
-	createsprite gTwisterLeafSpriteTemplate, ANIM_TARGET, 2, 115, 40, 10, 48, 30
+	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 115, 40, 10, 48, 30
 	delay 3
-	createsprite gTwisterRockSpriteTemplate, ANIM_TARGET, 2, 120, 30, 6, 45, 25
+	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 120, 30, 6, 45, 25
 	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 115, 35, 10, 60, 30
 	delay 3
-	createsprite gTwisterRockSpriteTemplate, ANIM_TARGET, 2, 105, 20, 8, 40, 0
+	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 105, 20, 8, 40, 0
 	delay 3
-	createsprite gTwisterLeafSpriteTemplate, ANIM_TARGET, 2, 20, 255, 15, 32, 0
+	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 20, 255, 15, 32, 0
 	createsprite gFeatherStormSpriteTemplate, ANIM_TARGET, 2, 110, 10, 8, 32, 20
 	waitforvisualfinish
 	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, -32, -16, ANIM_TARGET, 3
@@ -25212,149 +25214,63 @@ Move_FEATHERSTORM::
 	blendoff
 	end
 
-Move_PHOTON_BLAST::
+Move_PHOTON_BLAST:
 	loadspritegfx ANIM_TAG_ELECTRIC_ORBS @launchtask particles
 	loadspritegfx ANIM_TAG_ORBS @beam particles
 	loadspritegfx ANIM_TAG_ELECTRICITY @discharge
 	loadspritegfx ANIM_TAG_PINK_PETAL @pink color
 	loadspritegfx ANIM_TAG_EXPLOSION @explosion
+	loadspritegfx ANIM_TAG_SUNLIGHT @sun rays
+	monbg ANIM_ATTACKER
+	panse_adjustnone SE_M_PETAL_DANCE, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +1, 0
+	call SolarBladeSunRays
+	call SolarBladeSunRays
+	call SolarBladeSunRays
+	call SolarBladeSunRays
 	waitforvisualfinish
 	monbg ANIM_ATK_PARTNER
 	setalpha 12, 8
 	createvisualtask AnimTask_BlendColorCycle, 2, 2, 1, 4, 0, 11, RGB(31, 31, 11)
 	playsewithpan SE_M_MEGA_KICK, SOUND_PAN_ATTACKER
 	call SetSolarBeamBg
-	call PhotonBlastUnleash2
-	call PhotonBlastUnleash3
 	panse SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
 	createvisualtask AnimTask_CreateSmallSolarBeamOrbs, 5
+	createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 0
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 1
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 1, 0, 10, RGB(25, 31, 0)
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 2
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
 	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 65, 1
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 3
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 4
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 5
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
 	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 6
+	createsprite gHyperBeamOrbSpriteTemplate, ANIM_TARGET, 2
+	launchtemplate gLightOfRuinPinkOrbsTemplate 0x82 0x0
 	delay 4
-	call PhotonBlastUnleash1
-	call PhotonBlastUnleash1 
+	call SolarBeamUnleash1
 	waitforvisualfinish
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 1, 10, 0, RGB(25, 31, 0)
+	clearmonbg ANIM_ATK_PARTNER
+	clearmonbg ANIM_ATTACKER
+	blendoff
 	call UnsetSolarBeamBg
 	goto SolarBeamEnd
-PhotonBlastUnleash1:
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 0
-	delay 4
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 1
-	delay 4
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 2
-	delay 4
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 3
-	delay 4
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 4
-	delay 4
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 5
-	delay 4
-	createsprite gSolarBeamBigOrbSpriteTemplate, ANIM_TARGET, 3, 15, 0, 20, 6
-	delay 4
-	return
-PhotonBlastUnleash3:
-	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_ELECTRIC_ORBS, 0, 0xC, 0xC, 0x6DDE @Pink
-	waitforvisualfinish
-	launchtask AnimTask_ElectricChargingParticles 0x2 0x4 0x0 0x14 0x0 0x2
-	panse SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 0x2, 0x0
-	launchtask AnimTask_BlendBattleAnimPal 0xa 0x5 ANIM_PAL_BG 0x1 0x0 0xF 0x6B1F
-	launchtask AnimTask_ShakeMon 0x2 0x5 ANIM_ATTACKER 0x0 0x4 0x32 0x1
-	createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, 0x1f, 0x10, 0, 0
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	launchtask AnimTask_ShakeMon2 0x2 0x5 0x1 0x4 0x0 0x32 0x1
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	call LightOfRuinBeam
-	delay 0x20
-	playsewithpan SE_M_EXPLOSION, SOUND_PAN_ATTACKER
-	launchtemplate gLightOfRuinPinkDischargeTemplate 0x2 0x3 0x1 0x10 0x10
-	delay 0x2
-	launchtemplate gLightOfRuinPinkDischargeTemplate 0x2 0x3 0x1 0xfff0 0xfff0
-	delay 0x5
-	launchtask AnimTask_ShakeMon 0x5 0x5 ANIM_TARGET 0x0 0x5 0xb 0x1
-	launchtemplate gLightOfRuinPinkExplosionTemplate 0x3 0x4 0x0 0x0 0x1 0x1
-	delay 0x10
-	launchtask AnimTask_BlendBattleAnimPal 0xa 0x5 ANIM_PAL_BG 0x1 0x10 0x0 0x7FFF
-	waitforvisualfinish
-	launchtask AnimTask_BlendBattleAnimPal 0xa 0x5 ANIM_PAL_ALL_BATTLERS 0x1 0x0 0x0 0x0
-	waitforvisualfinish
-	end
-PhotonBlastUnleash2:
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 4, 0, 16, RGB_BLACK
-	waitforvisualfinish
-	delay 10
-	playsewithpan SE_M_HYPER_BEAM, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_ATTACKER, 1, 0, 4, 1
-	waitforvisualfinish
-	delay 30
-	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_HYPER_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 1, 15, 0, 5
-	createvisualtask AnimTask_ShakeMon, 2, ANIM_ATTACKER, 0, 4, 50, 1
-	createvisualtask AnimTask_FlashAnimTagWithColor, 2, ANIM_TAG_ORBS, 1, 12, RGB(31, 0, 0), 16, 0, 0
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 50, 1
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 0, 11, RGB(25, 25, 25)
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	call HyperBeamOrbs
-	createvisualtask AnimTask_BlendBattleAnimPal, 10, 4, 2, 11, 0, RGB(25, 25, 25)
-	waitforvisualfinish
-	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 4, 16, 0, RGB_BLACK
-	end

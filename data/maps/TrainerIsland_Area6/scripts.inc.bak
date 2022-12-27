@@ -12,6 +12,10 @@ TrainerIsland_Area6_OnTransition:
 	cleartrainerflag TRAINER_MASTER_THANTOS
 	cleartrainerflag TRAINER_MASTER_THUNDER
 	cleartrainerflag TRAINER_MASTER_AURORA
+	cleartrainerflag TRAINER_MASTER_WINONA
+	cleartrainerflag TRAINER_MASTER_WINONA_2
+	cleartrainerflag TRAINER_MASTER_WINONA_3
+	cleartrainerflag TRAINER_MASTER_WINONA_4
 	end
 
 
@@ -30,84 +34,81 @@ TrainerIsland_Area6_EventScript_WinonaFirstMatch::
 	end
 
 TrainerIsland_Area6_EventScript_WinonaRematch1::
-	cleartrainerflag TRAINER_MASTER_WINONA_2
 	trainerbattle_double TRAINER_MASTER_WINONA_2, TrainerIsland_Area6_Text_WinonaIntro2, TrainerIsland_Area6_Text_WinonaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area6_Text_WinonaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FE, 3
 	end
 	
 TrainerIsland_Area6_EventScript_WinonaRematch2::
-	cleartrainerflag TRAINER_MASTER_WINONA_3
+
 	trainerbattle_double TRAINER_MASTER_WINONA_3, TrainerIsland_Area6_Text_WinonaIntro2, TrainerIsland_Area6_Text_WinonaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area6_Text_WinonaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FE, 4
 	end
 
 TrainerIsland_Area6_EventScript_WinonaRematch3::
-	cleartrainerflag TRAINER_MASTER_WINONA_4
+
 	trainerbattle_double TRAINER_MASTER_WINONA_4, TrainerIsland_Area6_Text_WinonaIntro2, TrainerIsland_Area6_Text_WinonaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
 	msgbox TrainerIsland_Area6_Text_WinonaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FE, 5
 	end
 	
 TrainerIsland_Area6_EventScript_WinonaRematch4::
-	cleartrainerflag TRAINER_MASTER_WINONA
-	trainerbattle_double TRAINER_MASTER_WINONA, TrainerIsland_Area6_Text_WinonaIntro2, TrainerIsland_Area6_Text_WinonaDefeat2, CommonEvent_Text_NeedTwoMons, Add2Points
+
+	trainerbattle_double TRAINER_MASTER_WINONA, TrainerIsland_Area6_Text_WinonaIntro2, TrainerIsland_Area6_Text_WinonaDefeat2, Add2Points
 	msgbox TrainerIsland_Area6_Text_WinonaPostBattle2, MSGBOX_AUTOCLOSE
 	setvar VAR_UNUSED_0x40FE, 2
 	end
 
 TrainerIsland_Area6_EventScript_Awen::
-	cleartrainerflag TRAINER_MASTER_AWEN
-	trainerbattle_double TRAINER_MASTER_AWEN, TrainerIsland_Area6_Text_AwenIntro, TrainerIsland_Area6_Text_AwenDefeat, CommonEvent_Text_NeedTwoMons, Add3Points, 
+	trainerbattle_single TRAINER_MASTER_AWEN, TrainerIsland_Area6_Text_AwenIntro, TrainerIsland_Area6_Text_AwenDefeat, CommonEvent_Text_NeedTwoMons, Add3Points, 
 	msgbox TrainerIsland_Area6_Text_AwenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 	
 TrainerIsland_Area6_EventScript_Thessy::
-	cleartrainerflag TRAINER_MASTER_THESSY
-	trainerbattle_double TRAINER_MASTER_THESSY, TrainerIsland_Area6_Text_ThessyIntro, TrainerIsland_Area6_Text_ThessyDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+	trainerbattle_single TRAINER_MASTER_THESSY, TrainerIsland_Area6_Text_ThessyIntro, TrainerIsland_Area6_Text_ThessyDefeat, Add3Points
 	msgbox TrainerIsland_Area6_Text_ThessyPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area6_EventScript_Thunder::
-	cleartrainerflag TRAINER_MASTER_THUNDER
-	trainerbattle_double TRAINER_MASTER_THUNDER, TrainerIsland_Area6_Text_ThunderIntro, TrainerIsland_Area6_Text_ThunderDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+
+	trainerbattle_single TRAINER_MASTER_THUNDER, TrainerIsland_Area6_Text_ThunderIntro, TrainerIsland_Area6_Text_ThunderDefeat, Add3Points
 	msgbox TrainerIsland_Area6_Text_ThunderPostBattle, MSGBOX_AUTOCLOSE
 	end
 	
 TrainerIsland_Area6_EventScript_Anna::
-	cleartrainerflag TRAINER_MASTER_ANNA
-	trainerbattle_double TRAINER_MASTER_ANNA, TrainerIsland_Area6_Text_AnnaIntro, TrainerIsland_Area6_Text_AnnaDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+
+	trainerbattle_single TRAINER_MASTER_ANNA, TrainerIsland_Area6_Text_AnnaIntro, TrainerIsland_Area6_Text_AnnaDefeat, Add3Points
 	msgbox TrainerIsland_Area6_Text_AnnaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area6_EventScript_Thantos::
-	cleartrainerflag TRAINER_MASTER_THANTOS
-	trainerbattle_double TRAINER_MASTER_THANTOS, TrainerIsland_Area6_Text_ThantosIntro, TrainerIsland_Area6_Text_ThantosDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+
+	trainerbattle_single TRAINER_MASTER_THANTOS, TrainerIsland_Area6_Text_ThantosIntro, TrainerIsland_Area6_Text_ThantosDefeat, Add3Points
 	msgbox TrainerIsland_Area6_Text_ThantosPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area6_EventScript_Aurora::
-	cleartrainerflag TRAINER_MASTER_AURORA
-	trainerbattle_double TRAINER_MASTER_AURORA, TrainerIsland_Area6_Text_AuroraIntro, TrainerIsland_Area6_Text_AuroraDefeat, CommonEvent_Text_NeedTwoMons, Add3Points
+
+	trainerbattle_single TRAINER_MASTER_AURORA, TrainerIsland_Area6_Text_AuroraIntro, TrainerIsland_Area6_Text_AuroraDefeat, Add3Points
 	msgbox TrainerIsland_Area6_Text_AuroraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area6_EventScript_Jewels::
-	cleartrainerflag TRAINER_MASTER_JEWELS
+
 	trainerbattle_double TRAINER_MASTER_JEWELS, TrainerIsland_Area6_Text_JewelsIntro, TrainerIsland_Area6_Text_JewelsDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area6_Text_JewelsPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area6_EventScript_John::
-	cleartrainerflag TRAINER_MASTER_JOHN
+
 	trainerbattle_double TRAINER_MASTER_JOHN, TrainerIsland_Area6_Text_JohnIntro, TrainerIsland_Area6_Text_JohnDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area6_Text_JohnPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 TrainerIsland_Area6_EventScript_Luna::
-	cleartrainerflag TRAINER_MASTER_LUNA
+
 	trainerbattle_double TRAINER_MASTER_LUNA, TrainerIsland_Area6_Text_LunaIntro, TrainerIsland_Area6_Text_LunaDefeat, CommonEvent_Text_NeedTwoMons, Add1Points
 	msgbox TrainerIsland_Area6_Text_LunaPostBattle, MSGBOX_AUTOCLOSE
 	end

@@ -4456,6 +4456,10 @@ u32 GetBattlerTotalSpeedStat(u8 battlerId)
             speed *= 2;
         else if (ability == ABILITY_SLUSH_RUSH  && gBattleWeather & B_WEATHER_HAIL)
             speed *= 2;
+		else if (ability == ABILITY_GLIDER		&& gBattleWeather & B_WEATHER_WINDSTORM)
+			speed *= 2;
+		else if (ability == ABILITY_LIGHTWING	&& gBattleWeather & B_WEATHER_WINDSTORM)
+			speed *= 2;
     }
 
     // other abilities
@@ -5370,7 +5374,7 @@ void SetTypeBeforeUsingMove(u16 move, u8 battlerAtk)
             else if (gBattleWeather & B_WEATHER_HAIL)
                 gBattleStruct->dynamicMoveType = TYPE_ICE | F_DYNAMIC_TYPE_2;
 			else if (gBattleWeather & B_WEATHER_WINDSTORM)
-				gBattleStruct->dynamicMoveType = TYPE_WIND | F_DYNAMIC_TYPE_2;
+				gBattleStruct->dynamicMoveType = TYPE_FLYING | F_DYNAMIC_TYPE_2;
             else
                 gBattleStruct->dynamicMoveType = TYPE_NORMAL | F_DYNAMIC_TYPE_2;
         }

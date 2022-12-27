@@ -1412,6 +1412,12 @@ static const u8 sPixiePlateDesc[] = _(
     "A stone tablet that\n"
     "boosts the power of\n"
     "Fairy-type moves.");
+	
+static const u8 sBrightPlateDesc[] = _(
+    "A stone tablet that\n"
+    "boosts the power of\n"
+    "Light-type moves.");
+
 
 // Drives
 static const u8 sDouseDriveDesc[] = _(
@@ -1517,6 +1523,11 @@ static const u8 sSteelMemoryDesc[] = _(
 
 static const u8 sFairyMemoryDesc[] = _(
     "A disc with Fairy\n"
+    "type data. It swaps\n"
+    "Silvally's type.");
+
+static const u8 sLightMemoryDesc[] = _(
+    "A disc with Light\n"
     "type data. It swaps\n"
     "Silvally's type.");
 
@@ -1766,6 +1777,16 @@ static const u8 sDianciteDesc[] = _(
     "This stone enables\n"
     "Diancie to Mega\n"
     "Evolve in battle.");
+	
+static const u8 sHolyHaloDesc[] = _(
+    "Powers up Dracoceros's\n"
+    "moves, gradually restoring\n"
+    "HP, and mega evolves.");
+	
+static const u8 sChaosCrossDesc[] = _(
+    "Powers up Dracoceros's\n"
+    "moves, gradually restoring\n"
+    "HP, and mega evolves.");
 
 // Gems
 static const u8 sNormalGemDesc[] = _(
@@ -1858,6 +1879,11 @@ static const u8 sFairyGemDesc[] = _(
     "power of Fairy\n"
     "Type moves.");
 
+static const u8 sLightGemDesc[] = _(
+    "Increases the\n"
+    "power of Light\n"
+    "Type moves.");
+
 // Z-Crystals
 static const u8 sNormaliumZDesc[] = _(
     "Upgrade Normal-\n"
@@ -1946,6 +1972,11 @@ static const u8 sSteeliumZDesc[] = _(
 
 static const u8 sFairiumZDesc[] = _(
     "Upgrade Fairy-\n"
+    "type moves into\n"
+    "Z-Moves.");
+	
+static const u8 sLightiumZDesc[] = _(
+    "Upgrade Light-\n"
     "type moves into\n"
     "Z-Moves.");
 
@@ -2294,6 +2325,16 @@ static const u8 sMetalCoatDesc[] = _(
     "A hold item that\n"
     "raises the power of\n"
     "Steel-type moves.");
+	
+static const u8 sPinkBowDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "Fairy-type moves.");
+	
+static const u8 sRainbowPrismDesc[] = _(
+    "A hold item that\n"
+    "raises the power of\n"
+    "Light-type moves.");
 
 // Choice Items
 static const u8 sChoiceBandDesc[] = _(
@@ -3814,5 +3855,10 @@ static const u8 sChampionsInsigniaDesc[] = _(
 
 static const u8 sTrainerTicketDesc[] = _(
     "A ticket given by\n"
-    "SCOTT to Trainer\n"
+    "RIVAL to Trainer\n"
+    "Island.");
+	
+static const u8 sRyukuIslandTicketDesc[] = _(
+    "A ticket given by\n"
+    "Mom to Ryuku\n"
     "Island.");

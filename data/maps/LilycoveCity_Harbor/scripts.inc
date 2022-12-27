@@ -20,6 +20,7 @@ LilycoveCity_Harbor_EventScript_FerryAttendant::
 	call LilycoveCity_Harbor_EventScript_GetOldSeaMapState
 	call LilycoveCity_Harbor_EventScript_GetMysticTicketState
 	call LilycoveCity_Harbor_EventScript_GetTrainerTicketState
+	call LilycoveCity_Harbor_EventScript_GetRyukuIslandTicketState
 	call LilycoveCity_Harbor_EventScript_GetFirstTimeShowingTicket
 	call LilycoveCity_Harbor_EventScript_GetHasTicketsState
 	goto_if_eq VAR_TEMP_C, 2, LilycoveCity_Harbor_EventScript_OldSeaMapFirstTime
@@ -28,6 +29,7 @@ LilycoveCity_Harbor_EventScript_FerryAttendant::
 	goto_if_eq VAR_TEMP_B, 4, LilycoveCity_Harbor_EventScript_OldSeaMapFirstTime
 	goto_if_eq VAR_TEMP_B, 8, LilycoveCity_Harbor_EventScript_MysticTicketFirstTime
 	goto_if_eq VAR_TEMP_B, 16, LilycoveCity_Harbor_EventScript_TrainerTicketFirstTime
+	goto_if_eq VAR_TEMP_B, 32, LilycoveCity_Harbor_EventScript_RyukuIslandTicketFirstTime
 	goto_if_ne VAR_TEMP_B, 0, LilycoveCity_Harbor_EventScript_MultipleEventTicketsFirstTime
 	goto LilycoveCity_Harbor_EventScript_NoFirstTimeEventTickets
 	end
@@ -54,7 +56,8 @@ LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect::
 	case 4, LilycoveCity_Harbor_EventScript_GoToBirthIsland
 	case 5, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
 	case 6, LilycoveCity_Harbor_EventScript_GoToTrainerIsland
-	case 7, LilycoveCity_Harbor_EventScript_ExitSailSelect
+	case 7, LilycoveCity_Harbor_EventScript_GoToRyukuIsland
+	case 8, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	end
 
@@ -68,6 +71,13 @@ LilycoveCity_Harbor_EventScript_GoToSouthernIsland::
 LilycoveCity_Harbor_EventScript_GoToTrainerIsland::
 	call LilycoveCity_Harbor_EventScript_BoardFerry
 	warp MAP_TRAINER_ISLAND_ENTRANCE, 14, 26
+	waitstate
+	release
+	end
+	
+LilycoveCity_Harbor_EventScript_GoToRyukuIsland::
+	call LilycoveCity_Harbor_EventScript_BoardFerry
+	warp MAP_RYUKU_ISLAND_CITY, 51, 53
 	waitstate
 	release
 	end
@@ -124,13 +134,13 @@ LilycoveCity_Harbor_EventScript_GetEonTicketState::
 	return
 	
 LilycoveCity_Harbor_EventScript_GetTrainerTicketState::
-	setvar VAR_TEMP_F, 0
+	setvar VAR_UNUSED_0x40DB, 0
 	goto_if_unset FLAG_ENABLE_SHIP_TRAINER_ISLAND, Common_EventScript_NopReturn
-	checkitem ITEM_EON_TICKET
+	checkitem ITEM_TRAINER_TICKET
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_NopReturn
-	setvar VAR_TEMP_F, 1
+	setvar VAR_UNUSED_0x40DB, 1
 	goto_if_set FLAG_SHOWN_TRAINER_TICKET, Common_EventScript_NopReturn
-	setvar VAR_TEMP_F, 2
+	setvar VAR_UNUSED_0x40DB, 2
 	return
 
 LilycoveCity_Harbor_EventScript_GetAuroraTicketState::
@@ -162,15 +172,28 @@ LilycoveCity_Harbor_EventScript_GetMysticTicketState::
 	goto_if_set FLAG_SHOWN_MYSTIC_TICKET, Common_EventScript_NopReturn
 	setvar VAR_TEMP_9, 2
 	return
+	
+LilycoveCity_Harbor_EventScript_GetRyukuIslandTicketState::
+	setvar VAR_UNUSED_0x40DC, 0
+	goto_if_unset FLAG_ENABLE_SHIP_RYUKU_ISLAND, Common_EventScript_NopReturn
+	checkitem ITEM_TRAINER_TICKET
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_NopReturn
+	setvar VAR_UNUSED_0x40DC, 1
+	goto_if_set FLAG_SHOWN_RYUKU_ISLAND_TICKET, Common_EventScript_NopReturn
+	setvar VAR_UNUSED_0x40DC, 2
+	return
 
 LilycoveCity_Harbor_EventScript_GetFirstTimeShowingTicket::
 	setvar VAR_TEMP_B, 0
-	call_if_eq VAR_TEMP_F, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingTrainerTicket
 	call_if_eq VAR_TEMP_E, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingEonTicket
 	call_if_eq VAR_TEMP_D, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingAuroraTicket
 	call_if_eq VAR_TEMP_C, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingOldSeaMap
 	call_if_eq VAR_TEMP_9, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingMysticTicket
+	call_if_eq VAR_UNUSED_0x40DB, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingTrainerTicket
+	call_if_eq VAR_UNUSED_0x40DC, 2, LilycoveCity_Harbor_EventScript_SetFirstTimeShowingRyukuIslandTicket		
 	return
+	
+
 
 LilycoveCity_Harbor_EventScript_SetFirstTimeShowingEonTicket::
 	addvar VAR_TEMP_B, 1
@@ -191,14 +214,19 @@ LilycoveCity_Harbor_EventScript_SetFirstTimeShowingMysticTicket::
 LilycoveCity_Harbor_EventScript_SetFirstTimeShowingTrainerTicket::
 	addvar VAR_TEMP_B, 16
 	return
+	
+LilycoveCity_Harbor_EventScript_SetFirstTimeShowingRyukuIslandTicket::
+	addvar VAR_TEMP_B, 32
+	return
 
 LilycoveCity_Harbor_EventScript_GetHasTicketsState::
 	setvar VAR_TEMP_A, 0
-	call_if_eq VAR_TEMP_F, 1, LilycoveCity_Harbor_EventScript_SetHasTrainerTicket
 	call_if_eq VAR_TEMP_E, 1, LilycoveCity_Harbor_EventScript_SetHasEonTicket
 	call_if_eq VAR_TEMP_D, 1, LilycoveCity_Harbor_EventScript_SetHasAuroraTicket
 	call_if_eq VAR_TEMP_C, 1, LilycoveCity_Harbor_EventScript_SetHasOldSeaMap
 	call_if_eq VAR_TEMP_9, 1, LilycoveCity_Harbor_EventScript_SetHasMysticTicket
+	call_if_eq VAR_UNUSED_0x40DB, 1, LilycoveCity_Harbor_EventScript_SetHasTrainerTicket
+	call_if_eq VAR_UNUSED_0x40DC, 1, LilycoveCity_Harbor_EventScript_SetHasRyukuIslandTicket
 	return
 
 LilycoveCity_Harbor_EventScript_SetHasEonTicket::
@@ -219,6 +247,10 @@ LilycoveCity_Harbor_EventScript_SetHasMysticTicket::
 
 LilycoveCity_Harbor_EventScript_SetHasTrainerTicket::
 	addvar VAR_TEMP_A, 16
+	return
+
+LilycoveCity_Harbor_EventScript_SetHasRyukuIslandTicket::
+	addvar VAR_TEMP_A, 32
 	return
 
 LilycoveCity_Harbor_EventScript_EonTicketFirstTime::
@@ -297,7 +329,7 @@ LilycoveCity_Harbor_EventScript_GoToFarawayIslandFirstTime::
 	end
 
 LilycoveCity_Harbor_EventScript_TrainerTicketFirstTime::
-	setflag FLAG_SHOWN_EON_TICKET
+	setflag FLAG_SHOWN_TRAINER_TICKET
 	msgbox EventTicket_Text_TrainerIsland, MSGBOX_DEFAULT
 	closemessage
 	call LilycoveCity_Harbor_EventScript_GetEventTicketSailor
@@ -310,6 +342,24 @@ LilycoveCity_Harbor_EventScript_GoToTrainerIslandFirstTime::
 	closemessage
 	call LilycoveCity_Harbor_EventScript_BoardFerryWithSailor
 	warp MAP_FARAWAY_ISLAND_ENTRANCE, 13, 38
+	waitstate
+	release
+	end
+	
+LilycoveCity_Harbor_EventScript_RyukuIslandTicketFirstTime::
+	setflag FLAG_SHOWN_TRAINER_TICKET
+	msgbox EventTicket_Text_RyukuIsland, MSGBOX_DEFAULT
+	closemessage
+	call LilycoveCity_Harbor_EventScript_GetEventTicketSailor
+	msgbox EventTicket_Text_ShowRyukuIslandTicket, MSGBOX_DEFAULT
+	goto LilycoveCity_Harbor_EventScript_GoToRyukuIslandFirstTime
+	end
+
+
+LilycoveCity_Harbor_EventScript_GoToRyukuIslandFirstTime::
+	closemessage
+	call LilycoveCity_Harbor_EventScript_BoardFerryWithSailor
+	warp MAP_RYUKU_ISLAND_CITY, 51, 53
 	waitstate
 	release
 	end
@@ -346,7 +396,9 @@ LilycoveCity_Harbor_EventScript_MultipleEventTicketsFirstTime::
 	case 3, LilycoveCity_Harbor_EventScript_GoToNavelRockFirstTime
 	case 4, LilycoveCity_Harbor_EventScript_GoToBirthIslandFirstTime
 	case 5, LilycoveCity_Harbor_EventScript_GoToFarawayIslandFirstTime
-	case 6, LilycoveCity_Harbor_EventScript_ExitFirstTimeTicketSailSelect
+	case 6, LilycoveCity_Harbor_EventScript_GoToTrainerIslandFirstTime
+	case 7, LilycoveCity_Harbor_EventScript_GoToRyukuIslandFirstTime
+	case 8, LilycoveCity_Harbor_EventScript_ExitFirstTimeTicketSailSelect
 	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitFirstTimeTicketSailSelect
 	release
 	end

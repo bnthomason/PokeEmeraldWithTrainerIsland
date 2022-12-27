@@ -187,6 +187,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayGiveTrainerTicket
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGiveTrainerTicket
 	playse SE_PC_ON
 	waitse
 	delay 20
@@ -220,6 +222,16 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment::
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe, MSGBOX_DEFAULT
 	closemessage
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_MayGiveTrainerTicket::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayHostingAContest, MSGBOX_DEFAULT
+	giveitem ITEM_TRAINER_TICKET, 1
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGiveTrainerTicket::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanHostingAContest, MSGBOX_DEFAULT
+	giveitem ITEM_TRAINER_TICKET, 1
 	return
 
 LittlerootTown_ProfessorBirchsLab_Movement_BirchRetrievePokedexes:
@@ -583,7 +595,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Rival::
 	faceplayer
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier
-	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_RivalTakeBreakFromFieldwork
+	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_RivalMeetMeAtTrainerIsland
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhereShouldIGoNext
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanWhereShouldIGoNext
@@ -600,17 +612,17 @@ LittlerootTown_ProfessorBirchsLab_EventScript_BrendanWhereShouldIGoNext::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_RivalFuturePlans::
 	checkplayergender
-	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextImStayingHere
-	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanPreferCollectingSlowly
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextGatheringTrainers
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanBiggestContest
 	release
 	end
 
-LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextImStayingHere::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere, MSGBOX_DEFAULT
+LittlerootTown_ProfessorBirchsLab_EventScript_MayWhatNextGatheringTrainers::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextGatheringTrainers, MSGBOX_DEFAULT
 	return
 
-LittlerootTown_ProfessorBirchsLab_EventScript_BrendanPreferCollectingSlowly:
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly, MSGBOX_DEFAULT
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanBiggestContest:
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanBiggestContest, MSGBOX_DEFAULT
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_RivalHaveYouGoneToBattleFrontier::
@@ -641,6 +653,20 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MayTakeBreakFromFieldwork::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork, MSGBOX_DEFAULT
+	return
+	
+LittlerootTown_ProfessorBirchsLab_EventScript_RivalMeetMeAtTrainerIsland::
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_ProfessorBirchsLab_EventScript_MayMeetMeAtTrainerIsland
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanMeetMeAtTrainerIsland
+	return
+	
+LittlerootTown_ProfessorBirchsLab_EventScript_MayMeetMeAtTrainerIsland::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayMeetMeAtTrainerIsland, MSGBOX_DEFAULT
+	return
+
+LittlerootTown_ProfessorBirchsLab_EventScript_BrendanMeetMeAtTrainerIsland::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanMeetMeAtTrainerIsland, MSGBOX_DEFAULT
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_PC::
@@ -767,7 +793,7 @@ LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait:
 	.string "and do fieldwork again!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese:
-	.string "{RIVAL}: Oh, wow, {PLAYER}{KUN}!\n"
+	.string "MAY: Oh, wow, {PLAYER}{KUN}!\n"
 	.string "You got a POKéDEX, too!\p"
 	.string "That's great! Just like me!\n"
 	.string "I've got something for you, too!$"
@@ -784,11 +810,11 @@ LittlerootTown_ProfessorBirchsLab_Text_OhYourBagsFull:
 	.string "Oh? Your BAG's full.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext:
-	.string "{RIVAL}: I wonder where I should go look\n"
+	.string "MAY: I wonder where I should go look\n"
 	.string "for POKéMON next?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese:
-	.string "{RIVAL}: Huh…\n"
+	.string "BRENDAN: Huh…\n"
 	.string "So you got a POKéDEX, too.\p"
 	.string "Well then, here.\n"
 	.string "I'll give you these.$"
@@ -805,7 +831,7 @@ LittlerootTown_ProfessorBirchsLab_Text_HeyYourBagsFull:
 	.string "Hey, your BAG's full.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext:
-	.string "{RIVAL}: Where should I look for\n"
+	.string "BRENDAN: Where should I look for\n"
 	.string "POKéMON next…$"
 
 LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine:
@@ -840,14 +866,14 @@ LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational:
 	.string "Here, let me see your POKéDEX units.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool:
-	.string "{RIVAL}: Eheheh!\p"
+	.string "MAY: Eheheh!\p"
 	.string "It's so cool that even my POKéDEX\n"
 	.string "is getting updated!\p"
 	.string "It's because you went out and caught\n"
 	.string "so many POKéMON, {PLAYER}{KUN}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe:
-	.string "{RIVAL}: I went out all over HOENN\n"
+	.string "BRENDAN: I went out all over HOENN\n"
 	.string "and checked out POKéMON.\p"
 	.string "You can thank me for getting\n"
 	.string "the NATIONAL Mode POKéDEX.\p"
@@ -870,13 +896,13 @@ LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2:
 	.string "that's waiting for you!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork:
-	.string "{RIVAL}: I think I'll take a short break\n"
+	.string "MAY: I think I'll take a short break\n"
 	.string "from fieldwork.\p"
 	.string "I think I'll help the PROF here for\n"
 	.string "a while.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanTakeBreakFromFieldwork:
-	.string "{RIVAL}: For the time being,\n"
+	.string "BRENDAN: For the time being,\n"
 	.string "I'm taking a break from fieldwork.\p"
 	.string "I'll be helping out the PROF here\n"
 	.string "for a while.$"
@@ -959,27 +985,28 @@ LittlerootTown_ProfessorBirchsLab_Text_DontHaveAnyRoomForPokemon:
 	.string "Oh, you don't have any room for\n"
 	.string "this POKéMON.$"
 
-LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextImStayingHere:
-	.string "{RIVAL}: {PLAYER}{KUN}, after this…\n"
+LittlerootTown_ProfessorBirchsLab_Text_MayWhatNextGatheringTrainers:
+	.string "MAY: {PLAYER}{KUN}, after this…\n"
 	.string "What are you going to do?\p"
 	.string "Are you going to keep battling\n"
 	.string "and sharpening your skills?\p"
 	.string "Or are you going to try filling\n"
 	.string "the NATIONAL POKéDEX?\p"
-	.string "I'm staying here to help the PROF.$"
+	.string "I'm gathering the toughest of trainers\n"
+	.string "for my contest.$"
 
-LittlerootTown_ProfessorBirchsLab_Text_BrendanPreferCollectingSlowly:
-	.string "{RIVAL}: Rather than collecting\n"
-	.string "POKéMON, I prefer slowly and \l"
-	.string "steadily raising the one I chose.$"
+LittlerootTown_ProfessorBirchsLab_Text_BrendanBiggestContest:
+	.string "BRENDAN: I'm hosting the biggest\n"
+	.string "contest ever held. You should\l"
+	.string "participate!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayHaveYouGoneToBattleFrontier:
-	.string "{RIVAL}: Oh, hi, {PLAYER}{KUN}!\n"
+	.string "BRENDAN: Oh, hi, {PLAYER}{KUN}!\n"
 	.string "Have you gone to that place,\l"
 	.string "the BATTLE FRONTIER?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanHaveYouGoneToBattleFrontier:
-	.string "{RIVAL}: Hey, {PLAYER}!\n"
+	.string "BRENDAN: Hey, {PLAYER}!\n"
 	.string "Have you gone out to that place,\l"
 	.string "the BATTLE FRONTIER?$"
 
@@ -999,3 +1026,27 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+	
+LittlerootTown_ProfessorBirchsLab_Text_MayHostingAContest:
+	.string "MAY: I'm hosting a contest soon.\p"
+	.string "This will test our mettle in\n"
+	.string "a tournament of the best of the\l"
+	.string "best.\p"
+	.string "You should join! Here's a ticket\n"
+	.string "to trainer island. I'll be waiting.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_BrendanHostingAContest:
+	.string "BRENDAN: I'm hosting a contest soon.\p"
+	.string "This will test our mettle in\n"
+	.string "a tournament of the best of the\l"
+	.string "best.\p"
+	.string "You should join! Here's a ticket\n"
+	.string "to trainer island. I'll be waiting.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_MayMeetMeAtTrainerIsland:
+	.string "MAY: The contest will start soon.\p"
+	.string "Meet me at Trainer Island.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_BrendanMeetMeAtTrainerIsland:
+	.string "BRENDAN: The contest will start soon.\p"
+	.string "Meet me at Trainer Island.$"

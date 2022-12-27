@@ -371,6 +371,7 @@
 #define MOVE_EFFECT_TRAP_BOTH           0x48
 #define MOVE_EFFECT_SKY_DROP            0x49
 #define MOVE_EFFECT_SCALE_SHOT          0x4A
+#define MOVE_EFFECT
 
 #define NUM_MOVE_EFFECTS                0x4B
 
@@ -416,8 +417,10 @@
 #define CASTFORM_FIRE       1
 #define CASTFORM_WATER      2
 #define CASTFORM_ICE        3
-#define NUM_CASTFORM_FORMS  4
-#define CASTFORM_SUBSTITUTE (1 << 7)
+#define CASTFORM_GROUND     5
+#define CASTFORM_FLYING     6
+#define NUM_CASTFORM_FORMS  7
+#define CASTFORM_SUBSTITUTE (1 << 8)
 
 #define FLEE_ITEM    1
 #define FLEE_ABILITY 2

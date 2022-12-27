@@ -1044,6 +1044,8 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_CASTFORM_SUNNY] = sCastformLevelUpLearnset,
     [SPECIES_CASTFORM_RAINY] = sCastformLevelUpLearnset,
     [SPECIES_CASTFORM_SNOWY] = sCastformLevelUpLearnset,
+    [SPECIES_CASTFORM_SANDY] = sCastformLevelUpLearnset,
+    [SPECIES_CASTFORM_WINDY] = sCastformLevelUpLearnset,
     // Deoxys
     [SPECIES_DEOXYS_ATTACK] = sDeoxysAttackLevelUpLearnset,
     [SPECIES_DEOXYS_DEFENSE] = sDeoxysDefenseLevelUpLearnset,
@@ -1088,6 +1090,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_ARCEUS_DRAGON] = sArceusLevelUpLearnset,
     [SPECIES_ARCEUS_DARK] = sArceusLevelUpLearnset,
     [SPECIES_ARCEUS_FAIRY] = sArceusLevelUpLearnset,
+    [SPECIES_ARCEUS_LIGHT] = sArceusLevelUpLearnset,
     // Basculin
     [SPECIES_BASCULIN_BLUE_STRIPED] = sBasculinLevelUpLearnset,
     // Darmanitan
@@ -1216,6 +1219,7 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_SILVALLY_DRAGON] = sSilvallyLevelUpLearnset,
     [SPECIES_SILVALLY_DARK] = sSilvallyLevelUpLearnset,
     [SPECIES_SILVALLY_FAIRY] = sSilvallyLevelUpLearnset,
+    [SPECIES_SILVALLY_LIGHT] = sSilvallyLevelUpLearnset,
     // Minior
     [SPECIES_MINIOR_METEOR_ORANGE] = sMiniorLevelUpLearnset,
     [SPECIES_MINIOR_METEOR_YELLOW] = sMiniorLevelUpLearnset,

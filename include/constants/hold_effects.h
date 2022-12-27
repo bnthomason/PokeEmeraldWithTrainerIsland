@@ -152,6 +152,11 @@
 #define HOLD_EFFECT_HEAVY_DUTY_BOOTS    173
 #define HOLD_EFFECT_THROAT_SPRAY        174
 
+// Ryuku Hold effects
+#define HOLD_EFFECT_LIGHT_POWER			175
+#define HOLD_EFFECT_HOLY_HALO			176
+#define HOLD_EFFECT_CHAOS_CROSS			177
+
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 
 // Terrain seed params

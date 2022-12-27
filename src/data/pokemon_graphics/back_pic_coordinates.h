@@ -5186,6 +5186,16 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = MON_COORDS_SIZE(56, 64),
         .y_offset = 0,
     },
+    [SPECIES_CASTFORM_SANDY] =
+    {
+        .size = MON_COORDS_SIZE(32, 64),
+        .y_offset = 0,
+    },
+    [SPECIES_CASTFORM_WINDY] =
+    {
+        .size = MON_COORDS_SIZE(32, 64),
+        .y_offset = 0,
+    },
     // Deoxys
     [SPECIES_DEOXYS_ATTACK] =
     {
@@ -5362,6 +5372,11 @@ const struct MonCoords gMonBackPicCoords[] =
         .y_offset = 3,
     },
     [SPECIES_ARCEUS_FAIRY] =
+    {
+        .size = MON_COORDS_SIZE(64, 64),
+        .y_offset = 3,
+    },
+    [SPECIES_ARCEUS_LIGHT] =
     {
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 3,
@@ -5894,6 +5909,11 @@ const struct MonCoords gMonBackPicCoords[] =
         .y_offset = 0,
     },
     [SPECIES_SILVALLY_FAIRY] =
+    {
+        .size = MON_COORDS_SIZE(56, 64),
+        .y_offset = 0,
+    },
+    [SPECIES_SILVALLY_LIGHT] =
     {
         .size = MON_COORDS_SIZE(56, 64),
         .y_offset = 0,

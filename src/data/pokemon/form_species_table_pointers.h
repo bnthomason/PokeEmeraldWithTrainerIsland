@@ -285,6 +285,8 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_CASTFORM_SUNNY] = sCastformFormSpeciesIdTable,
     [SPECIES_CASTFORM_RAINY] = sCastformFormSpeciesIdTable,
     [SPECIES_CASTFORM_SNOWY] = sCastformFormSpeciesIdTable,
+    [SPECIES_CASTFORM_SANDY] = sCastformFormSpeciesIdTable,
+    [SPECIES_CASTFORM_WINDY] = sCastformFormSpeciesIdTable,
     // Deoxys
     [SPECIES_DEOXYS_ATTACK] = sDeoxysFormSpeciesIdTable,
     [SPECIES_DEOXYS_DEFENSE] = sDeoxysFormSpeciesIdTable,
@@ -329,6 +331,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_ARCEUS_DRAGON] = sArceusFormSpeciesIdTable,
     [SPECIES_ARCEUS_DARK] = sArceusFormSpeciesIdTable,
     [SPECIES_ARCEUS_FAIRY] = sArceusFormSpeciesIdTable,
+    [SPECIES_ARCEUS_LIGHT] = sArceusFormSpeciesIdTable,
     // Basculin
     [SPECIES_BASCULIN_BLUE_STRIPED] = sBasculinFormSpeciesIdTable,
     // Darmanitan
@@ -457,6 +460,7 @@ const u16 *const gFormSpeciesIdTables[NUM_SPECIES] =
     [SPECIES_SILVALLY_DRAGON] = sSilvallyFormSpeciesIdTable,
     [SPECIES_SILVALLY_DARK] = sSilvallyFormSpeciesIdTable,
     [SPECIES_SILVALLY_FAIRY] = sSilvallyFormSpeciesIdTable,
+    [SPECIES_SILVALLY_LIGHT] = sSilvallyFormSpeciesIdTable,
     // Minior
     [SPECIES_MINIOR_METEOR_ORANGE] = sMiniorFormSpeciesIdTable,
     [SPECIES_MINIOR_METEOR_YELLOW] = sMiniorFormSpeciesIdTable,

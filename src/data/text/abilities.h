@@ -259,6 +259,8 @@ static const u8 sMagnaPowerDescription[] = _("Raises Special Attack.");
 static const u8 sSuperSpecialDescription[] = _("Raises Special Attack.");
 static const u8 sSuperPhysicalDescription[] = _("Raises Attack.");
 static const u8 sLightWingDescription[] = _("Raises Speed.");
+static const u8 sGliderDescription[] = _("Not hit by Ground attacks.");
+
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -536,6 +538,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
 	[ABILITY_SUPER_SPECIAL] = _("Super Special"),
 	[ABILITY_SUPER_PHYSICAL] = _("Super Physical"),
 	[ABILITY_LIGHTWING] = _("Light Wing"),
+	[ABILITY_GLIDER] = _("Glider"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -1091,4 +1094,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
 	[ABILITY_SUPER_SPECIAL] = sSuperSpecialDescription,
 	[ABILITY_SUPER_PHYSICAL] = sSuperPhysicalDescription,
 	[ABILITY_LIGHTWING] = sLightWingDescription,
+	[ABILITY_GLIDER] = sGliderDescription,
 };

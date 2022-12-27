@@ -25408,12 +25408,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_DRACOCEROS_CHILD] =
 	{
-		.baseHP        = 10,
-        .baseAttack    = 60,
+		.baseHP        = 70,
+        .baseAttack    = 10,
         .baseDefense   = 30,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 90,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 40,
         .type1 = TYPE_LIGHT,
         .type2 = TYPE_FLYING,
         .catchRate = 10,
@@ -25432,12 +25432,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_DRACOCEROS_JUVENILE] =
 	{
-		.baseHP        = 20,
-        .baseAttack    = 80,
+		.baseHP        = 100,
+        .baseAttack    = 20,
         .baseDefense   = 40,
-        .baseSpeed     = 100,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 120,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 60,
         .type1 = TYPE_LIGHT,
         .type2 = TYPE_FLYING,
         .catchRate = 10,
@@ -25456,12 +25456,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_DRACOCEROS_ADULT] =
 	{
-		.baseHP        = 30,
-        .baseAttack    = 120,
+		.baseHP        = 150,
+        .baseAttack    = 30,
         .baseDefense   = 60,
-        .baseSpeed     = 150,
-        .baseSpAttack  = 90,
-        .baseSpDefense = 180,
+        .baseSpeed     = 180,
+        .baseSpAttack  = 120,
+        .baseSpDefense = 90,
         .type1 = TYPE_LIGHT,
         .type2 = TYPE_FLYING,
         .catchRate = 10,
@@ -29061,6 +29061,60 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
+	
+    [SPECIES_CASTFORM_SANDY] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 70,
+        .baseDefense   = 70,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 70,
+        .type1 = TYPE_GROUND,
+        .type2 = TYPE_GROUND,
+        .catchRate = 45,
+        .expYield = 147,
+        .evYield_HP        = 1,
+        .item1 = ITEM_MYSTIC_WATER,
+        .item2 = ITEM_MYSTIC_WATER,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_AMORPHOUS,
+        .abilities = {ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
+	
+    [SPECIES_CASTFORM_WINDY] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 70,
+        .baseDefense   = 70,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 70,
+        .type1 = TYPE_FLYING,
+        .type2 = TYPE_FLYING,
+        .catchRate = 45,
+        .expYield = 147,
+        .evYield_HP        = 1,
+        .item1 = ITEM_MYSTIC_WATER,
+        .item2 = ITEM_MYSTIC_WATER,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FAIRY,
+        .eggGroup2 = EGG_GROUP_AMORPHOUS,
+        .abilities = {ABILITY_FORECAST, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
+
+
 
     [SPECIES_DEOXYS_ATTACK] =
     {
@@ -29978,6 +30032,35 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
+	
+    [SPECIES_ARCEUS_LIGHT] =
+    {
+        .baseHP        = 150,
+        .baseAttack    = 150,
+        .baseDefense   = 150,
+        .baseSpeed     = 150,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 150,
+        .type1 = TYPE_LIGHT,
+        .type2 = TYPE_LIGHT,
+        .catchRate = 3,
+        .expYield = 324,
+        .evYield_HP        = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        #ifdef BATTLE_ENGINE
+            .abilities = {ABILITY_MULTITYPE, ABILITY_NONE},
+        #else
+            .abilities = {ABILITY_NONE, ABILITY_NONE},
+        #endif
+        .bodyColor = BODY_COLOR_WHITE,
+        .noFlip = FALSE,
+    },
+
 
     [SPECIES_BASCULIN_BLUE_STRIPED] =
     {
@@ -32857,6 +32940,34 @@ const struct BaseStats gBaseStats[] =
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
     },
+	
+    [SPECIES_SILVALLY_LIGHT] =
+    {
+        .baseHP        = 95,
+        .baseAttack    = 95,
+        .baseDefense   = 95,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 95,
+        .baseSpDefense = 95,
+        .type1 = TYPE_LIGHT,
+        .type2 = TYPE_LIGHT,
+        .catchRate = 3,
+        .expYield = 257,
+        .evYield_HP        = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        #ifdef BATTLE_ENGINE
+            .abilities = {ABILITY_RKS_SYSTEM, ABILITY_NONE},
+        #else
+            .abilities = {ABILITY_NONE, ABILITY_NONE},
+        #endif
+        .bodyColor = BODY_COLOR_GRAY,
+        .noFlip = FALSE,
+    },	
 
     [SPECIES_MINIOR_METEOR_ORANGE] =
     {

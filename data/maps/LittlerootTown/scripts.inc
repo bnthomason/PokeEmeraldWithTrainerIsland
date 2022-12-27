@@ -14,6 +14,8 @@ LittlerootTown_MapScripts::
 	@ 2: Saving Birch
 	@ 3: Received Pokedex
 	@ 4: Received Running Shoes
+	@ 5: Recieved National Dex
+	@ 6: Recieved Ryuku Island Ticket
 
 	@ State descriptions for VAR_LITTLEROOT_INTRO_STATE
 	@ 1: In truck male
@@ -51,6 +53,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
+	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
 	end
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
@@ -908,6 +911,83 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	closemessage
 	delay 30
 	return
+	
+
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger0::
+	lockall
+	setvar VAR_0x8008, 0
+	setobjectxy LOCALID_MOM, 10, 9
+	goto LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger
+	end
+
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger1::
+	lockall
+	setvar VAR_0x8008, 1
+	setobjectxy LOCALID_MOM, 11, 9
+	goto LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger
+	end
+
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger2::
+	lockall
+	setvar VAR_0x8008, 2
+	goto LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger
+	end
+
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger3::
+	lockall
+	setvar VAR_0x8008, 3
+	goto LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger
+	end
+
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger4::
+	lockall
+	setvar VAR_0x8008, 4
+	goto LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger
+	end
+	
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger5::
+	lockall
+	setvar VAR_0x8008, 5
+	goto LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger
+	end
+
+	
+LittlerootTown_EventScript_GiveRyukuIslandTicketTrigger::
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_MomNoticePlayerMale
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_MomNoticePlayerFemale
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_SetHomeDoorCoordsMale
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_SetHomeDoorCoordsFemale
+	msgbox LittlerootTown_Text_WaitPlayer, MSGBOX_DEFAULT
+	closemessage
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_MomApproachPlayerMale
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_MomApproachPlayerFemale
+	call LittlerootTown_EventScript_GiveRyukuIslandTicket
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_MomReturnHomeMale
+	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_MomReturnHomeFemale
+	goto LittlerootTown_EventScript_SetReceivedRyukuIslandTicket
+	end
+	
+LittlerootTown_EventScript_GiveRyukuIslandTicket::
+	msgbox LittlerootTown_Text_ProfessorWantedYouToHaveThis, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_RYUKU_ISLAND_TICKET, 1
+	waitfanfare
+	setflag FLAG_RECEIVED_RYUKU_ISLAND_TICKET
+	msgbox LittlerootTown_Text_PassToRyukuIsland, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	return
+
+LittlerootTown_EventScript_SetReceivedRyukuIslandTicket::
+	removeobject LOCALID_MOM
+	setflag FLAG_SYS_B_DASH
+	setvar VAR_LITTLEROOT_TOWN_STATE, 6
+	release
+	end
 
 LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "MOM: {PLAYER}, we're here, honey!\p"
@@ -956,6 +1036,15 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "…But please be careful.\n"
 	.string "If anything happens, you can come home.\p"
 	.string "Go on, go get them, honey!$"
+	
+LittlerootTown_Text_ProfessorWantedYouToHaveThis:
+	.string "MOM: {PLAYER}, the professor wanted\n"
+	.string "you to have this. So here you go.$"
+
+LittlerootTown_Text_PassToRyukuIsland:
+	.string "MOM: It's a pass to Ryuku Island.\p"
+	.string "Legend states that some unique pokemon\n"
+	.string "live there. Good luck!\p"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
 	.string "If you use a PC, you can store items\n"

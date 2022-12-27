@@ -11657,7 +11657,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .effect = EFFECT_SPECIAL_ATTACK_UP_2,
 		.power = 0,
 		.type = TYPE_NORMAL,
-        .accuracy = 100,
+        .accuracy = 0,
         .pp = 40,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
@@ -11669,7 +11669,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
 	[MOVE_LIGHTSPARK] =
 	{
-        .effect = EFFECT_SLEEP_HIT,
+        .effect = EFFECT_PARALYZE_HIT,
 		.power = 40,
 		.type = TYPE_LIGHT,
         .accuracy = 100,
@@ -11684,7 +11684,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 	
 	[MOVE_FLASH_GLEAM] = 
 	{
-        .effect = EFFECT_SLEEP_HIT,
+        .effect = EFFECT_ACCURACY_DOWN_HIT,
 		.power = 60,
 		.type = TYPE_LIGHT,
         .accuracy = 95,
@@ -11771,7 +11771,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 	[MOVE_PHOTON_BLAST] =
     {
 		.power = 120,
-        .effect = EFFECT_SLEEP_HIT,
+        .effect = EFFECT_ACCURACY_DOWN_HIT,
         .type = TYPE_LIGHT,
         .accuracy = 80,
         .pp = 10,

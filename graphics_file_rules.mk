@@ -10,6 +10,7 @@ BATINTGFXDIR := graphics/battle_interface
 MASKSGFXDIR := graphics/battle_anims/masks
 BATTRANSGFXDIR := graphics/battle_transitions
 TYPESGFXDIR := graphics/types
+BACKGROUNDGFXDIR := graphics/battle_anims/backgrounds
 RAYQUAZAGFXDIR := graphics/rayquaza_scene
 ROULETTEGFXDIR := graphics/roulette
 SLOTMACHINEGFXDIR := graphics/slot_machine
@@ -22,7 +23,7 @@ JPCONTESTGFXDIR := graphics/contest/japanese
 POKEDEXGFXDIR := graphics/pokedex
 STARTERGFXDIR := graphics/starter_choose
 
-types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark fairy
+types := normal fight flying poison ground rock bug ghost steel mystery fire water grass electric psychic ice dragon dark fairy light
 contest_types := cool beauty cute smart tough
 
 
@@ -399,7 +400,10 @@ $(BATTRANSGFXDIR)/vs_frame.4bpp: %.4bpp: %.png
 
 graphics/party_menu/bg.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 62
-
+	
+$(BACKGROUNDGFXDIR)/windstorm.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -num_tiles 16
+	
 $(TYPESGFXDIR)/move_types.4bpp: $(types:%=$(TYPESGFXDIR)/%.4bpp) $(contest_types:%=$(TYPESGFXDIR)/contest_%.4bpp)
 	@cat $^ >$@
 
@@ -634,6 +638,8 @@ $(WALLPAPERGFXDIR)/whiscash/tiles.4bpp: $(WALLPAPERGFXDIR)/friends_frame2.4bpp $
 
 $(OBJEVENTGFXDIR)/pics/effects/unknown_4F6D38/0.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 11
+	
+	\
 
 $(INTERFACEGFXDIR)/selector_outline.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 8

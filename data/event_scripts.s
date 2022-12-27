@@ -856,6 +856,10 @@ gText_WhichFloorWouldYouLike::
 gText_SandstormIsVicious::
 	.string "The sandstorm is vicious.\n"
 	.string "It's impossible to keep going.$"
+	
+gText_WindstormBlowsAgainstYou::
+	.string "A windstorm blows against you, thus,\n"
+	.string "you cannot proceed in this direction.$"
 
 gText_SelectWithoutRegisteredItem::
 	.string "An item in the BAG can be\n"
@@ -1167,14 +1171,14 @@ gText_PlayerGotPoints::
 
 	.include "data/maps/TrainerIsland_TrainerCity_Office/scripts.inc"
 
-	.include "data/maps/RyukyuanIsland_City/scripts.inc"
+	.include "data/maps/Ryuku_Island_City/scripts.inc"
 
-	.include "data/maps/RyuKyuanCity_Flat1_1F/scripts.inc"
+	.include "data/maps/Ryuku_City_Flat1_1F/scripts.inc"
 
-	.include "data/maps/RyuKyuanCity_Flat1_2F/scripts.inc"
+	.include "data/maps/Ryuku_City_Flat1_2F/scripts.inc"
 
-	.include "data/maps/RyuKyuanCity_Flat1_3F/scripts.inc"
+	.include "data/maps/Ryuku_City_Flat1_3F/scripts.inc"
 
-	.include "data/maps/RyuKyuanCity_Flat2_1F/scripts.inc"
+	.include "data/maps/Ryuku_City_Flat2_1F/scripts.inc"
 
-	.include "data/maps/RyuKyuanCity_Flat2_2F/scripts.inc"
+	.include "data/maps/Ryuku_City_Flat2_2F/scripts.inc"

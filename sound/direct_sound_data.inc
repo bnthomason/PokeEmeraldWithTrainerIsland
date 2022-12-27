@@ -3977,6 +3977,18 @@ Cry_Spectrier::
 	.align 2
 Cry_Calyrex::
 	.incbin "sound/direct_sound_samples/cries/calyrex.bin"
+	
+	.align 2
+Cry_Dracoceros_Child::
+	.incbin "sound/direct_sound_samples/cries/dracoceros_child.bin"
+
+	.align 2
+Cry_Dracoceros_Juvenile::
+	.incbin "sound/direct_sound_samples/cries/dracoceros_juvenile.bin"
+
+	.align 2
+Cry_Dracoceros_Adult::
+	.incbin "sound/direct_sound_samples/cries/dracoceros_adult.bin"
 
 	.align 2
 Cry_VenusaurMega::

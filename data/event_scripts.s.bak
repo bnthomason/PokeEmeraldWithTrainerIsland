@@ -856,6 +856,10 @@ gText_WhichFloorWouldYouLike::
 gText_SandstormIsVicious::
 	.string "The sandstorm is vicious.\n"
 	.string "It's impossible to keep going.$"
+	
+gText_WindstormBlowsAgainstYou::
+	.string "A windstorm blows against you, thus,\n"
+	.string "you cannot proceed in this direction.$"
 
 gText_SelectWithoutRegisteredItem::
 	.string "An item in the BAG can be\n"
@@ -1008,31 +1012,31 @@ Add1Points::
 	setvar VAR_TEMP_4, 1
 	checkitem ITEM_POINT_TRACKER
 	call_if_eq VAR_RESULT, TRUE, AddXPoints
-	end
+	return
 
 Add2Points::
 	setvar VAR_TEMP_4, 2
 	checkitem ITEM_POINT_TRACKER
 	call_if_eq VAR_RESULT, TRUE, AddXPoints
-	end
+	return
 
 Add3Points::
 	setvar VAR_TEMP_4, 3
 	checkitem ITEM_POINT_TRACKER
 	call_if_eq VAR_RESULT, TRUE, AddXPoints
-	end
+	return
 	
 Add4Points::
 	setvar VAR_TEMP_4, 4
 	checkitem ITEM_POINT_TRACKER
 	call_if_eq VAR_RESULT, TRUE, AddXPoints
-	end
+	return
 	
 Add5Points:: 
 	setvar VAR_TEMP_4, 5
 	checkitem ITEM_POINT_TRACKER
 	call_if_eq VAR_RESULT, TRUE, AddXPoints
-	end
+	return
 
 
 AddXPoints:

@@ -514,9 +514,9 @@
 #define FLAG_RECEIVED_TRAINER_TICKET         0x1DE // Unused Flag
 #define FLAG_SHOWN_TRAINER_TICKET            0x1DF // Unused Flag
 #define FLAG_ENABLE_SHIP_TRAINER_ISLAND      0x1E0 // Unused Flag
-#define FLAG_RECEIVED_RYUKU_TICKET	         0x1E1 // Unused Flag
-#define FLAG_SHOWN_RYUKU_TICKET              0x1E2 // Unused Flag
-#define FLAG_ENABLE_SHIP_RYUKU_ISLANDS	     0x1E3 // Unused Flag
+#define FLAG_RECEIVED_RYUKU_ISLAND_TICKET    0x1E1 // Unused Flag
+#define FLAG_SHOWN_RYUKU_ISLAND_TICKET       0x1E2 // Unused Flag
+#define FLAG_ENABLE_SHIP_RYUKU_ISLAND	     0x1E3 // Unused Flag
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_GIFT_DONE               0x1E4
@@ -652,8 +652,8 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
 #define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
+#define FLAG_ENABLE_TRAINER_ISLAND  0x265 // Unused Flag
+#define FLAG_ENABLE_RYUKU_ISLAND  0x266 // Unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag

@@ -757,6 +757,12 @@ static u8 GetCastformYCustom(species)
     case SPECIES_CASTFORM_SNOWY:
         ret = gCastformFrontSpriteCoords[CASTFORM_ICE].y_offset;
         break;
+    case SPECIES_CASTFORM_SANDY:
+        ret = gCastformFrontSpriteCoords[CASTFORM_GROUND].y_offset;
+        break;
+    case SPECIES_CASTFORM_WINDY:
+        ret = gCastformFrontSpriteCoords[CASTFORM_FLYING].y_offset;
+        break;
     }
     return ret;
 }

@@ -122,6 +122,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_LEAF_GUARD] = 2,
     [ABILITY_LEVITATE] = 7,
     [ABILITY_LIGHT_METAL] = 2,
+	[ABILITY_LIGHTWING] = 10,
     [ABILITY_LIGHTNING_ROD] = 7,
     [ABILITY_LIMBER] = 3,
     [ABILITY_LIQUID_OOZE] = 3,
@@ -1495,23 +1496,20 @@ bool32 ShouldSetSandstorm(u8 battler, u16 ability, u16 holdEffect)
     return FALSE;
 }
 
-bool32 ShouldSetWindStorm(u8 battler, u16 ability, u16 holdEffect)
+bool32 ShouldSetWindstorm(u8 battler, u16 ability, u16 holdEffect)
 {
     if (!AI_WeatherHasEffect())
         return FALSE;
-    else if (gBattleWeather & B_WEATHER_SANDSTORM)
+    else if (gBattleWeather & B_WEATHER_WINDSTORM)
         return FALSE;
 
-    if (ability == ABILITY_SAND_VEIL
-      || ability == ABILITY_SAND_RUSH
-      || ability == ABILITY_SAND_FORCE
+    if ( ability == ABILITY_GLIDER
+	  || ability == ABILITY_LIGHTWING
       || ability == ABILITY_OVERCOAT
       || ability == ABILITY_MAGIC_GUARD
-      || holdEffect == HOLD_EFFECT_SAFETY_GOGGLES
-      || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
-      || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
-      || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
-      || HasMoveEffect(battler, EFFECT_SHORE_UP)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_FLYING) 
+      || IS_BATTLER_OF_TYPE(battler, TYPE_DRAGON)
+      || IS_BATTLER_OF_TYPE(battler, TYPE_FAIRY)
       || HasMoveEffect(battler, EFFECT_WEATHER_BALL))
     {
         return TRUE;
@@ -2309,6 +2307,19 @@ static bool32 BattlerAffectedBySandstorm(u8 battlerId, u16 ability)
         return TRUE;
     return FALSE;
 }
+
+static bool32 BattlerAffectedByWindstorm(u8 battlerId, u16 ability)
+{
+    if (!IS_BATTLER_OF_TYPE(battlerId, TYPE_FLYING)
+      && !IS_BATTLER_OF_TYPE(battlerId, TYPE_DRAGON)
+      && !IS_BATTLER_OF_TYPE(battlerId, TYPE_FAIRY)
+	  && ability != ABILITY_LIGHTWING
+	  && ability != ABILITY_GLIDER
+      && ability != ABILITY_OVERCOAT)
+        return TRUE;
+    return FALSE;
+}
+
 
 static bool32 BattlerAffectedByHail(u8 battlerId, u16 ability)
 {
@@ -3113,7 +3124,9 @@ bool32 PartnerMoveEffectIsWeather(u8 battlerAtkPartner, u16 partnerMove)
      && (gBattleMoves[partnerMove].effect == EFFECT_SUNNY_DAY
       || gBattleMoves[partnerMove].effect == EFFECT_RAIN_DANCE
       || gBattleMoves[partnerMove].effect == EFFECT_SANDSTORM
-      || gBattleMoves[partnerMove].effect == EFFECT_HAIL))
+      || gBattleMoves[partnerMove].effect == EFFECT_HAIL
+	  || gBattleMoves[partnerMove].effect == EFFECT_WINDSTORM))
+	  
         return TRUE;
 
     return FALSE;

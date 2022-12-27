@@ -1090,6 +1090,7 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_ARCEUS_DRAGON] = _("Arceus"),
     [SPECIES_ARCEUS_DARK] = _("Arceus"),
     [SPECIES_ARCEUS_FAIRY] = _("Arceus"),
+    [SPECIES_ARCEUS_LIGHT] = _("Arceus"),
     // Basculin
     [SPECIES_BASCULIN_BLUE_STRIPED] = _("Basculin"),
     // Darmanitan
@@ -1218,6 +1219,7 @@ const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SILVALLY_DRAGON] = _("Silvally"),
     [SPECIES_SILVALLY_DARK] = _("Silvally"),
     [SPECIES_SILVALLY_FAIRY] = _("Silvally"),
+    [SPECIES_SILVALLY_LIGHT] = _("Silvally"),
     // Minior
     [SPECIES_MINIOR_METEOR_ORANGE] = _("Minior"),
     [SPECIES_MINIOR_METEOR_YELLOW] = _("Minior"),

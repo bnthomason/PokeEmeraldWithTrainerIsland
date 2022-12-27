@@ -898,6 +898,9 @@ gCryTable::
 	cry Cry_Glastrier
 	cry Cry_Spectrier
 	cry Cry_Calyrex
+	cry Cry_Dracoceros_Child
+	cry Cry_Dracoceros_Juvenile
+	cry Cry_Dracoceros_Adult
 	@ Megas
 	cry Cry_VenusaurMega
 	cry Cry_CharizardMegaX
@@ -2172,6 +2175,9 @@ gCryTable_Reverse::
 	cry_reverse Cry_Glastrier
 	cry_reverse Cry_Spectrier
 	cry_reverse Cry_Calyrex
+	cry_reverse Cry_Dracoceros_Child
+	cry_reverse Cry_Dracoceros_Juvenile
+	cry_reverse Cry_Dracoceros_Adult
 	@ Megas
 	cry_reverse Cry_VenusaurMega
 	cry_reverse Cry_CharizardMegaX

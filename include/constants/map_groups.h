@@ -586,12 +586,12 @@
 #define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE3              (118 | (26 << 8))
 #define MAP_TRAINER_ISLAND_TRAINER_CITY_HOUSE4              (119 | (26 << 8))
 #define MAP_TRAINER_ISLAND_TRAINER_CITY_OFFICE              (120 | (26 << 8))
-#define MAP_RYUKYUAN_ISLAND_CITY                            (121 | (26 << 8))
-#define MAP_RYU_KYUAN_CITY_FLAT1_1F                         (122 | (26 << 8))
-#define MAP_RYU_KYUAN_CITY_FLAT1_2F                         (123 | (26 << 8))
-#define MAP_RYU_KYUAN_CITY_FLAT1_3F                         (124 | (26 << 8))
-#define MAP_RYU_KYUAN_CITY_FLAT2_1F                         (125 | (26 << 8))
-#define MAP_RYU_KYUAN_CITY_FLAT2_2F                         (126 | (26 << 8))
+#define MAP_RYUKU_ISLAND_CITY                               (121 | (26 << 8))
+#define MAP_RYUKU_CITY_FLAT1_1F                             (122 | (26 << 8))
+#define MAP_RUKU_CITY_FLAT1_2F                              (123 | (26 << 8))
+#define MAP_RYUKU_CITY_FLAT1_3F                             (124 | (26 << 8))
+#define MAP_RYUKU_CITY_FLAT2_1F                             (125 | (26 << 8))
+#define MAP_RYUKU_CITY_FLAT2_2F                             (126 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

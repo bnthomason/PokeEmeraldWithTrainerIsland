@@ -1310,9 +1310,7 @@ const u32 gBattleAnimSpritePal_FlyingDirt[] = INCBIN_U32("graphics/battle_anims/
 const u32 gBattleAnimBgTilemap_Sandstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/sandstorm_brew.bin.lz");
 const u32 gBattleAnimBgImage_Sandstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/sandstorm_brew.4bpp.lz");
 
-const u32 gBattleAnimBgTilemap_Windstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/sandstorm_brew.bin.lz");
-const u32 gBattleAnimBgImage_Windstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/windstorm_brew.4bpp.lz");
-const u32 gBattleAnimSpritePal_Windstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/windstorm_brew.gbapal.lz");
+
 
 const u32 gBattleAnimSpriteGfx_MetalSoundWaves[] = INCBIN_U32("graphics/battle_anims/sprites/metal_sound_waves.4bpp.lz");
 const u32 gBattleAnimSpritePal_MetalSoundWaves[] = INCBIN_U32("graphics/battle_anims/sprites/metal_sound_waves.gbapal.lz");
@@ -1916,6 +1914,10 @@ const u16 gUnionRoomChat_Window_Pal2[] = INCBIN_U16("graphics/union_room_chat/wi
 const u32 gUnionRoomChat_Border_Gfx[] = INCBIN_U32("graphics/union_room_chat/border.4bpp.lz");
 const u32 gUnionRoomChat_Border_Tilemap[] = INCBIN_U32("graphics/union_room_chat/border.bin.lz");
 const u32 gUnionRoomChat_RButtonLabels[] = INCBIN_U32("graphics/union_room_chat/r_button_labels.4bpp.lz");
+
+const u32 gBattleAnimBgTilemap_Windstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/windstorm_brew.bin.lz");
+const u32 gBattleAnimBgImage_Windstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/windstorm_brew.4bpp.lz");
+const u32 gBattleAnimSpritePal_Windstorm[] = INCBIN_U32("graphics/battle_anims/backgrounds/windstorm_brew.gbapal.lz");
 
 const u16 gTilesetPalettes_General[][16] =
 {

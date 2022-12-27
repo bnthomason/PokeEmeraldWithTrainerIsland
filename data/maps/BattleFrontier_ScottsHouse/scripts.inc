@@ -6,7 +6,6 @@ BattleFrontier_ScottsHouse_MapScripts::
 BattleFrontier_ScottsHouse_EventScript_Scott::
 	lock
 	faceplayer
-	goto_if_set FLAG_TEMP_5, BattleFrontier_ScottsHouse_EventScript_GivenTicket
 	goto_if_set FLAG_TEMP_4, BattleFrontier_ScottsHouse_EventScript_GivenBerry
 	goto_if_set FLAG_TEMP_3, BattleFrontier_ScottsHouse_EventScript_GivenShield
 	goto_if_set FLAG_TEMP_2, BattleFrontier_ScottsHouse_EventScript_GivenBattlePoints
@@ -15,7 +14,6 @@ BattleFrontier_ScottsHouse_EventScript_Scott::
 
 BattleFrontier_ScottsHouse_EventScript_CheckGiveItems::
 	goto_if_unset FLAG_SCOTT_GIVES_BATTLE_POINTS, BattleFrontier_ScottsHouse_EventScript_WelcomeToFrontier
-	goto_if_unset FLAG_RECEIVED_TRAINER_TICKET, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_1
 	goto_if_unset FLAG_COLLECTED_ALL_SILVER_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols
 	goto_if_unset FLAG_COLLECTED_ALL_GOLD_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols
 	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveShield
@@ -58,79 +56,6 @@ BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols::
 	setflag FLAG_TEMP_4
 	release
 	end
-	
-//Perform Extra Extra Checks
-	
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_1::
-	msgbox BattleFrontier_ScottsHouse_Text_LetsSee, MSGBOX_DEFAULT
-	goto_if_set FLAG_COLLECTED_ALL_SILVER_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part2_1
-	goto_if_set FLAG_RECEIVED_SILVER_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part2_2
-	goto BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols
-	end
-
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part2_1::
-	msgbox BattleFrontier_ScottsHouse_Text_YoureMakingProgress, MSGBOX_DEFAULT	
-	goto_if_set FLAG_COLLECTED_ALL_GOLD_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_1_1
-	goto_if_set FLAG_RECEIVED_SILVER_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_1_2
-	goto BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols
-	end
-	
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part2_2::
-	msgbox BattleFrontier_ScottsHouse_Text_YoureMakingProgress, MSGBOX_DEFAULT	
-	goto_if_set FLAG_RECEIVED_GOLD_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_2_1
-	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveGoldShield
-	end
-
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_1_1::
-	msgbox BattleFrontier_ScottsHouse_Text_SplendidWork, MSGBOX_DEFAULT
-	goto_if_set FLAG_RECEIVED_SILVER_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_4_1_1_1
-	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveSilverShield
-	end
-
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_1_2::
-	msgbox BattleFrontier_ScottsHouse_Text_SplendidWork, MSGBOX_DEFAULT
-	goto_if_set FLAG_RECEIVED_GOLD_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_4_1_2_1
-	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveGoldShield
-	end
-	
-
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_3_2_1::
-	msgbox BattleFrontier_ScottsHouse_Text_SplendidWork, MSGBOX_DEFAULT
-	release
-	end
-	
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_4_1_1_1::
-	msgbox BattleFrontier_ScottsHouse_Text_ExcellentJob, MSGBOX_DEFAULT
-	goto_if_set FLAG_RECEIVED_GOLD_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_5
-	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveGoldShield
-	end
-	
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_4_1_2_1::
-	msgbox BattleFrontier_ScottsHouse_Text_ExcellentJob, MSGBOX_DEFAULT
-	release
-	end
-	
-BattleFrontier_ScottsHouse_EventScript_CheckGiveTrainerTicket_Part_5::
-	msgbox BattleFrontier_ScottsHouse_Text_Incredible, MSGBOX_DEFAULT
-	waitmessage
-	goto_if_unset FLAG_RECEIVED_TRAINER_TICKET, BattleFrontier_ScottsHouse_EventScript_GiveTrainerTicket
-	msgbox BattleFrontier_ScottsHouse_EventScript_RandomComment, MSGBOX_DEFAULT
-	release
-	end
-	
-BattleFrontier_ScottsHouse_EventScript_GiveTrainerTicket::
-	msgbox BattleFrontier_ScottsHouse_Text_YouveBeatenEverything, MSGBOX_DEFAULT
-	giveitem ITEM_TRAINER_TICKET
-	setflag FLAG_RECEIVED_TRAINER_TICKET
-	setflag FLAG_TEMP_5
-	release
-	end
-	
-BattleFrontier_ScottsHouse_EventScript_GivenTicket::
-	msgbox BattleFrontier_ScottsHouse_Text_NewHeights, MSGBOX_DEFAULT
-	release
-	end	
-	
 
 BattleFrontier_ScottsHouse_EventScript_BerryPocketFull::
 	msgbox BattleFrontier_ScottsHouse_Text_BerryPocketStuffed, MSGBOX_DEFAULT
@@ -422,44 +347,3 @@ BattleFrontier_ScottsHouse_Text_ComeBackForThisLater:
 	.string "Oops, well, if you have too much\n"
 	.string "stuff, come back for this later.$"
 
-BattleFrontier_ScottsHouse_Text_LetsSee:
-	.string "SCOTT: Hello, {PLAYER}{KUN}!\p"
-	.string "I see your working real hard,\n"
-	.string "reaching for perfection.\p"
-	.string "In that case, let's see what\n"
-	.string "you've accomplished so far.$"
-
-BattleFrontier_ScottsHouse_Text_YoureMakingProgress:
-	.string "SCOTT: Ah! I see you've defeated\n"
-	.string "one of the main challenges thus far.\p"
-	.string "You're making progress.$"
-
-BattleFrontier_ScottsHouse_Text_SplendidWork:
-	.string "SCOTT: Ah! I see you've defeated\n"
-	.string "another one of the main challenges\l"
-	.string "as well.\p"
-	.string "Splendid! Splendid work!$"
-	
-BattleFrontier_ScottsHouse_Text_ExcellentJob:
-	.string "SCOTT: Ah! I see you've defeated\n"
-	.string "yet another one of the main\l"
-	.string "challenges!\p" 
-	.string "Excellent job!$"
-	
-BattleFrontier_ScottsHouse_Text_Incredible:
-	.string "SCOTT: Ah! Incredible!\n"
-	.string "You've defeated the last\l"
-	.string "challenge on the list!\p"
-	.string "I am truly astounded!$"
-	
-BattleFrontier_ScottsHouse_Text_YouveBeatenEverything:
-	.string "SCOTT: You've beaten\n"
-	.string "everything I could possibly\l"
-	.string "throw at a trainer!\p"
-	.string "What more can I offer?!\p"
-	.string "Alright, here's a reward for\n"
-	.string "you're achievement.$"
-	
-BattleFrontier_ScottsHouse_Text_NewHeights:
-	.string "SCOTT: Keep shooting for\n"
-	.string "new heights!$"

@@ -3508,6 +3508,21 @@ const struct Item gItems[] =
         .secondaryId = TYPE_FAIRY,
         .flingPower = 90,
     },
+	
+    [ITEM_BRIGHT_PLATE] =
+    {
+        .name = _("Bright Plate"),
+        .itemId = ITEM_BRIGHT_PLATE,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_PLATE,
+        .holdEffectParam = 20,
+        .description = sBrightPlateDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_LIGHT,
+        .flingPower = 90,
+    },
 
 // Drives
 
@@ -3821,6 +3836,22 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FAIRY,
+        .flingPower = 50,
+    },
+
+
+    [ITEM_LIGHT_MEMORY] =
+    {
+        .name = _("Light Memory"),
+        .itemId = ITEM_LIGHT_MEMORY,
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_MEMORY,
+        .holdEffectParam = 0,
+        .description = sLightMemoryDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_LIGHT,
         .flingPower = 50,
     },
 
@@ -4484,6 +4515,32 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 80,
     },
+	
+    [ITEM_HOLY_HALO] =
+    {
+        .name = _("Holy Halo"),
+        .itemId = ITEM_HOLY_HALO,
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_HOLY_HALO,
+        .description = sHolyHaloDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+    },
+
+    [ITEM_CHAOS_CROSS] =
+    {
+        .name = _("Holy Halo"),
+        .itemId = ITEM_HOLY_HALO,
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_CHAOS_CROSS,
+        .description = sHolyHaloDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+    },
 
 // Gems
 
@@ -4739,6 +4796,21 @@ const struct Item gItems[] =
         .secondaryId = TYPE_FAIRY,
     },
 
+    [ITEM_LIGHT_GEM] =
+    {
+        .name = _("Fairy Gem"),
+        .itemId = ITEM_LIGHT_GEM,
+        .price = 4000,
+        .holdEffect = HOLD_EFFECT_GEMS,
+        .holdEffectParam = 30,
+        .description = sLightGemDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_LIGHT,
+    },
+
+
 // Z-Crystals
 
     [ITEM_NORMALIUM_Z] =
@@ -4973,6 +5045,19 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FAIRY
+    },
+	
+    [ITEM_LIGHTIUM_Z] =
+    {
+        .name = _("Lightium Z"),
+        .itemId = ITEM_LIGHTIUM_Z,
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_Z_CRYSTAL,
+        .description = sLightiumZDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_LIGHT
     },
 
     [ITEM_PIKANIUM_Z] =
@@ -5890,6 +5975,34 @@ const struct Item gItems[] =
         .holdEffect = HOLD_EFFECT_STEEL_POWER,
         .holdEffectParam = 20,
         .description = sMetalCoatDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 30,
+    },
+
+    [ITEM_PINK_BOW] =
+    {
+        .name = _("Pink Bow"),
+        .itemId = ITEM_PINK_BOW,
+        .price = 2000,
+        .holdEffect = HOLD_EFFECT_FAIRY_POWER,
+        .holdEffectParam = 20,
+        .description = sPinkBowDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 30,
+    },
+	
+    [ITEM_RAINBOW_PRISM] =
+    {
+        .name = _("Rainbow Prism"),
+        .itemId = ITEM_RAINBOW_PRISM,
+        .price = 2000,
+        .holdEffect = HOLD_EFFECT_LIGHT_POWER,
+        .holdEffectParam = 20,
+        .description = sRainbowPrismDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -10055,10 +10168,22 @@ const struct Item gItems[] =
 	
     [ITEM_TRAINER_TICKET] =
     {
-        .name = _("ChampInsignia"),
-        .itemId = ITEM_CHAMPIONS_INSIGNIA,
+        .name = _("TrainerTicket"),
+        .itemId = ITEM_TRAINER_TICKET,
         .price = 0,
-        .description = sChampionsInsigniaDesc,
+        .description = sTrainerTicketDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+	
+    [ITEM_RYUKU_ISLAND_TICKET] =
+    {
+        .name = _("RyukuIsleTicket"),
+        .itemId = ITEM_RYUKU_ISLAND_TICKET,
+        .price = 0,
+        .description = sRyukuIslandTicketDesc,
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

@@ -899,9 +899,9 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_GLASTRIER] = sGlastrierLevelUpLearnset,
     [SPECIES_SPECTRIER] = sSpectrierLevelUpLearnset,
     [SPECIES_CALYREX] = sCalyrexLevelUpLearnset,
-	[SPECIES_DRACOCEROS_CHILD] = sDracocerosChildLevelUpLearnset
-	[SPECIES_DRACOCEROS_JUVENILE] = sDracocerosJuvenileLevelUpLearnset
-	[SPECIES_DRACOCEROS_ADULT] = sDracocerosAdultLevelUpLearnset
+	[SPECIES_DRACOCEROS_CHILD] = sDracocerosChildLevelUpLearnset,
+	[SPECIES_DRACOCEROS_JUVENILE] = sDracocerosJuvenileLevelUpLearnset,
+	[SPECIES_DRACOCEROS_ADULT] = sDracocerosAdultLevelUpLearnset,
     // Megas
     [SPECIES_VENUSAUR_MEGA] = sVenusaurLevelUpLearnset,
     [SPECIES_CHARIZARD_MEGA_X] = sCharizardLevelUpLearnset,
@@ -1044,6 +1044,8 @@ const struct LevelUpMove *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_CASTFORM_SUNNY] = sCastformLevelUpLearnset,
     [SPECIES_CASTFORM_RAINY] = sCastformLevelUpLearnset,
     [SPECIES_CASTFORM_SNOWY] = sCastformLevelUpLearnset,
+    [SPECIES_CASTFORM_SANDY] = sCastformLevelUpLearnset,
+    [SPECIES_CASTFORM_WINDY] = sCastformLevelUpLearnset,
     // Deoxys
     [SPECIES_DEOXYS_ATTACK] = sDeoxysAttackLevelUpLearnset,
     [SPECIES_DEOXYS_DEFENSE] = sDeoxysDefenseLevelUpLearnset,

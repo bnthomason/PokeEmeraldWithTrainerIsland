@@ -22,7 +22,6 @@
 gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_HIT
 	.4byte BattleScript_EffectSleep                   @ EFFECT_SLEEP
-	.4byte BattleScript_EffectSleepHit                @ EFFECT_SLEEP_HIT	
 	.4byte BattleScript_EffectPoisonHit               @ EFFECT_POISON_HIT
 	.4byte BattleScript_EffectAbsorb                  @ EFFECT_ABSORB
 	.4byte BattleScript_EffectBurnHit                 @ EFFECT_BURN_HIT
@@ -131,7 +130,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectNightmare               @ EFFECT_NIGHTMARE
 	.4byte BattleScript_EffectMinimize                @ EFFECT_MINIMIZE
 	.4byte BattleScript_EffectCurse                   @ EFFECT_CURSE
-	.4byte BattleScript_EffectCurseHit                @ EFFECT_CURSE
 	.4byte BattleScript_EffectHealingWish             @ EFFECT_HEALING_WISH
 	.4byte BattleScript_EffectProtect                 @ EFFECT_PROTECT
 	.4byte BattleScript_EffectSpikes                  @ EFFECT_SPIKES
@@ -143,7 +141,6 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSwagger                 @ EFFECT_SWAGGER
 	.4byte BattleScript_EffectFuryCutter              @ EFFECT_FURY_CUTTER
 	.4byte BattleScript_EffectAttract                 @ EFFECT_ATTRACT
-	.4byte BattleScript_EffectAttractHit              @ EFFECT_ATTRACT_HIT
 	.4byte BattleScript_EffectHit                     @ EFFECT_RETURN
 	.4byte BattleScript_EffectPresent                 @ EFFECT_PRESENT
 	.4byte BattleScript_EffectHit                     @ EFFECT_FRUSTRATION
@@ -414,6 +411,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_BEAK_BLAST
 	.4byte BattleScript_EffectCourtChange             @ EFFECT_COURT_CHANGE
 	.4byte BattleScript_EffectSteelBeam               @ EFFECT_STEEL_BEAM
+	.4byte BattleScript_EffectAttractHit              @ EFFECT_ATTRACT_HIT
+	.4byte BattleScript_EffectCurseHit                @ EFFECT_CURSE_HIT
+	.4byte BattleScript_EffectSleepHit                @ EFFECT_SLEEP_HIT	
 	.4byte BattleScript_EffectWindstorm				  @ EFFECT_WINDSTORM
 	
 

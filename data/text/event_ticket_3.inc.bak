@@ -3,14 +3,14 @@ EventTicket_Text_TrainerIsland:
 	.string "What? Oh, I was just mumbling…\p"
 	.string "Anyway, show me your ticket.$"
 
-EventTicket_Text_ShowEonTicket:
+EventTicket_Text_ShowTrainerTicket:
 	.string "Oh, my! That's a ticket to Trainer\n"
 	.string "Island! Wonderful!\p"
 	.string "All Aboard!$"
 
 EventTicket_Text_TrainerIslandSailBack:
-	.string "Trainer Island too much for ye, lad?\n"
-	.string "Had enough battling for today?.\p"
+	.string "Trainer Island too much for ye, lad?\p"
+	.string "Had enough battling for today?\p"
 	.string "Want to sail back to LILYCOVE?$"
 
 EventTicket_Text_Stay:
@@ -42,3 +42,15 @@ TrainerIsland_Entrance_Text_Tip:
 	.string "Beating this island not only\n"
 	.string "earns bragging rights, but will\l"
 	.string "also unlock a secret hidden story.$"
+
+EventTicket_Text_RyukuIsland:
+	.string "Show me your ticket.$"
+
+EventTicket_Text_ShowRyukuIslandTicket:
+	.string "Oh, my! That's a ticket to Ryuku\n"
+	.string "Island! Exquisite!\p"
+	.string "All Aboard!$"
+
+EventTicket_Text_RyukuIslandSailBack:
+	.string "Seen and captured everything?\p"
+	.string "Want to sail back to LILYCOVE?$"

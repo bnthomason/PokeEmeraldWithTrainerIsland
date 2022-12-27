@@ -5366,6 +5366,5 @@ const u8 gDracocerosAdultPokedexText[] = _(
     "Dracoceros is a healing pokemon. They\n"
     "bask in the sunlight at day and sing\n"
     "beautiful songs at night. The adults\n"
-    "shine brightly with the light of hope."
-	);
+    "shine brightly with the light of hope.");
 
