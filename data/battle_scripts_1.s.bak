@@ -410,7 +410,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHit                     @ EFFECT_RISING_VOLTAGE
 	.4byte BattleScript_EffectHit                     @ EFFECT_BEAK_BLAST
 	.4byte BattleScript_EffectCourtChange             @ EFFECT_COURT_CHANGE
-	.4byte BattleScript_EffectSteelBeam               @ EFFECT_STEEL_BEAM	
+	.4byte BattleScript_EffectSteelBeam               @ EFFECT_STEEL_BEAM
+	.4byte BattleScript_EffectAttractHit              @ EFFECT_ATTRACT_HIT
+	.4byte BattleScript_EffectCurseHit                @ EFFECT_CURSE_HIT
+	.4byte BattleScript_EffectSleepHit                @ EFFECT_SLEEP_HIT	
 	.4byte BattleScript_EffectWindstorm				  @ EFFECT_WINDSTORM
 	
 
@@ -4659,27 +4662,10 @@ BattleScript_DoGhostCurse::
 	goto BattleScript_MoveEnd
 	
 BattleScript_EffectCurseHit::
-	attackcanceler
-	attackstring
-	ppreduce
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	attackanimation
-	waitanimation
-	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_GhostCurseHit
-	goto BattleScript_MoveEnd	
-BattleScript_GhostCurseHit::
-	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoGhostCurseHit
-	getmovetarget BS_ATTACKER
-BattleScript_DoGhostCurseHit::
-	cursetarget_norecoil BattleScript_ButItFailed
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	setbyte sB_ANIM_TURN, 0
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	printstring STRINGID_PKMNLAIDCURSE
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_ATTACKER
-	goto BattleScript_MoveEnd
+	setmoveeffect MOVE_EFFECT_CURSE
+
+BattleScript_EffectAttractHit::
+	setmoveeffect MOVE_EFFECT_ATTRACT
 	
 
 BattleScript_EffectMatBlock::
@@ -4849,19 +4835,7 @@ BattleScript_EffectAttract::
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryDestinyKnotAttacker
 	goto BattleScript_MoveEnd
-	
-BattleScript_EffectAttractHit::
-	attackcanceler
-	attackstring
-	ppreduce
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	tryinfatuating BattleScript_ButItFailed
-	attackanimation
-	waitanimation
-	printstring STRINGID_PKMNFELLINLOVE
-	waitmessage B_WAIT_TIME_LONG
-	call BattleScript_TryDestinyKnotAttacker
-	goto BattleScript_MoveEnd	
+
 
 BattleScript_EffectPresent::
 	attackcanceler

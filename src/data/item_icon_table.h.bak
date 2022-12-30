@@ -365,6 +365,8 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_GALLADITE] = {gItemIcon_Galladite, gItemIconPalette_Galladite},
     [ITEM_AUDINITE] = {gItemIcon_Audinite, gItemIconPalette_Audinite},
     [ITEM_DIANCITE] = {gItemIcon_Diancite, gItemIconPalette_Diancite},
+	[ITEM_HOLY_HALO] = [gItemIcon_HolyHalo, gItemIconPalette_HolyHalo},
+	[ITEM_CHAOS_CROSS] = [gItemIcon_ChaosCross, gItemIconPalette_ChaosCross},
     // Gems
     [ITEM_NORMAL_GEM] = {gItemIcon_NormalGem, gItemIconPalette_NormalGem},
     [ITEM_FIRE_GEM] = {gItemIcon_FireGem, gItemIconPalette_FireGem},
@@ -384,6 +386,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_DARK_GEM] = {gItemIcon_DarkGem, gItemIconPalette_DarkGem},
     [ITEM_STEEL_GEM] = {gItemIcon_SteelGem, gItemIconPalette_SteelGem},
     [ITEM_FAIRY_GEM] = {gItemIcon_FairyGem, gItemIconPalette_FairyGem},
+    [ITEM_LIGHT_GEM] = {gItemIcon_LightGem, gItemIconPalette_LightGem},
     // Z-Crystals
     [ITEM_NORMALIUM_Z] = {gItemIcon_NormaliumZ, gItemIconPalette_NormaliumZ},
     [ITEM_FIRIUM_Z] = {gItemIcon_FiriumZ, gItemIconPalette_FiriumZ},

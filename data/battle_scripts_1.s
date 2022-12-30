@@ -4662,28 +4662,12 @@ BattleScript_DoGhostCurse::
 	goto BattleScript_MoveEnd
 	
 BattleScript_EffectCurseHit::
-	attackcanceler
-	attackstring
-	ppreduce
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	attackanimation
-	waitanimation
-	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_GhostCurseHit
-	goto BattleScript_MoveEnd	
-BattleScript_GhostCurseHit::
-	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoGhostCurseHit
-	getmovetarget BS_ATTACKER
-BattleScript_DoGhostCurseHit::
-	cursetarget_norecoil BattleScript_ButItFailed
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
-	setbyte sB_ANIM_TURN, 0
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
-	printstring STRINGID_PKMNLAIDCURSE
-	waitmessage B_WAIT_TIME_LONG
-	tryfaintmon BS_ATTACKER
-	goto BattleScript_MoveEnd
-	
+	setmoveeffect MOVE_EFFECT_CURSE
+	goto BattleScript_EffectHit
+
+BattleScript_EffectAttractHit::
+	setmoveeffect MOVE_EFFECT_ATTRACT
+	goto BattleScript_EffectHit	
 
 BattleScript_EffectMatBlock::
 	attackcanceler
@@ -4852,19 +4836,7 @@ BattleScript_EffectAttract::
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryDestinyKnotAttacker
 	goto BattleScript_MoveEnd
-	
-BattleScript_EffectAttractHit::
-	attackcanceler
-	attackstring
-	ppreduce
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
-	tryinfatuating BattleScript_ButItFailed
-	attackanimation
-	waitanimation
-	printstring STRINGID_PKMNFELLINLOVE
-	waitmessage B_WAIT_TIME_LONG
-	call BattleScript_TryDestinyKnotAttacker
-	goto BattleScript_MoveEnd	
+
 
 BattleScript_EffectPresent::
 	attackcanceler
