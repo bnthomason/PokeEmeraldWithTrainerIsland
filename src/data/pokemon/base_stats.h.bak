@@ -25456,12 +25456,12 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_DRACOCEROS_ADULT] =
 	{
-		.baseHP        = 140,
-        .baseAttack    = 45,
-        .baseDefense   = 70,
-        .baseSpeed     = 190,
-        .baseSpAttack  = 100,
-        .baseSpDefense = 100,
+		.baseHP        = 150,
+        .baseAttack    = 30,
+        .baseDefense   = 60,
+        .baseSpeed     = 180,
+        .baseSpAttack  = 120,
+        .baseSpDefense = 90,
         .type1 = TYPE_LIGHT,
         .type2 = TYPE_FLYING,
         .catchRate = 10,

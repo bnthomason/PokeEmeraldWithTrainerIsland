@@ -120,7 +120,27 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 40,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKU_CITY_FLAT1_1F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKU_CITY_FLAT2_1F",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 30,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKU_ISLAND_CITY",
+      "dest_warp_id": 0
+    }
   ],
   "coord_events": [
 

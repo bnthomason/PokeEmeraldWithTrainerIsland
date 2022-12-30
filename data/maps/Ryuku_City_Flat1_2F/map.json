@@ -1,5 +1,5 @@
 {
-  "id": "MAP_RUKU_CITY_FLAT1_2F",
+  "id": "MAP_RYUKU_CITY_FLAT1_2F",
   "name": "Ryuku_City_Flat1_2F",
   "layout": "LAYOUT_RYU_KYUAN_CITY_FLAT1_2F",
   "music": "MUS_RG_SEVII_67",
@@ -17,7 +17,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKU_CITY_FLAT1_1F",
+      "dest_warp_id": 2
+    },
+    {
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKU_CITY_FLAT1_3F",
+      "dest_warp_id": 0
+    }
   ],
   "coord_events": [
 

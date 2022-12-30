@@ -622,7 +622,9 @@
     "Ryuku_City_Flat1_2F",
     "Ryuku_City_Flat1_3F",
     "Ryuku_City_Flat2_1F",
-    "Ryuku_City_Flat2_2F"
+    "Ryuku_City_Flat2_2F",
+    "Ryuku_City_Flat3_1F",
+    "Ryuku_City_Flat3_2F"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

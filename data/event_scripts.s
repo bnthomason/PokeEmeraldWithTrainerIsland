@@ -1182,3 +1182,7 @@ gText_PlayerGotPoints::
 	.include "data/maps/Ryuku_City_Flat2_1F/scripts.inc"
 
 	.include "data/maps/Ryuku_City_Flat2_2F/scripts.inc"
+
+	.include "data/maps/Ryuku_City_Flat3_1F/scripts.inc"
+
+	.include "data/maps/Ryuku_City_Flat3_2F/scripts.inc"

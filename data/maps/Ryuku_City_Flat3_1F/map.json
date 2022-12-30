@@ -1,8 +1,8 @@
 {
-  "id": "MAP_RYUKU_CITY_FLAT2_1F",
-  "name": "Ryuku_City_Flat2_1F",
-  "layout": "LAYOUT_RYU_KYUAN_CITY_FLAT2_1F",
-  "music": "MUS_RG_SEVII_67",
+  "id": "MAP_RYUKU_CITY_FLAT3_1F",
+  "name": "Ryuku_City_Flat3_1F",
+  "layout": "LAYOUT_RYUKU_CITY_FLAT3_1F",
+  "music": "MUS_ABANDONED_SHIP",
   "region_map_section": "MAPSEC_RYUKYUISLAND_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -18,24 +18,24 @@
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 8,
+      "x": 8,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_ISLAND_CITY",
-      "dest_warp_id": 1
+      "dest_warp_id": 2
     },
     {
-      "x": 11,
-      "y": 8,
+      "x": 7,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_ISLAND_CITY",
-      "dest_warp_id": 1
+      "dest_warp_id": 2
     },
     {
-      "x": 11,
+      "x": 7,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_RYUKU_CITY_FLAT2_2F",
+      "dest_map": "MAP_RYUKU_CITY_FLAT3_1F",
       "dest_warp_id": 0
     }
   ],
