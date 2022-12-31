@@ -887,6 +887,7 @@ static const struct ListMenuItem sTradingBoardTypes[NUMBER_OF_MON_TYPES] = {
     { gTypeNames[TYPE_DARK],     TYPE_DARK           },
     { gTypeNames[TYPE_FAIRY],    TYPE_FAIRY          },
     { gTypeNames[TYPE_LIGHT],    TYPE_LIGHT          },
+	{ gTypeNames[TYPE_MAJESTIC], TYPE_MAJESTIC		 },
     { sText_Exit,                NUMBER_OF_MON_TYPES }
 };
 

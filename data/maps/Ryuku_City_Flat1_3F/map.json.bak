@@ -1,6 +1,6 @@
 {
-  "id": "MAP_RYUKYU_CITY_FLAT1_3F",
-  "name": "RyuKyu_City_Flat1_3F",
+  "id": "MAP_RYUKU_CITY_FLAT1_3F",
+  "name": "Ryuku_City_Flat1_3F",
   "layout": "LAYOUT_RYU_KYUAN_CITY_FLAT1_3F",
   "music": "MUS_RG_SEVII_67",
   "region_map_section": "MAPSEC_NONE",
@@ -17,7 +17,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 9,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_RYUKU_CITY_FLAT1_2F",
+      "dest_warp_id": 1
+    }
   ],
   "coord_events": [
 

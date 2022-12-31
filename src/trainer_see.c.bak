@@ -116,7 +116,7 @@ static const struct OamData sOamData_Icons =
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = 0,
+    .mosaic = FALSE,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(16x16),
     .x = 0,
@@ -189,26 +189,19 @@ static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
 };
 
 // code
-static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
-{
-    .tileTag = TAG_NONE,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_0,
-    .oam = &sOamData_Icons,
-    .anims = sSpriteAnimTable_Icons,
-    .images = sSpriteImageTable_HeartIcon,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCB_TrainerIcons
-};
-
-// code
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
 
+<<<<<<< HEAD
     #ifdef TX_DEBUGGING //DEBUG
         if (FlagGet(FLAG_SYS_NO_TRAINER_SEE))
             return FALSE;
     #endif //
+=======
+    if (FlagGet(OW_FLAG_NO_TRAINER_SEE))
+        return FALSE;
+>>>>>>> 23acbb370dabaf339e419cf1e2b6e13f3640c734
 
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;
@@ -678,7 +671,7 @@ void DoTrainerApproach(void)
 static void Task_EndTrainerApproach(u8 taskId)
 {
     DestroyTask(taskId);
-    EnableBothScriptContexts();
+    ScriptContext_Enable();
 }
 
 void TryPrepareSecondApproachingTrainer(void)

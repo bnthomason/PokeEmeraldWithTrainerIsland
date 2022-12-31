@@ -193,7 +193,7 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     WarpToTruck();
-    ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
+    RunScriptImmediately(EventScript_ResetAllMapFlags);
 	FlagClear(FLAG_UNUSED_0x2B7);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();

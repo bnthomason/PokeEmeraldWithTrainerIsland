@@ -3,7 +3,7 @@
   "name": "Ryuku_City_Flat1_1F",
   "layout": "LAYOUT_RYU_KYUAN_CITY_FLAT1_1F",
   "music": "MUS_RG_SEVII_67",
-  "region_map_section": "MAPSEC_NONE",
+  "region_map_section": "MAPSEC_RYUKU_ISLAND_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -22,21 +22,21 @@
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_ISLAND_CITY",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 6,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_ISLAND_CITY",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     },
     {
       "x": 12,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_CITY_FLAT1_2F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

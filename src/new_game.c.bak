@@ -193,7 +193,12 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     WarpToTruck();
+<<<<<<< HEAD
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
+	FlagClear(FLAG_UNUSED_0x2B7);
+=======
+    RunScriptImmediately(EventScript_ResetAllMapFlags);
+>>>>>>> 23acbb370dabaf339e419cf1e2b6e13f3640c734
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
     InitLilycoveLady();

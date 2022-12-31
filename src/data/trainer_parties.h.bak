@@ -23,7 +23,7 @@ static const struct TrainerMon sParty_GruntAquaHideout2[] = {
     {
     .iv = 0,
     .lvl = 31,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -39,7 +39,7 @@ static const struct TrainerMon sParty_GruntAquaHideout4[] = {
     {
     .iv = 0,
     .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -55,7 +55,7 @@ static const struct TrainerMon sParty_GruntSeafloorCavern2[] = {
     {
     .iv = 0,
     .lvl = 36,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -151,7 +151,7 @@ static const struct TrainerMon sParty_GruntSeafloorCavern4[] = {
     {
     .iv = 0,
     .lvl = 36,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -193,7 +193,7 @@ static const struct TrainerMon sParty_GruntWeatherInst2[] = {
     {
     .iv = 0,
     .lvl = 27,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -211,7 +211,7 @@ static const struct TrainerMon sParty_GruntWeatherInst3[] = {
     {
     .iv = 0,
     .lvl = 26,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -219,7 +219,7 @@ static const struct TrainerMon sParty_GruntMuseum1[] = {
     {
     .iv = 0,
     .lvl = 15,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -232,7 +232,7 @@ static const struct TrainerMon sParty_GruntMuseum2[] = {
     {
     .iv = 0,
     .lvl = 14,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -256,7 +256,7 @@ static const struct TrainerMon sParty_GruntMtPyre2[] = {
     {
     .iv = 0,
     .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -269,7 +269,7 @@ static const struct TrainerMon sParty_GruntMtPyre3[] = {
     {
     .iv = 0,
     .lvl = 30,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -277,7 +277,7 @@ static const struct TrainerMon sParty_GruntWeatherInst4[] = {
     {
     .iv = 0,
     .lvl = 28,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -285,7 +285,7 @@ static const struct TrainerMon sParty_GruntAquaHideout5[] = {
     {
     .iv = 0,
     .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -348,7 +348,7 @@ static const struct TrainerMon sParty_ShellySeafloorCavern[] = {
     {
     .iv = 100,
     .lvl = 37,
-    .species = SPECIES_SHARPEDO,
+    .species = SPECIES_WAILORD,
     },
     {
     .iv = 100,
@@ -371,7 +371,7 @@ static const struct TrainerMon sParty_Archie[] = {
     {
     .iv = 150,
     .lvl = 43,
-    .species = SPECIES_SHARPEDO,
+    .species = SPECIES_WAILORD,
     }
 };
 
@@ -2330,7 +2330,7 @@ static const struct TrainerMon sParty_GruntAquaHideout8[] = {
     {
     .iv = 0,
     .lvl = 32,
-    .species = SPECIES_CARVANHA,
+    .species = SPECIES_WAILMER,
     }
 };
 
@@ -14982,7 +14982,7 @@ static const struct TrainerMon sParty_Master_Norman_4[] = {
     .heldItem = ITEM_NONE,
     .evs = {0, 0, 3, 3, 252, 252},
 	.nature = NATURE_MILD,
-    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHOWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
+    .moves = {MOVE_MIST_BALL, MOVE_FLAMETHROWER, MOVE_HEAL_PULSE, MOVE_RECOVER}
     },
     {
     .iv = 255,

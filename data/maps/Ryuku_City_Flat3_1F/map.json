@@ -3,7 +3,7 @@
   "name": "Ryuku_City_Flat3_1F",
   "layout": "LAYOUT_RYUKU_CITY_FLAT3_1F",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_RYUKYUISLAND_CITY",
+  "region_map_section": "MAPSEC_RYUKU_ISLAND_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -22,21 +22,21 @@
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_ISLAND_CITY",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 7,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_ISLAND_CITY",
-      "dest_warp_id": 2
+      "dest_warp_id": "2"
     },
     {
       "x": 7,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_RYUKU_CITY_FLAT3_1F",
-      "dest_warp_id": 0
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

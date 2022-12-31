@@ -3,7 +3,7 @@
   "name": "Ryuku_City_Flat3_2F",
   "layout": "LAYOUT_RYUKU_CITY_FLAT3_2F",
   "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_RYUKYUISLAND_CITY",
+  "region_map_section": "MAPSEC_RYUKU_ISLAND_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

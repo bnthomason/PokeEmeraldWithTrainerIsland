@@ -5,7 +5,7 @@
 #define AI_IS_FASTER   0
 #define AI_IS_SLOWER   1
 
-#define FOE(battler) ((battler ^ BIT_SIDE) & BIT_SIDE)
+#define FOE(battler) ((BATTLE_OPPOSITE(battler)) & BIT_SIDE)
 
 bool32 AI_RandLessThan(u8 val);
 void RecordLastUsedMoveByTarget(void);
@@ -62,6 +62,7 @@ s8 GetAbilityRating(u16 ability);
 bool32 AI_IsAbilityOnSide(u32 battlerId, u32 ability);
 bool32 AI_MoveMakesContact(u32 ability, u32 holdEffect, u16 move);
 u32 AI_GetBattlerMoveTargetType(u8 battlerId, u16 move);
+bool32 ShouldUseZMove(u8 activeId, u8 targetId, u16 chosenMove);
 
 // stat stage checks
 bool32 AnyStatIsRaised(u8 battlerId);
@@ -82,7 +83,7 @@ bool32 ShouldLowerEvasion(u8 battlerAtk, u8 battlerDef, u16 defAbility);
 // move checks
 bool32 IsAffectedByPowder(u8 battler, u16 ability, u16 holdEffect);
 bool32 MovesWithSplitUnusable(u32 attacker, u32 target, u32 split);
-s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef, u8 *effectiveness);
+s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef, u8 *effectiveness, bool32 considerZPower);
 u8 GetMoveDamageResult(u16 move);
 u32 GetCurrDamageHpPercent(u8 battlerAtk, u8 battlerDef);
 u16 AI_GetTypeEffectiveness(u16 move, u8 battlerAtk, u8 battlerDef);
